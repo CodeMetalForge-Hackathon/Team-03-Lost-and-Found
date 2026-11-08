@@ -270,6 +270,7 @@ def watch(fu: Fusion, stop: threading.Event):
     done = INBOX / "processed"; bad = INBOX / "rejected"
     done.mkdir(parents=True, exist_ok=True); bad.mkdir(parents=True, exist_ok=True)
     while not stop.is_set():
+        done.mkdir(parents=True, exist_ok=True); bad.mkdir(parents=True, exist_ok=True)   # survive an archive moving them away
         for f in sorted(INBOX.glob("*.json")):
             try:
                 d = json.loads(f.read_text())
@@ -282,7 +283,10 @@ def watch(fu: Fusion, stop: threading.Event):
                 fu.ingest(d, f.name); f.rename(done / f.name)
             except Exception as e:  # malformed drop -> rejected/, logged on the chain
                 fu.chain.append("inbox_rejected", {"file": f.name, "error": str(e)[:200]})
-                f.rename(bad / f.name)
+                try:
+                    f.rename(bad / f.name)
+                except OSError:
+                    pass                   # file already moved/archived: never let the watcher thread die
         stop.wait(0.3)
 
 

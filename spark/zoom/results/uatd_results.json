@@ -1,0 +1,38 @@
+{
+ "val": {
+  "mAP50": 0.839,
+  "mAP50_95": 0.351,
+  "per_class_AP50": {
+   "cube": 0.758,
+   "ball": 0.865,
+   "cylinder": 0.965,
+   "human body": 0.877,
+   "tyre": 0.813,
+   "circle cage": 0.53,
+   "square cage": 0.622,
+   "metal bucket": 0.995,
+   "plane": 0.987,
+   "rov": 0.982
+  },
+  "P": 0.886,
+  "R": 0.794
+ },
+ "test": {
+  "mAP50": 0.817,
+  "mAP50_95": 0.35,
+  "per_class_AP50": {
+   "cube": 0.729,
+   "ball": 0.88,
+   "cylinder": 0.935,
+   "human body": 0.91,
+   "tyre": 0.807,
+   "circle cage": 0.552,
+   "square cage": 0.557,
+   "metal bucket": 0.846,
+   "plane": 0.991,
+   "rov": 0.958
+  },
+  "P": 0.798,
+  "R": 0.818
+ }
+}

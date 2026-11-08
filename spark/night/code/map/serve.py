@@ -39,6 +39,9 @@ clues: list[dict] = json.loads(CLUES_F.read_text()) if CLUES_F.exists() else []
 NBA_F = HERE / "nba.json"
 nba_log: list[dict] = json.loads(NBA_F.read_text()) if NBA_F.exists() else []
 GRID = C.Grid(M.N, M.CELL, M.HALF, LAT0, LON0)
+C.WATER_MASK = (M.F["water"] <= 25)                      # zoom: sonar fields are clipped to water cells
+ZOOM = Path.home() / "forge/zoom"                        # zoom build outputs (read-only here)
+SONAR = {"ping": None}                                   # sonar replay progress; None = boat not deployed
 TRACK = json.loads((HERE / "drone_track.json").read_text()) if (HERE / "drone_track.json").exists() else {"shots": []}
 SKYFIX_COT = Path.home() / "forge/skyfix/cot"          # read-only
 DRONE_T = {"t": None}                                   # replay progress (s); None = drone not flown yet
@@ -132,6 +135,17 @@ def compute(persona, enabled=None):
     fl = [f for f in (C.event_field(d, GRID, CFG, floor_to_en) for d in detections()) if f]
     sky = C.skyfix_fixes(SKYFIX_COT, GRID, CFG)
     fl += sky
+    if SONAR["ping"] is not None:                       # boat deployed: uniform prior over the track corridor's water cells
+        try:
+            mz = json.loads((ZOOM / "water/mosaic/mosaic.json").read_text())
+            wc = C.water_corridor([(t["e"], t["n"]) for t in mz["track"]], GRID, CFG["fields"].get("water_corridor_m", 60),
+                                  CFG["fields"].get("water_prior_mass", 0.1))
+            if wc is not None:
+                fl.append({"source": "water", "kind": "water_corridor", "sensor": "plan", "mass": float(wc.sum()), "e": 0, "n": 0,
+                           "sigma": 0, "kernel": f"uniform over water cells ≤ {CFG['fields'].get('water_corridor_m', 60)} m from the boat track (hand-set)",
+                           "field": wc, "mass_on_grid": float(wc.sum())})
+        except Exception:
+            pass
     raw_layers = C.sum_fields(fl, GRID.E.shape)
     layers, capinfo = C.cap_layers(raw_layers, CFG["fields"].get("source_cap_frac", 0.5), 1.0)   # base is normalised to 1
     copm = C.cop(base, layers, pod, enabled)
@@ -189,9 +203,12 @@ def make_app():
         return _osm
 
     @app.get("/api/state")
-    def state(persona: str = "child_autistic", enabled: str | None = None, drone_t: float | None = None):
+    def state(persona: str = "child_autistic", enabled: str | None = None, drone_t: float | None = None,
+              sonar_ping: int | None = None):
         if persona not in M.PERSONAS:
             raise HTTPException(404, "unknown persona")
+        if sonar_ping is not None:
+            SONAR["ping"] = None if sonar_ping < 0 else int(sonar_ping)
         if drone_t is not None:
             DRONE_T["t"] = None if drone_t < 0 else float(drone_t)
         en = None if enabled in (None, "", "all") else set(enabled.split(","))
@@ -209,7 +226,7 @@ def make_app():
                 "field_cap": CFG["fields"].get("source_cap_frac", 0.5), "drone_pod_per_pass": CFG["coverage"]["drone_pod_per_pass"],
                 "skyfix": {"n": len(S["sky"]), "on_grid": sum(1 for f in S["sky"] if f["mass_on_grid"] > 1e-3),
                            "dir": str(SKYFIX_COT)},
-                "drone_t": DRONE_T["t"], "nba": S["nba"], "nba_log": nba_log[-20:],
+                "drone_t": DRONE_T["t"], "sonar_ping": SONAR["ping"], "nba": S["nba"], "nba_log": nba_log[-20:],
                 "class_mass_pct": S["mass"], "find_pct": p["find"], "verified": p["verified"], "source": p["source"],
                 "note": p["note"], "top": tops, "clues": clues, "dog": S["dog"],
                 "probability_captured": S["captured"]}
@@ -340,6 +357,35 @@ def make_app():
         b = json.loads((Path.home() / "forge/rescuebase-forge/data/bounds.json").read_text())["bounds"]
         (s, w), (n, e) = b
         return {"sw_en": ll2en(s, w), "ne_en": ll2en(n, e)}
+
+    @app.get("/api/zoom")
+    def zoom():
+        """Zoom-build layers: live stitch (Aukerman) frames + georef, sonar mosaic frames + track + call-outs, victim pins."""
+        def jl(p):
+            try:
+                return json.loads(p.read_text())
+            except Exception:
+                return None
+        st = jl(ZOOM / "air/stitch/stitch.json"); mz = jl(ZOOM / "water/mosaic/mosaic.json"); pins = jl(ZOOM / "air/victim_pins.json")
+        out = {"zoom_port": 8150}
+        if st:
+            o = st["origin_ll"]; oe, on_ = ll2en(o[0], o[1]); A = st["affine_px_to_en"]; ds = st["display_scale"]
+            # display px -> COP metres: en = A @ [x/ds, y/ds, 1] + origin offset
+            out["stitch"] = {"frames": st["frames"], "aff": [[A[0][0] / ds, A[0][1] / ds, A[0][2] + oe], [A[1][0] / ds, A[1][1] / ds, A[1][2] + on_]],
+                             "size": [round(st["canvas_px"][0] * ds), round(st["canvas_px"][1] * ds)], "georef_note": st["georef_note"],
+                             "method": st["method"], "track_files": [s_["file"] for s_ in TRACK["shots"]]}
+        if mz:
+            out["water"] = {k: mz[k] for k in ("label", "track_source", "frames_source", "detector", "frames", "bounds_en", "n_pings",
+                                               "callouts", "track", "human_check", "n_human", "by_class") if k in mz}
+        if pins:
+            out["pins"] = [{**p_, "e": ll2en(p_["lat"], p_["lon"])[0], "n": ll2en(p_["lat"], p_["lon"])[1]} for p_ in pins["pins"]]
+        return out
+
+    from fastapi.staticfiles import StaticFiles
+    if (ZOOM / "air/stitch").exists():
+        app.mount("/zoom/stitch", StaticFiles(directory=ZOOM / "air/stitch"), name="zstitch")
+    if (ZOOM / "water/mosaic").exists():
+        app.mount("/zoom/water", StaticFiles(directory=ZOOM / "water/mosaic"), name="zwater")
 
     @app.get("/health")
     def health():

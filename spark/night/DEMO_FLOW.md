@@ -1,32 +1,42 @@
-# 10-minute demo flow
+# 10-minute demo flow: Zoom to Earth (AIR → LAND → WATER on one COP)
 
-**Before judges arrive (2 min):**
-1. `cd ~/forge/night && ./stop_all.sh && ./run_all.sh` starts a fresh evidence chain; the old one is archived.
-2. Sky Fix: `bash ~/forge/skyfix/run.sh reset-evidence && bash ~/forge/skyfix/run.sh`, following `~/forge/skyfix/DEMO_90S.md`.
-3. Open tabs in this order: Sky Fix `:8130`, dog replay `:8141`, fusion console `:8140`, perch `:8142`, map `:8143`.
-4. If a USB or contact mic is plugged in, run `~/forge/.venv/bin/python tap3/live.py --x 5.3 --y 3.85` in a terminal and test one tap-three. If not, `scenario.py` replays a clip and says it is SYNTHETIC.
-5. Map: persona **Autistic**, layer **COP**, press ⌂ IPP and **↺** (drone not flown yet).
+**Before judges arrive (3 min):**
+1. `cd ~/forge/night && ./stop_all.sh && ./run_all.sh` gives a fresh evidence chain (the old one is archived, never deleted).
+2. `bash ~/forge/zoom/run.sh reset` starts the zoom screens on :8150, forgets already-emitted AIR/WATER events, and prints URLs.
+3. Sky Fix: `bash ~/forge/skyfix/run.sh reset-evidence && bash ~/forge/skyfix/run.sh`, following `~/forge/skyfix/DEMO_90S.md`.
+4. Open tabs in this order: Sky Fix `:8130`, AIR `:8150/air`, map `:8143`, dog replay `:8141`, fusion `:8140`, WATER `:8150/water`.
+5. Map: persona **Autistic**, layer **COP**, base **ODM orthophoto**, press ⌂ IPP and both **↺** buttons (drone and sonar not flown yet).
+6. If a mic is plugged in, test one tap-three with `~/forge/.venv/bin/python tap3/live.py --x 5.3 --y 3.85`. If not, `scenario.py` replays a clip and says it is SYNTHETIC.
 
 | t | screen | do | say |
 |---|---|---|---|
-| 0:00 | Sky Fix :8130 | follow DEMO_90S.md (night synthetic frame, then day CH1) | "Persona 1: an isolated person with no GPS who must not transmit. Phone plus sky gives a position with an honest ring." |
-| 1:20 | map :8143 | persona Autistic; point at the VERIFIED badge and class table; flip layer → uncertainty and back to COP | "Persona 2: a lost autistic child. Koester 2020: distance rings from Table 3, 78 % of the mass in structures from Table 7, fitted together. Every cell carries its uncertainty from the sample size." |
-| 2:00 | terminal | `~/forge/.venv/bin/python scenario.py --speed 4 --no-tap` (or without `--no-tap` if there is no mic) | "The dog goes in. Tonight it's a rover with IMU, ultrasonic and sound sensors, tracked from an overhead phone, the way a drone would track a real dog." |
-| 2:05 | dog :8141 | Play ×4: cells shade, track draws, pins drop, ultrasonic outlines the walls; orange banner = map scale | "Blue is searched. Pins are stops, spins, knocks. Grey dots are walls from the ultrasonic. Surfaces, never people." (Say SYNTHETIC if real runs haven't landed.) |
-| 3:00 | fusion :8140 | candidates appear (C01–C04, p 0.09–0.49) | "Every alert lands as a candidate contact, an *unknown* a-u-G pin. Nothing is confirmed by a machine." |
-| 3:20 | table + fusion | **tap three, pause, tap three** on the table (or let the scenario replay it) | "Someone trapped can't shout, but they can tap." C04 jumps to ~0.91 with tap3 in its sources. |
-| 3:50 | fusion | operator id → **Confirm** C04 | "A human confirms. The same pin is re-sent as *friendly*, a-f-G, schema-validated and logged with my name. Never hostile." |
-| 4:30 | perch :8142 | Listen in flight → **Land, cut rotors** → **send perched detection to fusion** | "Rotors on, the models hear a helicopter. Rotors off: Speech 0.87. We send that to the shell: it becomes a contact at the perch point." |
-| 5:20 | map :8143 | **COP layers** card: tick *show* for Tap Three, Perch, Dog; untick one source and watch the COP change | "This is the operating picture: persona prior times clues, plus every sensor's probability field, labelled by source: tap is a tight Gaussian scaled by signal strength, perch a wider one, dog alerts at the dog. Searched ground is subtracted." |
-| 6:10 | map | **▶ drone replay**: the Aukerman orthomosaic forms tile by tile under the real flight track; drone coverage drops a band | "This is the real survey flight: 77 photos, 17 minutes, replayed at 30×. The map forms as the drone flies, and what it has seen is subtracted." |
-| 7:00 | map or fusion | **Next best action** panel: "Suggest: drone to R…C…, ETA 2 min (team 10 min)" → **Accept** | "The system suggests where to look next: the highest-probability cell nobody has searched, and who gets there first. It's a hint. It never tasks anything by itself." |
-| 7:30 | fusion :8140 | point at the chain line `nba_decision accept <operator>` and the `b-m-p-w` waypoint pin (✔ XSD); on the map the blue flag and the next suggestion | "My Accept is in the hash chain with my name, and there's a waypoint pin for ATAK. The next suggestion moves on." |
-| 8:00 | map (optional) | Add clue → Witness sighting 1 h ago → the COP and the suggestion re-rank | "A clue arrives and the picture updates, with its provenance on screen." |
-| 8:40 | fusion | AAR panel; optionally `curl :8140/verify` | "Time to first contact, time to confirm, area covered, probability captured, all recomputed from the chain. Edit one line and verification fails at that line." |
-| 9:20 | — | wrap | "One shell, live sensors, one picture, a human on every decision, and an audit trail you can take to a debrief." |
+| 0:00 | Sky Fix :8130 | follow DEMO_90S.md (night synthetic frame, then day CH1) | "Bonus first: an isolated person with no GPS who must not transmit. Phone plus sky gives a position with an honest ring." |
+| 1:00 | AIR :8150/air | Helene scene; zoom into the peninsula; point at the scale-check line and the red boxes; click **▶ map forming** | "Zoom to Earth. This is real NOAA imagery from Hurricane Helene, 10 cm per pixel. A person is about 5 pixels here, so the detector's boxes are cars, kayaks and debris. That's why nothing reaches fusion from this layer. The drone forms its own map as it flies: 77 real photos, stitched frame by frame, no learned model, no invented pixels." |
+| 2:00 | map :8143 | base → **live stitch**; **▶ drone replay** (×30) | "On the search grid the same flight forms the base layer. Each photo runs through an aerial search-and-rescue person detector, and every box becomes a probability field. Most are playground equipment, and we say so. The pink pins are HERIDAL true positives at simulated positions." |
+| 3:00 | terminal | `~/forge/.venv/bin/python scenario.py --speed 4 --no-tap` (or without `--no-tap` if there is no mic) | "LAND. The dog goes in: a rover with IMU, ultrasonic and sound sensors, tracked from an overhead phone." |
+| 3:05 | dog :8141 | Play ×4: cells shade, pins drop; orange banner = map scale | "Blue is searched; the coverage is subtracted. Pins are stops, spins, knocks." (Say SYNTHETIC if real runs haven't landed.) Optional: `zoom/run.sh` prints a bark-replay command; barks are found at AUC 0.99 on expert labels and enter at low weight. |
+| 3:50 | table + fusion :8140 | **tap three, pause, tap three** (or the scenario replay) → C-contact jumps; operator id → **Confirm** | "Someone trapped can tap. A human confirms; the same pin is re-sent as friendly, a-f-G, schema-validated, with my name. Never hostile." |
+| 5:00 | map :8143 | **→ lake**, **▶ sonar replay** (or show `:8150/water`) | "WATER. A sonar mosaic forms along the boat's track. The frames are real forward-looking sonar from UATD and the track is a real AUV track, moved onto this lake: simulated placement, on screen. The detector, trained here on UATD, finds the human-body class at 0.91 AP on held-out data. Each red circle is a call-out and becomes a field over water cells only." |
+| 6:15 | map :8143 | **COP layers** card: tick *show* for AIR, WATER, Dog; untick *HERIDAL victim pins* and watch the COP change | "One picture: persona prior times clues, plus every sensor's field, labelled by source, each capped so no sensor dominates. Simulated sources can be switched off live." |
+| 7:00 | map | **Next best action**: after the sonar, "drone to R379C261, ETA 14 min (team 131 min)" → **Accept** | "It suggests where to look next: the highest-probability cell nobody has searched, and who gets there first. It's a hint and never tasks anything." |
+| 7:40 | fusion :8140 | the chain line `nba_decision accept <operator>` and the `b-m-p-w` waypoint (✔ XSD) | "My Accept is in the hash chain with my name, with a waypoint for ATAK." |
+| 8:20 | fusion | AAR panel; optionally `curl :8140/verify` | "Time to first contact, time to confirm, area covered, probability captured, all recomputed from the chain. Edit one line and verification fails at that line." |
+| 9:10 | map (optional) | **🌀 NOAA disaster layer** inset | "Air, land and water on one map, and a human on every decision." |
 
-**If something breaks:** `./stop_all.sh && ./run_all.sh --keep` keeps the chain. Every screen reloads from the server state. The screenshots in `screenshots/` are the fallback.
+**If something breaks:** `./stop_all.sh && ./run_all.sh --keep` keeps the chain, and `bash ~/forge/zoom/run.sh` restarts :8150. Every screen reloads from server state. The screenshots in `screenshots/` and `~/forge/zoom/screenshots/` are the fallback.
 
-**Numbers you can say** (re-runnable; see the RESULTS files): tap3 0 confirmed false alarms on ESC-50 knocks/footsteps and 7.8–12.5 h of geophone walk-bys; perch P(HV) 0.80–0.89 rotors off vs 0.02–0.04 rotors on; probe HV F1 0.59 low / 0.08 high throttle on an unseen room; the map prior matches Koester Table 3 quantiles and Table 7 shares exactly. **Don't say:** a field hit rate for tap3 (no team recordings yet), or anything about the dog's accuracy on real runs.
+**Numbers you can say** (all re-runnable; see `~/forge/zoom/README.md` and the RESULTS files):
+- UATD human body AP50 **0.91** on held-out Test_2 (mAP50 0.82).
+- HERIDAL held-out person detector at the 0.60 gate: **P 0.55 / R 0.23** (AP50 0.23); humans do P 0.59 / R 0.68.
+- Barks vs everything else: **AUC 0.99**.
+- Stitch: 54/77 photos placed, georeference ±19 m RMS.
+- Sonar: 8 of 10 human-body call-outs match a labelled body.
+- Night-build numbers: tap3 had 0 confirmed false alarms on real negatives. Perch P(HV) is 0.80–0.89 rotors off vs 0.02–0.04 rotors on. The map prior matches Koester Tables 3 and 7.
 
-Sky Fix shares the story, not the grid: its demo fixes are in Boston, the Alps and Hawaii with km-scale rings, so none fall on the Ohio search grid. Its CoT files (`~/forge/skyfix/cot/`) use the same XSD-validated format as ours. Sky Fix results and its 90-second script: `~/forge/skyfix/DEMO_90S.md`, `~/forge/skyfix/RESULTS.md`; in the repo, `spark/skyfix/`.
+**Don't say:**
+- that the detector finds people in the NOAA tiles;
+- that the sonar or victim-pin positions are real;
+- that the hazard captions are reliable (about 2 of 10 were plausible);
+- a field hit rate for tap3 or the dog.
+
+Sky Fix shares the story, not the grid: its demo fixes are far from Ohio, so they add no mass here.

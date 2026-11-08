@@ -24,7 +24,7 @@
   "acoustic_hnv": 0.3,
   "seismic_footstep": 0.5,
   "dog_alert": 0.6,
-  "dog_bark": 0.5,
+  "dog_bark": 0.3,
   "dog_stop": 0.3,
   "dog_spin": 0.35,
   "knock": 0.6,
@@ -32,7 +32,10 @@
   "sound_spike": 0.3,
   "tap3": 0.85,
   "skyfix_fix": 0.0,
-  "default": 0.3
+  "default": 0.3,
+  "aerial_person": 0.7,
+  "sonar_human_body": 0.6,
+  "_dog_bark_doc": "zoom Nov 8: lowered 0.5 -> 0.3 (low weight): zero-shot PANNs bark detector, P 0.61 / R 0.75 at 0.5 on expert labels (zoom/land/RESULTS.md)"
  },
  "cot": {
   "type_candidate": "a-u-G",
@@ -54,7 +57,12 @@
   "default_sigma_m": 100,
   "skyfix_weight": 0.9,
   "source_cap_frac": 1.0,
-  "_cap_doc": "Each source's summed field is scaled down so its mass on the grid is at most source_cap_frac x the prior's mass (prior normalised to 1). Stops one chatty sensor (e.g. many dog alerts) from dominating the COP."
+  "_cap_doc": "Each source's summed field is scaled down so its mass on the grid is at most source_cap_frac x the prior's mass (prior normalised to 1). Stops one chatty sensor (e.g. many dog alerts) from dominating the COP.",
+  "aerial_sigma_m": 25,
+  "sonar_sigma_m": 30,
+  "water_corridor_m": 60,
+  "water_prior_mass": 0.1,
+  "_zoom_doc": "Zoom build (Nov 8): aerial_person = AerialPerson-YOLO26 box georeferenced via ODM poses (sigma from the event, default 25 m); sonar_human_body = UATD detector call-out, Gaussian clipped to water cells; water_prior_mass = uniform mass (x prior) over water cells within water_corridor_m of the boat track. All hand-set."
  },
  "perch_point": {
   "lat": 41.30455,

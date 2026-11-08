@@ -23,9 +23,14 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 R = 6371008.8
-SOURCES = ["tap3", "perch", "thermal", "dog", "skyfix", "other"]
+SOURCES = ["tap3", "perch", "thermal", "dog", "skyfix", "aerial", "aerial_sim", "sonar", "water", "other"]
 SOURCE_LABEL = {"tap3": "Tap Three (contact mic)", "perch": "Perch and Listen (acoustic)", "thermal": "Thermal (drone)",
-                "dog": "Dog stand-in alerts", "skyfix": "Sky Fix self-fix (phone)", "other": "other sensors"}
+                "dog": "Dog stand-in alerts", "skyfix": "Sky Fix self-fix (phone)",
+                "aerial": "AIR: aerial person detector (real Aukerman photos)",
+                "aerial_sim": "AIR: victim pins from HERIDAL SAR frames (SIMULATED placement)",
+                "sonar": "WATER: sonar human-body call-outs (SIMULATED placement)",
+                "water": "WATER: corridor prior over the boat track's water cells", "other": "other sensors"}
+WATER_MASK = None      # set by map/serve.py: boolean grid of water cells (OSM water within 25 m)
 
 
 class Grid:
@@ -63,6 +68,12 @@ class Grid:
 
 def source_of(kind: str, sensor: str) -> str:
     k, s = kind.lower(), sensor.lower()
+    if s.startswith("aerial_rgb_sim"):
+        return "aerial_sim"
+    if s.startswith("aerial"):
+        return "aerial"
+    if s.startswith("sonar"):
+        return "sonar"
     if k.startswith("tap") or s.startswith("tap"):
         return "tap3"
     if k.startswith("acoustic") or s.startswith("perch"):
@@ -101,6 +112,13 @@ def event_field(det: dict, grid: Grid, cfg: dict, floor_to_en) -> dict | None:
         g, kern = grid.disk(e, n, r), f"disk r={r:.0f} m (drone footprint)"
     elif src == "dog":
         sigma = F["dog_sigma_m"]; g, kern = grid.gaussian(e, n, sigma), f"Gaussian σ={sigma:.0f} m at the dog"
+    elif src in ("aerial", "aerial_sim"):
+        sigma = float(ex.get("sigma_m") or F.get("aerial_sigma_m", 25))
+        g, kern = grid.gaussian(e, n, sigma), f"Gaussian σ={sigma:.0f} m at the georeferenced box"
+    elif src == "sonar":
+        sigma = float(F.get("sonar_sigma_m", 30)); g = grid.gaussian(e, n, sigma); kern = f"Gaussian σ={sigma:.0f} m, water cells only"
+        if WATER_MASK is not None and (g * WATER_MASK).sum() > 0:
+            g = g * WATER_MASK; g = g / g.sum()
     else:
         sigma = F["default_sigma_m"]; g, kern = grid.gaussian(e, n, sigma), f"Gaussian σ={sigma:.0f} m"
     return {"source": src, "kind": kind, "sensor": sensor, "mass": mass, "e": e, "n": n, "sigma": sigma,
@@ -126,6 +144,17 @@ def skyfix_fixes(cot_dir: Path, grid: Grid, cfg: dict, limit: int = 200) -> list
                     "sigma": ce, "kernel": f"Gaussian σ=ce={ce:.0f} m at the solved position", "field": mass * g,
                     "mass_on_grid": float((mass * g).sum()), "lat": lat, "lon": lon, "file": p.name})
     return out
+
+
+def water_corridor(track_en: list, grid: Grid, width_m: float, mass: float) -> np.ndarray | None:
+    """Uniform prior mass over water cells within width_m of the boat track (hand-set, labelled)."""
+    if not track_en or WATER_MASK is None:
+        return None
+    near = np.zeros_like(grid.E, bool)
+    for e, n in track_en:
+        near |= ((grid.E - e) ** 2 + (grid.N - n) ** 2) <= width_m ** 2
+    m = near & WATER_MASK
+    return m * (mass / m.sum()) if m.any() else None
 
 
 def sum_fields(fields: list[dict], shape) -> dict[str, np.ndarray]:

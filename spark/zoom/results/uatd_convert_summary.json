@@ -1,0 +1,42 @@
+{
+ "xml": 9200,
+ "images_per_split": {
+  "val": 800,
+  "test": 800,
+  "train": 7600
+ },
+ "xml_without_image": 0,
+ "unknown_classes": {},
+ "boxes": {
+  "test/ball": 193,
+  "test/circle cage": 99,
+  "test/cube": 168,
+  "test/cylinder": 45,
+  "test/human body": 73,
+  "test/metal bucket": 5,
+  "test/plane": 135,
+  "test/rov": 150,
+  "test/square cage": 168,
+  "test/tyre": 121,
+  "train/ball": 3072,
+  "train/circle cage": 661,
+  "train/cube": 2645,
+  "train/cylinder": 564,
+  "train/human body": 1283,
+  "train/metal bucket": 476,
+  "train/plane": 795,
+  "train/rov": 700,
+  "train/square cage": 980,
+  "train/tyre": 1124,
+  "val/ball": 197,
+  "val/circle cage": 99,
+  "val/cube": 172,
+  "val/cylinder": 48,
+  "val/human body": 76,
+  "val/metal bucket": 6,
+  "val/plane": 134,
+  "val/rov": 150,
+  "val/square cage": 167,
+  "val/tyre": 121
+ }
+}

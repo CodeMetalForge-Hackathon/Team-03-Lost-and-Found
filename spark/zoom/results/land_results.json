@@ -1,0 +1,172 @@
+{
+ "dataset": "Dog play pant (Zenodo 18972388, CC BY 4.0): 30 annotated play sessions, 17 dogs, expert-reviewed SecondLayer labels",
+ "n_segments": 2636,
+ "labels": {
+  "Human": 581,
+  "Pant": 1294,
+  "Grunt": 163,
+  "Other": 264,
+  "Moan": 33,
+  "Whine": 13,
+  "Growl": 198,
+  "Bark/yelp": 48,
+  "Sneeze": 25,
+  "Shake": 7,
+  "Cough/woof": 10
+ },
+ "howl": "no 'Howl' label in this dataset; howl detection is not validated",
+ "models": [
+  {
+   "model": "panns-cnn14",
+   "missing_labels": [
+    "Panting"
+   ],
+   "bark_detector": {
+    "n_bark": 48,
+    "n_other": 2588,
+    "AUC_bark_vs_all_other": 0.988,
+    "at_0.3": {
+     "precision": 0.435,
+     "recall": 0.979,
+     "TP": 47,
+     "FP": 61
+    },
+    "at_0.5": {
+     "precision": 0.61,
+     "recall": 0.75,
+     "TP": 36,
+     "FP": 23
+    }
+   },
+   "presence": {
+    "n_dog_calls": 2055,
+    "n_human": 581,
+    "AUC_dog_vs_human": 0.696,
+    "recall_at_0.3": 0.42,
+    "false_alarm_on_human_at_0.3": 0.143,
+    "median_dog_score_by_label": {
+     "Bark/yelp": 0.751,
+     "Cough/woof": 0.43,
+     "Growl": 0.548,
+     "Grunt": 0.579,
+     "Moan": 0.684,
+     "Other": 0.017,
+     "Pant": 0.135,
+     "Shake": 0.004,
+     "Sneeze": 0.026,
+     "Whine": 0.358
+    }
+   },
+   "call_type": {
+    "n": 1553,
+    "top1_accuracy_4way": 0.489,
+    "chance_majority": 0.833,
+    "recall": {
+     "Bark/yelp": 0.979,
+     "Whine": 0.462,
+     "Growl": 0.475,
+     "Pant": 0.474
+    },
+    "confusion": {
+     "Bark/yelp": {
+      "Bark/yelp": 47,
+      "Growl": 1
+     },
+     "Whine": {
+      "Bark/yelp": 5,
+      "Whine": 6,
+      "Pant": 2
+     },
+     "Growl": {
+      "Growl": 94,
+      "Pant": 28,
+      "Bark/yelp": 47,
+      "Whine": 29
+     },
+     "Pant": {
+      "Whine": 475,
+      "Pant": 613,
+      "Bark/yelp": 182,
+      "Growl": 24
+     }
+    }
+   }
+  },
+  {
+   "model": "ast-audioset",
+   "missing_labels": [
+    "Panting"
+   ],
+   "bark_detector": {
+    "n_bark": 48,
+    "n_other": 2588,
+    "AUC_bark_vs_all_other": 0.984,
+    "at_0.3": {
+     "precision": 0.573,
+     "recall": 0.896,
+     "TP": 43,
+     "FP": 32
+    },
+    "at_0.5": {
+     "precision": 0.5,
+     "recall": 0.062,
+     "TP": 3,
+     "FP": 3
+    }
+   },
+   "presence": {
+    "n_dog_calls": 2055,
+    "n_human": 581,
+    "AUC_dog_vs_human": 0.64,
+    "recall_at_0.3": 0.088,
+    "false_alarm_on_human_at_0.3": 0.014,
+    "median_dog_score_by_label": {
+     "Bark/yelp": 0.54,
+     "Cough/woof": 0.02,
+     "Growl": 0.051,
+     "Grunt": 0.028,
+     "Moan": 0.123,
+     "Other": 0.003,
+     "Pant": 0.017,
+     "Shake": 0.002,
+     "Sneeze": 0.005,
+     "Whine": 0.059
+    }
+   },
+   "call_type": {
+    "n": 1553,
+    "top1_accuracy_4way": 0.333,
+    "chance_majority": 0.833,
+    "recall": {
+     "Bark/yelp": 0.979,
+     "Whine": 0.615,
+     "Growl": 0.561,
+     "Pant": 0.271
+    },
+    "confusion": {
+     "Bark/yelp": {
+      "Bark/yelp": 47,
+      "Growl": 1
+     },
+     "Whine": {
+      "Bark/yelp": 3,
+      "Whine": 8,
+      "Pant": 2
+     },
+     "Growl": {
+      "Growl": 111,
+      "Pant": 18,
+      "Whine": 46,
+      "Bark/yelp": 23
+     },
+     "Pant": {
+      "Whine": 808,
+      "Pant": 351,
+      "Bark/yelp": 94,
+      "Growl": 41
+     }
+    }
+   }
+  }
+ ]
+}

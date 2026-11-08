@@ -53,12 +53,15 @@ footer{color:var(--mute);font-size:11.5px;padding:5px 14px;border-top:1px solid 
     <canvas id="map"></canvas>
     <div class="tools">
       <button id="tOsm" class="on">roads/trails/water</button><button id="tBld">buildings</button>
-      <button id="tRings" class="on">distance rings</button><button id="tOrtho" class="on">ortho</button>
+      <button id="tRings" class="on">distance rings</button><button id="tOrtho" class="on">ortho</button><select id="baseSel" title="drone base layer"><option value="odm">base: ODM orthophoto (fully rectified)</option><option value="stitch">base: live stitch (map forming, approx. georef)</option></select>
       <button id="tDog" class="on">dog coverage</button><button id="tCt" class="on">contacts</button>
       <button id="home">⌂ IPP</button>
       <button id="dPlay">▶ drone replay (real Aukerman flight)</button><button id="dReset">↺</button><span id="dClock" class="prov" style="align-self:center;background:rgba(14,17,22,.8);padding:2px 6px;border-radius:4px"></span>
+      <button id="tWater" class="on">water (sonar)</button><button id="wGo">→ lake</button><button id="wPlay">▶ sonar replay</button><button id="wReset">↺</button><span id="wClock" class="prov" style="align-self:center;background:rgba(14,17,22,.8);padding:2px 6px;border-radius:4px"></span>
+      <button id="noaaBtn">🌀 NOAA disaster layer</button>
     </div>
     <div class="hud" id="hud">hover a cell</div>
+    <div id="noaaBox" style="display:none;position:absolute;inset:48px 10px 40px 10px;border:2px solid var(--acc);border-radius:8px;background:#0e1116;z-index:5"><div class="row" style="justify-content:space-between;padding:4px 8px;margin:0"><b>NOAA disaster base layer (separate place, not this grid) · served from :8150/air</b><button id="noaaClose">✕ close</button></div><iframe id="noaaFrame" style="width:100%;height:calc(100% - 36px);border:0"></iframe></div>
     <div class="legend"><div id="legT">P(subject in cell)</div><canvas id="leg" class="bar" width="160" height="8"></canvas><div style="display:flex;justify-content:space-between"><span id="leg0">low</span><span id="leg1">high</span></div></div>
   </div>
   <aside class="side">
@@ -97,9 +100,10 @@ footer{color:var(--mute);font-size:11.5px;padding:5px 14px;border-top:1px solid 
 const $=id=>document.getElementById(id);
 let META,S,OSM,ORTHO=null,orthoImg=null,CT=[];
 let view={e:0,n:0,s:0.06}, pick=null, picking=false, layers={osm:1,bld:0,rings:1,ortho:1,dog:1,ct:1};
-let EN={tap3:1,perch:1,thermal:1,dog:1,skyfix:1,other:1}, SHOWF={}, SHOWC={dog:1,team:1,drone:1};
+let EN={tap3:1,perch:1,thermal:1,dog:1,skyfix:1,aerial:1,aerial_sim:1,sonar:1,water:1,other:1}, SHOWF={}, SHOWC={dog:1,team:1,drone:1};
 let DR=null, dT=null, dPlaying=false, dLast=0, dSpeed=30, tileT=null, overl={};
-const SRC_COL={tap3:[255,90,90],perch:[80,220,255],thermal:[255,200,40],dog:[255,140,30],skyfix:[190,120,255],other:[200,200,200]};
+const SRC_COL={tap3:[255,90,90],perch:[80,220,255],thermal:[255,200,40],dog:[255,140,30],skyfix:[190,120,255],aerial:[255,60,160],aerial_sim:[255,150,220],sonar:[60,140,255],water:[120,200,255],other:[200,200,200]};
+let ZM=null, stImgs=[], wImgs=[], wPing=null, wPlaying=false, wLast=0, wAcc=0, layersW=1; const ZOOMP=`${location.protocol}//${location.hostname}:8150`;
 const cv=$('map'), g=cv.getContext('2d'); const heat=document.createElement('canvas'); let N=400;
 function dec(b){ if(!b) return null; const s=atob(b), u=new Uint8Array(s.length); for(let i=0;i<s.length;i++) u[i]=s.charCodeAt(i); return new Float32Array(u.buffer); }
 function cmap(t){ // perceptual dark->orange->yellow
@@ -159,7 +163,7 @@ function draw(){
     g.fillStyle='#ff8a1f'; g.fillText(l1,x+4*dpr,y-22*dpr); g.font=`bold ${11.5*dpr}px system-ui`; g.fillText(l2,x+4*dpr,y-8*dpr); }
   // IPP
   { const [x,y]=W2S(0,0); g.fillStyle='#fff'; g.strokeStyle='#000'; g.lineWidth=2*dpr; g.beginPath(); g.moveTo(x,y-9*dpr); g.lineTo(x+7*dpr,y+5*dpr); g.lineTo(x-7*dpr,y+5*dpr); g.closePath(); g.fill(); g.stroke(); g.font=`bold ${11*dpr}px system-ui`; g.fillText('IPP/LKP',x+9*dpr,y+4*dpr); }
-  drawDrone(dpr); drawNBA(dpr);
+  drawWater(dpr); drawPins(dpr); drawDrone(dpr); drawNBA(dpr);
   // clues
   (S.clues||[]).forEach(c=>{ const [x,y]=W2S(c.e,c.n); g.globalAlpha=c.active?1:.35; g.fillStyle=c.type==='searched_no_find'?'#58a6ff':'#d29922'; g.beginPath(); g.arc(x,y,6*dpr,0,7); g.fill(); g.strokeStyle='#000'; g.stroke();
     if(c.type==='searched_no_find'){ g.strokeStyle='#58a6ff'; g.beginPath(); g.arc(x,y,(c.radius_m||200)*view.s*dpr,0,7); g.stroke(); }
@@ -196,7 +200,7 @@ $('addc').onclick=async()=>{ if(!pick){ $('pickhint').textContent='place the clu
 async function toggle(i){ await fetch(`api/clue/${i}/toggle`,{method:'POST'}); load(); }
 async function load(){
   const p=$('persona').value, en=Object.keys(EN).filter(k=>EN[k]).join(',')||'none';
-  S=await (await fetch(`api/state?persona=${p}&enabled=${en}&drone_t=${dT===null?-1:dT.toFixed(0)}`)).json(); buildHeat(); renderLayers(); renderNBA();
+  S=await (await fetch(`api/state?persona=${p}&enabled=${en}&drone_t=${dT===null?-1:dT.toFixed(0)}&sonar_ping=${wPing===null?-1:wPing}`)).json(); buildHeat(); renderLayers(); renderNBA();
   const P=META.personas[p]; $('vbadge').textContent=P.verified?'VERIFIED (Koester 2020)':'ILLUSTRATIVE'; $('vbadge').className='badge '+(P.verified?'ver':'ill'); $('psrc').textContent=P.source;
   $('mass').innerHTML=META.classes.map(c=>`<tr><td>${c}</td><td class="n">${S.class_mass_pct[c].toFixed(1)}%</td><td class="n">${S.find_pct[c]}%</td></tr>`).join('');
   $('pnote').textContent=(S.note||'')+' "map" = prior mass in cells of that class after fitting; "find %" = target share.';
@@ -218,7 +222,7 @@ async function init(){
   $('mode').onchange=()=>{buildHeat(); draw();};
   $('mode').value='cop';
   resize(); window.addEventListener('resize',resize);
-  await initDrone().catch(()=>{});
+  await initDrone().catch(()=>{}); await initZoom();
   await load();
   fetch('api/osm').then(r=>r.json()).then(o=>{OSM=o; draw();});
   fetch('api/ortho_bounds').then(r=>r.json()).then(b=>{ORTHO=b; orthoImg=new Image(); orthoImg.onload=()=>{computeTiles(); draw();}; orthoImg.src='ortho.png';});
@@ -226,8 +230,8 @@ async function init(){
 }
 // ---------- Phase 7: layers, next best action, drone replay + ortho reveal ----------
 function renderLayers(){
-  const F=Object.fromEntries((S.fields||[]).map(f=>[f.source,f])); const srcs=['tap3','perch','thermal','dog','skyfix','other'];
-  const lab={tap3:'Tap Three (contact mic)',perch:'Perch and Listen (acoustic)',thermal:'Thermal (drone)',dog:'Dog stand-in alerts',skyfix:'Sky Fix self-fix (phone)',other:'other sensors'};
+  const F=Object.fromEntries((S.fields||[]).map(f=>[f.source,f])); const srcs=['tap3','perch','thermal','dog','skyfix','aerial','aerial_sim','sonar','water','other'];
+  const lab={tap3:'Tap Three (contact mic)',perch:'Perch and Listen (acoustic)',thermal:'Thermal (drone)',dog:'Dog stand-in alerts',skyfix:'Sky Fix self-fix (phone)',aerial:'AIR: person detector on real Aukerman photos',aerial_sim:'AIR: HERIDAL victim pins (SIMULATED placement)',sonar:'WATER: sonar human-body call-outs (SIMULATED placement)',water:'WATER: boat-track corridor prior (hand-set)',other:'other sensors'};
   let h=srcs.map(k=>{ const f=F[k]; const c=SRC_COL[k]; const extra=k==='skyfix'?` · ${S.skyfix.n} fixes read, ${S.skyfix.on_grid} on this grid`:'';
     return `<div class="row"><label style="color:var(--fg)"><input type="checkbox" data-src="${k}" ${EN[k]?'checked':''}> <i class="sw" style="display:inline-block;width:10px;height:10px;background:rgb(${c})"></i> ${lab[k]}</label>
      <label><input type="checkbox" data-show="${k}" ${SHOWF[k]?'checked':''}> show</label><span>${f?`${f.n} event${f.n>1?'s':''}, mass in COP <b title="raw mass on grid before the cap: ${f.mass_on_grid} (${f.mass} incl. off-grid)${f.cap_scale<1?' — scaled ×'+f.cap_scale:''}" style="color:${f.cap_scale<1?'var(--warn)':'var(--fg)'};border-bottom:1px dotted;cursor:help">${f.capped_mass}</b>${f.cap_scale<1?' (capped)':''} · ${f.kernels.join('; ')}`:'no events'}${extra}</span></div>`; }).join('');
@@ -254,7 +258,11 @@ const TX=36, TY=28;
 function computeTiles(){ if(!DR||!ORTHO) return; tileT=new Float32Array(TX*TY).fill(Infinity); const [w,s0]=ORTHO.sw_en, [e,n0]=ORTHO.ne_en;
   for(let j=0;j<TY;j++) for(let i=0;i<TX;i++){ const ce=w+(i+.5)*(e-w)/TX, cn=n0-(j+.5)*(n0-s0)/TY;
     for(const sh of DR.track.shots){ if(Math.abs(ce-sh.e)<=sh.footprint_m[0]/2 && Math.abs(cn-sh.n)<=sh.footprint_m[1]/2){ tileT[j*TX+i]=sh.t_rel; break; } } } }
-function drawOrtho(dpr){ if(!layers.ortho||!orthoImg||!orthoImg.complete||!ORTHO||!tileT||dT===null) return; const [w,s0]=ORTHO.sw_en, [e,n0]=ORTHO.ne_en;
+function drawStitch(dpr){ const Z=ZM&&ZM.stitch; if(!Z||!stImgs.length) return; const files=Z.track_files, cnt=DR.track.shots.filter(s=>s.t_rel<=dT).length;
+  let k=-1; Z.frames.forEach((f,i)=>{ if(f.n<=cnt) k=i; }); if(k<0) return; const im=stImgs[k]; if(!im.complete) return; const A=Z.aff, q=view.s*dpr;
+  g.save(); g.setTransform(q*A[0][0], -q*A[1][0], q*A[0][1], -q*A[1][1], q*(A[0][2]-view.e)+cv.width/2, -q*(A[1][2]-view.n)+cv.height/2); g.imageSmoothingEnabled=true; g.globalAlpha=1; g.drawImage(im,0,0); g.restore();
+  const [x,y]=W2S(A[0][2],A[1][2]); g.fillStyle='rgba(14,17,22,.85)'; g.fillRect(x,y-30*dpr,330*dpr,26*dpr); g.fillStyle='#ffdc50'; g.font=`bold ${11*dpr}px system-ui`; g.fillText(`live stitch: ${Z.frames[k].placed} photos placed · georef approximate`,x+5*dpr,y-13*dpr); }
+function drawOrtho(dpr){ if(layers.ortho&&$('baseSel').value==='stitch'&&dT!==null&&DR){ drawStitch(dpr); return; } if(!layers.ortho||!orthoImg||!orthoImg.complete||!ORTHO||!tileT||dT===null) return; const [w,s0]=ORTHO.sw_en, [e,n0]=ORTHO.ne_en;
   const iw=orthoImg.naturalWidth, ih=orthoImg.naturalHeight; g.imageSmoothingEnabled=true; g.globalAlpha=1;
   for(let j=0;j<TY;j++) for(let i=0;i<TX;i++){ if(tileT[j*TX+i]>dT) continue;
     const [a,b]=W2S(w+i*(e-w)/TX, n0-j*(n0-s0)/TY), [c,d]=W2S(w+(i+1)*(e-w)/TX, n0-(j+1)*(n0-s0)/TY);
@@ -265,13 +273,39 @@ function drawDrone(dpr){ if(!DR||dT===null) return; const sh=DR.track.shots; g.s
   const d=droneAt(dT), [x,y]=W2S(d.e,d.n), fw=d.footprint_m[0]*view.s*dpr, fh=d.footprint_m[1]*view.s*dpr;
   g.strokeStyle='#ffdc50'; g.strokeRect(x-fw/2,y-fh/2,fw,fh); g.fillStyle='#ffdc50'; g.beginPath(); g.arc(x,y,5*dpr,0,7); g.fill();
   g.font=`bold ${11*dpr}px system-ui`; g.fillText('UAV (real Aukerman flight track)',x+8*dpr,y-8*dpr); }
+function drawWater(dpr){ const W=ZM&&ZM.water; if(!W||!layersW||wPing===null) return; const [e0,n0,e1,n1]=W.bounds_en;
+  let k=-1; W.frames.forEach((f,i)=>{ if(f.ping<=wPing) k=i; }); const [a,b]=W2S(e0,n1), [c,d]=W2S(e1,n0);
+  if(k>=0&&wImgs[k]&&wImgs[k].complete){ g.imageSmoothingEnabled=true; g.globalAlpha=0.95; g.drawImage(wImgs[k],a,b,c-a,d-b); g.globalAlpha=1; }
+  g.strokeStyle='rgba(60,200,255,.9)'; g.lineWidth=2*dpr; g.beginPath(); W.track.slice(0,wPing).forEach((t,i)=>{ const [x,y]=W2S(t.e,t.n); i?g.lineTo(x,y):g.moveTo(x,y); }); g.stroke();
+  const t=W.track[Math.max(0,Math.min(W.track.length-1,wPing-1))]; if(t){ const [x,y]=W2S(t.e,t.n); g.fillStyle='#3cc8ff'; g.beginPath(); g.arc(x,y,5*dpr,0,7); g.fill(); }
+  W.callouts.filter(co=>co.ping<wPing).forEach(co=>{ const [x,y]=W2S(co.e,co.n); if(co.cls==='human body'){ g.strokeStyle='#ff3b5c'; g.lineWidth=2.5*dpr; g.beginPath(); g.arc(x,y,7*dpr,0,7); g.stroke(); if(view.s>0.5){ g.fillStyle='#ff3b5c'; g.font=`bold ${10*dpr}px system-ui`; g.fillText('human body '+co.conf.toFixed(2),x+9*dpr,y+3*dpr);} } else if(view.s>0.5){ g.fillStyle='rgba(170,170,170,.9)'; g.beginPath(); g.arc(x,y,2.5*dpr,0,7); g.fill(); } });
+  g.font=`bold ${12*dpr}px system-ui`; const l1='FLS frames placed along a real AUV track — SIMULATED placement', l2=`UATD sonar frames · Red Sea AUV track moved onto this lake · ${W.callouts.filter(c=>c.ping<wPing&&c.cls==='human body').length} human-body call-outs`;
+  const w=Math.max(g.measureText(l1).width,g.measureText(l2).width)+12*dpr; let [lx,ly]=W2S(e0,n0); lx=Math.max(4*dpr,Math.min(lx,cv.width-w-12*dpr)); ly=Math.min(ly+6*dpr,cv.height-90*dpr); lx-=8*dpr; g.fillStyle='rgba(14,17,22,.9)'; g.fillRect(lx+8*dpr,ly,w,34*dpr); g.strokeStyle='#3cc8ff'; g.lineWidth=1*dpr; g.strokeRect(lx+8*dpr,ly,w,34*dpr);
+  g.fillStyle='#3cc8ff'; g.fillText(l1,lx+14*dpr,ly+14*dpr); g.font=`${11*dpr}px system-ui`; g.fillText(l2,lx+14*dpr,ly+28*dpr); }
+function drawPins(dpr){ if(!ZM||!ZM.pins||dT===null||!EN.aerial_sim) return; ZM.pins.filter(p=>p.t_rel<=dT).forEach(p=>{ const [x,y]=W2S(p.e,p.n); g.fillStyle='#ff96dc'; g.strokeStyle='#000'; g.lineWidth=1.5*dpr;
+  g.beginPath(); g.moveTo(x,y); g.lineTo(x-6*dpr,y-14*dpr); g.lineTo(x+6*dpr,y-14*dpr); g.closePath(); g.fill(); g.stroke(); if(view.s>0.4){ g.font=`${10.5*dpr}px system-ui`; g.fillText('victim pin (HERIDAL frame, SIMULATED placement)',x+8*dpr,y-8*dpr);} }); }
+function emitAir(){ if(dT!==null) fetch(`${ZOOMP}/api/emit/air?t=${dT.toFixed(0)}`,{method:'POST'}).catch(()=>{}); }
+function emitWater(){ if(wPing!==null) fetch(`${ZOOMP}/api/emit/water?ping=${wPing}`,{method:'POST'}).catch(()=>{}); }
+function wTick(now){ const W=ZM&&ZM.water; if(wPlaying&&W){ wAcc+=(now-wLast); if(wAcc>350){ wAcc=0; wPing=Math.min(W.n_pings,wPing+1); $('wClock').textContent=`sonar ping ${wPing} / ${W.n_pings}`; if(wPing%6===0||wPing>=W.n_pings){ emitWater(); load(); } if(wPing>=W.n_pings){ wPlaying=false; $('wPlay').textContent='▶ sonar replay'; } draw(); } }
+  wLast=now; requestAnimationFrame(wTick); }
+async function initZoom(){ try{ ZM=await (await fetch('api/zoom')).json(); }catch(e){ return; }
+  if(ZM.stitch) stImgs=ZM.stitch.frames.map(f=>{ const im=new Image(); im.src='zoom/stitch/frames/'+f.png; return im; });
+  if(ZM.water) wImgs=ZM.water.frames.map(f=>{ const im=new Image(); im.src='zoom/water/frames/'+f.png; return im; });
+  requestAnimationFrame(wTick); }
+$('baseSel').onchange=()=>draw();
+$('tWater').onclick=()=>{ layersW^=1; $('tWater').classList.toggle('on',!!layersW); draw(); };
+$('wGo').onclick=()=>{ const W=ZM&&ZM.water; if(!W) return; const [e0,n0,e1,n1]=W.bounds_en; view={e:(e0+e1)/2,n:(n0+n1)/2,s:Math.min(cv.clientHeight/(n1-n0),2)*0.85}; draw(); };
+$('wPlay').onclick=()=>{ const W=ZM&&ZM.water; if(!W) return; if(wPing===null||wPing>=W.n_pings) wPing=0; wPlaying=!wPlaying; $('wPlay').textContent=wPlaying?'❚❚ pause sonar':'▶ sonar replay'; if(wPlaying) $('wGo').onclick(); };
+$('wReset').onclick=()=>{ wPlaying=false; wPing=null; $('wClock').textContent=''; $('wPlay').textContent='▶ sonar replay'; fetch(`${ZOOMP}/api/emit/reset?kind=water`,{method:'POST'}).catch(()=>{}); load(); };
+$('noaaBtn').onclick=()=>{ $('noaaFrame').src=`${ZOOMP}/air`; $('noaaBox').style.display='block'; };
+$('noaaClose').onclick=()=>{ $('noaaBox').style.display='none'; };
 let dPoll=0;
 function dTick(now){ if(dPlaying&&DR){ dT=Math.min(DR.track.duration_s, dT+(now-dLast)/1000*dSpeed); $('dClock').textContent=`drone t+${Math.round(dT)} s / ${Math.round(DR.track.duration_s)} s (×${dSpeed})`;
-    if(now-dPoll>2500||dT>=DR.track.duration_s){ dPoll=now; load(); } if(dT>=DR.track.duration_s){ dPlaying=false; $('dPlay').textContent='▶ drone replay (real Aukerman flight)'; } draw(); }
+    if(now-dPoll>2500||dT>=DR.track.duration_s){ dPoll=now; emitAir(); load(); } if(dT>=DR.track.duration_s){ dPlaying=false; $('dPlay').textContent='▶ drone replay (real Aukerman flight)'; } draw(); }
   dLast=now; requestAnimationFrame(dTick); }
 $('dPlay').onclick=()=>{ if(!DR) return; if(dT===null||dT>=DR.track.duration_s) dT=0; dPlaying=!dPlaying; $('dPlay').textContent=dPlaying?'❚❚ pause drone':'▶ drone replay (real Aukerman flight)';
   if(dPlaying&&view.s<0.8){ view={e:(ORTHO.sw_en[0]+ORTHO.ne_en[0])/2,n:(ORTHO.sw_en[1]+ORTHO.ne_en[1])/2,s:1.6}; } };
-$('dReset').onclick=()=>{ dPlaying=false; dT=null; $('dClock').textContent=''; $('dPlay').textContent='▶ drone replay (real Aukerman flight)'; load(); };
+$('dReset').onclick=()=>{ dPlaying=false; dT=null; fetch(`${ZOOMP}/api/emit/reset?kind=air`,{method:'POST'}).catch(()=>{}); $('dClock').textContent=''; $('dPlay').textContent='▶ drone replay (real Aukerman flight)'; load(); };
 async function initDrone(){ DR=await (await fetch('api/drone')).json(); if(DR.drone_t!==null&&DR.drone_t!==undefined){ dT=DR.drone_t; } computeTiles(); requestAnimationFrame(dTick); }
 init();
 </script>
