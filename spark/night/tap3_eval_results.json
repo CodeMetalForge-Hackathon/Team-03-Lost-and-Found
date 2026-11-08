@@ -1,0 +1,126 @@
+{
+ "run_at": "2026-11-08 00:55",
+ "esc50_door_wood_knock": {
+  "clips": 40,
+  "hours": 0.0556,
+  "clips_with_pattern": 0,
+  "clips_with_confirmed": 0,
+  "stream_patterns": 0,
+  "stream_confirmed": 0,
+  "pattern_fa_per_h": 0.0,
+  "confirmed_fa_per_h": 0.0,
+  "flagged_clips": []
+ },
+ "esc50_footsteps": {
+  "clips": 40,
+  "hours": 0.0556,
+  "clips_with_pattern": 0,
+  "clips_with_confirmed": 0,
+  "stream_patterns": 0,
+  "stream_confirmed": 0,
+  "pattern_fa_per_h": 0.0,
+  "confirmed_fa_per_h": 0.0,
+  "flagged_clips": []
+ },
+ "geophone": [
+  {
+   "fs_assumed": 5000,
+   "recordings": 576,
+   "hours": 12.461,
+   "patterns": 1,
+   "confirmed": 0,
+   "pattern_fa_per_h": 0.08,
+   "confirmed_fa_per_h": 0.0,
+   "recordings_with_pattern": 1,
+   "flagged_sample": [
+    "P2_E8_S2_L1_SH1"
+   ]
+  },
+  {
+   "fs_assumed": 6500,
+   "recordings": 576,
+   "hours": 9.585,
+   "patterns": 0,
+   "confirmed": 0,
+   "pattern_fa_per_h": 0.0,
+   "confirmed_fa_per_h": 0.0,
+   "recordings_with_pattern": 0,
+   "flagged_sample": []
+  },
+  {
+   "fs_assumed": 8000,
+   "recordings": 576,
+   "hours": 7.788,
+   "patterns": 0,
+   "confirmed": 0,
+   "pattern_fa_per_h": 0.0,
+   "confirmed_fa_per_h": 0.0,
+   "recordings_with_pattern": 0,
+   "flagged_sample": []
+  }
+ ],
+ "team_recordings": null,
+ "SYNTHETIC_sensitivity": {
+  "footsteps@8.0": {
+   "trials": 30,
+   "pattern_rate": 1.0,
+   "confirmed_rate": 1.0
+  },
+  "footsteps@4.0": {
+   "trials": 30,
+   "pattern_rate": 0.5666666666666667,
+   "confirmed_rate": 0.23333333333333334
+  },
+  "footsteps@2.0": {
+   "trials": 30,
+   "pattern_rate": 0.26666666666666666,
+   "confirmed_rate": 0.06666666666666667
+  },
+  "footsteps@1.0": {
+   "trials": 30,
+   "pattern_rate": 0.13333333333333333,
+   "confirmed_rate": 0.0
+  },
+  "door_wood_knock@8.0": {
+   "trials": 30,
+   "pattern_rate": 1.0,
+   "confirmed_rate": 1.0
+  },
+  "door_wood_knock@4.0": {
+   "trials": 30,
+   "pattern_rate": 0.6,
+   "confirmed_rate": 0.03333333333333333
+  },
+  "door_wood_knock@2.0": {
+   "trials": 30,
+   "pattern_rate": 0.16666666666666666,
+   "confirmed_rate": 0.03333333333333333
+  },
+  "door_wood_knock@1.0": {
+   "trials": 30,
+   "pattern_rate": 0.1,
+   "confirmed_rate": 0.03333333333333333
+  },
+  "rain@8.0": {
+   "trials": 30,
+   "pattern_rate": 1.0,
+   "confirmed_rate": 1.0
+  },
+  "rain@4.0": {
+   "trials": 30,
+   "pattern_rate": 0.8333333333333334,
+   "confirmed_rate": 0.23333333333333334
+  },
+  "rain@2.0": {
+   "trials": 30,
+   "pattern_rate": 0.1,
+   "confirmed_rate": 0.0
+  },
+  "rain@1.0": {
+   "trials": 30,
+   "pattern_rate": 0.1,
+   "confirmed_rate": 0.0
+  }
+ },
+ "runtime_s": 41.5
+}

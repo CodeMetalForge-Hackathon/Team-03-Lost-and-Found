@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog Run Replay</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#2a313c;--fg:#e6edf3;--mute:#8b949e;--acc:#ff8a1f;--cov:#2f81f7;--ok:#3fb950;--warn:#d29922;--bad:#f85149}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{display:flex;gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+h1{font-size:16px;margin:0;font-weight:600}
+.badge{padding:3px 10px;border-radius:4px;font-weight:700;letter-spacing:.06em;font-size:12px}
+.syn{background:var(--bad);color:#fff}.real{background:var(--ok);color:#000}
+select,button{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:6px 10px;font:inherit}
+button{cursor:pointer}button:hover{border-color:var(--acc)}
+main{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:12px;padding:12px 16px}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px}
+.card h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:0 0 8px}
+canvas{width:100%;display:block;background:#0b0e13;border-radius:6px}
+video{width:100%;border-radius:6px;background:#000}
+.timeline{display:flex;gap:10px;align-items:center;padding:0 16px 8px}
+input[type=range]{flex:1;accent-color:var(--acc)}
+#clock{font-variant-numeric:tabular-nums;min-width:120px;text-align:right}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{background:#0b0e13;border-radius:6px;padding:8px}.stat b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.stat span{color:var(--mute);font-size:12px}
+#alerts{max-height:260px;overflow:auto;margin:0;padding:0;list-style:none;font-size:13px}
+#alerts li{padding:4px 6px;border-bottom:1px solid var(--line);display:flex;gap:8px;cursor:pointer}
+#alerts li.future{opacity:.35}#alerts li:hover{background:#0b0e13}
+.k{font-weight:600}.src{color:var(--mute)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--mute);font-size:12px;margin-top:6px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+footer{color:var(--mute);font-size:12px;padding:4px 16px 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Dog stand-in · run replay</h1>
+  <span id="badge" class="badge"></span>
+  <select id="run" aria-label="Run"></select>
+  <button id="play">▶ Play</button>
+  <select id="speed" aria-label="Speed"><option>1</option><option selected>4</option><option>8</option><option>16</option></select>
+</header>
+<div class="timeline"><input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Time"><span id="clock">—</span></div>
+<main>
+  <div class="card">
+    <h2>Floor (metres) — coverage, track, alerts, ultrasonic</h2>
+    <canvas id="cv" width="900" height="620"></canvas>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--cov)"></i>searched (POD)</span>
+      <span><i class="sw" style="background:var(--acc)"></i>dog + track</span>
+      <span><i class="sw" style="background:#c9d1d9"></i>ultrasonic hits</span>
+      <span><i class="sw" style="background:var(--warn)"></i>auto alert</span>
+      <span><i class="sw" style="background:var(--bad)"></i>labeled event</span>
+    </div>
+  </div>
+  <div style="display:grid;gap:12px;align-content:start">
+    <div class="card"><h2>Overhead video (synced)</h2><video id="vid" muted playsinline preload="auto"></video></div>
+    <div class="card"><h2>Search state</h2>
+      <div class="stats">
+        <div class="stat"><b id="sArea">—</b><span>m² swept (POD ≥ 0.5)</span></div>
+        <div class="stat"><b id="sPod">—</b><span>mean POD over floor</span></div>
+        <div class="stat"><b id="sRem">—</b><span>probability left on floor (uniform prior × (1−POD))</span></div>
+        <div class="stat"><b id="sAl">—</b><span>alerts so far</span></div>
+      </div>
+    </div>
+    <div class="card"><h2>Alerts</h2><ul id="alerts"></ul></div>
+  </div>
+</main>
+<footer id="foot">POD model is illustrative (1 − e^(−dwell/τ)); position comes from the overhead camera, not the IMU. Ultrasonic hits are surfaces, never people.</footer>
+<script>
+const $=id=>document.getElementById(id);
+let L=null, t=0, playing=false, last=0, runName=null;
+const cv=$('cv'), g=cv.getContext('2d');
+async function loadRuns(){
+  const r=await (await fetch('api/runs')).json();
+  $('run').innerHTML=r.map(x=>`<option value="${x.name}">${x.name}${x.synthetic?' (SYNTHETIC)':''}</option>`).join('');
+  if(r.length) load(r[0].name);
+}
+async function load(name){
+  runName=name; L=await (await fetch(`api/run/${name}/layers`)).json();
+  $('badge').textContent=L.synthetic?'SYNTHETIC RUN':'REAL RUN'; $('badge').className='badge '+(L.synthetic?'syn':'real');
+  $('vid').src=`api/run/${name}/video`; t=L.t_start_ms; draw();
+}
+$('run').onchange=e=>load(e.target.value);
+function W2C(){ const [x0,y0,x1,y1]=L.floor_bounds, pad=20; const s=Math.min((cv.width-2*pad)/(x1-x0),(cv.height-2*pad)/(y1-y0));
+  return {s, f:(x,y)=>[pad+(x-x0)*s, pad+(y-y0)*s]}; }
+function snapAt(tm){ const S=L.coverage.snapshots; let lo=0,hi=S.length-1; if(tm<S[0].t_ms) return null;
+  while(lo<hi){const m=(lo+hi+1)>>1; if(S[m].t_ms<=tm) lo=m; else hi=m-1;} return S[lo]; }
+function posAt(tm){ const T=L.track; if(!T.length) return null; let lo=0,hi=T.length-1;
+  if(tm<=T[0][0]) return T[0]; if(tm>=T[hi][0]) return T[hi];
+  while(hi-lo>1){const m=(lo+hi)>>1; if(T[m][0]<=tm) lo=m; else hi=m;}
+  const a=T[lo],b=T[hi],w=(tm-a[0])/(b[0]-a[0]); return [tm,a[1]+(b[1]-a[1])*w,a[2]+(b[2]-a[2])*w]; }
+function draw(){
+  if(!L) return; const {s,f}=W2C(); g.clearRect(0,0,cv.width,cv.height);
+  const C=L.coverage, sn=snapAt(t); let sum=0, rem=0, area=0;
+  for(let j=0;j<C.ny;j++) for(let i=0;i<C.nx;i++){
+    const p=sn?sn.pod[j][i]:0; sum+=p; rem+=(1-p); if(p>=.5) area+=C.cell_m*C.cell_m;
+    const [px,py]=f(C.x0+i*C.cell_m, C.y0+j*C.cell_m);
+    g.fillStyle=`rgba(47,129,247,${0.08+0.72*p})`; g.fillRect(px+1,py+1,C.cell_m*s-2,C.cell_m*s-2);
+  }
+  const n=C.nx*C.ny; $('sArea').textContent=area.toFixed(1); $('sPod').textContent=(sum/n).toFixed(2);
+  $('sRem').textContent=(100*rem/n).toFixed(0)+'%';
+  // markers rectangle
+  const M=Object.values(L.markers); g.strokeStyle='#3fb950'; g.lineWidth=1.5; g.setLineDash([6,4]); g.beginPath();
+  M.forEach((m,k)=>{const [x,y]=f(m[0],m[1]); k?g.lineTo(x,y):g.moveTo(x,y)}); g.closePath(); g.stroke(); g.setLineDash([]);
+  g.fillStyle='#3fb950'; g.font='12px system-ui'; Object.entries(L.markers).forEach(([k,m])=>{const [x,y]=f(m[0],m[1]); g.fillText(k,x+4,y-4)});
+  (L.obstacles||[]).forEach(b=>{const [a,c]=[f(b[0],b[1]),f(b[2],b[3])]; g.strokeStyle='#8b949e'; g.strokeRect(a[0],a[1],c[0]-a[0],c[1]-a[1]);});
+  // ultrasonic
+  g.fillStyle='rgba(201,209,217,.55)'; for(const h of L.occupancy.hits){ if(h[0]>t) break; const [x,y]=f(h[1],h[2]); g.fillRect(x-1,y-1,2,2); }
+  // track trail
+  g.strokeStyle='rgba(255,138,31,.7)'; g.lineWidth=2; g.beginPath(); let st=false;
+  for(const p of L.track){ if(p[0]<L.t_start_ms) continue; if(p[0]>t) break; const [x,y]=f(p[1],p[2]); st?g.lineTo(x,y):(g.moveTo(x,y),st=true);} g.stroke();
+  // alerts
+  let na=0; const ul=$('alerts');
+  for(const a of L.alerts){ if(a.t_ms>t) continue; na++; const [x,y]=f(a.x,a.y), lab=a.source==='labeled';
+    g.fillStyle=lab?'#f85149':'#d29922'; g.beginPath(); g.moveTo(x,y); g.arc(x,y-12,6,Math.PI*0.75,Math.PI*2.25); g.closePath(); g.fill(); }
+  $('sAl').textContent=na;
+  [...ul.children].forEach(li=>li.classList.toggle('future',+li.dataset.t>t));
+  // dog
+  const d=posAt(t); if(d){const [x,y]=f(d[1],d[2]); g.fillStyle='#ff8a1f'; g.beginPath(); g.arc(x,y,8,0,7); g.fill(); g.strokeStyle='#000'; g.stroke();}
+  if(L.synthetic){ g.fillStyle='rgba(248,81,73,.9)'; g.font='bold 16px system-ui'; g.fillText('SYNTHETIC',cv.width-110,22); }
+  const rel=(t-L.t_start_ms)/1000; $('clock').textContent=(rel<0?'−':'+')+Math.abs(rel).toFixed(1)+' s';
+  $('scrub').value=Math.round(1000*(t-L.track[0][0])/(L.t_end_ms-L.track[0][0]));
+}
+function fillAlerts(){ $('alerts').innerHTML=L.alerts.map(a=>`<li data-t="${a.t_ms}"><span>${((a.t_ms-L.t_start_ms)/1000).toFixed(1)}s</span><span class="k">${a.kind}</span><span class="src">${a.source}</span></li>`).join('');
+  [...$('alerts').children].forEach(li=>li.onclick=()=>seek(+li.dataset.t)); }
+const _load=load; load=async n=>{await _load(n); fillAlerts(); draw();};
+function seek(tm){ t=Math.max(L.track[0][0],Math.min(L.t_end_ms,tm)); const v=$('vid'); if(v.readyState>0) v.currentTime=Math.max(0,(t-L.offset_ms)/1000); draw(); }
+$('scrub').oninput=e=>{ if(L) seek(L.track[0][0]+(+e.target.value/1000)*(L.t_end_ms-L.track[0][0])); };
+$('play').onclick=()=>{ playing=!playing; $('play').textContent=playing?'❚❚ Pause':'▶ Play'; last=performance.now();
+  const v=$('vid'); v.playbackRate=+$('speed').value; if(playing){ v.currentTime=Math.max(0,(t-L.offset_ms)/1000); v.play().catch(()=>{});} else v.pause(); };
+$('speed').onchange=()=>{$('vid').playbackRate=+$('speed').value};
+function tick(now){ if(playing&&L){ t+=(now-last)*(+$('speed').value); if(t>=L.t_end_ms){t=L.t_end_ms; playing=false; $('play').textContent='▶ Play'; $('vid').pause();}
+    const v=$('vid'); if(!v.paused && Math.abs(v.currentTime-(t-L.offset_ms)/1000)>0.4) v.currentTime=(t-L.offset_ms)/1000; draw(); } last=now; requestAnimationFrame(tick); }
+requestAnimationFrame(tick); loadRuns();
+</script>
+</body>
+</html>

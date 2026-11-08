@@ -1,0 +1,24 @@
+{
+ "cell_m": 50.0,
+ "half_m": 10000.0,
+ "n": 400,
+ "lkp": {
+  "lat": 41.304129,
+  "lon": -81.75371
+ },
+ "dem": "N41W082.tif (1 arc-second, read-only from skyfix/data/dem)",
+ "osm": "OpenStreetMap contributors (ODbL), ohio-latest.osm.pbf (Geofabrik)",
+ "counts": {
+  "road": 28515,
+  "trail": 13921,
+  "water": 1160,
+  "waterline": 876,
+  "building": 35438,
+  "bbox": 4
+ },
+ "cells_with_buildings": 15430,
+ "elev_range_m": [
+  183.17343139648438,
+  415.53521728515625
+ ]
+}

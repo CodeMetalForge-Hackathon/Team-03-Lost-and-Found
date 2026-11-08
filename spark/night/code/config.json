@@ -1,0 +1,43 @@
+{
+ "_note": "Shared frame for the night build. Floor metres (dog, tap3 on the venue floor) are projected onto the map at floor_anchor for the demo; this is a display choice, not a survey.",
+ "lkp": {
+  "lat": 41.304129,
+  "lon": -81.75371
+ },
+ "floor_anchor": {
+  "lat": 41.30455,
+  "lon": -81.7518,
+  "rotation_deg": 0.0,
+  "scale": 50.0,
+  "_doc": "floor (0,0) = marker M1; +x east, +y south (image down); rotation clockwise. DEMO SCALING: 1 floor metre = scale map metres, so the 6 x 4 m venue floor stands in for a 300 x 200 m search sector. Shown on screen."
+ },
+ "cluster_m": {
+  "floor": 2.0,
+  "geo": 25.0
+ },
+ "cluster_window_s": 600,
+ "modality_weight": {
+  "tap_pattern_3": 0.85,
+  "thermal_person": 0.9,
+  "rgb_person": 0.7,
+  "acoustic_hv": 0.8,
+  "acoustic_hnv": 0.3,
+  "seismic_footstep": 0.5,
+  "dog_alert": 0.6,
+  "dog_bark": 0.5,
+  "dog_stop": 0.3,
+  "dog_spin": 0.35,
+  "knock": 0.6,
+  "shout": 0.7,
+  "sound_spike": 0.3,
+  "tap3": 0.85,
+  "skyfix_fix": 0.0,
+  "default": 0.3
+ },
+ "cot": {
+  "type": "a-h-G",
+  "how": "m-f",
+  "stale_min": 30,
+  "uid_prefix": "NIGHT-"
+ }
+}

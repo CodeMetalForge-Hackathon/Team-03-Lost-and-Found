@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Persona Search Map</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#2a313c;--fg:#e6edf3;--mute:#8b949e;--ok:#3fb950;--warn:#d29922;--bad:#f85149;--acc:#ff8a1f;--blue:#58a6ff}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:var(--bg);color:var(--fg);font:13.5px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;flex-direction:column}
+header{display:flex;gap:10px;align-items:center;padding:8px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+h1{margin:0;font-size:16px}select,input,button,textarea{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font:inherit}
+button{cursor:pointer}button:hover{border-color:var(--acc)}button.primary{border-color:var(--acc);background:#2a1a08}
+.badge{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.05em}
+.ver{background:#12361d;color:var(--ok)}.ill{background:#3d2a08;color:var(--warn)}.syn{background:var(--bad);color:#fff}
+.wrap{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 380px;min-height:0}
+@media(max-width:980px){.wrap{grid-template-columns:1fr}.side{max-height:none}}
+#mapbox{position:relative;min-height:420px}canvas#map{position:absolute;inset:0;width:100%;height:100%;cursor:grab;background:#0b0e13}
+.side{border-left:1px solid var(--line);overflow:auto;padding:10px;display:grid;gap:10px;align-content:start;max-height:calc(100vh - 50px)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px}
+.card h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:0 0 6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}td,th{padding:3px 4px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--mute);font-weight:500}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.prov{color:var(--mute);font-size:11.5px}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:4px 0}
+.row label{color:var(--mute);font-size:12px}
+.legend{position:absolute;left:10px;bottom:10px;background:rgba(14,17,22,.85);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:11.5px}
+.bar{height:8px;width:160px;border-radius:2px;margin:4px 0}
+.hud{position:absolute;right:10px;top:10px;background:rgba(14,17,22,.85);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:12px;max-width:300px}
+.clue{border-bottom:1px solid var(--line);padding:5px 0}.clue.off{opacity:.45}
+.clue b{font-size:12.5px}
+footer{color:var(--mute);font-size:11.5px;padding:5px 14px;border-top:1px solid var(--line)}
+.tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.tools button.on{border-color:var(--acc);color:var(--acc)}
+#pickhint{color:var(--acc);font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Persona Search Map · Clue Engine</h1>
+  <select id="persona" aria-label="Persona"></select>
+  <span id="vbadge" class="badge"></span>
+  <select id="mode" aria-label="Layer">
+    <option value="post">posterior (prior × clues × coverage)</option>
+    <option value="prior">prior only</option>
+    <option value="cv">uncertainty (coefficient of variation)</option>
+    <option value="ratio">change: posterior / prior</option>
+  </select>
+  <span class="prov" id="psrc"></span>
+</header>
+<div class="wrap">
+  <div id="mapbox">
+    <canvas id="map"></canvas>
+    <div class="tools">
+      <button id="tOsm" class="on">roads/trails/water</button><button id="tBld">buildings</button>
+      <button id="tRings" class="on">distance rings</button><button id="tOrtho" class="on">ortho</button>
+      <button id="tDog" class="on">dog coverage</button><button id="tCt" class="on">contacts</button>
+      <button id="home">⌂ IPP</button>
+    </div>
+    <div class="hud" id="hud">hover a cell</div>
+    <div class="legend"><div id="legT">P(subject in cell)</div><canvas id="leg" class="bar" width="160" height="8"></canvas><div style="display:flex;justify-content:space-between"><span id="leg0">low</span><span id="leg1">high</span></div></div>
+  </div>
+  <aside class="side">
+    <div class="card"><h2>Search state</h2>
+      <table><tr><td>probability captured by dog coverage</td><td class="n" id="cap">—</td></tr>
+      <tr><td>active clues</td><td class="n" id="nclues">0</td></tr>
+      <tr><td>dog run</td><td class="n" id="dogrun">—</td></tr></table>
+      <div class="prov" id="dognote"></div>
+    </div>
+    <div class="card"><h2>Add clue</h2>
+      <div class="row"><select id="ctype" style="flex:1"></select></div>
+      <div class="row"><button id="pick">📍 click map to place</button><span id="pickhint"></span></div>
+      <div class="row" id="extra"></div>
+      <div class="row"><input id="cnote" placeholder="note (what, who, when)" style="flex:1"></div>
+      <div class="row"><input type="file" id="photo" accept="image/*" style="max-width:190px"><button id="propose">VLM: propose type</button></div>
+      <div class="prov" id="propout"></div>
+      <div class="row"><button id="addc" class="primary">Add clue → update map</button><input id="op" value="operator-1" size="10" aria-label="operator"></div>
+      <div class="prov" id="ctprov"></div>
+    </div>
+    <div class="card"><h2>Clues (each update shows its provenance)</h2><div id="clist" class="prov">none yet</div></div>
+    <div class="card"><h2>Top cells</h2><table><thead><tr><th>#</th><th>class</th><th>dist</th><th class="n">P</th><th class="n">CV</th></tr></thead><tbody id="tops"></tbody></table></div>
+    <div class="card"><h2>Prior mass by terrain class</h2>
+      <table><thead><tr><th>class</th><th class="n">map</th><th class="n">find %</th></tr></thead><tbody id="mass"></tbody></table>
+      <div class="prov" id="pnote"></div></div>
+  </aside>
+</div>
+<footer>Prior: Koester 2020 distance quantiles (Table 3) and find-location shares (Table 7), fitted together by iterative proportional fitting; OSM © contributors; DEM hillshade. Hiker / hunter / dementia are ILLUSTRATIVE. The map is always normalised to 100 % because planners' hand estimates are usually subadditive (Hill 2012: 78 % of planners). Clue likelihood ratios are hand-set expert priors; each shows its provenance.</footer>
+<script>
+const $=id=>document.getElementById(id);
+let META,S,OSM,ORTHO=null,orthoImg=null,CT=[];
+let view={e:0,n:0,s:0.06}, pick=null, picking=false, layers={osm:1,bld:0,rings:1,ortho:1,dog:1,ct:1};
+const cv=$('map'), g=cv.getContext('2d'); const heat=document.createElement('canvas'); let N=400;
+function dec(b){ if(!b) return null; const s=atob(b), u=new Uint8Array(s.length); for(let i=0;i<s.length;i++) u[i]=s.charCodeAt(i); return new Float32Array(u.buffer); }
+function cmap(t){ // perceptual dark->orange->yellow
+  t=Math.max(0,Math.min(1,t)); const st=[[11,14,19],[49,33,107],[140,41,129],[222,73,104],[254,159,109],[252,253,191]];
+  const x=t*(st.length-1), i=Math.min(st.length-2,Math.floor(x)), f=x-i; return st[i].map((v,k)=>Math.round(v+(st[i+1][k]-v)*f)); }
+function cmapDiv(t){ // ratio: blue (down) - grey - orange (up), t in [-1,1]
+  const a=[88,166,255], m=[40,44,52], b=[255,138,31]; const c=t<0?a:b, f=Math.min(1,Math.abs(t)); return m.map((v,k)=>Math.round(v+(c[k]-v)*f)); }
+function legend(mode){ const lg=$('leg').getContext('2d'); const BL=[[252,232,120],[254,150,70],[222,60,120],[130,70,200]]; for(let x=0;x<160;x++){ const c=mode==='ratio'?cmapDiv(x/80-1):(mode==='cv'?cmap(x/159):BL[Math.min(3,Math.floor(x/40))]); lg.fillStyle=`rgb(${c})`; lg.fillRect(x,0,1,8);}
+  $('legT').textContent={post:'posterior: smallest area holding 25 / 50 / 75 / 95 % of probability',prior:'prior: smallest area holding 25 / 50 / 75 / 95 % of probability',cv:'coefficient of variation (40 Monte Carlo draws)',ratio:'posterior / prior (log₂)'}[mode];
+  $('leg0').textContent=mode==='ratio'?'×¼':mode==='cv'?'0':'25 %   50 %   75 %'; $('leg1').textContent=mode==='ratio'?'×4':mode==='cv'?'≥1.5':'95 %'; }
+function buildHeat(){
+  const mode=$('mode').value; legend(mode); N=META.n; heat.width=N; heat.height=N; const hg=heat.getContext('2d'), im=hg.createImageData(N,N);
+  const P=dec(S.post), Q=dec(S.prior), C=dec(S.cv); let A, lo, hi;
+  if(mode==='cv'){ A=C; lo=0; hi=1.5; }
+  else if(mode==='ratio'){ A=new Float32Array(P.length); for(let i=0;i<P.length;i++) A[i]=Math.log2((P[i]+1e-15)/(Q[i]+1e-15)); lo=-2; hi=2; }
+  else { // colour = cumulative-mass rank: brightest cells hold the first few % of probability, darkest the last 1 %
+    const src=mode==='post'?P:Q, idx=new Uint32Array(src.length).map((_,i)=>i); idx.sort((a,b)=>src[b]-src[a]);
+    A=new Float32Array(src.length); let cum=0; for(const i of idx){ A[i]=cum; cum+=src[i]; } lo=0; hi=1; }
+  const BANDS=[[0.25,[252,232,120]],[0.5,[254,150,70]],[0.75,[222,60,120]],[0.95,[130,70,200]]];
+  const banded=(mode==='post'||mode==='prior');
+  for(let i=0;i<A.length;i++){ let c, al=215;
+    if(banded){ const b=BANDS.find(b=>A[i]<b[0]); if(b){c=b[1]; al=200;} else {c=[0,0,0]; al=0;} }
+    else { const t=(A[i]-lo)/(hi-lo); c=mode==='ratio'?cmapDiv(Math.max(-1,Math.min(1,A[i]/2))):cmap(t); if(mode==='ratio'&&Math.abs(A[i])<0.05) al=40; }
+    im.data[4*i]=c[0]; im.data[4*i+1]=c[1]; im.data[4*i+2]=c[2]; im.data[4*i+3]=al; }
+  hg.putImageData(im,0,0); S._P=P; S._C=C; S._Q=Q;
+}
+function resize(){ const r=cv.getBoundingClientRect(); cv.width=r.width*devicePixelRatio; cv.height=r.height*devicePixelRatio; draw(); }
+const W2S=(e,n)=>[cv.width/2+(e-view.e)*view.s*devicePixelRatio, cv.height/2-(n-view.n)*view.s*devicePixelRatio];
+const S2W=(x,y)=>[view.e+(x*devicePixelRatio-cv.width/2)/(view.s*devicePixelRatio), view.n-(y*devicePixelRatio-cv.height/2)/(view.s*devicePixelRatio)];
+function poly(pts,close){ g.beginPath(); pts.forEach((p,i)=>{const [x,y]=W2S(p[0],p[1]); i?g.lineTo(x,y):g.moveTo(x,y);}); if(close) g.closePath(); }
+function draw(){
+  if(!S) return; g.setTransform(1,0,0,1,0,0); g.clearRect(0,0,cv.width,cv.height); const H=META.half_m, dpr=devicePixelRatio;
+  const [x0,y0]=W2S(-H,H), [x1,y1]=W2S(H,-H); g.imageSmoothingEnabled=false; g.globalAlpha=1; g.drawImage(heat,x0,y0,x1-x0,y1-y0);
+  if(layers.ortho && orthoImg && ORTHO){ const [a,b]=W2S(ORTHO.sw_en[0],ORTHO.ne_en[1]), [c,d]=W2S(ORTHO.ne_en[0],ORTHO.sw_en[1]); g.globalAlpha=view.s>0.5?0.85:0.5; g.imageSmoothingEnabled=true; g.drawImage(orthoImg,a,b,c-a,d-b); g.globalAlpha=1; }
+  if(layers.osm && OSM){ g.lineCap='round';
+    g.strokeStyle='rgba(88,166,255,.75)'; g.fillStyle='rgba(88,166,255,.35)'; g.lineWidth=1*dpr; OSM.water.forEach(l=>{poly(l,true); g.fill();}); OSM.waterline.forEach(l=>{poly(l); g.stroke();});
+    if(view.s>0.03){ g.strokeStyle=`rgba(230,237,243,${view.s>0.2?.45:.18})`; g.lineWidth=(view.s>0.3?2:1)*dpr; OSM.road.forEach(l=>{poly(l); g.stroke();}); }
+    if(view.s>0.06){ g.strokeStyle='rgba(63,185,80,.75)'; g.setLineDash([3*dpr,3*dpr]); OSM.trail.forEach(l=>{poly(l); g.stroke();}); g.setLineDash([]); } }
+  if(layers.bld && OSM && view.s>0.08){ g.fillStyle='rgba(255,255,255,.6)'; OSM.building.forEach(b=>{const [x,y]=W2S(b[0],b[1]); g.fillRect(x-1.5*dpr,y-1.5*dpr,3*dpr,3*dpr);}); }
+  const P=META.personas[$('persona').value];
+  if(layers.rings){ g.strokeStyle='rgba(255,255,255,.55)'; g.lineWidth=1*dpr; g.font=`${11*dpr}px system-ui`; g.fillStyle='rgba(255,255,255,.8)'; const [cx,cy]=W2S(0,0);
+    P.q.forEach((r,i)=>{ g.beginPath(); g.arc(cx,cy,r*view.s*dpr,0,7); g.setLineDash([5*dpr,4*dpr]); g.stroke(); g.setLineDash([]); g.fillText(['25%','50%','75%','95%'][i]+' '+(r/1000)+' km',cx+r*view.s*dpr*0.707+4,cy-r*view.s*dpr*0.707); }); }
+  if(layers.dog && S.dog){ g.strokeStyle='#ff8a1f'; g.lineWidth=2*dpr; poly(S.dog.outline_en,true); g.stroke(); const [x,y]=W2S(S.dog.outline_en[0][0],S.dog.outline_en[0][1]); g.fillStyle='#ff8a1f'; g.font=`bold ${11*dpr}px system-ui`; g.fillText('dog sector'+(S.dog.synthetic?' (SYNTHETIC)':''),x,y-5*dpr); }
+  // IPP
+  { const [x,y]=W2S(0,0); g.fillStyle='#fff'; g.strokeStyle='#000'; g.lineWidth=2*dpr; g.beginPath(); g.moveTo(x,y-9*dpr); g.lineTo(x+7*dpr,y+5*dpr); g.lineTo(x-7*dpr,y+5*dpr); g.closePath(); g.fill(); g.stroke(); g.font=`bold ${11*dpr}px system-ui`; g.fillText('IPP/LKP',x+9*dpr,y+4*dpr); }
+  // clues
+  (S.clues||[]).forEach(c=>{ const [x,y]=W2S(c.e,c.n); g.globalAlpha=c.active?1:.35; g.fillStyle=c.type==='searched_no_find'?'#58a6ff':'#d29922'; g.beginPath(); g.arc(x,y,6*dpr,0,7); g.fill(); g.strokeStyle='#000'; g.stroke();
+    if(c.type==='searched_no_find'){ g.strokeStyle='#58a6ff'; g.beginPath(); g.arc(x,y,(c.radius_m||200)*view.s*dpr,0,7); g.stroke(); }
+    g.fillStyle='#fff'; g.font=`${11*dpr}px system-ui`; g.fillText('K'+c.i,x+8*dpr,y-6*dpr); g.globalAlpha=1; });
+  // contacts
+  if(layers.ct) CT.forEach(c=>{ const e=(c.e!==undefined)?c.e:null; if(e===null) return; const [x,y]=W2S(c.e,c.n); g.fillStyle=c.status==='confirmed'?'#3fb950':'#f85149'; g.beginPath(); g.moveTo(x,y); g.arc(x,y-14*dpr,7*dpr,Math.PI*.75,Math.PI*2.25); g.closePath(); g.fill(); g.fillStyle='#fff'; g.font=`bold ${11*dpr}px system-ui`; g.fillText(c.contact_id+' '+c.p_person.toFixed(2),x+9*dpr,y-12*dpr); });
+  if(pick){ const [x,y]=W2S(pick[0],pick[1]); g.strokeStyle='#ff8a1f'; g.lineWidth=2*dpr; g.beginPath(); g.moveTo(x-10*dpr,y); g.lineTo(x+10*dpr,y); g.moveTo(x,y-10*dpr); g.lineTo(x,y+10*dpr); g.stroke(); }
+  // scale bar
+  const m=[50,100,250,500,1000,2000,5000].find(v=>v*view.s>80)||5000; g.fillStyle='#fff'; g.fillRect(14*dpr,cv.height-60*dpr,m*view.s*dpr,3*dpr); g.font=`${11*dpr}px system-ui`; g.fillText(m>=1000?m/1000+' km':m+' m',14*dpr,cv.height-66*dpr);
+}
+// interaction
+let drag=null; cv.addEventListener('mousedown',e=>{drag=[e.clientX,e.clientY,view.e,view.n,false]; cv.style.cursor='grabbing';});
+window.addEventListener('mouseup',e=>{ if(drag&&!drag[4]&&picking){ const r=cv.getBoundingClientRect(); pick=S2W(e.clientX-r.left,e.clientY-r.top); picking=false; $('pickhint').textContent=`placed at ${Math.round(pick[0])} m E, ${Math.round(pick[1])} m N of IPP`; draw(); } drag=null; cv.style.cursor='grab'; });
+window.addEventListener('mousemove',e=>{ if(drag){ const dx=e.clientX-drag[0], dy=e.clientY-drag[1]; if(Math.abs(dx)+Math.abs(dy)>3) drag[4]=true; view.e=drag[2]-dx/view.s; view.n=drag[3]+dy/view.s; draw(); } else hover(e); });
+cv.addEventListener('wheel',e=>{ e.preventDefault(); const r=cv.getBoundingClientRect(); const [we,wn]=S2W(e.clientX-r.left,e.clientY-r.top); const f=Math.exp(-e.deltaY*0.0015); view.s=Math.max(0.02,Math.min(4,view.s*f)); const [ne,nn]=S2W(e.clientX-r.left,e.clientY-r.top); view.e+=we-ne; view.n+=wn-nn; draw(); },{passive:false});
+function hover(e){ if(!S||!S._P) return; const r=cv.getBoundingClientRect(); const [we,wn]=S2W(e.clientX-r.left,e.clientY-r.top); const H=META.half_m, c=Math.floor((we+H)/META.cell_m), rr=Math.floor((H-wn)/META.cell_m);
+  if(c<0||rr<0||c>=N||rr>=N){ $('hud').textContent='outside grid'; return; } const i=rr*N+c;
+  $('hud').innerHTML=`cell ${rr},${c} · ${(Math.hypot(we,wn)/1000).toFixed(2)} km from IPP<br>posterior <b>${(S._P[i]*100).toPrecision(2)}%</b> · prior ${(S._Q[i]*100).toPrecision(2)}%<br>CV ${S._C[i].toFixed(2)} ${S._C[i]>1?'(very uncertain)':S._C[i]>0.5?'(uncertain)':''}`; }
+['Osm','Bld','Rings','Ortho','Dog','Ct'].forEach(k=>{ $('t'+k).onclick=()=>{ const key=k.toLowerCase(); layers[key]=!layers[key]; $('t'+k).classList.toggle('on',!!layers[key]); draw(); }; });
+$('home').onclick=()=>{view={e:0,n:0,s:0.06}; draw();};
+$('pick').onclick=()=>{picking=true; $('pickhint').textContent='click on the map…';};
+function extraFields(){ const t=$('ctype').value, X=$('extra'); const f={witness_sighting:'<label>hours ago <input id="xh" size="4" value="1"></label>', phone_fix:'<label>uncertainty ce (m) <input id="xce" size="5" value="50"></label>', searched_no_find:'<label>radius m <input id="xr" size="5" value="300"></label> <label>track m <input id="xt" size="5" value="3000"></label> <label><input type="checkbox" id="xn"> night</label>'}[t]||'';
+  X.innerHTML=f; $('ctprov').textContent='provenance: '+META.clues[t].prov; }
+$('ctype').onchange=extraFields;
+let photoB64=null; $('photo').onchange=e=>{ const f=e.target.files[0]; if(!f) return; const rd=new FileReader(); rd.onload=()=>{photoB64=rd.result;}; rd.readAsDataURL(f); };
+$('propose').onclick=async()=>{ if(!photoB64){ $('propout').textContent='choose a photo first'; return; } $('propout').textContent='asking Qwen3-VL on :8002…';
+  const r=await (await fetch('api/propose',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({photo_b64:photoB64})})).json();
+  if(r.type){ $('ctype').value=r.type; extraFields(); } $('propout').textContent=(r.available?`VLM suggests: ${r.type||'unsure'} — ${r.reason||''} (you confirm)`:r.reason); };
+$('addc').onclick=async()=>{ if(!pick){ $('pickhint').textContent='place the clue on the map first'; return; }
+  const t=$('ctype').value, body={type:t,e:pick[0],n:pick[1],note:$('cnote').value,operator:$('op').value,photo_b64:photoB64};
+  if($('xh')) body.hours_ago=$('xh').value; if($('xce')) body.ce_m=$('xce').value; if($('xr')){ body.radius_m=$('xr').value; body.track_m=$('xt').value; body.night=$('xn').checked; }
+  const r=await fetch('api/clue',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}); if(!r.ok){ $('pickhint').textContent=await r.text(); return; }
+  pick=null; photoB64=null; $('photo').value=''; $('cnote').value=''; $('pickhint').textContent=''; load(); };
+async function toggle(i){ await fetch(`api/clue/${i}/toggle`,{method:'POST'}); load(); }
+async function load(){
+  const p=$('persona').value; S=await (await fetch('api/state?persona='+p)).json(); buildHeat();
+  const P=META.personas[p]; $('vbadge').textContent=P.verified?'VERIFIED (Koester 2020)':'ILLUSTRATIVE'; $('vbadge').className='badge '+(P.verified?'ver':'ill'); $('psrc').textContent=P.source;
+  $('mass').innerHTML=META.classes.map(c=>`<tr><td>${c}</td><td class="n">${S.class_mass_pct[c].toFixed(1)}%</td><td class="n">${S.find_pct[c]}%</td></tr>`).join('');
+  $('pnote').textContent=(S.note||'')+' "map" = prior mass in cells of that class after fitting; "find %" = target share.';
+  $('tops').innerHTML=S.top.map((t,i)=>`<tr onclick="view.e=${t.e};view.n=${t.n};view.s=0.6;draw()" style="cursor:pointer"><td>${i+1}</td><td>${t.class}</td><td>${(t.dist_m/1000).toFixed(2)} km</td><td class="n">${(t.p*100).toPrecision(2)}%</td><td class="n">${t.cv}</td></tr>`).join('');
+  const act=(S.clues||[]).filter(c=>c.active); $('nclues').textContent=act.length;
+  $('clist').innerHTML=(S.clues||[]).slice().reverse().map(c=>`<div class="clue ${c.active?'':'off'}"><b>K${c.i} ${c.label}</b> <button onclick="toggle(${c.i})">${c.active?'disable':'enable'}</button><br>${c.note?c.note+'<br>':''}${c.pod!==undefined?'POD '+c.pod+(c.pod_calc?' = '+c.pod_calc:'')+'<br>':''}${c.photo?'photo sha256 '+c.photo_sha256.slice(0,12)+'…<br>':''}<span>${c.prov}</span>${c.proposed_by?'<br>type proposed by '+c.proposed_by:''}<br>by ${c.operator} · ${new Date(c.t*1000).toLocaleTimeString()}</div>`).join('')||'none yet';
+  $('cap').textContent=(100*S.probability_captured).toFixed(2)+' %';
+  $('dogrun').innerHTML=S.dog?(S.dog.run+(S.dog.synthetic?' <span class="badge syn">SYNTHETIC</span>':'')):'—';
+  $('dognote').textContent=S.dog?`Demo scaling: 1 floor metre = ${S.dog.scale} map metres (the venue floor stands in for a ${Math.round(6*S.dog.scale)} × ${Math.round(4*S.dog.scale)} m sector). POD per cell from the rover's dwell model (illustrative).`:'';
+  draw();
+}
+async function pollContacts(){ try{ const r=await (await fetch('api/contacts')).json(); const lat0=META.lkp.lat, lon0=META.lkp.lon, R=6371008.8;
+  CT=r.map(c=>({...c, e:(c.lon-lon0)*Math.PI/180*R*Math.cos(lat0*Math.PI/180), n:(c.lat-lat0)*Math.PI/180*R})); draw(); }catch(e){} }
+async function init(){
+  META=await (await fetch('api/meta')).json();
+  $('persona').innerHTML=Object.entries(META.personas).map(([k,p])=>`<option value="${k}">${p.label}</option>`).join('');
+  $('ctype').innerHTML=Object.entries(META.clues).map(([k,c])=>`<option value="${k}">${c.label}</option>`).join(''); extraFields();
+  $('persona').onchange=()=>{ fetch('api/persona',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({persona:$('persona').value,operator:$('op').value})}); load(); };
+  $('mode').onchange=()=>{buildHeat(); draw();};
+  resize(); window.addEventListener('resize',resize);
+  await load();
+  fetch('api/osm').then(r=>r.json()).then(o=>{OSM=o; draw();});
+  fetch('api/ortho_bounds').then(r=>r.json()).then(b=>{ORTHO=b; orthoImg=new Image(); orthoImg.onload=draw; orthoImg.src='ortho.png';});
+  pollContacts(); setInterval(pollContacts,3000);
+}
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perch and Listen</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#2a313c;--fg:#e6edf3;--mute:#8b949e;--hv:#3fb950;--noise:#f85149;--acc:#ff8a1f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{margin:0;font-size:18px}.sub{color:var(--mute);font-size:13px}
+select,button{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:7px 12px;font:inherit;cursor:pointer}
+button.big{font-size:18px;padding:12px 22px;border-color:var(--acc);background:#2a1a08}
+button.big:disabled{opacity:.4;cursor:default}
+main{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 16px}
+@media(max-width:820px){main{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;position:relative}
+.card.active{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+.card h2{margin:0 0 4px;font-size:15px}.card .cond{color:var(--mute);font-size:13px;margin-bottom:10px}
+.meter{height:30px;background:#0b0e13;border-radius:6px;overflow:hidden;position:relative;margin:6px 0 2px}
+.meter i{display:block;height:100%;transition:width .6s}
+.meter span{position:absolute;left:10px;top:5px;font-weight:700;font-variant-numeric:tabular-nums}
+.model{margin-top:10px}.model b{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+ol{margin:4px 0 0 18px;padding:0;font-size:13px}ol li{font-variant-numeric:tabular-nums}
+.hvtag{color:var(--hv);font-weight:600}
+.ctl{display:flex;gap:10px;align-items:center;justify-content:center;padding:4px 16px 0;flex-wrap:wrap}
+canvas{width:100%;height:70px;display:block;background:#0b0e13;border-radius:6px}
+.live{font-size:12px;color:var(--mute);margin-top:6px}
+footer{color:var(--mute);font-size:12.5px;padding:4px 16px 18px;max-width:1100px}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>Perch and Listen</h1><div class="sub" id="cfg">DroneAudioSet</div></div>
+  <select id="win" aria-label="Clip"></select>
+</header>
+<div class="ctl">
+  <button id="playFly">▶ Listen in flight</button>
+  <button id="land" class="big">⬇ Land, cut rotors</button>
+  <button id="playGt">ground-truth source</button>
+  <label class="sub"><input type="checkbox" id="high"> throttle high</label>
+</div>
+<main>
+  <section class="card" id="cFly">
+    <h2>In flight — rotors on</h2><div class="cond" id="fCond"></div>
+    <canvas id="wFly" width="600" height="70"></canvas>
+    <div class="meter"><i id="fBar" style="background:var(--noise);width:0"></i><span id="fVal">P(human voice) —</span></div>
+    <div class="model"><b>PANNs CNN14</b><ol id="fP"></ol></div>
+    <div class="model"><b>AST (AudioSet)</b><ol id="fA"></ol></div>
+    <div class="live" id="fLive"></div>
+  </section>
+  <section class="card" id="cPer">
+    <h2>Perched — rotors off</h2><div class="cond" id="pCond"></div>
+    <canvas id="wPer" width="600" height="70"></canvas>
+    <div class="meter"><i id="pBar" style="background:var(--hv);width:0"></i><span id="pVal">P(human voice) —</span></div>
+    <div class="model"><b>PANNs CNN14</b><ol id="pP"></ol></div>
+    <div class="model"><b>AST (AudioSet)</b><ol id="pA"></ol></div>
+    <div class="live" id="pLive"></div>
+  </section>
+</main>
+<footer>
+Same recording, same 5-second window, same speaker 1 m away. Only the rotor noise differs. In DroneAudioSet the drone is mounted on a frame, not free-flying; the rotor noise is real.
+P(human voice) = the strongest AudioSet human-vocal label (speech, shout, scream, crying…). Scores come from <code>tag.py</code> on raw levels. "Live" lines re-run both models on the GPU when you press play.
+Honest limit: we listen from a perch, a throttle-down window or a ground node because in-flight listening fails, as the left panel shows.
+</footer>
+<script>
+const $=id=>document.getElementById(id); let R=null, cur=null, audio=new Audio();
+const fmt=t=>t.map(([l,s])=>`<li><span class="${/speech|shout|scream|yell|cry|child|voice|narration|conversation/i.test(l)?'hvtag':''}">${l}</span> ${s.toFixed(2)}</li>`).join('');
+async function init(){
+  R=await (await fetch('api/results')).json(); $('cfg').textContent='DroneAudioSet · '+R.config;
+  $('win').innerHTML=R.clips.map((c,i)=>`<option value="${i}">${c.file} @ ${c.t0}s · source ${c.db} dB</option>`).join('');
+  $('win').onchange=()=>show(+$('win').value); $('high').onchange=()=>show(+$('win').value); show(0);
+}
+function cond(c,key){return c.conditions.find(x=>x.condition.startsWith(key));}
+function show(i){
+  cur=R.clips[i]; const per=cond(cur,'perched'), fly=cond(cur, $('high').checked?'in flight, throttle high':'in flight, throttle low');
+  $('cFly').style.display=fly?'':'none';
+  if(fly) fill('f',fly); fill('p',per); $('land').disabled=!fly; $('playFly').disabled=!fly;
+  ['cFly','cPer'].forEach(id=>$(id).classList.remove('active'));
+  if(fly) wave('wFly','clips/'+fly.clip); wave('wPer','clips/'+per.clip);
+}
+function fill(p,c){
+  $(p+'Cond').textContent=`${c.condition} · level ${c.rms_dbfs} dBFS`;
+  const hv=Math.max(c.panns.p_hv,c.ast.p_hv);
+  $(p+'Bar').style.width=(100*hv).toFixed(0)+'%'; $(p+'Val').textContent=`P(human voice)  PANNs ${c.panns.p_hv.toFixed(2)} · AST ${c.ast.p_hv.toFixed(2)}`;
+  $(p+'P').innerHTML=fmt(c.panns.top); $(p+'A').innerHTML=fmt(c.ast.top); $(p+'Live').textContent='';
+}
+async function wave(id,url){
+  try{ const buf=await (await fetch(url)).arrayBuffer(); const ac=new (window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,16000,16000);
+    const ab=await ac.decodeAudioData(buf); const d=ab.getChannelData(0), cv=$(id), g=cv.getContext('2d'); g.clearRect(0,0,cv.width,cv.height);
+    g.strokeStyle=id==='wFly'?'#f85149':'#3fb950'; g.beginPath(); const st=Math.floor(d.length/cv.width);
+    for(let x=0;x<cv.width;x++){let m=0; for(let k=0;k<st;k++) m=Math.max(m,Math.abs(d[x*st+k]||0)); g.moveTo(x,35-m*33); g.lineTo(x,35+m*33);} g.stroke(); }catch(e){}
+}
+async function live(p,c){ $(p+'Live').textContent='re-tagging on GPU…';
+  try{ const r=await (await fetch('api/tag/'+encodeURIComponent(c.clip))).json();
+    $(p+'Live').textContent=`live (${r.ms} ms, peak-normalised clip): PANNs ${r.panns.p_hv.toFixed(2)} [${r.panns.top[0][0]}] · AST ${r.ast.p_hv.toFixed(2)} [${r.ast.top[0][0]}]`; }
+  catch(e){ $(p+'Live').textContent='live tagging unavailable — showing stored results'; } }
+function play(url){ audio.pause(); audio=new Audio(url); audio.play().catch(()=>{}); }
+$('playFly').onclick=()=>{ const fly=cond(cur,$('high').checked?'in flight, throttle high':'in flight, throttle low'); play('clips/'+fly.clip);
+  $('cFly').classList.add('active'); $('cPer').classList.remove('active'); live('f',fly); };
+$('land').onclick=()=>{ const per=cond(cur,'perched'); play('clips/'+per.clip); $('cPer').classList.add('active'); $('cFly').classList.remove('active'); live('p',per); };
+$('playGt').onclick=()=>play('clips/'+cur.groundtruth_clip);
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+{
+ "teacher_counts": {
+  "HV": 2776,
+  "HNV": 248,
+  "NH": 1816
+ },
+ "n_train": 3630,
+ "n_test": 1210,
+ "train": "room1/drone1@1m + room1/drone2@1m + room2/drone1@3m",
+ "test": "room3/drone2@3m (unseen room)",
+ "by_throttle": {
+  "low": {
+   "n": 605,
+   "test_counts": {
+    "HV": 347,
+    "HNV": 31,
+    "NH": 227
+   },
+   "probe_f1": {
+    "HV": 0.592,
+    "HNV": 0.059,
+    "NH": 0.359
+   },
+   "probe_macro_f1": 0.337,
+   "zeroshot_ast_f1": {
+    "HV": 0.0,
+    "HNV": 0.0,
+    "NH": 0.546
+   },
+   "zeroshot_macro_f1": 0.182,
+   "probe_confusion(rows=true HV,HNV,NH)": [
+    [
+     206,
+     17,
+     124
+    ],
+    [
+     14,
+     2,
+     15
+    ],
+    [
+     129,
+     18,
+     80
+    ]
+   ]
+  },
+  "high": {
+   "n": 605,
+   "test_counts": {
+    "HV": 347,
+    "HNV": 31,
+    "NH": 227
+   },
+   "probe_f1": {
+    "HV": 0.08,
+    "HNV": 0.075,
+    "NH": 0.464
+   },
+   "probe_macro_f1": 0.206,
+   "zeroshot_ast_f1": {
+    "HV": 0.0,
+    "HNV": 0.0,
+    "NH": 0.546
+   },
+   "zeroshot_macro_f1": 0.182,
+   "probe_confusion(rows=true HV,HNV,NH)": [
+    [
+     15,
+     84,
+     248
+    ],
+    [
+     2,
+     7,
+     22
+    ],
+    [
+     13,
+     64,
+     150
+    ]
+   ]
+  },
+  "all": {
+   "n": 1210,
+   "test_counts": {
+    "HV": 694,
+    "HNV": 62,
+    "NH": 454
+   },
+   "probe_f1": {
+    "HV": 0.412,
+    "HNV": 0.071,
+    "NH": 0.421
+   },
+   "probe_macro_f1": 0.301,
+   "zeroshot_ast_f1": {
+    "HV": 0.0,
+    "HNV": 0.0,
+    "NH": 0.546
+   },
+   "zeroshot_macro_f1": 0.182,
+   "probe_confusion(rows=true HV,HNV,NH)": [
+    [
+     221,
+     101,
+     372
+    ],
+    [
+     16,
+     9,
+     37
+    ],
+    [
+     142,
+     82,
+     230
+    ]
+   ]
+  }
+ }
+}

@@ -87,3 +87,16 @@ Everything in this repo was written during the hackathon. External pieces: Ardui
 - GPS is accurate to about 5 m, so the last few meters rely on the dog and the handler.
 - Glasses heading comes from the phone/glasses orientation sensor. If only a relative heading is available, the arrow follows head turns but is not north-referenced.
 - Cloudflare quick tunnel URLs change on every restart.
+
+## Spark night build: status (Sun Nov 8, ~01:00)
+
+Trace Fusion shell + live sensors, on the DGX Spark. Details: [`spark/night/README.md`](spark/night/README.md), demo order: [`spark/night/DEMO_FLOW.md`](spark/night/DEMO_FLOW.md).
+
+| piece | port | status | headline number (re-runnable) |
+|---|---|---|---|
+| Fusion inbox → contacts → human confirm → CoT → hash chain → AAR | 8140 | working, 9 tests | CoT validates against the cot-validator XSD; an edited chain record fails `/verify` at that line |
+| Tap Three detector (contact mic) | → 8140 | working; **no team recordings yet** | 0 confirmed false alarms on ESC-50 knocks/footsteps + 7.8–12.5 h geophone walk-bys ([results](spark/night/RESULTS_tap3.md)) |
+| Dog stand-in ingest + replay | 8141 | working on a **SYNTHETIC** run; real runs re-process with one command | sync 0.4 ms / track 1.6 cm vs synthetic truth ([results](spark/night/RESULTS_dog.md)) |
+| Perch and Listen | 8142 | working | P(human voice) 0.80–0.89 rotors off vs 0.02–0.04 rotors on; probe HV F1 0.59 (low throttle, unseen room) ([results](spark/night/RESULTS_perch.md)) |
+| Persona Search Map + Clue Engine | 8143 | working | prior matches Koester 2020 Table 3 quantiles and Table 7 find-location shares exactly; hiker/hunter/dementia illustrative |
+| Sky Fix (Persona 1 phone) | 8130 | separate session | see [`spark/skyfix/`](spark/skyfix/) |
