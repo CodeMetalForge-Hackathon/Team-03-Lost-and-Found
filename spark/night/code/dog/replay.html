@@ -42,6 +42,7 @@ footer{color:var(--mute);font-size:12px;padding:4px 16px 16px}
   <button id="play">▶ Play</button>
   <select id="speed" aria-label="Speed"><option>1</option><option selected>4</option><option>8</option><option>16</option></select>
 </header>
+<div id="scalebar" style="margin:8px 16px 0;padding:6px 10px;border:1px solid var(--acc);border-radius:6px;color:var(--acc);font-size:13px">map scale: loading…</div>
 <div class="timeline"><input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Time"><span id="clock">—</span></div>
 <main>
   <div class="card">
@@ -78,10 +79,14 @@ async function loadRuns(){
   $('run').innerHTML=r.map(x=>`<option value="${x.name}">${x.name}${x.synthetic?' (SYNTHETIC)':''}</option>`).join('');
   if(r.length) load(r[0].name);
 }
+async function scaleLabel(){ try{ const k=await (await fetch('api/scale')).json(); const fc=L?L.coverage.cell_m:0.5;
+  const ok=Math.abs(fc*k.scale-k.map_cell_m)<1e-6; const [x0,y0,x1,y1]=L?L.floor_bounds:[0,0,6,4];
+  $('scalebar').textContent=`MAP SCALE (demo): 1 floor cell (${fc} m) = 1 search-map cell (${k.map_cell_m} m) · scale ×${k.scale} · this floor appears on the map as a ${Math.round((x1-x0)*k.scale)} × ${Math.round((y1-y0)*k.scale)} m sector`+(ok?'':' · WARNING: cells do not match');
+ }catch(e){ $('scalebar').textContent='map scale: unavailable'; } }
 async function load(name){
   runName=name; L=await (await fetch(`api/run/${name}/layers`)).json();
   $('badge').textContent=L.synthetic?'SYNTHETIC RUN':'REAL RUN'; $('badge').className='badge '+(L.synthetic?'syn':'real');
-  $('vid').src=`api/run/${name}/video`; t=L.t_start_ms; draw();
+  $('vid').src=`api/run/${name}/video`; t=L.t_start_ms; draw(); scaleLabel();
 }
 $('run').onchange=e=>load(e.target.value);
 function W2C(){ const [x0,y0,x1,y1]=L.floor_bounds, pad=20; const s=Math.min((cv.width-2*pad)/(x1-x0),(cv.height-2*pad)/(y1-y0));

@@ -34,7 +34,7 @@ pre{white-space:pre-wrap;word-break:break-all;font-size:11.5px;margin:0;color:#c
   <div class="card"><h2>Contacts (nothing is confirmed without a human)</h2>
     <table><thead><tr><th>id</th><th>p(person)</th><th>sources</th><th>where</th><th>status</th><th></th></tr></thead><tbody id="ct"></tbody></table></div>
   <div class="card"><h2>After-action review</h2><div class="kv" id="aar"></div></div>
-  <div class="card"><h2>Last CoT (validated against cot-validator XSD)</h2><pre id="cot">—</pre></div>
+  <div class="card"><h2>Last CoT pin (a-u-G unconfirmed → a-f-G confirmed; validated against cot-validator XSD)</h2><pre id="cot">—</pre></div>
 </div>
 <div class="card chain"><h2>Evidence chain (SHA-256, newest first)</h2><div id="chain"></div></div>
 </main>
@@ -54,8 +54,8 @@ async function refresh(){
     <td class="st-${c.status}">${c.status}${c.operator_id?'<br><span class=src>'+esc(c.operator_id)+'</span>':''}</td>
     <td>${c.status==='candidate'?`<button class="go" onclick="act('confirm','${c.contact_id}')">Confirm</button> <button class="no" onclick="act('clear','${c.contact_id}')">Clear</button>`:''}</td></tr>`).join('')||'<tr><td colspan=6 class=src>no contacts yet — sensors write to night/inbox/</td></tr>';
   const lastCot=[...ch].reverse().find(r=>r.type==='cot_written');
-  if(lastCot && lastCot.payload.contact_id!==window._cotShown){ window._cotShown=lastCot.payload.contact_id;
-    fetch('cot/'+lastCot.payload.contact_id).then(r=>r.text()).then(x=>{ $('cot').textContent=(lastCot.payload.valid?'✔ valid against ':'✘ INVALID against ')+lastCot.payload.xsd+'  sha256 '+lastCot.payload.sha256.slice(0,16)+'…\n\n'+x; }); }
+  if(lastCot && lastCot.payload.sha256!==window._cotShown){ window._cotShown=lastCot.payload.sha256;
+    fetch('cot/'+lastCot.payload.contact_id).then(r=>r.text()).then(x=>{ $('cot').textContent=lastCot.payload.contact_id+' '+lastCot.payload.type+' ('+lastCot.payload.status+') · '+(lastCot.payload.valid?'✔ valid against ':'✘ INVALID against ')+lastCot.payload.xsd+'  sha256 '+lastCot.payload.sha256.slice(0,16)+'…\n\n'+x; }); }
   $('chain').innerHTML=ch.reverse().map(r=>`<div><b>#${r.seq}</b> ${r.type} <span class="src">${r.ts.slice(11,19)}Z</span> ${r.payload.sensor?esc(r.payload.sensor+':'+r.payload.kind):''}${r.payload.contact?esc(r.payload.contact.contact_id):''}<br><code>${r.hash.slice(0,24)}… ← ${r.prev.slice(0,12)}…</code></div>`).join('');
   const f=x=>x==null?'—':x;
   $('aar').innerHTML=`<span>time to first contact</span><b>${f(a.time_to_first_contact_s)} s</b>

@@ -46,6 +46,15 @@ def video(name: str):
     return FileResponse(p, media_type="video/mp4")
 
 
+@app.get("/api/scale")
+def scale():
+    """Floor -> search-map scaling used by fusion and the map (config.json floor_anchor.scale)."""
+    cfg = json.loads((HERE.parent / "config.json").read_text())
+    k = float(cfg["floor_anchor"].get("scale", 1.0))
+    map_cell = 50.0      # map/model.py CELL
+    return {"scale": k, "map_cell_m": map_cell, "floor_cell_m_equiv": map_cell / k}
+
+
 @app.get("/health")
 def health():
     return {"ok": True}

@@ -11,8 +11,11 @@ Nothing becomes confirmed without POST /confirm {contact_id, operator_id}.
 Evidence: every ingested detection, new contact, contact update, confirm, clear and CoT write is
   appended to night/evidence/chain.jsonl as {seq, ts, type, payload, prev, hash} with
   hash = sha256(prev + canonical_json({seq, ts, type, payload})). GET /verify re-walks the chain.
-CoT: each confirmed contact -> night/evidence/cot/<uid>.xml, validated against the cot-validator
-  XSD ("Marker - 2525.xsd"); validation result is chained too.
+CoT: every contact is emitted as CoT, validated against the cot-validator XSD ("Marker - 2525.xsd"):
+  candidate -> type a-u-G (unknown ground); after a human confirms, the SAME uid is re-emitted as
+  a-f-G (friendly ground) so ATAK updates the pin in place. a-h-* (hostile) is refused: a survivor is not
+  hostile. Files: evidence/cot/<uid>.xml (current) + <uid>.candidate.xml / <uid>.confirmed.xml; every
+  write is chained (type, XSD result, sha256).
 
   python fuse.py [port]          # service
   python fuse.py --verify        # verify chain, exit 1 on break
@@ -104,16 +107,30 @@ def verify_chain(path: Path = CHAIN) -> dict:
 
 
 # ---------------- CoT ----------------
+def cot_type(status: str) -> str:
+    cc = CFG["cot"]
+    t = cc["type_confirmed"] if status == "confirmed" else cc["type_candidate"]
+    if t.lower().startswith("a-h"):
+        raise ValueError(f"refusing CoT type {t}: a survivor is not hostile (use a-u-G / a-f-G)")
+    return t
+
+
+for _st in ("candidate", "confirmed"):      # fail at start-up, not mid-demo, if the config is wrong
+    cot_type(_st)
+
+
 def cot_xml(c: dict) -> str:
     now = datetime.now(timezone.utc)
     f = lambda d: d.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"  # noqa: E731
     cc = CFG["cot"]; uid = cc["uid_prefix"] + c["contact_id"]
+    typ = cot_type(c.get("status", "candidate"))
     srcs = ", ".join(f"{s['sensor']}:{s['kind']}={s['confidence']:.2f}" for s in c["sources"])
-    remarks = (f"p_person={c['p_person']:.2f}; sources: {srcs}; confirmed by {c['operator_id']} at {c['confirmed_at']}; "
-               f"evidence chain seq {c.get('chain_seq')}")
+    who = (f"CONFIRMED by {c['operator_id']} at {c['confirmed_at']}" if c.get("status") == "confirmed"
+           else "UNCONFIRMED candidate: machine detection, awaiting human confirm")
+    remarks = f"p_person={c['p_person']:.2f}; sources: {srcs}; {who}; evidence chain seq {c.get('chain_seq')}" 
     from xml.sax.saxutils import quoteattr, escape
     return (f'<?xml version="1.0" encoding="UTF-8"?>\n'
-            f'<event version="2.0" uid={quoteattr(uid)} type="{cc["type"]}" time="{f(now)}" start="{f(now)}" '
+            f'<event version="2.0" uid={quoteattr(uid)} type="{typ}" time="{f(now)}" start="{f(now)}" '
             f'stale="{f(now + timedelta(minutes=cc["stale_min"]))}" how="{cc["how"]}">'
             f'<point lat="{c["lat"]:.7f}" lon="{c["lon"]:.7f}" hae="9999999.0" ce="{c["ce_m"]:.1f}" le="9999999.0"/>'
             f'<detail><contact callsign={quoteattr("LF " + c["contact_id"] + " p=" + format(c["p_person"], ".2f"))}/>'
@@ -208,8 +225,23 @@ class Fusion:
             fs = float(CFG["floor_anchor"].get("scale", 1.0))
             best["ce_m"] = round(1.0 * fs if frame == "floor" else 10.0 if k > 1 else 25.0, 1)
             best["lat"], best["lon"] = en_to_ll(best["e"], best["n"])
-            self.chain.append(typ, {"contact": self.public(best), "by_detection": det["chain_seq"]})
+            rec = self.chain.append(typ, {"contact": self.public(best), "by_detection": det["chain_seq"]})
+            best["chain_seq"] = rec["seq"]
+            self.write_cot(best)       # a-u-G while candidate; a confirmed contact stays a-f-G on updates
             return best
+
+    def write_cot(self, c: dict) -> dict:
+        xml = cot_xml(c)
+        ok, msg = validate_cot(xml)
+        out = EVID / "cot"; out.mkdir(parents=True, exist_ok=True)
+        base = f"{CFG['cot']['uid_prefix']}{c['contact_id']}"
+        path = out / f"{base}.xml"; path.write_text(xml)
+        (out / f"{base}.{c.get('status', 'candidate')}.xml").write_text(xml)
+        typ = cot_type(c.get("status", "candidate"))
+        self.chain.append("cot_written", {"contact_id": c["contact_id"], "type": typ, "status": c.get("status"),
+                                          "path": str(path), "xsd": XSD.name, "valid": ok, "detail": msg,
+                                          "sha256": hashlib.sha256(xml.encode()).hexdigest()})
+        return {"cot_path": str(path), "cot_valid": ok, "cot_detail": msg, "cot_type": typ}
 
     def public(self, c):
         return {k: v for k, v in c.items() if not k.startswith("_")}
@@ -225,13 +257,7 @@ class Fusion:
             c["confirmed_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
             rec = self.chain.append("contact_confirmed", {"contact": self.public(c), "operator_id": operator_id})
             c["chain_seq"] = rec["seq"]
-            xml = cot_xml(c)
-            ok, msg = validate_cot(xml)
-            out = EVID / "cot"; out.mkdir(parents=True, exist_ok=True)
-            path = out / f"{CFG['cot']['uid_prefix']}{cid}.xml"; path.write_text(xml)
-            self.chain.append("cot_written", {"contact_id": cid, "path": str(path), "xsd": XSD.name, "valid": ok,
-                                              "detail": msg, "sha256": hashlib.sha256(xml.encode()).hexdigest()})
-            return {"contact": self.public(c), "cot_path": str(path), "cot_valid": ok, "cot_detail": msg}
+            return {"contact": self.public(c), **self.write_cot(c)}     # same uid re-emitted as a-f-G
 
     def clear(self, cid, operator_id, reason=""):
         with self.lock:

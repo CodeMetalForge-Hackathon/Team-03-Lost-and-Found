@@ -60,12 +60,20 @@ def test_fusion_confirm_cot_chain(client):
     assert {s["sensor"] for s in floor["sources"]} == {"dog1", "tap3"}
     assert abs(floor["p_person"] - (1 - (1 - .3 * .3) * (1 - .85 * .95))) < 1e-3
     assert floor["status"] == "candidate"
+    cand = c.get(f"/cot/{floor['contact_id']}").text            # unconfirmed contact -> a-u-G, XSD-valid
+    assert 'type="a-u-G"' in cand and "UNCONFIRMED" in cand
+    assert fuse.validate_cot(cand)[0]
     r = c.post("/confirm", json={"contact_id": floor["contact_id"], "operator_id": "op1"})
-    assert r.status_code == 200 and r.json()["cot_valid"], r.text
+    assert r.status_code == 200 and r.json()["cot_valid"] and r.json()["cot_type"] == "a-f-G", r.text
     assert c.post("/confirm", json={"contact_id": "C99", "operator_id": "op1"}).status_code == 404
     assert c.post("/confirm", json={"contact_id": floor["contact_id"], "operator_id": ""}).status_code == 422
-    xml = c.get(f"/cot/{floor['contact_id']}").text
-    assert 'type="a-h-G"' in xml and "op1" in xml
+    xml = c.get(f"/cot/{floor['contact_id']}").text            # same uid re-emitted as friendly
+    assert 'type="a-f-G"' in xml and "CONFIRMED by op1" in xml
+    uid = 'uid="NIGHT-' + floor["contact_id"] + '"'
+    assert uid in xml and uid in cand
+    assert "a-h" not in xml and "a-h" not in cand
+    types = [x["payload"]["type"] for x in c.get("/chain?tail=500").json() if x["type"] == "cot_written"]
+    assert "a-u-G" in types and types[-1] == "a-f-G" and not any(t.startswith("a-h") for t in types)
     v = c.get("/verify").json()
     assert v["ok"] and v["records"] >= 6
 
@@ -93,12 +101,18 @@ def test_inbox_rejects_malformed(client):
     assert any(r["type"] == "inbox_rejected" for r in c.get("/chain").json())
 
 
-def test_cot_xsd_rejects_bad_lat():
+def test_cot_xsd_and_type_guard(monkeypatch):
     sys.modules.pop("fuse", None)
     import fuse
-    x = fuse.cot_xml({"contact_id": "C1", "lat": 200.0, "lon": 0.0, "ce_m": 5, "p_person": .5, "sources": [],
-                      "operator_id": "o", "confirmed_at": "t"})
-    assert not fuse.validate_cot(x)[0]
+    base = {"contact_id": "C1", "lat": 41.3, "lon": -81.75, "ce_m": 5, "p_person": .5, "sources": [],
+            "operator_id": "o", "confirmed_at": "t"}
+    for st, typ in (("candidate", "a-u-G"), ("confirmed", "a-f-G")):
+        x = fuse.cot_xml({**base, "status": st})
+        assert f'type="{typ}"' in x and fuse.validate_cot(x)[0]
+    assert not fuse.validate_cot(fuse.cot_xml({**base, "lat": 200.0}))[0]        # XSD rejects bad lat
+    monkeypatch.setitem(fuse.CFG["cot"], "type_confirmed", "a-h-G")              # hostile is refused
+    with pytest.raises(ValueError):
+        fuse.cot_xml({**base, "status": "confirmed"})
 
 
 # ---------------- map model ----------------

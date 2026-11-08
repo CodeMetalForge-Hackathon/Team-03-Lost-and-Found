@@ -130,7 +130,10 @@ function draw(){
   const P=META.personas[$('persona').value];
   if(layers.rings){ g.strokeStyle='rgba(255,255,255,.55)'; g.lineWidth=1*dpr; g.font=`${11*dpr}px system-ui`; g.fillStyle='rgba(255,255,255,.8)'; const [cx,cy]=W2S(0,0);
     P.q.forEach((r,i)=>{ g.beginPath(); g.arc(cx,cy,r*view.s*dpr,0,7); g.setLineDash([5*dpr,4*dpr]); g.stroke(); g.setLineDash([]); g.fillText(['25%','50%','75%','95%'][i]+' '+(r/1000)+' km',cx+r*view.s*dpr*0.707+4,cy-r*view.s*dpr*0.707); }); }
-  if(layers.dog && S.dog){ g.strokeStyle='#ff8a1f'; g.lineWidth=2*dpr; poly(S.dog.outline_en,true); g.stroke(); const [x,y]=W2S(S.dog.outline_en[0][0],S.dog.outline_en[0][1]); g.fillStyle='#ff8a1f'; g.font=`bold ${11*dpr}px system-ui`; g.fillText('dog sector'+(S.dog.synthetic?' (SYNTHETIC)':''),x,y-5*dpr); }
+  if(layers.dog && S.dog){ g.strokeStyle='#ff8a1f'; g.lineWidth=2*dpr; poly(S.dog.outline_en,true); g.stroke(); const [x,y]=W2S(S.dog.outline_en[0][0],S.dog.outline_en[0][1]); g.fillStyle='#ff8a1f'; g.font=`bold ${11*dpr}px system-ui`; const l1='dog sector'+(S.dog.synthetic?' (SYNTHETIC)':''), l2=`1 floor cell (${S.dog.floor_cell_m} m) = 1 map cell (${S.dog.map_cell_m} m)`;
+    g.font=`bold ${12*dpr}px system-ui`; const w=Math.max(g.measureText(l1).width,g.measureText(l2).width)+12*dpr;
+    g.fillStyle='rgba(14,17,22,.88)'; g.fillRect(x-2*dpr,y-36*dpr,w,32*dpr); g.strokeStyle='#ff8a1f'; g.lineWidth=1*dpr; g.strokeRect(x-2*dpr,y-36*dpr,w,32*dpr);
+    g.fillStyle='#ff8a1f'; g.fillText(l1,x+4*dpr,y-22*dpr); g.font=`bold ${11.5*dpr}px system-ui`; g.fillText(l2,x+4*dpr,y-8*dpr); }
   // IPP
   { const [x,y]=W2S(0,0); g.fillStyle='#fff'; g.strokeStyle='#000'; g.lineWidth=2*dpr; g.beginPath(); g.moveTo(x,y-9*dpr); g.lineTo(x+7*dpr,y+5*dpr); g.lineTo(x-7*dpr,y+5*dpr); g.closePath(); g.fill(); g.stroke(); g.font=`bold ${11*dpr}px system-ui`; g.fillText('IPP/LKP',x+9*dpr,y+4*dpr); }
   // clues
@@ -177,7 +180,7 @@ async function load(){
   $('clist').innerHTML=(S.clues||[]).slice().reverse().map(c=>`<div class="clue ${c.active?'':'off'}"><b>K${c.i} ${c.label}</b> <button onclick="toggle(${c.i})">${c.active?'disable':'enable'}</button><br>${c.note?c.note+'<br>':''}${c.pod!==undefined?'POD '+c.pod+(c.pod_calc?' = '+c.pod_calc:'')+'<br>':''}${c.photo?'photo sha256 '+c.photo_sha256.slice(0,12)+'…<br>':''}<span>${c.prov}</span>${c.proposed_by?'<br>type proposed by '+c.proposed_by:''}<br>by ${c.operator} · ${new Date(c.t*1000).toLocaleTimeString()}</div>`).join('')||'none yet';
   $('cap').textContent=(100*S.probability_captured).toFixed(2)+' %';
   $('dogrun').innerHTML=S.dog?(S.dog.run+(S.dog.synthetic?' <span class="badge syn">SYNTHETIC</span>':'')):'—';
-  $('dognote').textContent=S.dog?`Demo scaling: 1 floor metre = ${S.dog.scale} map metres (the venue floor stands in for a ${Math.round(6*S.dog.scale)} × ${Math.round(4*S.dog.scale)} m sector). POD per cell from the rover's dwell model (illustrative).`:'';
+  $('dognote').innerHTML=S.dog?`<b style="color:var(--acc)">Demo scale: 1 floor cell (${S.dog.floor_cell_m} m) = 1 map cell (${S.dog.map_cell_m} m)</b> (×${S.dog.scale}); the venue floor stands in for a ${S.dog.sector_m[0]} × ${S.dog.sector_m[1]} m sector.${S.dog.cells_match?'':' WARNING: cells do not match.'} POD per cell from the rover's dwell model (illustrative).`:'';
   draw();
 }
 async function pollContacts(){ try{ const r=await (await fetch('api/contacts')).json(); const lat0=META.lkp.lat, lon0=META.lkp.lon, R=6371008.8;

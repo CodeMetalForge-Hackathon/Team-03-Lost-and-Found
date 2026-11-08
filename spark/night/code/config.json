@@ -8,8 +8,8 @@
   "lat": 41.30455,
   "lon": -81.7518,
   "rotation_deg": 0.0,
-  "scale": 50.0,
-  "_doc": "floor (0,0) = marker M1; +x east, +y south (image down); rotation clockwise. DEMO SCALING: 1 floor metre = scale map metres, so the 6 x 4 m venue floor stands in for a 300 x 200 m search sector. Shown on screen."
+  "scale": 100.0,
+  "_doc": "floor (0,0) = marker M1; +x east, +y south (image down); rotation clockwise. DEMO SCALING: 1 dog floor cell (0.5 m) = 1 map cell (50 m), i.e. scale = 50 / 0.5 = 100, so the 6 x 4 m venue floor stands in for a 600 x 400 m search sector. Shown on the replay page and on the map."
  },
  "cluster_m": {
   "floor": 2.0,
@@ -35,9 +35,11 @@
   "default": 0.3
  },
  "cot": {
-  "type": "a-h-G",
+  "type_candidate": "a-u-G",
+  "type_confirmed": "a-f-G",
   "how": "m-f",
   "stale_min": 30,
-  "uid_prefix": "NIGHT-"
+  "uid_prefix": "NIGHT-",
+  "_doc": "Unconfirmed contact = a-u-G (unknown ground). After a human confirms, the same uid is re-emitted as a-f-G (friendly ground), so ATAK updates the pin in place. a-h-* (hostile) is refused by fuse.py: a survivor is not hostile."
  }
 }

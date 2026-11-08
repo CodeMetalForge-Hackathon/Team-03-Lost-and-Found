@@ -76,7 +76,9 @@ def dog_coverage():
     x0, y0, x1, y1 = L["floor_bounds"]
     outline = [floor_to_en(x, y) for x, y in [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]]
     return {"run": runs[0].parent.name, "synthetic": L.get("synthetic", False), "outline_en": outline,
-            "cell_map_m": C["cell_m"] * k, "scale": k}, cells
+            "cell_map_m": C["cell_m"] * k, "scale": k, "floor_cell_m": C["cell_m"], "map_cell_m": M.CELL,
+            "cells_match": abs(C["cell_m"] * k - M.CELL) < 1e-6,
+            "sector_m": [round((x1 - x0) * k), round((y1 - y0) * k)]}, cells
 
 
 def b64(a):
