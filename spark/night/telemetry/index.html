@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runs Local</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#2a313c;--fg:#e6edf3;--mute:#8b949e;--ok:#3fb950;--warn:#d29922;--bad:#f85149;--acc:#76b900}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--line)}
+h1{margin:0;font-size:22px}.sub{color:var(--mute);font-size:13px}
+#net{padding:14px 22px;border-radius:10px;font-weight:800;font-size:20px;letter-spacing:.04em;background:var(--ok);color:#000;text-align:center;max-width:100%}
+#net.amber{background:var(--warn)}#net small{display:block;font-size:12px;font-weight:600;letter-spacing:0;word-break:break-all}
+main{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:12px;padding:12px 16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px}.wide{grid-column:1/-1}
+.card h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:0 0 10px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.m b{font-size:24px;font-variant-numeric:tabular-nums;display:block}.m span{color:var(--mute);font-size:12px}
+svg{width:100%;height:36px;display:block}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{color:var(--mute);font-weight:500}td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.ok{color:var(--ok)}.bad{color:var(--bad)}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+footer{color:var(--mute);font-size:12px;padding:6px 16px 20px}
+.tw{overflow-x:auto}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>Runs Local — DGX Spark GB10</h1>
+  <div class="sub"><span id="host">—</span> · NVIDIA DGX Spark · GB10 · 128 GB unified · up <span id="up">—</span> · updated <span id="ago">—</span></div></div>
+  <div id="net">checking network…</div>
+</header>
+<main>
+  <div class="card wide"><h2>GPU · nvidia-smi</h2><div id="gpuerr" class="bad" hidden></div><div class="g" id="gpu"></div></div>
+  <div class="card"><h2>Host</h2><div class="g" id="host2"></div></div>
+  <div class="card"><h2>Models: weights on local disk; nothing is called over the network</h2><table id="models"></table></div>
+  <div class="card wide"><h2>Demo services · probed from this machine every 2 s (2 s timeout)</h2><div class="tw"><table id="svc"></table></div></div>
+</main>
+<footer>All inference, maps, imagery and evidence chains are served from this machine. Attribution lines as in each service's README.</footer>
+<script>
+const $=id=>document.getElementById(id);
+function spark(a,col,max){const v=a.filter(x=>x!=null);if(!v.length)return '<svg viewBox="0 0 120 36"></svg>';
+ const mx=max??(Math.max(...v)*1.1||1),n=Math.max(a.length,2);let d='',st=false;
+ a.forEach((x,i)=>{if(x==null){st=false;return;}const X=(i/(n-1)*120).toFixed(1),Y=(34-32*Math.min(x,mx)/mx).toFixed(1);d+=(st?'L':'M')+X+' '+Y;st=true;});
+ return `<svg viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true"><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>`;}
+const GB=b=>b>=1e9?(b/1e9).toFixed(1)+' GB':(b/1e6).toFixed(0)+' MB';
+function dur(s){const d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);return (d?d+'d ':'')+h+'h '+m+'m';}
+let last=0;
+async function poll(){try{const D=await (await fetch('api/metrics',{cache:'no-store'})).json();if(!D.t)return;last=D.t;
+ $('host').textContent=D.host;$('up').textContent=dur(D.uptime_s);
+ const o=D.outbound||[];const n=$('net');
+ if(o.length){n.className='amber';n.innerHTML=`INTERNET IN USE: ${o.length} outbound connection${o.length>1?'s':''}<small>${o.join(' · ')}</small>`;}
+ else{n.className='';n.innerHTML='NO INTERNET IN USE<small>0 outbound TCP connections outside LAN / Tailscale / loopback</small>';}
+ const g=D.gpu,h=D.hist;
+ if(!g.ok){$('gpuerr').hidden=false;$('gpuerr').textContent='nvidia-smi failed: '+g.error;$('gpu').innerHTML='';}
+ else{$('gpuerr').hidden=true;const cell=(lab,val,unit,arr,col,max)=>`<div class="m"><b>${val==null?'n/a':val+unit}</b><span>${lab}</span>${spark(arr,col,max)}</div>`;
+  $('gpu').innerHTML=cell('GPU utilisation',g.util,' %',h.util,'#76b900',100)+
+   cell('GPU memory (nvidia-smi)',g.mem_used==null?null:(g.mem_used/1024).toFixed(1),g.mem_total?` / ${(g.mem_total/1024).toFixed(0)} GB`:' GB',h.mem,'#2f81f7')+
+   cell('power draw',g.power,' W',h.power,'#d29922')+cell('temperature',g.temp,' °C',h.temp,'#f85149');
+  if(g.mem_used==null) $('gpu').insertAdjacentHTML('beforeend','<div class="m"><span>GB10 memory is unified with the CPU; nvidia-smi reports it as N/A, see RAM under Host.</span></div>');}
+ $('host2').innerHTML=`<div class="m"><b>${D.cpu.toFixed(0)} %</b><span>CPU</span>${spark(h.cpu,'#a371f7',100)}</div>
+  <div class="m"><b>${GB(D.ram.used)}</b><span>RAM used of ${GB(D.ram.total)} (unified)</span></div>
+  <div class="m"><b>${GB(D.disk.used)}</b><span>disk used of ${GB(D.disk.total)} (${D.disk.path})</span></div>`;
+ $('svc').innerHTML='<tr><th>service</th><th>port</th><th>status</th><th>round trip</th><th style="width:30%">last 2 min</th></tr>'+D.services.map(s=>{
+  const ok=s.code&&s.code<400;return `<tr><td><span class="dot" style="background:${ok?'var(--ok)':'var(--bad)'}"></span>${s.name}</td><td class="n">${s.port}</td>
+  <td class="n ${ok?'ok':'bad'}">${s.code??(s.error||'DOWN')}</td><td class="n">${s.ms==null?'—':s.ms+' ms'}</td><td>${spark(s.hist,ok?'#3fb950':'#f85149')}</td></tr>`;}).join('');
+ $('models').innerHTML='<tr><th>model</th><th>size</th><th>path</th></tr>'+D.models.map(m=>`<tr><td>${m.name}</td><td class="n">${m.path?GB(m.bytes):'<span class="bad">not found</span>'}</td><td style="color:var(--mute);font-size:12px;word-break:break-all">${m.path||''}</td></tr>`).join('');
+}catch(e){$('net').className='amber';$('net').textContent='telemetry server unreachable';}}
+setInterval(()=>{if(last)$('ago').textContent=Math.max(0,Math.round(Date.now()/1000-last))+' s ago';},1000);
+poll();setInterval(poll,2000);
+</script>
+</body>
+</html>

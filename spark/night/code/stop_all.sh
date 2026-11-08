@@ -6,3 +6,4 @@ for f in run/*.pid; do
   if kill -0 "$pid" 2>/dev/null; then kill "$pid" && echo "stopped $(basename "$f" .pid) ($pid)"; fi
   rm -f "$f"
 done
+bash "$(dirname "$0")/telemetry/run.sh" stop 2>/dev/null   # telemetry started by hand via telemetry/run.sh

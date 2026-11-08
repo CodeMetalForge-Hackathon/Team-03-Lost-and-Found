@@ -29,6 +29,7 @@ Our rule was *honesty beats polish*. Every screen says what is real, what is rep
 | 8141 | Dog replay + Dog's eye | SYNTHETIC dog run replay; the Dog's eye card shows real run 10 |
 | 8142 | Perch and Listen | The same speech with rotors off vs on |
 | 8150 | Zoom AIR / WATER | Real NOAA imagery, map forming; sonar mosaic |
+| 8160 | **Runs Local** — :8160 | GPU/CPU/RAM, service latencies, model weights on local disk, live no-internet check ([`spark/night/telemetry/`](spark/night/telemetry/)) |
 
 Order and script: [`spark/night/DEMO_FLOW.md`](spark/night/DEMO_FLOW.md). Restart: `night/stop_all.sh`, `night/run_all.sh`, `zoom/run.sh reset`, `skyfix/run.sh`.
 

@@ -30,6 +30,7 @@ start fusion 8140 fusion fuse.py
 start dog    8141 dog    serve.py
 start perch  8142 perch  serve.py
 start map    8143 map    serve.py
+start telemetry 8160 telemetry server.py
 for i in $(seq 1 40); do
   ok=0; for p in 8140 8141 8142 8143; do curl -s -m 1 "localhost:$p/health" >/dev/null && ok=$((ok+1)); done
   [ $ok -eq 4 ] && break; sleep 0.5
@@ -40,6 +41,7 @@ echo "  fusion console + evidence chain + AAR   http://$H:8140"
 echo "  dog stand-in replay                     http://$H:8141"
 echo "  perch and listen                        http://$H:8142"
 echo "  persona search map + clue engine        http://$H:8143"
+echo "  Runs Local telemetry (GPU, services)    http://$H:8160"
 echo "  ($ok/4 services answering /health)"
 echo "  tap three live (needs a USB/contact mic):  $PY tap3/live.py --x 5.3 --y 3.85"
 echo "  demo driver (dog replay → inbox):          $PY scenario.py"
