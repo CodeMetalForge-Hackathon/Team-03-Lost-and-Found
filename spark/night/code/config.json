@@ -52,7 +52,9 @@
   "acoustic_sigma_m": 120,
   "thermal_footprint_m": 40,
   "default_sigma_m": 100,
-  "skyfix_weight": 0.9
+  "skyfix_weight": 0.9,
+  "source_cap_frac": 0.5,
+  "_cap_doc": "Each source's summed field is scaled down so its mass on the grid is at most source_cap_frac x the prior's mass (prior normalised to 1). Stops one chatty sensor (e.g. many dog alerts) from dominating the COP."
  },
  "perch_point": {
   "lat": 41.30455,

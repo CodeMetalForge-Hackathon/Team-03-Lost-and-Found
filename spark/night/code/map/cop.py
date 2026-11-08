@@ -3,7 +3,9 @@
   base   = normalise(prior x prod LR(positive clues))                     (sums to 1)
   F_i    = m_i x g_i,  g_i a unit-mass kernel on the plane (mass falling outside the 20 km grid is lost),
            m_i = modality_weight[kind] x confidence  (Sky Fix: skyfix_weight x 1)
-  mix    = base + sum_i F_i
+  F_s    = sum of F_i from source s, then capped: if mass(F_s) > cap x mass(base) it is scaled down to exactly
+           that (cap = fields.source_cap_frac, default 0.5), so no single source can dominate the COP
+  mix    = base + sum_s F_s
   POD    = 1 − (1−POD_dog)(1−POD_team)(1−POD_drone)                       (independent sweeps)
   COP    = normalise(mix x (1 − POD))
 "Minus searched coverage" is applied multiplicatively (Bayes: P(subject in cell | not found there)); a literal
@@ -131,6 +133,19 @@ def sum_fields(fields: list[dict], shape) -> dict[str, np.ndarray]:
     for f in fields:
         layers[f["source"]] += f["field"]
     return layers
+
+
+def cap_layers(layers: dict[str, np.ndarray], cap_frac: float, prior_mass: float = 1.0):
+    """Scale each source's summed field so its mass on the grid is <= cap_frac x prior_mass.
+    Returns (capped layers, info {source: {raw, capped, scale, cap}})."""
+    cap = cap_frac * prior_mass
+    out, info = {}, {}
+    for s_, L in layers.items():
+        raw = float(L.sum())
+        k = cap / raw if raw > cap else 1.0
+        out[s_] = L * k
+        info[s_] = {"raw": round(raw, 4), "capped": round(raw * k, 4), "scale": round(k, 4), "cap": round(cap, 4)}
+    return out, info
 
 
 def combine_pod(*pods) -> np.ndarray:

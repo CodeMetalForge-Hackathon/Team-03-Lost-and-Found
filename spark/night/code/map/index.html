@@ -64,10 +64,11 @@ footer{color:var(--mute);font-size:11.5px;padding:5px 14px;border-top:1px solid 
   <aside class="side">
     <div class="card" id="nbaCard" style="border-color:var(--acc)"><h2>Next best action (hint only, never auto-tasks)</h2>
       <div id="nbaText" style="font-weight:600">—</div><div class="prov" id="nbaBasis"></div>
+      <div class="prov" style="color:var(--warn)">ETAs are straight-line and terrain-free (walk 1.2 m/s; drone 12 m/s + 60 s launch).</div>
       <div class="row"><button id="nbaAccept" class="primary">Accept</button><button id="nbaDismiss">Dismiss</button><span class="prov" id="nbaOut"></span></div>
     </div>
     <div class="card"><h2>COP layers (by source; untick to drop from the COP)</h2><div id="layerList" class="prov">—</div>
-      <div class="prov" style="margin-top:6px">COP = normalise(prior × clue LRs + Σ sensor fields) × (1 − POD of dog, team, drone sweeps). Field widths are hand-set (config.json "fields").</div></div>
+      <div class="prov" style="margin-top:6px">COP = normalise(prior × clue LRs + Σ sensor fields) × (1 − POD of dog, team, drone sweeps). <b style="color:var(--warn)">Field widths are hand-set defaults</b> (config.json "fields"), not calibrated.</div></div>
     <div class="card"><h2>Search state</h2>
       <table><tr><td>probability captured by searched coverage (dog + team + drone)</td><td class="n" id="cap">—</td></tr>
       <tr><td>active clues</td><td class="n" id="nclues">0</td></tr>
@@ -229,8 +230,9 @@ function renderLayers(){
   const lab={tap3:'Tap Three (contact mic)',perch:'Perch and Listen (acoustic)',thermal:'Thermal (drone)',dog:'Dog stand-in alerts',skyfix:'Sky Fix self-fix (phone)',other:'other sensors'};
   let h=srcs.map(k=>{ const f=F[k]; const c=SRC_COL[k]; const extra=k==='skyfix'?` · ${S.skyfix.n} fixes read, ${S.skyfix.on_grid} on this grid`:'';
     return `<div class="row"><label style="color:var(--fg)"><input type="checkbox" data-src="${k}" ${EN[k]?'checked':''}> <i class="sw" style="display:inline-block;width:10px;height:10px;background:rgb(${c})"></i> ${lab[k]}</label>
-     <label><input type="checkbox" data-show="${k}" ${SHOWF[k]?'checked':''}> show</label><span>${f?`${f.n} event${f.n>1?'s':''}, mass ${f.mass_on_grid} on grid · ${f.kernels.join('; ')}`:'no events'}${extra}</span></div>`; }).join('');
-  h+='<div class="row" style="margin-top:6px"><b style="color:var(--fg)">searched coverage (subtracted):</b></div>'+['dog','team','drone'].map(k=>`<label style="margin-right:10px"><input type="checkbox" data-cov="${k}" ${SHOWC[k]?'checked':''}> ${k}${S.pod_layers&&S.pod_layers[k]?'':' (none yet)'}</label>`).join('');
+     <label><input type="checkbox" data-show="${k}" ${SHOWF[k]?'checked':''}> show</label><span>${f?`${f.n} event${f.n>1?'s':''}, mass in COP <b title="raw mass on grid before the cap: ${f.mass_on_grid} (${f.mass} incl. off-grid)${f.cap_scale<1?' — scaled ×'+f.cap_scale:''}" style="color:${f.cap_scale<1?'var(--warn)':'var(--fg)'};border-bottom:1px dotted;cursor:help">${f.capped_mass}</b>${f.cap_scale<1?' (capped)':''} · ${f.kernels.join('; ')}`:'no events'}${extra}</span></div>`; }).join('');
+  h='<div class="row" style="color:var(--fg)">per-source cap: <b>&nbsp;'+S.field_cap+' × prior mass</b>&nbsp;(prior = 1; hover a mass for the raw value)</div>'+h;
+  h+='<div class="row" style="margin-top:6px"><b style="color:var(--fg)">searched coverage (subtracted):</b> <span>drone POD '+S.drone_pod_per_pass+' per pass is the spec\'s daytime thermal figure, not field-calibrated</span></div>'+['dog','team','drone'].map(k=>`<label style="margin-right:10px"><input type="checkbox" data-cov="${k}" ${SHOWC[k]?'checked':''}> ${k}${S.pod_layers&&S.pod_layers[k]?'':' (none yet)'}</label>`).join('');
   $('layerList').innerHTML=h;
   $('layerList').querySelectorAll('[data-src]').forEach(el=>el.onchange=()=>{EN[el.dataset.src]=el.checked?1:0; load();});
   $('layerList').querySelectorAll('[data-show]').forEach(el=>el.onchange=()=>{SHOWF[el.dataset.show]=el.checked?1:0; draw();});

@@ -132,7 +132,8 @@ def compute(persona, enabled=None):
     fl = [f for f in (C.event_field(d, GRID, CFG, floor_to_en) for d in detections()) if f]
     sky = C.skyfix_fixes(SKYFIX_COT, GRID, CFG)
     fl += sky
-    layers = C.sum_fields(fl, GRID.E.shape)
+    raw_layers = C.sum_fields(fl, GRID.E.shape)
+    layers, capinfo = C.cap_layers(raw_layers, CFG["fields"].get("source_cap_frac", 0.5), 1.0)   # base is normalised to 1
     copm = C.cop(base, layers, pod, enabled)
     captured = float((base * pod).sum()) if pod is not None else 0.0
     STATE_F.write_text(json.dumps({"persona": persona, "probability_captured": round(captured, 5),
@@ -144,6 +145,7 @@ def compute(persona, enabled=None):
         d["n"] += 1; d["mass"] += f["mass"]; d["mass_on_grid"] += f["mass_on_grid"]; d["kernels"].add(f["kernel"].split(" (")[0])
     for d in summ.values():
         d["kernels"] = sorted(d["kernels"])[:3]; d["mass"] = round(d["mass"], 3); d["mass_on_grid"] = round(d["mass_on_grid"], 3)
+        ci = capinfo[d["source"]]; d["capped_mass"] = ci["capped"]; d["cap"] = ci["cap"]; d["cap_scale"] = ci["scale"]
     tasked = {tuple(x["nba"]["cell"]) for x in nba_log if x.get("nba") and x["nba"].get("cell")}
     nba = C.next_best_action(copm, pod, GRID, CFG, tasked)
     LAST.update({"persona": persona, "nba": nba, "t": time.time()})
@@ -204,6 +206,7 @@ def make_app():
                 "pod_layers": {k: sparse(v) for k, v in S["pods"].items()},
                 "field_layers": {k: sparse(v) for k, v in S["layers"].items()},
                 "fields": S["fields"], "enabled": sorted(en) if en else "all",
+                "field_cap": CFG["fields"].get("source_cap_frac", 0.5), "drone_pod_per_pass": CFG["coverage"]["drone_pod_per_pass"],
                 "skyfix": {"n": len(S["sky"]), "on_grid": sum(1 for f in S["sky"] if f["mass_on_grid"] > 1e-3),
                            "dir": str(SKYFIX_COT)},
                 "drone_t": DRONE_T["t"], "nba": S["nba"], "nba_log": nba_log[-20:],

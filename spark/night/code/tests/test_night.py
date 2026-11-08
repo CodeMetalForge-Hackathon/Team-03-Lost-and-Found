@@ -227,3 +227,24 @@ def test_next_best_action_selection():
     assert abs(nba["drone"]["eta_min"] - round((A["drone"]["launch_s"] + dist / A["drone"]["speed_mps"]) / 60, 1)) < 0.11
     assert nba["team"]["eta_min"] > nba["drone"]["eta_min"] and nba["asset"] == "drone"
     assert nba["text"].startswith("Suggest: drone to ")
+
+
+def test_field_cap_50_dog_alerts():
+    import cop
+    g, cfg = _grid(), _cfg()
+    f2e = lambda x, y: (x * 100.0, -y * 100.0)                  # noqa: E731
+    rng = np.random.default_rng(0)
+    dets = [{"sensor": "dog1", "kind": "knock", "confidence": 0.9, "position": {"x": float(rng.uniform(0, 6)), "y": float(rng.uniform(0, 4))}}
+            for _ in range(50)]
+    dets.append({"sensor": "tap3", "kind": "tap_pattern_3", "confidence": 0.4, "position": {"x": 1.0, "y": 1.0}, "extra": {"strength": 5}})
+    fl = [cop.event_field(d, g, cfg, f2e) for d in dets]
+    raw = cop.sum_fields(fl, g.E.shape)
+    cap = cfg["fields"]["source_cap_frac"]
+    assert raw["dog"].sum() > 10 * cap                                   # uncapped, 50 alerts would swamp the prior
+    capped, info = cop.cap_layers(raw, cap, 1.0)
+    assert capped["dog"].sum() <= cap + 1e-9 and info["dog"]["scale"] < 1
+    assert np.allclose(capped["tap3"], raw["tap3"]) and info["tap3"]["scale"] == 1.0   # under the cap: untouched
+    c = cop.cop(np.ones(g.E.shape), capped, None)
+    # the dog's share of the COP is at most cap / (1 + cap + tap mass)
+    share = capped["dog"].sum() / (1 + sum(L.sum() for L in capped.values()))
+    assert share <= cap / (1 + cap) + 1e-9 and abs(c.sum() - 1) < 1e-9
