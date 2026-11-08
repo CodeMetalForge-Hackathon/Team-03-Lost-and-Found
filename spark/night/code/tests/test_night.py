@@ -244,6 +244,11 @@ def test_field_cap_50_dog_alerts():
     capped, info = cop.cap_layers(raw, cap, 1.0)
     assert capped["dog"].sum() <= cap + 1e-9 and info["dog"]["scale"] < 1
     assert np.allclose(capped["tap3"], raw["tap3"]) and info["tap3"]["scale"] == 1.0   # under the cap: untouched
+    assert cap == 1.0                                                    # configured cap: 1.0 x the prior's mass
+    one_tap = cop.event_field({"sensor": "tap3", "kind": "tap_pattern_3", "confidence": 1.0, "position": {"x": 3.0, "y": 2.0},
+                               "extra": {"strength": 5}}, g, cfg, f2e)
+    c1, i1 = cop.cap_layers(cop.sum_fields([one_tap], g.E.shape), cap, 1.0)
+    assert i1["tap3"]["scale"] == 1.0 and abs(c1["tap3"].sum() - 0.85) < 0.01   # a confirmed tap enters at full mass
     c = cop.cop(np.ones(g.E.shape), capped, None)
     # the dog's share of the COP is at most cap / (1 + cap + tap mass)
     share = capped["dog"].sum() / (1 + sum(L.sum() for L in capped.values()))
