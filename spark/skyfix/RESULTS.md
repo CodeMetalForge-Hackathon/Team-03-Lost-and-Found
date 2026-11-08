@@ -61,10 +61,10 @@ error 2.3 px vs. the shipped GT masks; the masks are used only for scoring and f
 
 | TEST, 112 photos | median km | p75 km | ≤ 5 km | ≤ 2 km | better than prior |
 |---|---|---|---|---|---|
-| spec baseline: 1 km grid, SAM horizon, detrended RMS | 17.4 | 26.0 | 25.9% | 21.4% | 36% |
-| 1 km grid, Pearson correlation (spec "score = correlation") | 17.7 | 26.0 | 18.8% | 14.3% | |
-| **deployed: 0.5 km grid, SAM horizon, detrended RMS** | **15.7** | **22.4** | **32.1%** | **29.5%** | 39% |
-| 0.5 km grid, oracle GT horizon (upper bound for the horizon step) | 16.3 | 23.1 | 38.4% | 34.8% | |
+| spec baseline: 1 km grid, SAM horizon, detrended RMS | 17.4 | 26.0 | 26.8% | 22.3% | 34% |
+| 1 km grid, Pearson correlation (spec "score = correlation") | 18.1 | 27.1 | 18.8% | 14.3% | 31% |
+| **deployed: 0.5 km grid, SAM horizon, detrended RMS** | **16.3** | **22.8** | **33.0%** | **30.4%** | 38% |
+| 0.5 km grid, oracle GT horizon (upper bound for the horizon step) | 16.3 | 23.1 | 38.4% | 34.8% | 42% |
 
 **Confidence (ratio test).** Margin = best score − best score of any cell > 3 km away, divided by the best RMS.
 The threshold of 0.15 was chosen on DEV.
@@ -75,7 +75,7 @@ The threshold of 0.15 was chosen on DEV.
 | DEV | 6/30 (20%) | 2.1 | 67% | 4/6 |
 
 **Acceptance (≥ 20 images, median & p75, fraction ≤ 5 km):** done on 112. The expected median of 2–10 km is
-**not met** over all photos (15.7 km). Errors are bimodal: about 30% of photos land within 2 km and most of the rest
+**not met** over all photos (16.3 km). Errors are bimodal: about 30% of photos land within 2 km and most of the rest
 are confidently matched somewhere else in the box. The ratio test finds about 1 in 5 photos where the match is
 distinct, and those are right to ~0.5 km median. Everything else is shown as **AMBIGUOUS** with the full ring.
 The spec ring (radius holding the top-5% of scores) is ~46 km and contains the truth 100% of the time, which makes
@@ -86,10 +86,16 @@ margin 0.15. The 5 km ring floor was set after seeing that the core ring alone h
 Timing (deployed): SAM horizon 75 ms (GPU), matching 0.94 s for 10,201 cells × 360 headings, grid 3–5 s when not
 cached (16 processes); cached grid for the demo photos.
 
+Numbers are from the rerun after the review fix to horizon extraction (columns where terrain reaches the top edge
+are now marked invalid rather than given a fake horizon row). The confident-subset numbers did not change.
+
 ## 3. Evidence and CoT
-`pytest`: 9 passed. Covers tamper detection (editing record 2 → `verify` reports broken at 2), XSD validation of
+`pytest`: 14 passed. Covers tamper detection (editing record 2 → `verify` reports broken at 2), XSD validation of
 our CoT (valid) and rejection of a malformed event, API errors (404/400/422), the gravity conversion, and a planted
 skyline match. The CoT is valid against `cot-validator/.../Marker - 2525.xsd`. Nothing is transmitted.
+
+**Soak (`python soak.py 20`, `logs/soak.jsonl`):** 2 concurrent clients × 20 min over all 119 demo items, 2,962 solves,
+**0 failures**, p50 0.87 s, max 2.34 s, server RSS flat at ~2.4 GB, evidence chain verified over 1,745 records.
 
 ## 4. What would make it metre-class (or at least 1 km-class)
 - **Tilt is everything at night.** 0.4 km with exact gravity vs 40 km with a 0.3° braced phone. Paths:
