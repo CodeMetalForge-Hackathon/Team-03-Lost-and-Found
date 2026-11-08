@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=600, height=600, initial-scale=1">
+<title>Lost and Found Arrow</title>
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    width: 600px; height: 600px;
+    background: #000;            /* black = transparent on the glasses */
+    color: #fff;
+    font-family: -apple-system, system-ui, sans-serif;
+    overflow: hidden;
+  }
+  #wrap {
+    width: 600px; height: 600px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+  }
+  #arrow {
+    width: 300px; height: 300px;
+    transition: transform 0.15s linear;
+  }
+  #arrow path { fill: #fff; }
+  #arrow.ahead path { fill: #3dff7a; }
+  #arrow.lost path { fill: #555; }
+  #dist { font-size: 64px; font-weight: 700; letter-spacing: 1px; }
+  #status { font-size: 26px; color: #aaa; min-height: 32px; }
+  #status.ahead { color: #3dff7a; }
+  #status.warn { color: #ffb84d; }
+  #hdg { position: absolute; top: 16px; left: 16px; font-size: 18px; color: #666; }
+  .focusable { position: absolute; bottom: 16px; right: 16px;
+    background: none; border: 2px solid #333; color: #666;
+    font-size: 18px; padding: 6px 12px; border-radius: 8px; }
+  .focusable:focus { border-color: #fff; color: #fff; outline: none; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <svg id="arrow" viewBox="0 0 100 100" aria-hidden="true">
+    <path d="M50 4 L86 56 L62 56 L62 96 L38 96 L38 56 L14 56 Z"/>
+  </svg>
+  <div id="dist">--</div>
+  <div id="status">Waiting for sensor...</div>
+</div>
+<div id="hdg">HDG --</div>
+<button id="mode" class="focusable" tabindex="0">LIVE</button>
+
+<script>
+/*
+  Direction arrow for Meta Ray-Ban Display (Web App).
+
+  Data source: polls SRC (default "/target") for JSON. Accepted shapes:
+    {"relative": 30, "distance": 42}   angle already relative to wearer (0 = straight ahead, + = right)
+    {"bearing": 75,  "distance": 42}   absolute compass bearing to target (0 = north)
+    {"lat": 42.36, "lon": -71.06}      target position (needs phone GPS)
+  Optional fields: "label" (text under the distance), "confidence" (0..1)
+
+  URL params: ?src=<url>  ?demo=1  ?me=<lat>,<lon> (fixed person position for indoor demos)
+  D-pad: Left/Right rotate the fake target in demo mode, Enter: first press enables compass, then toggles LIVE/DEMO.
+*/
+const params = new URLSearchParams(location.search);
+const SRC = params.get('src') || '/target';
+const POLL_MS = 500;
+const STALE_MS = 5000;
+const AHEAD_DEG = 20;
+
+const arrowEl = document.getElementById('arrow');
+const distEl = document.getElementById('dist');
+const statusEl = document.getElementById('status');
+const modeBtn = document.getElementById('mode');
+const hdgEl = document.getElementById('hdg');
+
+const FIXED_ME = (() => {
+  const m = (params.get('me') || '').split(',').map(Number);
+  return m.length === 2 && m.every(isFinite) ? { lat: m[0], lon: m[1] } : null;
+})();
+let demo = params.get('demo') === '1';
+let demoRel = 40;
+let heading = null;          // wearer's compass heading, degrees
+let myPos = null;            // {lat, lon} from GPS
+let target = null;           // last JSON from sensor
+let lastDataAt = 0;
+let shownAngle = 0;          // for smooth rotation
+
+const norm180 = a => ((a % 360) + 540) % 360 - 180;
+const toRad = d => d * Math.PI / 180;
+const toDeg = r => r * 180 / Math.PI;
+
+function bearingTo(a, b) {
+  const y = Math.sin(toRad(b.lon - a.lon)) * Math.cos(toRad(b.lat));
+  const x = Math.cos(toRad(a.lat)) * Math.sin(toRad(b.lat)) -
+            Math.sin(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.cos(toRad(b.lon - a.lon));
+  return (toDeg(Math.atan2(y, x)) + 360) % 360;
+}
+function distanceTo(a, b) {
+  const R = 6371000, dLat = toRad(b.lat - a.lat), dLon = toRad(b.lon - a.lon);
+  const h = Math.sin(dLat / 2) ** 2 +
+            Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+/* ---- heading ---- */
+let gotAbsolute = false, sensorsOn = false, lastOrientAt = 0;
+function onOrient(e) {
+  lastOrientAt = Date.now();
+  if (typeof e.webkitCompassHeading === 'number') {          // iOS true compass
+    heading = e.webkitCompassHeading; gotAbsolute = true;
+  } else if (e.absolute && typeof e.alpha === 'number') {     // absolute (north-referenced)
+    heading = (360 - e.alpha) % 360; gotAbsolute = true;
+  } else if (!gotAbsolute && typeof e.alpha === 'number') {   // relative only: still follows head turns
+    heading = (360 - e.alpha) % 360;
+  }
+}
+async function enableSensors() {
+  // Glasses require this to come from an explicit select (pinch / Enter).
+  for (const Ev of [typeof DeviceOrientationEvent !== 'undefined' && DeviceOrientationEvent,
+                    typeof DeviceMotionEvent !== 'undefined' && DeviceMotionEvent]) {
+    try { if (Ev && typeof Ev.requestPermission === 'function') await Ev.requestPermission(); }
+    catch (_) {}
+  }
+  if (!sensorsOn) {
+    window.addEventListener('deviceorientationabsolute', onOrient);
+    window.addEventListener('deviceorientation', onOrient);
+    sensorsOn = true;
+  }
+  startLocation();
+}
+function startLocation() {
+  if (FIXED_ME) { myPos = FIXED_ME; return; }   // indoor demo: person position from ?me=lat,lon
+  if (navigator.geolocation && !startLocation.id) {
+    startLocation.id = navigator.geolocation.watchPosition(
+      p => { myPos = { lat: p.coords.latitude, lon: p.coords.longitude }; },
+      () => {}, { enableHighAccuracy: true, maximumAge: 2000 });
+  }
+}
+
+/* ---- data ---- */
+async function poll() {
+  if (!demo) {
+    try {
+      const r = await fetch(SRC + (SRC.includes('?') ? '&' : '?') + 't=' + Date.now(), { cache: 'no-store' });
+      if (r.ok) {
+        const j = await r.json();
+        if (j && Object.keys(j).length) { target = j; lastDataAt = Date.now(); }
+      }
+    } catch (_) {}
+  }
+  setTimeout(poll, POLL_MS);
+}
+
+/* ---- compute + render ---- */
+function compute() {
+  if (demo) return { rel: demoRel, dist: 25, label: 'DEMO' };
+  if (!target || Date.now() - lastDataAt > STALE_MS) return null;
+
+  let rel = null, dist = target.distance ?? null;
+  if (typeof target.relative === 'number') {
+    rel = target.relative;
+  } else if (typeof target.bearing === 'number') {
+    rel = heading === null ? target.bearing : target.bearing - heading;
+  } else if (typeof target.lat === 'number' && myPos) {
+    const b = bearingTo(myPos, target);
+    rel = heading === null ? b : b - heading;
+    dist = distanceTo(myPos, target);
+  }
+  if (rel === null) return null;
+  return { rel: norm180(rel), dist, label: target.label, conf: target.confidence };
+}
+
+function render() {
+  const s = compute();
+  if (!s) {
+    arrowEl.className.baseVal = 'lost';
+    distEl.textContent = '--';
+    statusEl.textContent = target ? 'SIGNAL LOST' : 'Waiting for sensor...';
+    statusEl.className = 'warn';
+  } else {
+    // shortest-path smoothing
+    shownAngle += norm180(s.rel - shownAngle) * 0.35;
+    arrowEl.style.transform = `rotate(${shownAngle}deg)`;
+
+    const ahead = Math.abs(s.rel) <= AHEAD_DEG;
+    arrowEl.className.baseVal = ahead ? 'ahead' : '';
+    distEl.textContent = (typeof s.dist === 'number')
+      ? (s.dist >= 1000 ? (s.dist / 1000).toFixed(1) + ' km' : Math.round(s.dist) + ' m')
+      : '';
+    const close = typeof s.dist === 'number' && s.dist < 8;   // GPS is ~5 m accurate
+    let txt = close ? 'SEARCH HERE'
+            : ahead ? 'STRAIGHT AHEAD'
+            : Math.abs(s.rel) > 150 ? 'TURN AROUND'
+            : s.rel > 0 ? 'TURN RIGHT' : 'TURN LEFT';
+    if (s.label) txt = s.label + ' \u00b7 ' + txt;
+    if (typeof s.conf === 'number' && s.conf < 0.5) txt += ' (low conf)';
+    statusEl.textContent = txt;
+    statusEl.className = ahead ? 'ahead' : '';
+  }
+  const live = heading !== null && Date.now() - lastOrientAt < 3000;
+  hdgEl.textContent = live ? `HDG ${Math.round(heading)}\u00b0${gotAbsolute ? '' : ' rel'}`
+    : !sensorsOn ? 'PINCH TO ENABLE COMPASS' : 'HDG -- (no sensor)';
+  requestAnimationFrame(render);
+}
+
+/* ---- D-pad input ---- */
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft' && demo) demoRel -= 15;
+  if (e.key === 'ArrowRight' && demo) demoRel += 15;
+  if (e.key === 'Enter') { e.preventDefault(); onSelect(); }
+});
+modeBtn.addEventListener('click', e => { e.preventDefault(); onSelect(); });
+function onSelect() {
+  const live = heading !== null && Date.now() - lastOrientAt < 3000;
+  if (!sensorsOn && !live) { enableSensors(); return; }   // first pinch: enable compass
+  demo = !demo;                                  // later pinches: LIVE <-> DEMO
+  modeBtn.textContent = demo ? 'DEMO' : 'LIVE';
+}
+modeBtn.textContent = demo ? 'DEMO' : 'LIVE';
+modeBtn.focus();
+
+// Try without a gesture too (works where no permission prompt is needed).
+window.addEventListener('deviceorientationabsolute', onOrient);
+window.addEventListener('deviceorientation', onOrient);
+startLocation();
+poll();
+render();
+</script>
+</body>
+</html>
