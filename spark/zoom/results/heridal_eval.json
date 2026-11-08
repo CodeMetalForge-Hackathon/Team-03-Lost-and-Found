@@ -1,5 +1,5 @@
 {
- "note": "HERIDAL official test split, 101 photos, 337 people, IoU \u2265 0.5. Sliced inference: 1280 px windows resized to 640 (chosen on photos 1\u201330; 640 px native windows gave AP50 0.07). 'Held-out' = photos 31\u2013101, not used to pick settings. Human baseline (published): P 0.59, R 0.68. AerialPerson-Mix trains on HERIDAL imagery; we have not verified the HERIDAL test photos are excluded from its training set.",
+ "note": "HERIDAL official test split, 101 photos, 337 people, IoU \u2265 0.5. Sliced inference: 1280 px windows resized to 640 (chosen on photos 1\u201330; 640 px native windows gave AP50 0.07). 'Held-out' = photos 31\u2013101, not used to pick settings. The 0.59 / 0.68 line is the PUBLISHED HUMAN BASELINE (human observers on HERIDAL), not a model result. AerialPerson-Mix trains on HERIDAL imagery; we have not verified the HERIDAL test photos are excluded from its training set.",
  "table": {
   "YOLO26l (deployed), held-out 71, conf\u22650.60": "AP50 0.23 \u00b7 P 0.55 R 0.23",
   "YOLO26l, held-out 71, conf\u22650.25": "AP50 0.23 \u00b7 P 0.29 R 0.32",
@@ -281,5 +281,10 @@
    },
    "n_images": 71
   }
+ },
+ "headline": {
+  "deployed": "YOLO26l (deployed, 0.60 gate), held-out photos 31\u2013101: AP50 0.23 \u00b7 P 0.55 \u00b7 R 0.23",
+  "alt": "YOLO26n, held-out photos 31\u2013101: AP50 0.30",
+  "human_baseline": "Published human baseline (human observers, not a model): P 0.59 \u00b7 R 0.68"
  }
 }

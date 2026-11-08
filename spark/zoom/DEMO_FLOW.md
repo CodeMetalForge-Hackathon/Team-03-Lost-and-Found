@@ -27,7 +27,7 @@
 
 **Numbers you can say** (all re-runnable; see `~/forge/zoom/README.md` and the RESULTS files):
 - UATD human body AP50 **0.91** on held-out Test_2 (mAP50 0.82).
-- HERIDAL held-out person detector at the 0.60 gate: **P 0.55 / R 0.23** (AP50 0.23); humans do P 0.59 / R 0.68.
+- Aerial person detector, deployed model (YOLO26l, 0.60 gate) on held-out HERIDAL photos: **AP50 0.23, P 0.55, R 0.23**; YOLO26n AP50 0.30. The **published human baseline** (human observers, not a model) is P 0.59 / R 0.68.
 - Barks vs everything else: **AUC 0.99**.
 - Stitch: 54/77 photos placed, georeference ±19 m RMS.
 - Sonar: 8 of 10 human-body call-outs match a labelled body.

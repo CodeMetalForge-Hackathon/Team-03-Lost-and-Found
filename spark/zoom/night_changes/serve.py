@@ -212,6 +212,7 @@ def make_app():
         if drone_t is not None:
             DRONE_T["t"] = None if drone_t < 0 else float(drone_t)
         en = None if enabled in (None, "", "all") else set(enabled.split(","))
+        LAST["view"] = {"persona": persona, "enabled": en, "t": time.time()}   # the operator's current COP view (for /api/nba)
         S = compute(persona, en)
         tops = M.top_cells(S["cop"], S["cl"], 10)
         for t in tops:
@@ -232,9 +233,21 @@ def make_app():
                 "probability_captured": S["captured"]}
 
     @app.get("/api/nba")
-    def nba(persona: str | None = None):
-        compute(persona or LAST.get("persona", "child_autistic"))     # always fresh: decisions change the pool
-        return {**LAST["nba"], "persona": LAST["persona"], "hint_only": True}
+    def nba():
+        """The NBA on the map's CURRENT state: the persona and enabled sources last requested by the COP UI (:8143).
+        Recomputed fresh (decisions change the pool) but never with a persona or source set of its own, so :8140 and :8143
+        show the same cell, persona and P(cell). Before any COP view exists it falls back to the last computed state."""
+        v = LAST.get("view")
+        if v is None:
+            try:
+                v = {"persona": json.loads(STATE_F.read_text())["persona"], "enabled": None, "t": None}
+            except Exception:
+                v = {"persona": next(iter(M.PERSONAS)), "enabled": None, "t": None}
+        compute(v["persona"], v["enabled"])
+        p = M.PERSONAS[v["persona"]]
+        return {**LAST["nba"], "persona": v["persona"], "persona_label": p.get("label", v["persona"]),
+                "enabled": sorted(v["enabled"]) if v["enabled"] else "all", "view_t": v["t"],
+                "state_from": "map :8143 current COP view" if v["t"] else "map default (no COP view open yet)", "hint_only": True}
 
     @app.post("/api/nba/decision")
     def nba_decision(d: dict):
@@ -243,8 +256,8 @@ def make_app():
             raise HTTPException(422, "decision must be accept or dismiss")
         if not str(d.get("operator", "")).strip():
             raise HTTPException(422, "operator id required")
-        body = {"decision": d["decision"], "operator_id": str(d["operator"])[:64], "nba": d.get("nba") or LAST.get("nba"),
-                "persona": LAST.get("persona")}
+        nb = dict(d.get("nba") or LAST.get("nba") or {}); nb.setdefault("persona", (LAST.get("view") or {}).get("persona", LAST.get("persona")))
+        body = {"decision": d["decision"], "operator_id": str(d["operator"])[:64], "nba": nb}
         try:
             req = urllib.request.Request(FUSION + "/nba/decision", data=json.dumps(body).encode(),
                                          headers={"content-type": "application/json"})

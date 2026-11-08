@@ -212,12 +212,13 @@ class Fusion:
             best["e"] = (best["e"] * best["_wsum"] + e * wgt) / (best["_wsum"] + wgt) if best["_wsum"] else e
             best["n"] = (best["n"] * best["_wsum"] + n * wgt) / (best["_wsum"] + wgt) if best["_wsum"] else n
             best["_wsum"] += wgt
-            key = (det["sensor"], det["kind"])
+            key = (det["sensor"], det["kind"]); sim = is_simulated(det)
             for s in best["sources"]:
                 if (s["sensor"], s["kind"]) == key:
-                    s["confidence"] = max(s["confidence"], det["confidence"]); s["n"] += 1; break
+                    s["confidence"] = max(s["confidence"], det["confidence"]); s["n"] += 1; s["simulated"] = s.get("simulated", False) or sim; break
             else:
-                best["sources"].append({"sensor": det["sensor"], "kind": det["kind"], "confidence": det["confidence"], "n": 1})
+                best["sources"].append({"sensor": det["sensor"], "kind": det["kind"], "confidence": det["confidence"], "n": 1,
+                                        "simulated": sim})
             q = 1.0
             for s in best["sources"]:
                 q *= 1 - self.weight(s["kind"]) * s["confidence"]
@@ -244,7 +245,11 @@ class Fusion:
         return {"cot_path": str(path), "cot_valid": ok, "cot_detail": msg, "cot_type": typ}
 
     def public(self, c):
-        return {k: v for k, v in c.items() if not k.startswith("_")}
+        d = {k: v for k, v in c.items() if not k.startswith("_")}
+        for s in d.get("sources", []):
+            s.setdefault("simulated", str(s.get("sensor", "")).endswith("_sim"))
+        d["simulated"] = any(s["simulated"] for s in d.get("sources", []))   # any simulated-placement source -> badge
+        return d
 
     def confirm(self, cid, operator_id):
         with self.lock:
@@ -264,6 +269,17 @@ class Fusion:
             c = self.contacts[cid]; c["status"] = "cleared"; c["operator_id"] = operator_id
             self.chain.append("contact_cleared", {"contact": self.public(c), "operator_id": operator_id, "reason": reason[:200]})
             return self.public(c)
+
+
+def is_simulated(det: dict) -> bool:
+    """Simulated placement: a *_sim sensor (e.g. aerial_rgb_sim) or an event whose extra says simulated_placement
+    (e.g. sonar_fls frames placed along a translated AUV track)."""
+    return str(det.get("sensor", "")).endswith("_sim") or bool((det.get("extra") or {}).get("simulated_placement"))
+
+
+def contact_order(c: dict):
+    """Highest p(person) first; at equal displayed confidence (2 dp) real sources sort above simulated ones."""
+    return (-round(c.get("p_person", 0) or 0, 2), bool(c.get("simulated")), -(c.get("p_person", 0) or 0))
 
 
 def watch(fu: Fusion, stop: threading.Event):
@@ -313,7 +329,7 @@ def make_app():
 
     @app.get("/contacts")
     def contacts():
-        return sorted((fu.public(c) for c in fu.contacts.values()), key=lambda c: -c.get("p_person", 0))
+        return sorted((fu.public(c) for c in fu.contacts.values()), key=contact_order)
 
     @app.get("/detections")
     def detections(limit: int = 200):
@@ -360,7 +376,7 @@ def make_app():
         dec = d.get("decision"); op = str(d.get("operator_id", "")).strip()[:64]; nba = d.get("nba") or {}
         if dec not in ("accept", "dismiss") or not op or "cell" not in nba:
             raise HTTPException(422, "need decision accept|dismiss, operator_id and an nba with a cell")
-        rec = fu.chain.append("nba_decision", {"decision": dec, "operator_id": op, "nba": nba, "persona": d.get("persona"),
+        rec = fu.chain.append("nba_decision", {"decision": dec, "operator_id": op, "nba": nba, "persona": nba.get("persona"),
                                                "note": "hint only; no asset was tasked by the system"})
         out = {"chained_seq": rec["seq"], "hash": rec["hash"], "decision": dec}
         if dec == "accept":

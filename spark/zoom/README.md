@@ -27,9 +27,9 @@ bash ~/forge/zoom/run.sh reset                        # starts :8150 if needed, 
   - **HERIDAL test** (101 photos, 337 people, IoU 0.5):
     - 640 px native windows give AP50 **0.07**.
     - 1280 px windows resized to 640 (picked on photos 1–30), on the held-out photos 31–101:
-      - YOLO26l **AP50 0.23**, and **P 0.55 / R 0.23** at the deployed 0.60 gate.
-      - YOLO26n **AP50 0.30**.
-    - For scale: the published human baseline is P 0.59 / R 0.68.
+      - **Deployed model, YOLO26l at the 0.60 gate: AP50 0.23, P 0.55, R 0.23.**
+      - YOLO26n: **AP50 0.30**.
+    - **Published human baseline** (human observers on HERIDAL, not a model): P 0.59 / R 0.68.
   - **Aukerman** (`air/aukerman_audit.json`): 31 boxes at conf ≥ 0.60. Checked by eye, 4 are clearly people (park visitors in 2016), 2 are possibly people, and **25 are false positives** (stop signs, playground equipment).
     - They are georeferenced through ODM/OpenSfM camera poses (ray to ground plane, `air/georef_odm.py`), which agrees with the stitch to a median of 4.3 m.
     - The 31 boxes collapse to 8 clusters at 25 m.

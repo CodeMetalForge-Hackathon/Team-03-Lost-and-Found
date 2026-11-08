@@ -22,6 +22,7 @@ th{color:var(--mute);font-weight:500}.p{font-weight:700;font-variant-numeric:tab
 .src{color:var(--mute);font-size:12px}
 pre{white-space:pre-wrap;word-break:break-all;font-size:11.5px;margin:0;color:#c9d1d9}
 .chain{max-height:85vh}.chain div{border-bottom:1px solid var(--line);padding:4px 0;font-size:12px}.chain code{color:var(--mute)}
+.sim{display:inline-block;background:#3d2a08;color:var(--warn);border:1px solid var(--warn);border-radius:4px;padding:0 5px;font-size:10.5px;font-weight:700;letter-spacing:.04em;margin-left:4px}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px}.kv b{font-variant-numeric:tabular-nums}
 </style>
 </head>
@@ -52,8 +53,10 @@ async function refresh(){
   try{
   const [cs,ch,v,a]=await Promise.all([J('contacts'),J('chain?tail=40'),J('verify'),J('aar')]);
   $('chainok').textContent=v.ok?`chain OK · ${v.records} records`:`CHAIN BROKEN at line ${v.broken_at_line}`; $('chainok').className='pill '+(v.ok?'ok':'bad');
-  $('ct').innerHTML=cs.map(c=>`<tr><td><b>${c.contact_id}</b></td><td class="p">${(c.p_person??0).toFixed(2)}</td>
-    <td class="src">${c.sources.map(s=>`${esc(s.sensor)}:${esc(s.kind)} ${s.confidence.toFixed(2)}${s.n>1?' ×'+s.n:''}`).join('<br>')}</td>
+  const ord=c=>[-Math.round(100*(c.p_person??0)), c.simulated?1:0, -(c.p_person??0)];   // real above simulated at equal shown p
+  cs.sort((a,b)=>{ const x=ord(a),y=ord(b); for(let i=0;i<3;i++){ if(x[i]!==y[i]) return x[i]-y[i]; } return 0; });
+  $('ct').innerHTML=cs.map(c=>`<tr><td><b>${c.contact_id}</b>${c.simulated?'<br><span class="sim" title="at least one source has simulated placement">SIMULATED</span>':''}</td><td class="p">${(c.p_person??0).toFixed(2)}</td>
+    <td class="src">${c.sources.map(s=>`${esc(s.sensor)}:${esc(s.kind)} ${s.confidence.toFixed(2)}${s.n>1?' ×'+s.n:''}${s.simulated?' <span class="sim">SIMULATED</span>':''}`).join('<br>')}</td>
     <td class="src">${c.lat.toFixed(6)}, ${c.lon.toFixed(6)}<br>±${c.ce_m} m · ${c.frame}</td>
     <td class="st-${c.status}">${c.status}${c.operator_id?'<br><span class=src>'+esc(c.operator_id)+'</span>':''}</td>
     <td>${c.status==='candidate'?`<button class="go" onclick="act('confirm','${c.contact_id}')">Confirm</button> <button class="no" onclick="act('clear','${c.contact_id}')">Clear</button>`:''}</td></tr>`).join('')||'<tr><td colspan=6 class=src>no contacts yet — sensors write to night/inbox/</td></tr>';
@@ -71,12 +74,12 @@ async function refresh(){
 }
 let NBA=null;
 async function nbaRefresh(){ try{ NBA=await J('nba'); if(NBA.none){ $('nbaT').textContent=NBA.error||'no unsearched cell left'; return; }
-  $('nbaT').textContent=NBA.text; $('nbaB').textContent=`P(cell) ${(100*NBA.p).toFixed(2)} % · persona ${NBA.persona} · ${NBA.basis}`; }catch(e){ $('nbaT').textContent='map service unreachable'; } }
+  $('nbaT').textContent=NBA.text; $('nbaB').textContent=`P(cell) ${(100*NBA.p).toFixed(2)} % · persona ${NBA.persona_label||NBA.persona} (from ${NBA.state_from||'map'}) · ${NBA.basis}`; }catch(e){ $('nbaT').textContent='map service unreachable'; } }
 async function nbaDecide(dec){ if(!NBA||NBA.none) return; const op=$('op').value.trim(); if(!op){ $('nbaO').textContent='enter an operator id'; return; }
-  try{ const r=await J('nba/decision',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({decision:dec,operator_id:op,nba:NBA,persona:NBA.persona})});
+  try{ const r=await J('nba/decision',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({decision:dec,operator_id:op,nba:NBA})});
     $('nbaO').textContent=`${dec} chained #${r.chained_seq}${r.cot_uid?' · pin '+r.cot_uid+(r.cot_valid?' ✔ XSD':' ✘'):''}`; nbaRefresh(); refresh(); }catch(e){ $('nbaO').textContent='failed: '+e.message; } }
 $('nbaA').onclick=()=>nbaDecide('accept'); $('nbaD').onclick=()=>nbaDecide('dismiss');
-refresh(); setInterval(refresh,1500); nbaRefresh(); setInterval(nbaRefresh,4000);
+refresh(); setInterval(refresh,1500); nbaRefresh(); setInterval(nbaRefresh,2000);
 </script>
 </body>
 </html>

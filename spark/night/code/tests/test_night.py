@@ -253,3 +253,14 @@ def test_field_cap_50_dog_alerts():
     # the dog's share of the COP is at most cap / (1 + cap + tap mass)
     share = capped["dog"].sum() / (1 + sum(L.sum() for L in capped.values()))
     assert share <= cap / (1 + cap) + 1e-9 and abs(c.sum() - 1) < 1e-9
+
+
+def test_fusion_simulated_badge_and_order(client):
+    """aerial_rgb_sim and sonar_fls with extra.simulated_placement are flagged; real sorts above simulated at equal p."""
+    _, fuse = client
+    assert fuse.is_simulated({"sensor": "aerial_rgb_sim"})
+    assert fuse.is_simulated({"sensor": "sonar_fls", "extra": {"simulated_placement": True}})
+    assert not fuse.is_simulated({"sensor": "aerial_rgb", "extra": {}})
+    cs = [{"p_person": 0.61, "simulated": True}, {"p_person": 0.6104, "simulated": False}, {"p_person": 0.7, "simulated": True}]
+    out = sorted(cs, key=fuse.contact_order)
+    assert [c["p_person"] for c in out] == [0.7, 0.6104, 0.61]

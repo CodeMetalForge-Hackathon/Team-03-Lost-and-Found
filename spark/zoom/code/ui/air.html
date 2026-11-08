@@ -19,7 +19,7 @@ footer{padding:4px 12px;font-size:11px;color:var(--mut);border-top:1px solid var
 </style></head><body>
 <header><h1>AIR</h1>
  <select id="scene"></select>
- <button id="tDet" class="on">detections</button><button id="tCap">hazard captions (unvalidated)</button><button id="tDepth">2.5D relief</button>
+ <button id="tDet">detections</button><button id="tCap">hazard captions (unvalidated)</button><button id="tDepth">2.5D relief</button>
  <button id="tStitch">▶ map forming (live stitch)</button>
  <span class="mut" id="stat"></span>
 </header>
@@ -32,7 +32,7 @@ footer{padding:4px 12px;font-size:11px;color:var(--mut);border-top:1px solid var
 <footer>Detections from AerialPerson-YOLO26 (AGPL-3.0), sliced 640 px inference. Captions are hazard chips from a vision-language model, never detections. Relief from Depth-Anything-V2 is relative shading, not elevation.</footer>
 <script>
 const $=id=>document.getElementById(id), cv=$('cv'), g=cv.getContext('2d');
-let SC={}, cur=null, M=null, OV=null, view={cx:0,cy:0,mpp:2}, cache={}, layers={det:1,cap:0,depth:0}, depthImg=null;
+let SC={}, cur=null, M=null, OV=null, view={cx:0,cy:0,mpp:2}, cache={}, layers={det:0,cap:0,depth:0}, depthImg=null;
 function mx(){return 111320*Math.cos(M.lat0*Math.PI/180)} const my=110540;
 function ll2m(lat,lon){return [(lon-M.bounds.w)*mx(), (M.bounds.n-lat)*my]}         // metres from NW corner, y down
 function resize(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1; cv.width=r.width*d; cv.height=r.height*d; draw();}
@@ -59,7 +59,12 @@ function draw(){ if(!M) return; g.fillStyle='#0e1116'; g.fillRect(0,0,cv.width,c
   $('stat').textContent=`level ${lev.z} · ${lev.m_per_px} m/px displayed · view ${view.mpp.toFixed(2)} m/px`;
 }
 function fit(){ const d=devicePixelRatio; view.cx=M.extent_m[0]/2; view.cy=M.extent_m[1]/2; view.mpp=Math.max(M.extent_m[0]/(cv.width/d),M.extent_m[1]/(cv.height/d))*1.05; }
-async function pick(name){ cur=name; M=SC[name]; OV=new Image(); OV.onload=draw; OV.src='tiles/'+name+'/overview.png';
+function defaults(name){ const noaa=(SC[name].source||SC[name].title||name).toString().match(/NOAA|helene|ian/i)!==null;
+  // NOAA disaster scenes: detections and hazard captions OFF by default (people are 2-5 px; captions unvalidated); toggles keep them available.
+  // Any non-NOAA scene (e.g. the Aukerman flight) keeps detections ON. The Aukerman stitch replay always shows its detections.
+  layers.det=noaa?0:1; layers.cap=0; $('tDet').classList.toggle('on',!!layers.det); $('tCap').classList.toggle('on',false);
+  $('tDet').title=noaa?'off by default on NOAA scenes: a person is 2-5 px here and the boxes are unverified':''; }
+async function pick(name){ cur=name; M=SC[name]; defaults(name); OV=new Image(); OV.onload=draw; OV.src='tiles/'+name+'/overview.png';
   const ov=await (await fetch('api/air/'+name)).json(); SC[name].ov=ov; depthImg=null; if(ov.depth){depthImg=new Image(); depthImg.onload=draw; depthImg.src='tiles/'+name+'/depth/relief.png';}
   $('tDepth').disabled=!ov.depth; $('tDepth').title=ov.depth?'':'depth not computed for this scene';
   const b=M.bounds, where=M.where||'';
@@ -68,7 +73,10 @@ async function pick(name){ cur=name; M=SC[name]; OV=new Image(); OV.onload=draw;
   side(ov); fit(); draw(); }
 function side(ov){ const d=ov.detections, R=window.RES||{}; let h=`<h3>Person detector on this scene</h3><div class="mut">${d.note||''}</div>`;
   if(d.summary) h+=`<table>${Object.entries(d.summary).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>`;
-  const he=R.heridal; if(he){ h+=`<h3>Validation: HERIDAL test split</h3><div class="mut">${he.note||''}</div><table>${Object.entries(he.table||{}).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>`; }
+  const he=R.heridal; if(he){ const H=he.headline||{};
+    h+=`<h3>Person detector accuracy (HERIDAL test, held out)</h3><table><tr><td><b>${H.deployed||''}</b></td></tr><tr><td>${H.alt||''}</td></tr>`+
+       `<tr><td style="color:var(--mut)"><i>${H.human_baseline||''}</i></td></tr></table>`+
+       `<details><summary class="mut">other settings and method</summary><div class="mut">${he.note||''}</div><table>${Object.entries(he.table||{}).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table></details>`; }
   h+=`<h3>Hazard captions</h3><div class="mut">${ov.captions.note||''}</div>`; $('side').innerHTML=h; }
 let drag=null; cv.onpointerdown=e=>{drag=[e.clientX,e.clientY]; cv.setPointerCapture(e.pointerId)}; cv.onpointerup=()=>drag=null;
 cv.onpointermove=e=>{ if(!drag) return; view.cx-=(e.clientX-drag[0])*view.mpp; view.cy-=(e.clientY-drag[1])*view.mpp; drag=[e.clientX,e.clientY]; draw(); };
