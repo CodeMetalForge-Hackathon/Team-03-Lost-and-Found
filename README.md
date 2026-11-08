@@ -1,6 +1,16 @@
 # Lost and Found
 
-Code Metal Forge 2026, "Operation Lost and Found". This is a search-and-rescue picture for finding a missing person. Every sensor we could build or replay over one weekend (a dog's sensor pack, a contact mic for taps, a drone's microphone and camera, sonar, a phone looking at the sky) drops its detections into one shared shell. The shell turns them into probability on a search map and suggests where to look next. **Nothing is confirmed until a human taps Confirm.** That decision goes into a hash chain and out as a Cursor-on-Target pin.
+Code Metal Forge 2026, "Operation Lost and Found". This is a search-and-rescue picture for finding a missing person. Every sensor we could build or replay over one weekend (a dog's sensor pack<img width="480" height="270" alt="robot-dog-demo-3-preview" src="https://github.com/user-attachments/assets/681099d0-c8d7-4bad-abf7-9b78e7bdea98" />
+
+
+https://github.com/user-attachments/assets/44f8e1e4-3cf4-4367-a0ad-724418864595
+
+<img width="360" height="640" alt="robot-dog-demo-2-preview" src="https://github.com/user-attachments/assets/63de61ae-a2dd-47ff-9032-05e655e33470" />
+<img width="1179" height="663" alt="robot-dog-search-demo-floor" src="https://github.com/user-attachments/assets/9c24b48d-5987-40d1-8cbf-e311966bbac1" />
+<img width="1179" height="1701" alt="robot-dog-closeup-ultrasonic-sensor" src="https://github.com/user-attachments/assets/058ff663-e08f-4b73-877e-ff5d0057f990" />
+<img width="360" height="640" alt="robot-dog-demo-2-preview" src="https://github.com/user-attachments/assets/2b82c71f-287e-490f-a353-aa235e176f89" />
+<img width="480" height="270" alt="robot-dog-demo-1-preview" src="https://github.com/user-attachments/assets/c9e11379-abf0-4151-8153-ee6e741a4a38" />
+, a contact mic for taps, a drone's microphone and camera, sonar, a phone looking at the sky) drops its detections into one shared shell. The shell turns them into probability on a search map and suggests where to look next. **Nothing is confirmed until a human taps Confirm.** That decision goes into a hash chain and out as a Cursor-on-Target pin.
 
 Our rule was *honesty beats polish*. Every screen says what is real, what is replayed and what is simulated, and every number below can be re-run.
 
