@@ -9,7 +9,7 @@ HERE = Path(__file__).resolve().parent
 HOME = Path.home()
 N = 60
 LOCAL_NETS = [ipaddress.ip_network(n) for n in ("10.0.0.0/8", "100.64.0.0/10", "172.16.0.0/12", "192.168.0.0/16", "127.0.0.0/8")]
-SERVICES = [("Sky Fix API", "http://127.0.0.1:8130/api/health"), ("Sky Fix PWA", "https://127.0.0.1:8131/"),
+SERVICES = [("Sky Fix laptop view (judge gallery)", "http://127.0.0.1:8130/api/health"), ("Sky Fix PWA", "https://127.0.0.1:8131/"),
             ("Sky Fix City / Course", "https://127.0.0.1:8133/"), ("Trace Fusion shell", "http://127.0.0.1:8140/"),
             ("Dog replay + Dog's eye", "http://127.0.0.1:8141/"), ("Perch and Listen", "http://127.0.0.1:8142/"),
             ("Search Map / COP", "http://127.0.0.1:8143/"), ("Zoom AIR / WATER", "http://127.0.0.1:8150/air")]
