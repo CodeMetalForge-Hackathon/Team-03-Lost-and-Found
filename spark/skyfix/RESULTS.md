@@ -105,3 +105,10 @@ skyline match. The CoT is valid against `cot-validator/.../Marker - 2525.xsd`. N
 - **Day.** Wider horizons (a 3-photo panorama instead of one ~55° frame), finer grid near the top candidates
   (250 m near the truth beat the global 1 km best in 17/30 DEV images), observer height, and a camera roll estimate
   from the phone's gravity vector (which we have on a live phone but not in CH1).
+
+## 5. Stretch: second terrain area (Boston / Blue Hills)
+Six GLO-30 tiles (N41–42, W071–073), 0.5 km grid ±25 km around Great Blue Hill, cached (3.6 s with 16 processes).
+From the summit (191 m in the 2″ DSM) the maximum horizon elevation is **−0.1°**. Grid median per-cell horizon relief
+is **3.3°** vs **10.2°** for a Swiss test location, and it comes mostly from DSM trees and buildings at close range.
+No ground-truth day photos exist for Boston, so no accuracy is claimed. We expect skyline matching to be unreliable there.
+Re-run: `python -c "import solver_skyline as S; S.grid(42.2120,-71.1143,'blue_hills')"`.

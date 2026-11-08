@@ -45,6 +45,11 @@ as **distinct** or **AMBIGUOUS**.
 SHA-256 chain (`prev_hash` → `hash`). Each fix becomes `cot/SKYFIX-<n>.cot.xml` (type `a-f-G-U-C`, `how=h-e`, `ce` = ring
 in metres), validated against the TAK `Marker - 2525.xsd`. Nothing is sent: the UDP sender is never imported.
 
+**Extras.** *Breadcrumb*: after a fix, the phone counts steps (accelerometer peaks) along the compass heading. It draws
+a dotted trail from the fix and updates bearing/distance to the recovery point. The ring grows by an assumed 5% of
+distance walked (`?drsim=1` simulates a walk). *HUD video*: `screenshots/hud_10s.webm` (`python hud_video.py`).
+*Second terrain area*: Boston/Blue Hills GLO-30 (`data/dem_boston`), selected automatically from the prior.
+
 ## Honest limits (read before pitching)
 
 - **The phone's tilt sensor sets the night accuracy, not the stars.** With the exact gravity vector the fix is
@@ -58,6 +63,10 @@ in metres), validated against the TAK `Marker - 2525.xsd`. Nothing is sent: the 
   loaded) and a clear mountain skyline. Per-photo errors are bimodal: right to ~0.5 km, or confidently wrong. About
   1 in 5 photos gets a **distinct** match, and those are mostly right. The rest are flagged AMBIGUOUS. The spec's
   "median 2–10 km" expectation is not met over all photos.
+- **No skyline around Boston.** From Great Blue Hill the highest horizon point is −0.1°. Across the Boston grid the
+  horizon relief is a median 3.3° (Swiss test area: 10.2°), and most of it is trees and buildings in the surface model
+  within a few hundred metres. Skyline mode is a mountain capability; around Boston, use the stars.
+- Breadcrumb dead reckoning and the phone capture flow have not been tested on a real phone.
 - The SAM weights on disk are SAM 2 (hiera-small), not 2.1.
 - The recovery points in `config/recovery_points.json` are public landmarks for the demo, not mission data.
 
