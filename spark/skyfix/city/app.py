@@ -8,7 +8,8 @@ from __future__ import annotations
 import io, json, math, re, sys, time, urllib.request
 from datetime import datetime
 from pathlib import Path
-from PIL import Image, ImageOps, ExifTags
+import pillow_heif; pillow_heif.register_heif_opener()   # iPhones upload HEIC
+from PIL import Image, ImageOps, ExifTags, UnidentifiedImageError
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -131,8 +132,21 @@ def make_app():
         b = await request.body()
         if len(b) < 1000 or len(b) > 40e6:
             raise HTTPException(422, "expected a JPEG body")
-        name = time.strftime("phone_%Y%m%d_%H%M%S.jpg"); (UP / name).write_bytes(b)
-        return {"name": name}
+        # Re-encode whatever arrived (JPEG, HEIC, PNG...) to JPEG q92 with EXIF orientation applied, keeping the
+        # rest of the EXIF (focal length, 35 mm equiv, DateTimeOriginal, model: the lens solve reads them) + ICC.
+        try:
+            src = Image.open(io.BytesIO(b)); src.load()
+        except (UnidentifiedImageError, OSError, ValueError) as e:
+            raise HTTPException(400, f"Could not read the uploaded photo as an image ({type(e).__name__}). "
+                                     "Send a JPEG or HEIC photo straight from the camera.")
+        ex = src.getexif()
+        for ifd in (0x8769, 0x8825):            # load Exif and GPS sub-IFDs so tobytes() keeps them
+            ex.get_ifd(ifd)
+        im = ImageOps.exif_transpose(src).convert("RGB")
+        ex[0x0112] = 1                           # pixels are now upright
+        name = time.strftime("phone_%Y%m%d_%H%M%S.jpg")
+        im.save(UP / name, "JPEG", quality=92, exif=ex.tobytes(), icc_profile=src.info.get("icc_profile"))
+        return {"name": name, "source_format": src.format, "size": im.size}
 
     @app.get("/api/photo/{name}")
     def photo(name: str, hfov: float | None = None):
