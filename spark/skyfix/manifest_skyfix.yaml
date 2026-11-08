@@ -1,0 +1,216 @@
+# Sky Fix download manifest — stars (night) + skyline (day) for Persona 1, plus the persona-map layers.
+# Run with: python3 download_all.py --manifest manifest_skyfix.yaml --priority P0,P1
+# P0 = Sky Fix needs it tonight. P1 = persona map / fusion inputs from the data report. P2 = optional.
+
+settings:
+  internal_models: "$HOME/models"
+  ssd_root: "/mnt/hackssd/GB10_ARSENAL"
+  ssd_models: "/mnt/hackssd/GB10_ARSENAL/models"
+  ssd_datasets: "/mnt/hackssd/GB10_ARSENAL/datasets"
+  work: "$HOME/forge"
+  hf_cache_scan: "$HOME/.cache/huggingface/hub"
+  min_internal_free_gb: 60
+  parallel: 4
+  retries: 3
+
+pip:
+  core:
+    - astropy
+    - skyfield
+    - numpy
+    - scipy
+    - opencv-python-headless
+    - pillow
+    - exifread
+    - rasterio
+    - pyproj
+    - shapely
+    - fastapi
+    - uvicorn
+    - python-multipart
+    - requests
+    - tqdm
+
+items:
+
+  # ---------------- P0: star catalogs (tiny) ----------------
+  - id: star-catalogs
+    kind: url_set
+    priority: P0
+    dest: work
+    subdir: skyfix/data/stars
+    files:
+      - url: https://cdsarc.cds.unistra.fr/ftp/I/239/hip_main.dat
+        name: hip_main.dat
+      - url: https://storage.googleapis.com/tetra3rs-testvecs/gaia_merged.bin
+        name: gaia_merged.bin
+    purpose: "Hipparcos (118k stars, 51 MB) for a custom tetra3 database at phone FOV; Gaia-merged 17 MB as deeper backup."
+
+  # ---------------- P0: real geotagged mountain photos (skyline validation) ----------------
+  - id: eth-ch1-skyline
+    kind: url_set
+    priority: P0
+    dest: work
+    subdir: skyfix/data/skyline
+    files:
+      - url: https://cvg-data.ethz.ch/mountain-localization/CH1.tgz
+        name: CH1.tgz
+    purpose: "ETH CH1: 203 geotagged Swiss photos with FoV (Baatz/Saurer ECCV 2012). The daytime test set. 226 MB."
+
+  # ---------------- P0: Copernicus GLO-30 DEM tiles covering Switzerland (for CH1) + the Aukerman tile ----------------
+  - id: glo30-tiles
+    kind: url_set
+    priority: P0
+    dest: work
+    subdir: skyfix/data/dem
+    files:
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N45_00_E005_00_DEM/Copernicus_DSM_COG_10_N45_00_E005_00_DEM.tif", name: N45E005.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N45_00_E006_00_DEM/Copernicus_DSM_COG_10_N45_00_E006_00_DEM.tif", name: N45E006.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N45_00_E007_00_DEM/Copernicus_DSM_COG_10_N45_00_E007_00_DEM.tif", name: N45E007.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N45_00_E008_00_DEM/Copernicus_DSM_COG_10_N45_00_E008_00_DEM.tif", name: N45E008.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N45_00_E009_00_DEM/Copernicus_DSM_COG_10_N45_00_E009_00_DEM.tif", name: N45E009.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N45_00_E010_00_DEM/Copernicus_DSM_COG_10_N45_00_E010_00_DEM.tif", name: N45E010.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N46_00_E005_00_DEM/Copernicus_DSM_COG_10_N46_00_E005_00_DEM.tif", name: N46E005.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N46_00_E006_00_DEM/Copernicus_DSM_COG_10_N46_00_E006_00_DEM.tif", name: N46E006.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N46_00_E007_00_DEM/Copernicus_DSM_COG_10_N46_00_E007_00_DEM.tif", name: N46E007.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N46_00_E008_00_DEM/Copernicus_DSM_COG_10_N46_00_E008_00_DEM.tif", name: N46E008.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N46_00_E009_00_DEM/Copernicus_DSM_COG_10_N46_00_E009_00_DEM.tif", name: N46E009.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N46_00_E010_00_DEM/Copernicus_DSM_COG_10_N46_00_E010_00_DEM.tif", name: N46E010.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N47_00_E005_00_DEM/Copernicus_DSM_COG_10_N47_00_E005_00_DEM.tif", name: N47E005.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N47_00_E006_00_DEM/Copernicus_DSM_COG_10_N47_00_E006_00_DEM.tif", name: N47E006.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N47_00_E007_00_DEM/Copernicus_DSM_COG_10_N47_00_E007_00_DEM.tif", name: N47E007.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N47_00_E008_00_DEM/Copernicus_DSM_COG_10_N47_00_E008_00_DEM.tif", name: N47E008.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N47_00_E009_00_DEM/Copernicus_DSM_COG_10_N47_00_E009_00_DEM.tif", name: N47E009.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N47_00_E010_00_DEM/Copernicus_DSM_COG_10_N47_00_E010_00_DEM.tif", name: N47E010.tif }
+      - { url: "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N41_00_W082_00_DEM/Copernicus_DSM_COG_10_N41_00_W082_00_DEM.tif", name: N41W082.tif }
+    purpose: "18 Swiss 1x1 degree tiles (~720 MB) to pre-render skyline panoramas for CH1 photos; N41W082 covers Aukerman/Ohio for the persona map. Attribution notice required on any modified output."
+
+  # ---------------- P0: skyline extraction code ----------------
+  - id: skyline-detection-code
+    kind: git
+    url: https://github.com/TouqeerAhmad/skyline_detection.git
+    priority: P0
+    dest: work
+    subdir: skyfix/repos
+    purpose: "Shallow-learning horizon extraction with CH1 ground-truth layouts (IJCNN 2021)."
+
+  - id: tetra3-source
+    kind: git
+    url: https://github.com/esa/tetra3.git
+    priority: P0
+    dest: work
+    subdir: skyfix/repos
+    purpose: "ESA tetra3 plate solver source (pip install -e). generate_database() needs hip_main.dat in tetra3/data."
+
+  # ---------------- P1: real phone night-sky photos (do stars survive phone processing?) ----------------
+  - id: astro-smartphone-dataset
+    kind: url_set
+    priority: P1
+    dest: work
+    subdir: skyfix/data/stars/astrosmartphone
+    files:
+      - url: "https://zenodo.org/records/14933725/files/AstroSmartphoneDataset.zip?download=1"
+        name: AstroSmartphoneDataset.zip
+    purpose: "4,635 GCam astrophotography JPEGs, 1.3 GB. Solve-rate test on real phone pixels; check EXIF for GPS/time."
+
+  # ---------------- P1: persona map + fusion inputs (from the data report) ----------------
+  - id: sarenv
+    kind: git
+    url: https://github.com/namurproject/SAREnv.git
+    priority: P1
+    dest: work
+    subdir: datasets
+    purpose: "MIT lost-person probability engine (Drones 2025). git lfs pull runs if git-lfs is installed."
+
+  - id: mapscore
+    kind: git
+    url: https://github.com/ctwardy/mapscore.git
+    priority: P1
+    dest: work
+    subdir: datasets
+    purpose: "ISRID case subset (AZ/NY/Yosemite) and map scoring code."
+
+  - id: osm-ohio
+    kind: url_set
+    priority: P1
+    dest: work
+    subdir: datasets/osm
+    files:
+      - url: https://download.geofabrik.de/north-america/us/ohio-latest.osm.pbf
+        name: ohio-latest.osm.pbf
+    purpose: "Roads, trails, water, structures for the Aukerman persona map. 307 MB, ODbL."
+
+  - id: sar-stats-pdfs
+    kind: url_set
+    priority: P1
+    dest: work
+    subdir: datasets/sar_stats
+    optional: true
+    files:
+      - url: https://journalofsar.com/wp-content/uploads/2020/04/v4-8-Koester-ASD-vTD.pdf.pdf
+        name: koester2020_asd_child.pdf
+      - url: https://journalofsar.com/wp-content/uploads/2020/04/v4-7-Koester-POD-Syrotuck.pdf.pdf
+        name: koester2020_pod_clue_detection.pdf
+      - url: https://sarbayes.org/wp-content/uploads/2015/02/Evaluating-Lost-Person-Behavior-Models-revised-submission.pdf
+        name: sava2016_lpb_models.pdf
+    purpose: "Published persona distance tables and clue detection probabilities; cite as facts."
+
+  - id: footstep-vibration-8env
+    kind: url_set
+    priority: P1
+    dest: work
+    subdir: datasets/vibration
+    files:
+      - url: "https://zenodo.org/records/5571057/files/data.mat?download=1"
+        name: footstep_8env.mat
+    purpose: "Geophone footstep vibration, 8 environments, CC BY 4.0, 280 MB. Seismic channel for fusion; negatives for Tap Three."
+
+  - id: cot-samples
+    kind: git
+    url: https://github.com/sofwerx/push-cursor-on-target.git
+    priority: P1
+    dest: work
+    subdir: datasets/cot
+    purpose: "Sample CoT 2.0 events."
+
+  - id: cot-validator
+    kind: git
+    url: https://github.com/NERVsystems/cotlib.git
+    priority: P1
+    dest: work
+    subdir: datasets/cot
+    purpose: "CoT parser/validator with XSD; validate every pin before the demo."
+
+  # ---------------- P2: optional extras ----------------
+  - id: eth-ch2-skyline
+    kind: url_set
+    priority: P2
+    dest: work
+    subdir: skyfix/data/skyline
+    optional: true
+    files:
+      - url: https://cvg-data.ethz.ch/mountain-localization/CH2.tgz
+        name: CH2.tgz
+    purpose: "948 more Swiss photos, 1.2 GB. Only if CH1 is not enough."
+
+  - id: revibe
+    kind: url_set
+    priority: P2
+    dest: work
+    subdir: datasets/vibration
+    optional: true
+    files:
+      - url: "https://zenodo.org/records/14575371/files/Data.zip?download=1"
+        name: revibe.zip
+    purpose: "Footstep vibration on wood and concrete, 1.4 GB, CC BY 4.0."
+
+  - id: vocalsound-16k
+    kind: url_set
+    priority: P2
+    dest: work
+    subdir: datasets/audio
+    optional: true
+    files:
+      - url: "https://www.dropbox.com/s/c5ace70qh1vbyzb/vs_release_16k.zip?dl=1"
+        name: vocalsound_16k.zip
+    purpose: "21k non-speech vocalizations, 1.7 GB, CC BY-SA. Extra classes for the perch-and-listen probe."

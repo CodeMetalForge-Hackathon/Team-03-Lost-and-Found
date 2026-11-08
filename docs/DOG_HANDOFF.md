@@ -1,8 +1,10 @@
-# Robot Dog Handoff — what Franco needs from the dog runs
+# Dog Sensor Handoff — what Franco needs from the runs
+
+> **What "the dog" means here.** We do not have a robot dog. We have a small robot rover that carries the sensor rig and *stands in* for a real search dog during the demo. Everything below says "the dog" for short; it means the rover wearing the rig. The pitch is: this rig goes on a real SAR dog's harness; tonight it rides on the rover so we can run it in the venue.
 
 **Team 3 · Code Metal Forge 2026 · for Rachel and Matteo · Sat Nov 7, 9:20 PM**
 
-Paste this whole file into your LLM before you touch the dog. It is the spec for the data I need so I can rebuild the dog's run on the Spark as a 3D map that replays over time, then put a model on top of it.
+Paste this whole file into your LLM before you touch the rover. It is the spec for the data I need so I can rebuild the dog's run on the Spark as a 3D map that replays over time, then put a model on top of it.
 
 ## 1. The one-sentence goal
 
@@ -12,7 +14,7 @@ If I cannot line the sensors up with the video in time, the run is useless. Timi
 
 ## 2. What each sensor can and cannot do (so nobody over-claims)
 
-| Sensor on the dog | What it really measures | What we use it for | What it cannot do |
+| Sensor on the rig | What it really measures | What we use it for | What it cannot do |
 | --- | --- | --- | --- |
 | Accelerometer / IMU | The dog's own motion: speed changes, turns, stops, shakes | Dog behavior events: stop, spin, pause, "alert" posture. Gait state (walking / still). | Position. IMU drifts to garbage in seconds. Do not try to get XY from it. |
 | Ultrasonic / echo sensor | Distance to the nearest surface in front of it (cm) | Room geometry: walls, boxes, openings. "Echolocation map" of where the dog can go. | Detect a person. A person and a box look the same to it. |
@@ -22,16 +24,16 @@ If you can tape a phone (recording audio) or a $10 USB mic to the dog's back, do
 
 ## 3. First thing: answer these (text me, or put in `HARDWARE.md`)
 
-1. What board is on the dog (Arduino / ESP32 / Raspberry Pi / the dog's own controller)?
+1. What board is on the rig (Arduino / ESP32 / Raspberry Pi / the rover's own controller)?
 2. Exact sensor parts (IMU model, ultrasonic model, sound sensor model). A photo of the board is fine.
 3. Does the IMU have a gyroscope, or accelerometer only?
 4. Is the ultrasonic fixed forward, or on a servo that sweeps? If it sweeps, can you log the servo angle?
 5. Where does the data go: SD card on the dog, streamed over Bluetooth to a laptop/phone, or both?
 6. Sample rate of each sensor as currently coded.
-7. Does the dog have a GPS module at all? (Indoors it won't fix, but I need to know.)
+7. Does the rig have a GPS module at all? (Indoors it won't fix, but I need to know.)
 8. Battery life under logging.
 
-**Off-leash reality:** a real SAR dog is released and runs. Bluetooth range is ~10 m. So the log must live **on the dog** (SD card, or a phone riding on the dog), not depend on the laptop staying in range. Bluetooth is for control. If the only logging path today is streaming over BT, say so now; we'll either add an SD card or ride a phone on it.
+**Off-leash reality:** a real SAR dog is released and runs, and the rover stands in for that. Bluetooth range is ~10 m. So the log must live **on the dog** (SD card, or a phone riding on the dog), not depend on the laptop staying in range. Bluetooth is for control. If the only logging path today is streaming over BT, say so now; we'll either add an SD card or ride a phone on it.
 
 ## 4. The data contract (do not change column names)
 
