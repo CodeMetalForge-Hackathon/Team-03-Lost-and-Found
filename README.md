@@ -19,6 +19,8 @@ Code Metal Forge 2026 hackathon project. A search dog wears a sensor collar. Whe
 | `glasses/make_fake_dog.py` | Generates a fake dog run for indoor demos. |
 | `glasses/dog_log.txt` | Sample fake run made with `make_fake_dog.py`. |
 | `glasses/start.sh` | One-command demo launcher: server + Cloudflare tunnel + dog data. |
+| `arduino/` | Final Seeeduino sensor-pack sketches (`dog_sensors/`, `i2c_scanner/`). |
+| `pi_pipeline/` | Pi -> Mac sensor data pipeline (serial -> SQLite -> MQTT -> CSV). See `pi_pipeline/README.md`. |
 
 ## Hardware
 

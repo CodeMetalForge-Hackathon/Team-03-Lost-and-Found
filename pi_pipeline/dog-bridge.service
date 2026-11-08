@@ -1,0 +1,21 @@
+# Starts the bridge at boot and restarts it if it ever exits.
+# Install on the Pi (repo cloned to /home/admin/Team-3; set --broker to the Mac's IP):
+#   sudo cp dog-bridge.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now dog-bridge
+#   journalctl -u dog-bridge -f      # view logs
+# Stop any hand-started bridge first (pkill -f bridge.py): only one may read the serial port.
+[Unit]
+Description=Robot dog sensor bridge (serial -> SQLite -> MQTT)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=admin
+WorkingDirectory=/home/admin/Team-3/pi_pipeline
+# 100.71.249.68 = the Mac's Tailscale IP. For a hotspot, change only --broker.
+ExecStart=/usr/bin/python3 -u bridge.py --broker 100.71.249.68
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
