@@ -4,6 +4,21 @@ Code Metal Forge 2026, "Operation Lost and Found". This is a search-and-rescue p
 
 Our rule was *honesty beats polish*. Every screen says what is real, what is replayed and what is simulated, and every number below can be re-run.
 
+## The build
+
+| Dog stand-in, close up | Dog stand-in on a search run |
+|---|---|
+| ![Dog stand-in close-up: ultrasonic ranger and Seeeduino sensor pack](photos/robot-dog-closeup-ultrasonic-sensor.jpg) | ![Dog stand-in walking the venue floor past target cups](photos/robot-dog-search-demo-floor.jpg) |
+
+### Demo videos
+
+Click a preview to open the full video.
+
+| Search run on open floor | Close-up walk | Live sensor readout |
+|---|---|---|
+| [![Search run preview](photos/robot-dog-demo-1-preview.gif)](photos/robot-dog-demo-1.mp4) | [![Close-up walk preview](photos/robot-dog-demo-2-preview.gif)](photos/robot-dog-demo-2.mp4) | [![Sensor readout preview](photos/robot-dog-demo-3-preview.gif)](photos/robot-dog-demo-3.mp4) |
+| [robot-dog-demo-1.mp4](photos/robot-dog-demo-1.mp4) | [robot-dog-demo-2.mp4](photos/robot-dog-demo-2.mp4) | [robot-dog-demo-3.mp4](photos/robot-dog-demo-3.mp4) |
+
 ## What's in the repo
 
 | Path | What it is |
@@ -16,7 +31,7 @@ Our rule was *honesty beats polish*. Every screen says what is real, what is rep
 | [`pi_pipeline/`](pi_pipeline/) | Pi → Mac sensor pipeline (serial → SQLite → MQTT → CSV) and the **12 recorded runs** (`data/runs/`: walk1–4, run5–12). |
 | [`firmware/`](firmware/), [`glasses/`](glasses/) | The original collar → Meta Ray-Ban Display arrow path (below). |
 | [`docs/`](docs/) | Hand-off contracts (e.g. `DOG_HANDOFF.md`). |
-| `media/` | Photos and video from the build. See `media/README.md` once it lands. |
+| [`photos/`](photos/) | Photos, demo videos and GIF previews of the build (shown in [The build](#the-build) above). |
 
 ## The demo (10 minutes, one picture)
 
