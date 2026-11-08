@@ -1,104 +1,73 @@
 # Lost and Found
 
-Code Metal Forge 2026 hackathon project. A search dog wears a sensor collar. When the dog finds someone, the handler's Meta Ray-Ban Display glasses show an arrow pointing to that spot, plus the distance to it.
+Code Metal Forge 2026, "Operation Lost and Found". This is a search-and-rescue picture for finding a missing person. Every sensor we could build or replay over one weekend (a dog's sensor pack, a contact mic for taps, a drone's microphone and camera, sonar, a phone looking at the sky) drops its detections into one shared shell. The shell turns them into probability on a search map and suggests where to look next. **Nothing is confirmed until a human taps Confirm.** That decision goes into a hash chain and out as a Cursor-on-Target pin.
 
-```
- Dog collar (Arduino)  --serial-->  dog_bridge.py  --HTTP POST-->  server.py  <--poll--  Glasses web app
- GPS, accelerometer,                parses lines,                  /update                index.html
- loudness, button                   locks alert spot               /target                arrow + distance
-```
+Our rule was *honesty beats polish*. Every screen says what is real, what is replayed and what is simulated, and every number below can be re-run.
 
-## Repo layout
+## What's in the repo
 
 | Path | What it is |
 |---|---|
-| `firmware/collar_node/collar_node.ino` | Arduino sketch for the dog's collar. Reads GPS (I2C), accelerometer (I2C), loudness sensor and button. Prints a heartbeat line every second and an alert line on events. |
-| `glasses/index.html` | Web app for the Meta Ray-Ban Display (600x600, black = transparent). Draws the direction arrow, distance and turn hints. |
-| `glasses/server.py` | Small bridge server. Serves the glasses app and relays the latest target. |
-| `glasses/dog_bridge.py` | Reads collar lines (serial, file or stdin), picks the target, posts it to the server. |
-| `glasses/make_fake_dog.py` | Generates a fake dog run for indoor demos. |
-| `glasses/dog_log.txt` | Sample fake run made with `make_fake_dog.py`. |
-| `glasses/start.sh` | One-command demo launcher: server + Cloudflare tunnel + dog data. |
-| `arduino/` | Final Seeeduino sensor-pack sketches (`dog_sensors/`, `i2c_scanner/`). |
-| `pi_pipeline/` | Pi -> Mac sensor data pipeline (serial -> SQLite -> MQTT -> CSV). See `pi_pipeline/README.md`. |
+| [`spark/night/`](spark/night/) | **Trace Fusion shell** (the main demo, on the DGX Spark): fusion + evidence chain + CoT (:8140), dog stand-in replay with the **Dog's eye** card (:8141), Perch and Listen (:8142), Persona Search Map + Clue Engine + COP + Next Best Action (:8143). Start with its [README](spark/night/README.md) and [DEMO_FLOW](spark/night/DEMO_FLOW.md). |
+| [`spark/night/dogeye/`](spark/night/dogeye/) | Dog's-eye reconstruction: the rover's **real** run 10 telemetry (one forward ultrasonic ranger) rebuilt as legs, a 3D scene and a 4D replay, plus a Qwen3 debrief with a fact check. |
+| [`spark/zoom/`](spark/zoom/) | **Zoom to Earth**: AIR (NOAA Hurricane Helene imagery + drone map forming), LAND, WATER (forward-looking sonar call-outs) on the same COP (:8150). |
+| [`spark/skyfix/`](spark/skyfix/) | **Sky Fix**: a position fix from a phone photo of the stars (night) or the skyline (day), with an honest confidence ring. Offline, transmits nothing (:8130 / :8131). [`city/`](spark/skyfix/city/) = daytime city mode and 4-shot course mode (:8133). |
+| [`arduino/`](arduino/) | Final Seeeduino sensor-pack sketch on the dog stand-in (`dog_sensors/`): ultrasonic ranger, accelerometer, sound, DHT11, thermistor. |
+| [`pi_pipeline/`](pi_pipeline/) | Pi → Mac sensor pipeline (serial → SQLite → MQTT → CSV) and the **12 recorded runs** (`data/runs/`: walk1–4, run5–12). |
+| [`firmware/`](firmware/), [`glasses/`](glasses/) | The original collar → Meta Ray-Ban Display arrow path (below). |
+| [`docs/`](docs/) | Hand-off contracts (e.g. `DOG_HANDOFF.md`). |
+| `media/` | Photos and video from the build. See `media/README.md` once it lands. |
 
-## Hardware
+## The demo (10 minutes, one picture)
 
-| Part | Connection |
-|---|---|
-| Arduino-compatible board | USB serial to laptop, 9600 baud |
-| GPS module | I2C, address `0x10` |
-| MMA7660-style accelerometer | I2C, address `0x4C` |
-| Loudness sensor | `A0` |
-| Button module | `D2` |
-| Button LED (optional) | `D3` |
-| Meta Ray-Ban Display glasses | Opens the web app through the Meta AI app |
+| Port | Screen | What the judges see |
+|---|---|---|
+| 8131 (https) | Sky Fix PWA | Phone + sky gives a fix with a ring; no GPS, nothing transmitted |
+| 8133 (https) | Sky Fix City / Course | Daytime skyline fix; 4-shot dead reckoning |
+| 8140 | Trace Fusion shell | Contacts, **Confirm** with an operator id, `a-u-G` → `a-f-G` CoT (never hostile), hash chain, AAR |
+| 8143 | Search Map / COP | Koester 2020 prior × clues + every sensor's field − searched coverage; drone/sonar replay; Next Best Action (a hint, never a tasking) |
+| 8141 | Dog replay + Dog's eye | SYNTHETIC dog run replay; the Dog's eye card shows real run 10 |
+| 8142 | Perch and Listen | The same speech with rotors off vs on |
+| 8150 | Zoom AIR / WATER | Real NOAA imagery, map forming; sonar mosaic |
 
-Pins and addresses are set at the top of `collar_node.ino`.
+Order and script: [`spark/night/DEMO_FLOW.md`](spark/night/DEMO_FLOW.md). Restart: `night/stop_all.sh`, `night/run_all.sh`, `zoom/run.sh reset`, `skyfix/run.sh`.
 
-## Collar data format
+## Numbers you can say (all re-runnable)
 
-Heartbeat, once per second:
+- **Tap Three:** 0 confirmed false alarms on real negatives (ESC-50 knocks and footsteps, 7.8–12.5 h of geophone walk-bys). There is no field hit rate yet.
+- **Perch and Listen:** P(human voice) 0.80–0.89 with rotors off vs 0.02–0.04 with rotors on. A linear probe reaches human-voice F1 0.59 at low throttle in an unseen room.
+- **Search map prior:** matches Koester 2020 Table 3 distance quantiles and Table 7 find-location shares exactly. Autistic and TD-child personas are verified; hiker, hunter and dementia are illustrative.
+- **Sonar:** UATD human-body AP50 **0.91** on held-out data; 8 of 10 call-outs match a labelled body.
+- **Aerial person detector:** HERIDAL AP50 0.23, P 0.55 / R 0.23 at a 0.60 gate. Published human observers: P 0.59 / R 0.68.
+- **Barks vs everything else:** AUC 0.99.
+- **Drone stitch:** 54 of 77 photos placed, ±19 m RMS.
+- **Sky Fix:** night with exact gravity gives 0.40 km; with 0.3° phone tilt, 40 km. The spec's ≤20 km at 0.3° is physically unreachable, and we report it as a fail. Day skyline: median 16.3 km on 112 test photos.
+- **Dog run 10 (real):** glass wall reached at 21 s (14 cm, 14.5 cm/s), side wall at 36 s (11 cm, 13.2 cm/s), echo lost at 40 s = open floor. 8 of 9 TILT alerts are gait bob.
 
-```
-HB,<dog_id>,<seq>,<millis>,<activity>,<MOVING|STILL>,<lat>,<lon>,<fix>
-```
+## Real vs simulated
 
-Alert, when something happens:
+- **Real:** dog runs (`pi_pipeline/data/runs/`), NOAA Helene imagery, the Aukerman drone flight, UATD sonar frames, ESC-50 / geophone negatives, DroneAudioSet audio, OSM + DEM for the search grid.
+- **Simulated or replayed, and labelled on screen:** the dog replay on :8141 (SYNTHETIC run), sonar placement on the lake, HERIDAL victim pins, tap replays when no mic is attached. The dog's-eye headings come from a room prior, not a measurement.
+- **Not claimed:** that the detector finds people in the NOAA tiles, that sonar or pin positions are real, or a field hit rate for Tap Three or the dog.
 
-```
-AL,<dog_id>,<seq>,<millis>,<STILL|TILT|BARK|BUTTON>,<lat>,<lon>,<fix>
-```
+## Original path: collar → glasses arrow
 
-`fix` is 1 when GPS has a valid fix, 0 otherwise. Alert meanings: `STILL` the dog stopped after moving, `TILT` the dog sat down (about 30 degrees of tilt), `BARK` sound well above the room baseline, `BUTTON` the handler pressed the button.
-
-`dog_bridge.py` locks the target on the first `BARK`, `BUTTON` or `TILT` alert that has a GPS fix. Until then the arrow points to the dog's last known position. Edit `ALERT_STATES` in `dog_bridge.py` to change which alerts count.
-
-## How the arrow works
-
-The glasses app polls `/target` every 500 ms. It accepts any of these:
-
-- `{"relative": 30, "distance": 42}` angle relative to the wearer
-- `{"bearing": 75, "distance": 42}` absolute compass bearing
-- `{"lat": 42.36, "lon": -71.06}` target position; the app computes bearing and distance from the wearer's position and heading
-
-The arrow turns green within 20 degrees of straight ahead, shows `SEARCH HERE` under 8 m, and goes grey with `SIGNAL LOST` if no data arrives for 5 seconds.
-
-## Run it
-
-Requirements: Python 3, `cloudflared`, and `pyserial` for a real collar (`pip install pyserial`).
+A collar (`firmware/collar_node/collar_node.ino`: GPS, accelerometer, loudness, button) prints `HB,…` heartbeats and `AL,…` alerts. `glasses/dog_bridge.py` locks the target on the first BARK, BUTTON or TILT alert with a GPS fix. `glasses/server.py` relays it. The Meta Ray-Ban Display web app (`glasses/index.html`) draws an arrow and the distance: it turns green within 20°, shows `SEARCH HERE` under 8 m, and shows `SIGNAL LOST` after 5 s without data.
 
 ```bash
-cd glasses
-./start.sh                              # demo with the fake dog run
-./start.sh /dev/tty.usbmodem1101        # real collar on USB serial
+cd glasses && ./start.sh                         # fake dog run + Cloudflare quick tunnel; open the URL in the Meta AI app
+./start.sh /dev/tty.usbmodem1101                 # real collar on USB serial (pip install pyserial)
 ```
 
-`start.sh` prints a public URL. Open it in the Meta AI app as the glasses web app. On the glasses, pinch (or press Enter) once to turn on the compass. Pinch again to switch between LIVE and DEMO. In DEMO mode the D-pad left/right rotates a fake target.
-
-For indoor demos without GPS on the glasses, the URL includes `?me=<lat>,<lon>` to fix the wearer's position.
-
-Flash the collar: open `firmware/collar_node/collar_node.ino` in the Arduino IDE, select the board and port, upload. The serial monitor (9600 baud) should print `READY` and then `HB` lines.
+Data format: `HB,<dog_id>,<seq>,<millis>,<activity>,<MOVING|STILL>,<lat>,<lon>,<fix>` and `AL,<dog_id>,<seq>,<millis>,<STILL|TILT|BARK|BUTTON>,<lat>,<lon>,<fix>`.
 
 ## Built this weekend vs. existing
 
-Everything in this repo was written during the hackathon. External pieces: Arduino `Wire` library, Python standard library, `pyserial`, Cloudflare quick tunnels, and the Meta Ray-Ban Display web app platform.
+All code here was written during the hackathon. We used these open models: Qwen3-8B, Qwen3-VL, YOLO11/YOLO26, PANNs, AST. Datasets: Koester 2020 *Lost Person Behavior* tables, ESC-50, DroneAudioSet, UATD, HERIDAL, NOAA emergency imagery, OSM, USGS DEM. Tools and libraries: cot-validator XSD, Arduino `Wire`, `pyserial`, FastAPI, Cloudflare quick tunnels, and the Meta Ray-Ban Display web app platform.
 
 ## Known limits
 
-- GPS is accurate to about 5 m, so the last few meters rely on the dog and the handler.
-- Glasses heading comes from the phone/glasses orientation sensor. If only a relative heading is available, the arrow follows head turns but is not north-referenced.
-- Cloudflare quick tunnel URLs change on every restart.
-
-## Spark night build: status (Sun Nov 8, ~01:00)
-
-Trace Fusion shell + live sensors, on the DGX Spark. Details: [`spark/night/README.md`](spark/night/README.md), demo order: [`spark/night/DEMO_FLOW.md`](spark/night/DEMO_FLOW.md).
-
-| piece | port | status | headline number (re-runnable) |
-|---|---|---|---|
-| Fusion inbox → contacts → human confirm → CoT → hash chain → AAR | 8140 | working, 9 tests | CoT validates against the cot-validator XSD; an edited chain record fails `/verify` at that line |
-| Tap Three detector (contact mic) | → 8140 | working; **no team recordings yet** | 0 confirmed false alarms on ESC-50 knocks/footsteps + 7.8–12.5 h geophone walk-bys ([results](spark/night/RESULTS_tap3.md)) |
-| Dog stand-in ingest + replay | 8141 | working on a **SYNTHETIC** run; real runs re-process with one command | sync 0.4 ms / track 1.6 cm vs synthetic truth ([results](spark/night/RESULTS_dog.md)) |
-| Perch and Listen | 8142 | working | P(human voice) 0.80–0.89 rotors off vs 0.02–0.04 rotors on; probe HV F1 0.59 (low throttle, unseen room) ([results](spark/night/RESULTS_perch.md)) |
-| Persona Search Map + Clue Engine | 8143 | working | prior matches Koester 2020 Table 3 quantiles and Table 7 find-location shares exactly; hiker/hunter/dementia illustrative |
-| Sky Fix (Persona 1 phone) | 8130 | separate session | see [`spark/skyfix/`](spark/skyfix/) |
+- The dog stand-in has one forward ranger and no heading, odometry or GPS indoors, so positions are dead-reckoned from range alone. Its thermistor is a contact sensor, not IR (no body-heat channel).
+- Field widths, modality weights and the POD model are hand-set and illustrative.
+- On venue Wi-Fi with client isolation, phones can't reach the Spark. Use Tailscale, a hotspot or a travel router.
+- Collar GPS is about 5 m, and Cloudflare quick-tunnel URLs change on every restart.
