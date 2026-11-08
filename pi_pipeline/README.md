@@ -64,7 +64,19 @@ To switch to a phone hotspot later, change only `--broker` to the Mac's hotspot 
    ```
    To start it at boot instead, see the comments in `dog-bridge.service`.
 
-**Run only one receiver at a time.** It uses a fixed MQTT client id (`dog-receiver`) so the
+### Recording a run
+
+To save just one stretch of time (a walk, a test) into its own folder, in a separate terminal:
+```
+.venv/bin/python receiver.py --run walk1      # Ctrl+C to stop and save
+```
+This writes `data/runs/walk1_<start time>/` with `heartbeats.csv`, `alerts.csv` and `run.json`
+(start/stop, counts, alerts by type, seq gaps, board restarts, min/max per field). It keeps
+only readings *taken* (Pi `ts`) after you start it. It can run beside the main receiver: it uses its own
+broker-assigned id. Readings still stuck in the Pi's backlog when you press Ctrl+C are not in
+the run (they are still in `data/heartbeats.csv` and the Pi's SQLite).
+
+**Run only one main receiver at a time.** It uses a fixed MQTT client id (`dog-receiver`) so the
 broker can hold messages for it. A second copy with the same id kicks the first one off,
 and each ends up with about half the messages. Check with `pgrep -fl receiver.py`.
 

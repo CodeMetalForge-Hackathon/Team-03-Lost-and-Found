@@ -13,9 +13,17 @@ HB_COLS = ["received_at", "ts", "dog_id", "seq", "t_ms", "activity", "state", "l
 AL_COLS = ["received_at", "ts", "dog_id", "seq", "t_ms", "alert", "lat", "lon", "fix"]
 
 
+NUMERIC = ["activity", "temp_c", "humidity", "therm_c", "dist_cm"]
+
+
 class Receiver:
-    def __init__(self, outdir):
+    def __init__(self, outdir, since=None):
         os.makedirs(outdir, exist_ok=True)
+        self.since = since                    # epoch seconds: drop readings taken before this
+        self.skipped = 0
+        self.ranges = {}                      # field -> [min, max] over HB rows
+        self.alert_types = collections.Counter()
+        self.first_seq = self.restarts = self.dups = 0
         self.writers = {}
         for kind, cols, name in (("hb", HB_COLS, "heartbeats.csv"), ("alert", AL_COLS, "alerts.csv")):
             path = os.path.join(outdir, name)
@@ -40,11 +48,25 @@ class Receiver:
             kind = topic.split("/")[-1]
             dog = msg["dog_id"]
             seq = int(msg["seq"])
+            taken = datetime.datetime.fromisoformat(msg["ts"]).timestamp()
         except (ValueError, KeyError, TypeError):
             self.events.append(f"bad message on {topic}: {payload[:60]!r}")
             return
         if kind not in self.writers:
             return
+        if self.since and taken < self.since:  # --run: reading from before the run started
+            self.skipped += 1
+            return
+        if not self.counts:
+            self.first_seq = seq
+        if kind == "hb":
+            for field in NUMERIC:
+                v = msg.get(field)
+                if v is not None:
+                    lo, hi = self.ranges.get(field, (v, v))
+                    self.ranges[field] = [min(lo, v), max(hi, v)]
+        else:
+            self.alert_types[msg.get("alert")] += 1
         now = time.time()
         msg["received_at"] = datetime.datetime.now().astimezone().isoformat(timespec="milliseconds")
         f, w = self.writers[kind]
@@ -67,17 +89,40 @@ class Receiver:
                 self.gaps += seq - last - 1
                 self.events.append(f"GAP {dog}: seq {last} -> {seq} ({seq - last - 1} missing)")
             elif seq <= last and last - seq < 5:
+                self.dups += 1
                 self.events.append(f"duplicate/out-of-order {dog}: seq {seq} after {last}")
                 return  # keep last_seq
             else:
+                self.restarts += 1
                 self.events.append(f"{dog} seq reset {last} -> {seq} (board restarted?)")
         self.last_seq[dog] = seq
 
-    def draw(self):
+    def summary(self, name, outdir, stopped):
+        """Write run.json for a --run recording."""
+        info = {
+            "run": name, "folder": outdir,
+            "start": datetime.datetime.fromtimestamp(self.since).astimezone().isoformat(timespec="seconds"),
+            "stop": datetime.datetime.fromtimestamp(stopped).astimezone().isoformat(timespec="seconds"),
+            "duration_s": round(stopped - self.since, 1),
+            "heartbeats": self.counts["hb"], "alerts": self.counts["alert"],
+            "alerts_by_type": dict(self.alert_types),
+            "first_seq": self.first_seq, "last_seq": max(self.last_seq.values(), default=None),
+            "seq_gaps": self.gaps, "duplicates": self.dups, "board_restarts": self.restarts,
+            "ranges": self.ranges,  # min/max per field over the run's heartbeats
+        }
+        with open(os.path.join(outdir, "run.json"), "w") as f:
+            json.dump(info, f, indent=2)
+        return info
+
+    def draw(self, run=None):
         now = time.time()
         while self.arrivals and now - self.arrivals[0] > 10:
             self.arrivals.popleft()
-        out = ["\033[H\033[J",  # clear screen
+        out = ["\033[H\033[J"]  # clear screen
+        if run:
+            out.append(f"RECORDING run '{run}'  {int(now - self.since) // 60:02d}:{int(now - self.since) % 60:02d}"
+                       f"  -> Ctrl+C to stop and save")
+        out += [
                f"broker {'CONNECTED' if self.connected else 'DISCONNECTED'}   "
                f"rate {len(self.arrivals) / 10:.1f} msg/s (10 s)   "
                f"total hb={self.counts['hb']} alerts={self.counts['alert']}   seq gaps={self.gaps}", ""]
@@ -97,9 +142,16 @@ def main():
     ap.add_argument("--broker", default="localhost")
     ap.add_argument("--port", type=int, default=1883)
     ap.add_argument("--out", default="data", help="folder for heartbeats.csv / alerts.csv")
+    ap.add_argument("--run", metavar="NAME", help="record one run into data/runs/NAME_<time>/ "
+                    "(only readings taken from now until Ctrl+C); can run beside the main receiver")
     args = ap.parse_args()
 
-    r = Receiver(args.out)
+    if args.run:
+        started = time.time()
+        args.out = os.path.join(args.out, "runs", f"{args.run}_{time.strftime('%Y%m%d-%H%M%S')}")
+        r = Receiver(args.out, since=started)
+    else:
+        r = Receiver(args.out)
 
     def on_connect(client, userdata, flags, rc, *extra):  # works with paho 1.x and 2.x
         r.connected = True
@@ -111,22 +163,27 @@ def main():
     def on_message(client, userdata, m):
         r.on_message(m.topic, m.payload.decode(errors="replace"))
 
+    # Main receiver: fixed id + persistent session, so the broker queues messages for it.
+    # A --run recorder: broker-assigned id + clean session, so it never clashes with the main one.
+    client_id, clean = ("", True) if args.run else ("dog-receiver", False)
     if hasattr(mqtt, "CallbackAPIVersion"):
-        client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id="dog-receiver",
-                             clean_session=False)
+        client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id=client_id, clean_session=clean)
     else:
-        client = mqtt.Client(client_id="dog-receiver", clean_session=False)
+        client = mqtt.Client(client_id=client_id, clean_session=clean)
     client.on_connect, client.on_disconnect, client.on_message = on_connect, on_disconnect, on_message
     client.reconnect_delay_set(min_delay=1, max_delay=5)
     client.connect_async(args.broker, args.port, keepalive=10)
     client.loop_start()
     try:
         while True:
-            r.draw()
+            r.draw(args.run)
             time.sleep(1)
     except KeyboardInterrupt:
         client.loop_stop()
         print(f"\nstopped. hb={r.counts['hb']} alerts={r.counts['alert']} seq gaps={r.gaps}")
+        if args.run:
+            r.summary(args.run, args.out, time.time())
+            print(f"run saved to {args.out}/ (heartbeats.csv, alerts.csv, run.json)")
 
 
 if __name__ == "__main__":
