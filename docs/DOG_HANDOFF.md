@@ -6,7 +6,7 @@ Paste this whole file into your LLM before you touch the dog. It is the spec for
 
 ## 1. The one-sentence goal
 
-Every run of the dog must produce **one folder** with time-stamped sensor logs, a labeled events file, and an overhead video, all on the same clock, so I can reconstruct where the dog went, what it sensed at each point, and when.
+Every run of the dog must produce **one folder** with time-stamped sensor logs, a labeled events file, and an overhead video (a fixed phone watching the floor from above — not a camera on the dog), all on the same clock, so I can reconstruct where the dog went, what it sensed at each point, and when.
 
 If I cannot line the sensors up with the video in time, the run is useless. Timing is the whole job.
 
@@ -63,9 +63,13 @@ Labels (use exactly these): `sync_clap`, `run_start`, `run_end`, `dog_stop`, `do
 
 `t_ms` must be on the **dog's clock**. Easiest: one person watches the live stream (or the phone stopwatch started at the clap) and types labels; we convert at the clap.
 
-### `overhead.mp4` — position ground truth
+### `overhead.mp4` — position ground truth (NOT a camera on the dog)
 
-A phone on a tripod or taped high on a wall, looking down at the whole demo floor, 30 fps, landscape, does not move for the whole run.
+**Why there is a video at all:** the dog's sensors tell us what it felt and heard, but nothing on the dog can tell us *where it is*. The IMU cannot give position (it drifts to garbage in seconds), and there is no GPS inside the building. So something off the dog has to watch where it goes. That is this camera. The dog carries nothing extra.
+
+**What it is:** a phone on a tripod, or taped high on a wall, looking down at the whole demo floor, 30 fps, landscape, does not move for the whole run. Franco tracks the marker on the dog's back in this video and converts pixels to meters using the floor markers. That track is the backbone every sensor reading gets pinned to.
+
+**Why this isn't a cheat:** in the real version a drone looks down at the search area and does exactly the same job. Same pipeline, lower camera.
 
 - Tape **four markers** on the floor at the corners of the area (bright tape X's). Measure the distances between them with a tape measure and write them in `floor.txt`. That lets me turn pixels into meters.
 - Put a **bright marker on the dog's back** (orange tape, a tennis ball, anything high-contrast) so I can track it.
