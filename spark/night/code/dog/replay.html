@@ -10,7 +10,7 @@
 header{display:flex;gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
 h1{font-size:16px;margin:0;font-weight:600}
 .badge{padding:3px 10px;border-radius:4px;font-weight:700;letter-spacing:.06em;font-size:12px}
-.syn{background:var(--bad);color:#fff}.real{background:var(--ok);color:#000}
+.syn{background:var(--bad);color:#fff}.real{background:var(--ok);color:#000}.mix{background:linear-gradient(90deg,var(--ok) 50%,var(--warn) 50%);color:#000}
 select,button{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:6px 10px;font:inherit}
 button{cursor:pointer}button:hover{border-color:var(--acc)}
 main{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:12px;padding:12px 16px}
@@ -67,6 +67,15 @@ footer{color:var(--mute);font-size:12px;padding:4px 16px 16px}
       </div>
     </div>
     <div class="card"><h2>Alerts</h2><ul id="alerts"></ul></div>
+    <div class="card" id="dogeye" hidden><h2>Dog's eye · 3D→4D reconstruction from the forward ranger</h2>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;flex-wrap:wrap"><select id="desel" aria-label="Reconstruction"></select>
+        <span id="demeta" style="color:var(--mute);font-size:12px"></span></div>
+      <div style="color:var(--mute);font-size:12px;margin-bottom:6px">Separate from the run above: a reconstruction from the dog's REAL range/IMU/sound stream, with positions dead-reckoned from the forward ranger. It is not on the map and not in fusion or the AAR.</div>
+      <video id="devid" controls muted playsinline preload="metadata"></video>
+      <div style="margin:6px 0;font-size:12px"><a id="dehtml" target="_blank" style="color:var(--acc)">open interactive replay ↗</a> ·
+        <a id="detop" target="_blank" style="color:var(--acc)">top-down</a> · <a id="deeye" target="_blank" style="color:var(--acc)">dog's-eye</a></div>
+      <pre id="deintel" style="white-space:pre-wrap;font-size:12px;max-height:340px;overflow:auto;background:#0b0e13;padding:8px;border-radius:6px;margin:0"></pre>
+    </div>
   </div>
 </main>
 <footer id="foot">POD model is illustrative (1 − e^(−dwell/τ)); position comes from the overhead camera, not the IMU. Ultrasonic hits are surfaces, never people.</footer>
@@ -85,10 +94,22 @@ async function scaleLabel(){ try{ const k=await (await fetch('api/scale')).json(
  }catch(e){ $('scalebar').textContent='map scale: unavailable'; } }
 async function load(name){
   runName=name; L=await (await fetch(`api/run/${name}/layers`)).json();
-  $('badge').textContent=L.synthetic?'SYNTHETIC RUN':'REAL RUN'; $('badge').className='badge '+(L.synthetic?'syn':'real');
+  $('badge').textContent=L.badge||(L.synthetic?'SYNTHETIC RUN':'REAL RUN'); $('badge').className='badge '+(L.synthetic?'syn':(L.placement==='SIMULATED'?'mix':'real'));
   $('vid').src=`api/run/${name}/video`; t=L.t_start_ms; draw(); scaleLabel();
 }
 $('run').onchange=e=>load(e.target.value);
+let DE=[];
+async function loadDogEye(){ try{ DE=await (await fetch('api/dogeye')).json(); }catch(e){ DE=[]; }
+  if(!DE.length){ $('dogeye').hidden=true; return; }
+  $('dogeye').hidden=false;
+  $('desel').innerHTML=DE.map(d=>`<option value="${d.name}">${d.name} (${d.headings==='room_prior'?'ROOM-PRIOR headings, not measured':'SENSOR-ONLY, 90° turns assumed'})</option>`).join('');
+  $('desel').onchange=e=>showDogEye(e.target.value); showDogEye(DE[0].name); }
+async function showDogEye(name){ const d=DE.find(x=>x.name===name), b=`api/dogeye/${name}/`, has=f=>d.files.includes(f);
+  $('demeta').textContent=`${d.run} · ${d.duration_s} s · ${d.legs} legs`;
+  if(has('replay.mp4')) $('devid').src=b+'replay.mp4'; else $('devid').removeAttribute('src');
+  $('dehtml').href=b+'replay.html'; $('detop').href=b+'topdown.png'; $('deeye').href=b+'dogseye.png';
+  if(!has('intel.md')){ $('deintel').textContent='intel.md not generated for this reconstruction'; return; }
+  try{ const r=await fetch(b+'intel.md'); $('deintel').textContent=r.ok?await r.text():'intel.md unavailable'; }catch(e){ $('deintel').textContent='intel.md unavailable'; } }
 function W2C(){ const [x0,y0,x1,y1]=L.floor_bounds, pad=20; const s=Math.min((cv.width-2*pad)/(x1-x0),(cv.height-2*pad)/(y1-y0));
   return {s, f:(x,y)=>[pad+(x-x0)*s, pad+(y-y0)*s]}; }
 function snapAt(tm){ const S=L.coverage.snapshots; let lo=0,hi=S.length-1; if(tm<S[0].t_ms) return null;
@@ -139,7 +160,7 @@ $('play').onclick=()=>{ playing=!playing; $('play').textContent=playing?'❚❚ 
 $('speed').onchange=()=>{$('vid').playbackRate=+$('speed').value};
 function tick(now){ if(playing&&L){ t+=(now-last)*(+$('speed').value); if(t>=L.t_end_ms){t=L.t_end_ms; playing=false; $('play').textContent='▶ Play'; $('vid').pause();}
     const v=$('vid'); if(!v.paused && Math.abs(v.currentTime-(t-L.offset_ms)/1000)>0.4) v.currentTime=(t-L.offset_ms)/1000; draw(); } last=now; requestAnimationFrame(tick); }
-requestAnimationFrame(tick); loadRuns();
+requestAnimationFrame(tick); loadRuns(); loadDogEye();
 </script>
 </body>
 </html>

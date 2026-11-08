@@ -46,6 +46,39 @@ def video(name: str):
     return FileResponse(p, media_type="video/mp4")
 
 
+DOGEYE_FILES = {"replay.mp4": "video/mp4", "intel.md": "text/markdown; charset=utf-8", "topdown.png": "image/png",
+                "dogseye.png": "image/png", "replay.html": "text/html; charset=utf-8"}
+
+
+DOGEYE_OUT = HERE.parent / "dogeye/out"     # read-only; independent of data/dog (never feeds map, AAR or scenario)
+
+
+@app.get("/api/dogeye")
+def dogeye_list():
+    """Every dog's-eye reconstruction under night/dogeye/out/ that has a legs.json."""
+    out = []
+    for d in sorted(DOGEYE_OUT.glob("*/legs.json")):
+        try:
+            m = json.loads(d.read_text())
+        except Exception:
+            continue
+        sol = "room_prior" if "room_prior" in m.get("solutions", {}) else "sensor_only"
+        out.append({"name": d.parent.name, "run": m.get("run"), "duration_s": m.get("duration_s"),
+                    "legs": len(m.get("legs", [])), "headings": sol,
+                    "files": [f for f in DOGEYE_FILES if (d.parent / f).exists()]})
+    return out
+
+
+@app.get("/api/dogeye/{name}/{fname}")
+def dogeye_file(name: str, fname: str):
+    if fname not in DOGEYE_FILES:
+        raise HTTPException(404)
+    root = DOGEYE_OUT.resolve(); p = (root / name / fname).resolve()
+    if p.parent.parent != root or not p.exists():
+        raise HTTPException(404)
+    return FileResponse(p, media_type=DOGEYE_FILES[fname])
+
+
 @app.get("/api/scale")
 def scale():
     """Floor -> search-map scaling used by fusion and the map (config.json floor_anchor.scale)."""
