@@ -1,0 +1,41 @@
+{
+  "run": "walk4",
+  "folder": "data/runs/walk4_20261108-035357",
+  "start": "2026-11-08T03:53:57-05:00",
+  "stop": "2026-11-08T03:54:49-05:00",
+  "duration_s": 52.8,
+  "heartbeats": 52,
+  "alerts": 9,
+  "alerts_by_type": {
+    "TILT": 5,
+    "BARK": 2,
+    "STILL": 2
+  },
+  "first_seq": 801,
+  "last_seq": 861,
+  "seq_gaps": 0,
+  "duplicates": 0,
+  "board_restarts": 0,
+  "ranges": {
+    "activity": [
+      1.2,
+      26.0
+    ],
+    "temp_c": [
+      21.3,
+      21.3
+    ],
+    "humidity": [
+      48,
+      48
+    ],
+    "therm_c": [
+      13.7,
+      14.3
+    ],
+    "dist_cm": [
+      38,
+      247
+    ]
+  }
+}

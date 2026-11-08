@@ -1,4 +1,5 @@
-data/
+data/*
+!data/runs/
 mosquitto_data/
 *.db
 *.db-*

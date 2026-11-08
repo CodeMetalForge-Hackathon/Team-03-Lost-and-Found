@@ -1,0 +1,41 @@
+{
+  "run": "walk3",
+  "folder": "data/runs/walk3_20261108-035252",
+  "start": "2026-11-08T03:52:52-05:00",
+  "stop": "2026-11-08T03:53:30-05:00",
+  "duration_s": 38.2,
+  "heartbeats": 37,
+  "alerts": 6,
+  "alerts_by_type": {
+    "BARK": 1,
+    "TILT": 4,
+    "STILL": 1
+  },
+  "first_seq": 729,
+  "last_seq": 771,
+  "seq_gaps": 0,
+  "duplicates": 0,
+  "board_restarts": 0,
+  "ranges": {
+    "activity": [
+      0.7,
+      29.3
+    ],
+    "temp_c": [
+      21.2,
+      21.3
+    ],
+    "humidity": [
+      48,
+      48
+    ],
+    "therm_c": [
+      14.1,
+      14.3
+    ],
+    "dist_cm": [
+      14,
+      172
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "run": "run8",
+  "folder": "data/runs/run8_20261108-035834",
+  "start": "2026-11-08T03:58:34-05:00",
+  "stop": "2026-11-08T03:59:15-05:00",
+  "duration_s": 41.0,
+  "heartbeats": 40,
+  "alerts": 6,
+  "alerts_by_type": {
+    "TILT": 4,
+    "STILL": 2
+  },
+  "first_seq": 1114,
+  "last_seq": 1159,
+  "seq_gaps": 0,
+  "duplicates": 0,
+  "board_restarts": 0,
+  "ranges": {
+    "activity": [
+      1.0,
+      34.9
+    ],
+    "temp_c": [
+      22.8,
+      22.8
+    ],
+    "humidity": [
+      45,
+      46
+    ],
+    "therm_c": [
+      14.8,
+      15.5
+    ],
+    "dist_cm": [
+      28,
+      124
+    ]
+  }
+}
