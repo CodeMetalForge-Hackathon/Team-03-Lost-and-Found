@@ -52,6 +52,7 @@ class Pattern:
     max_dev: float          # worst gap deviation as a fraction of the mean gap
     confidence: float
     taps: list
+    strength: float = 0.0   # weakest tap's flux / threshold (signal strength proxy)
 
 
 @dataclass
@@ -62,6 +63,7 @@ class Event:
     interval: float
     confidence: float
     n_patterns: int
+    strength: float = 0.0
 
 
 def spectral_flux(x: np.ndarray, fs: float) -> tuple[np.ndarray, float]:
@@ -154,7 +156,8 @@ def find_patterns(onsets: list[Onset], weak: list[Onset] | None = None) -> list[
                 snr = min(1.0, np.log10(min(s_)) / np.log10(20.0)) if min(s_) > 1 else 0.0
                 conf = round(float(0.5 + 0.3 * timing + 0.2 * snr), 3)
                 out.append(Pattern(t_start=a.t, t_end=c.t, interval=round(mean, 4), max_dev=round(dev, 4),
-                                   confidence=conf, taps=[round(a.t, 3), round(b.t, 3), round(c.t, 3)]))
+                                   confidence=conf, taps=[round(a.t, 3), round(b.t, 3), round(c.t, 3)],
+                                   strength=round(float(min(s_)), 2)))
     out.sort(key=lambda p: p.t_end)
     return out
 
@@ -163,7 +166,7 @@ def patterns_to_events(patterns: list[Pattern]) -> list[Event]:
     events: list[Event] = []
     used_as_confirm = set()
     for i, p in enumerate(patterns):
-        events.append(Event("pattern", round(p.t_end, 3), round(p.t_start, 3), p.interval, p.confidence, 1))
+        events.append(Event("pattern", round(p.t_end, 3), round(p.t_start, 3), p.interval, p.confidence, 1, p.strength))
         for j in range(i - 1, -1, -1):
             q = patterns[j]
             if p.t_start - q.t_end > CONFIRM_WITHIN_S:
@@ -173,7 +176,7 @@ def patterns_to_events(patterns: list[Pattern]) -> list[Event]:
             if abs(p.interval - q.interval) / q.interval <= CONFIRM_GAP_TOL:
                 conf = round(1 - (1 - p.confidence) * (1 - q.confidence), 3)
                 events.append(Event("confirmed", round(p.t_end, 3), round(q.t_start, 3),
-                                    round((p.interval + q.interval) / 2, 4), conf, 2))
+                                    round((p.interval + q.interval) / 2, 4), conf, 2, min(p.strength, q.strength)))
                 used_as_confirm.update({i, j})
                 break
     return events

@@ -151,3 +151,79 @@ def test_dog_synthetic_sync_and_track():
     assert abs(s["error_vs_truth_ms"]) < 40
     t = json.loads((run / "track_summary.json").read_text())
     assert t["vs_synthetic_truth_m"]["p95"] < 0.10
+
+
+# ---------------- Phase 7: orchestrator (COP fields, coverage, next best action) ----------------
+def _cfg():
+    return json.loads((N / "config.json").read_text())
+
+
+def _grid():
+    import cop
+    c = _cfg()
+    return cop.Grid(100, 50.0, 2500.0, c["lkp"]["lat"], c["lkp"]["lon"])
+
+
+def test_field_summation():
+    import cop
+    g, cfg = _grid(), _cfg()
+    assert abs(g.gaussian(0, 0, 200).sum() - 1) < 1e-3          # unit mass kernel on the grid
+    assert abs(g.disk(300, 300, 80).sum() - 1) < 1e-9
+    assert g.gaussian(1e6, 1e6, 100).sum() < 1e-9               # off-grid mass is dropped, not squeezed in
+    f2e = lambda x, y: (x * 100.0, -y * 100.0)                  # noqa: E731
+    tap = cop.event_field({"sensor": "tap3", "kind": "tap_pattern_3", "confidence": 1.0, "position": {"lat": cfg["lkp"]["lat"], "lon": cfg["lkp"]["lon"]},
+                           "extra": {"strength": 10.0}}, g, cfg, f2e)
+    weak = cop.event_field({"sensor": "tap3", "kind": "tap_pattern_3", "confidence": 1.0, "position": {"lat": cfg["lkp"]["lat"], "lon": cfg["lkp"]["lon"]},
+                            "extra": {"strength": 2.0}}, g, cfg, f2e)
+    assert tap["source"] == "tap3" and weak["sigma"] > tap["sigma"]      # sigma ~ 1 / signal strength
+    assert abs(tap["field"].sum() - 0.85) < 0.01                         # mass = weight 0.85 x confidence 1.0
+    dog = cop.event_field({"sensor": "dog1", "kind": "dog_stop", "confidence": 0.3, "position": {"x": 3, "y": 4}}, g, cfg, f2e)
+    L = cop.sum_fields([tap, weak, dog], g.E.shape)
+    assert np.allclose(L["tap3"], tap["field"] + weak["field"]) and np.allclose(L["dog"], dog["field"])
+    base = np.ones(g.E.shape)
+    c = cop.cop(base, L, None)
+    assert abs(c.sum() - 1) < 1e-9
+    r, k = g.cell_of(0, 0)
+    assert c[r, k] > cop.cop(base, {}, None)[r, k] * 10                  # the tap pulls mass to the sensor
+    c_off = cop.cop(base, L, None, enabled={"dog"})                     # toggling a source off removes it
+    assert c_off[r, k] < c[r, k] / 10
+
+
+def test_coverage_subtraction():
+    import cop
+    g = _grid()
+    shots = [{"t_rel": 0, "e": 0, "n": 0, "footprint_m": [200, 200]}, {"t_rel": 10, "e": 50, "n": 0, "footprint_m": [200, 200]},
+             {"t_rel": 99, "e": 2000, "n": 2000, "footprint_m": [200, 200]}]
+    pd = cop.drone_pod(shots, 20, g, 0.6)
+    r, k = g.cell_of(25, 25)
+    assert abs(pd[r, k] - (1 - 0.4 ** 2)) < 1e-9                        # two passes: 1 - (1-p)^2
+    r2, k2 = g.cell_of(2000, 2000)
+    assert pd[r2, k2] == 0                                              # shot after t=20 not flown yet
+    team = cop.disk_pod([{"e": 25, "n": 25, "radius_m": 100, "pod": 0.5}], g)
+    tot = cop.combine_pod(pd, None, team)
+    assert abs(tot[r, k] - (1 - 0.4 ** 2 * 0.5)) < 1e-9                 # independent sweeps combine
+    base = np.ones(g.E.shape)
+    c = cop.cop(base, {}, tot)
+    ratio = c[r, k] / c[0, 0]
+    assert abs(ratio - (1 - tot[r, k])) < 1e-9 and abs(c.sum() - 1) < 1e-9
+
+
+def test_next_best_action_selection():
+    import cop
+    g, cfg = _grid(), _cfg()
+    c = np.full(g.E.shape, 1.0)
+    a = g.cell_of(500, 0); b = g.cell_of(-1000, 0); d = g.cell_of(0, 1500)
+    c[a] = 100; c[b] = 50; c[d] = 20
+    c = c / c.sum()
+    nba = cop.next_best_action(c, None, g, cfg)
+    assert tuple(nba["cell"]) == a
+    pod = np.zeros(g.E.shape); pod[a] = 0.5                            # searched (POD >= 0.3) -> skipped
+    nba = cop.next_best_action(c, pod, g, cfg)
+    assert tuple(nba["cell"]) == b
+    nba = cop.next_best_action(c, pod, g, cfg, tasked={b})             # already tasked -> skipped
+    assert tuple(nba["cell"]) == d
+    A = cfg["assets"]; de, dn = g.ll2en(A["drone"]["lat"], A["drone"]["lon"])
+    dist = np.hypot(nba["e"] - de, nba["n"] - dn)
+    assert abs(nba["drone"]["eta_min"] - round((A["drone"]["launch_s"] + dist / A["drone"]["speed_mps"]) / 60, 1)) < 0.11
+    assert nba["team"]["eta_min"] > nba["drone"]["eta_min"] and nba["asset"] == "drone"
+    assert nba["text"].startswith("Suggest: drone to ")

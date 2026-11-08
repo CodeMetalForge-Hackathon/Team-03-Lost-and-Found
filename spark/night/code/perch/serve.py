@@ -60,6 +60,24 @@ def tag(name: str):
             "ast": {"top": top_k(asr, m["ast"].labels, 5), "p_hv": round(float(a_hv[0]), 3)}}
 
 
+@app.post("/api/emit")
+def emit(d: dict):
+    """Operator sends a perched detection to the fusion inbox as acoustic_hv at the configured perch point.
+    Confidence = the stored P(HV) for that clip (max of PANNs, AST) from results.json."""
+    sys.path.insert(0, str(HERE.parent / "fusion"))
+    import inbox
+    res = json.loads((HERE / "results.json").read_text())
+    name = str(d.get("clip", ""))
+    hit = next((c for e in res["clips"] for c in e["conditions"] if c["clip"] == name), None)
+    if hit is None:
+        raise HTTPException(404, "unknown clip")
+    p = max(hit["panns"]["p_hv"], hit["ast"]["p_hv"])
+    cfg = json.loads((HERE.parent / "config.json").read_text()); pp = cfg["perch_point"]
+    f = inbox.emit("perch1", "acoustic_hv", p, {"lat": pp["lat"], "lon": pp["lon"]}, str(HERE / "clips" / name),
+                   extra={"condition": hit["condition"], "panns_top": hit["panns"]["top"][0][0], "dataset": "DroneAudioSet (recorded)"})
+    return {"queued": f.name, "confidence": p, "position": pp}
+
+
 @app.get("/health")
 def health():
     return {"ok": True, "models_loaded": bool(_m)}

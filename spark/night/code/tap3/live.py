@@ -84,12 +84,12 @@ def run(chunks, x_m=None, y_m=None, sensor="tap3", realtime_clock=True):
             rec = {"timestamp": round(wall, 3),
                    "iso": time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(wall)),
                    "stream_t": round(t_abs, 3), "kind": e["kind"], "interval_s": e["interval"],
-                   "confidence": e["confidence"], "clip": str(clip)}
+                   "confidence": e["confidence"], "strength": e.get("strength", 0.0), "clip": str(clip)}
             print(json.dumps(rec), flush=True); log.write(json.dumps(rec) + "\n"); log.flush()
             if e["kind"] == "confirmed":
                 pos = {"x": x_m, "y": y_m} if x_m is not None else {}
                 inbox.emit(sensor, "tap_pattern_3", e["confidence"], pos, str(clip), t=wall,
-                           extra={"interval_s": e["interval"]})
+                           extra={"interval_s": e["interval"], "strength": e.get("strength", 0.0)})
 
 
 def main():

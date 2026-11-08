@@ -9,6 +9,10 @@ POST /api/clue              {type, lat, lon | e, n, note, hours_ago, ce_m, pod, 
 POST /api/clue/{i}/toggle   switch a clue off/on (the posterior is recomputed; history kept)
 POST /api/propose           {photo_b64} -> Qwen3-VL on :8002 proposes a clue type (human must confirm)
 GET  /api/contacts          proxied from fusion :8140/contacts
+GET  /api/nba               Next Best Action on the current COP (hint only; never auto-tasks)
+POST /api/nba/decision      {decision: accept|dismiss, operator, nba} -> forwarded to fusion (chained there)
+POST /api/nba/mark          fusion tells the map a decision was chained (cell leaves the suggestion pool)
+GET  /api/drone             real drone track (ODM Aukerman shots) + ortho bounds for the reveal replay
 Every clue / persona change is appended to the fusion evidence chain (POST :8140/event) when fusion is up.
 """
 from __future__ import annotations
@@ -21,6 +25,7 @@ HERE = Path(__file__).resolve().parent
 NIGHT = HERE.parent
 sys.path.insert(0, str(HERE))
 import model as M  # noqa: E402
+import cop as C  # noqa: E402
 
 CFG = json.loads((NIGHT / "config.json").read_text())
 FUSION = "http://127.0.0.1:8140"
@@ -31,6 +36,13 @@ R = 6371008.8
 LAT0, LON0 = CFG["lkp"]["lat"], CFG["lkp"]["lon"]
 lock = threading.Lock()
 clues: list[dict] = json.loads(CLUES_F.read_text()) if CLUES_F.exists() else []
+NBA_F = HERE / "nba.json"
+nba_log: list[dict] = json.loads(NBA_F.read_text()) if NBA_F.exists() else []
+GRID = C.Grid(M.N, M.CELL, M.HALF, LAT0, LON0)
+TRACK = json.loads((HERE / "drone_track.json").read_text()) if (HERE / "drone_track.json").exists() else {"shots": []}
+SKYFIX_COT = Path.home() / "forge/skyfix/cot"          # read-only
+DRONE_T = {"t": None}                                   # replay progress (s); None = drone not flown yet
+LAST = {}
 
 
 def ll2en(lat, lon):
@@ -85,15 +97,58 @@ def b64(a):
     return base64.b64encode(np.ascontiguousarray(a, dtype=np.float32).tobytes()).decode()
 
 
-def compute(persona):
+def detections():
+    try:
+        return json.loads(urllib.request.urlopen(FUSION + "/detections?limit=5000", timeout=1.5).read())
+    except Exception:
+        return []
+
+
+def sparse(a, rel=1e-4):
+    if a is None or not np.any(a > 0):
+        return None
+    idx = np.flatnonzero(a > a.max() * rel).astype(np.int32)
+    return {"idx": base64.b64encode(idx.tobytes()).decode(), "val": b64(a.ravel()[idx]), "max": float(a.max())}
+
+
+def compute(persona, enabled=None):
+    """COP = normalise((prior x positive-clue LRs) + sensor fields) x (1 - POD dog/team/drone)."""
     dog, cells = dog_coverage()
-    pod_map = M.coverage_pod(cells) if cells else None
+    pr, cv, cl, mass = M.prior(persona)
     with lock:
-        cl_list = list(clues)
-    pr, post, cv, cl, mass, captured = M.posterior(persona, cl_list, pod_map)
+        cl_list = [c for c in clues if c.get("active", True)]
+    base = pr.copy()
+    for c in cl_list:
+        if c["type"] != "searched_no_find":
+            base = base * M.clue_lr(c)
+    base = base / base.sum()
+    team = [{"e": c["e"], "n": c["n"], "radius_m": c.get("radius_m", 200), "pod": c.get("pod", 0.5)}
+            for c in cl_list if c["type"] == "searched_no_find"]
+    pods = {"dog": M.coverage_pod(cells) if cells else None,
+            "team": C.disk_pod(team, GRID) if team else None,
+            "drone": C.drone_pod(TRACK["shots"], DRONE_T["t"], GRID, CFG["coverage"]["drone_pod_per_pass"])
+            if DRONE_T["t"] is not None else None}
+    pod = C.combine_pod(*pods.values())
+    fl = [f for f in (C.event_field(d, GRID, CFG, floor_to_en) for d in detections()) if f]
+    sky = C.skyfix_fixes(SKYFIX_COT, GRID, CFG)
+    fl += sky
+    layers = C.sum_fields(fl, GRID.E.shape)
+    copm = C.cop(base, layers, pod, enabled)
+    captured = float((base * pod).sum()) if pod is not None else 0.0
     STATE_F.write_text(json.dumps({"persona": persona, "probability_captured": round(captured, 5),
                                    "dog_run": dog and dog["run"], "n_clues": len(cl_list), "t": time.time()}))
-    return pr, post, cv, cl, mass, captured, dog, cells, pod_map
+    summ = {}
+    for f in fl:
+        d = summ.setdefault(f["source"], {"source": f["source"], "label": C.SOURCE_LABEL[f["source"]], "n": 0,
+                                          "mass": 0.0, "mass_on_grid": 0.0, "kernels": set()})
+        d["n"] += 1; d["mass"] += f["mass"]; d["mass_on_grid"] += f["mass_on_grid"]; d["kernels"].add(f["kernel"].split(" (")[0])
+    for d in summ.values():
+        d["kernels"] = sorted(d["kernels"])[:3]; d["mass"] = round(d["mass"], 3); d["mass_on_grid"] = round(d["mass_on_grid"], 3)
+    tasked = {tuple(x["nba"]["cell"]) for x in nba_log if x.get("nba") and x["nba"].get("cell")}
+    nba = C.next_best_action(copm, pod, GRID, CFG, tasked)
+    LAST.update({"persona": persona, "nba": nba, "t": time.time()})
+    return dict(pr=pr, base=base, cv=cv, cl=cl, mass=mass, captured=captured, dog=dog, pods=pods, pod=pod,
+                layers=layers, cop=copm, fields=list(summ.values()), sky=sky, nba=nba)
 
 
 def make_app():
@@ -132,20 +187,63 @@ def make_app():
         return _osm
 
     @app.get("/api/state")
-    def state(persona: str = "child_autistic"):
+    def state(persona: str = "child_autistic", enabled: str | None = None, drone_t: float | None = None):
         if persona not in M.PERSONAS:
             raise HTTPException(404, "unknown persona")
-        pr, post, cv, cl, mass, captured, dog, cells, pod_map = compute(persona)
-        tops = M.top_cells(post, cl, 10)
+        if drone_t is not None:
+            DRONE_T["t"] = None if drone_t < 0 else float(drone_t)
+        en = None if enabled in (None, "", "all") else set(enabled.split(","))
+        S = compute(persona, en)
+        tops = M.top_cells(S["cop"], S["cl"], 10)
         for t in tops:
             t["lat"], t["lon"] = en2ll(t["e"], t["n"])
-            t["cv"] = round(float(cv[t["r"], t["c"]]), 2)
+            t["cv"] = round(float(S["cv"][t["r"], t["c"]]), 2)
         p = M.PERSONAS[persona]
-        return {"persona": persona, "prior": b64(pr), "post": b64(post), "cv": b64(cv),
-                "pod": b64(pod_map) if pod_map is not None else None,
-                "class_mass_pct": mass, "find_pct": p["find"], "verified": p["verified"], "source": p["source"],
-                "note": p["note"], "top": tops, "clues": clues, "dog": dog,
-                "probability_captured": captured, "max_post": float(post.max()), "max_prior": float(pr.max())}
+        return {"persona": persona, "prior": b64(S["pr"]), "post": b64(S["base"]), "cop": b64(S["cop"]), "cv": b64(S["cv"]),
+                "pod": b64(S["pod"]) if S["pod"] is not None else None,
+                "pod_layers": {k: sparse(v) for k, v in S["pods"].items()},
+                "field_layers": {k: sparse(v) for k, v in S["layers"].items()},
+                "fields": S["fields"], "enabled": sorted(en) if en else "all",
+                "skyfix": {"n": len(S["sky"]), "on_grid": sum(1 for f in S["sky"] if f["mass_on_grid"] > 1e-3),
+                           "dir": str(SKYFIX_COT)},
+                "drone_t": DRONE_T["t"], "nba": S["nba"], "nba_log": nba_log[-20:],
+                "class_mass_pct": S["mass"], "find_pct": p["find"], "verified": p["verified"], "source": p["source"],
+                "note": p["note"], "top": tops, "clues": clues, "dog": S["dog"],
+                "probability_captured": S["captured"]}
+
+    @app.get("/api/nba")
+    def nba(persona: str | None = None):
+        compute(persona or LAST.get("persona", "child_autistic"))     # always fresh: decisions change the pool
+        return {**LAST["nba"], "persona": LAST["persona"], "hint_only": True}
+
+    @app.post("/api/nba/decision")
+    def nba_decision(d: dict):
+        """Forward to fusion, which chains the decision (and writes a waypoint CoT on accept)."""
+        if d.get("decision") not in ("accept", "dismiss"):
+            raise HTTPException(422, "decision must be accept or dismiss")
+        if not str(d.get("operator", "")).strip():
+            raise HTTPException(422, "operator id required")
+        body = {"decision": d["decision"], "operator_id": str(d["operator"])[:64], "nba": d.get("nba") or LAST.get("nba"),
+                "persona": LAST.get("persona")}
+        try:
+            req = urllib.request.Request(FUSION + "/nba/decision", data=json.dumps(body).encode(),
+                                         headers={"content-type": "application/json"})
+            return json.loads(urllib.request.urlopen(req, timeout=3).read())
+        except Exception as e:
+            raise HTTPException(503, f"fusion not reachable, decision NOT recorded ({type(e).__name__})")
+
+    @app.post("/api/nba/mark")
+    def nba_mark(d: dict):
+        with lock:
+            nba_log.append(d); NBA_F.write_text(json.dumps(nba_log, indent=1))
+        return {"ok": True, "n": len(nba_log)}
+
+    @app.get("/api/drone")
+    def drone():
+        b = json.loads((Path.home() / "forge/rescuebase-forge/data/bounds.json").read_text())["bounds"]
+        (s_, w_), (n_, e_) = b
+        return {"track": TRACK, "ortho": {"sw_en": ll2en(s_, w_), "ne_en": ll2en(n_, e_)}, "drone_t": DRONE_T["t"],
+                "pod_per_pass": CFG["coverage"]["drone_pod_per_pass"]}
 
     @app.post("/api/clue")
     def add_clue(d: dict):

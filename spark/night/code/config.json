@@ -41,5 +41,45 @@
   "stale_min": 30,
   "uid_prefix": "NIGHT-",
   "_doc": "Unconfirmed contact = a-u-G (unknown ground). After a human confirms, the same uid is re-emitted as a-f-G (friendly ground), so ATAK updates the pin in place. a-h-* (hostile) is refused by fuse.py: a survivor is not hostile."
+ },
+ "fields": {
+  "_doc": "Probability fields added to the COP by sensor events. mass = modality_weight[kind] x confidence (skyfix: skyfix_weight). Sigmas in map metres; ILLUSTRATIVE, hand-set.",
+  "tap_sigma_ref_m": 150,
+  "tap_strength_ref": 5.0,
+  "tap_sigma_min_m": 50,
+  "tap_sigma_max_m": 400,
+  "dog_sigma_m": 50,
+  "acoustic_sigma_m": 120,
+  "thermal_footprint_m": 40,
+  "default_sigma_m": 100,
+  "skyfix_weight": 0.9
+ },
+ "perch_point": {
+  "lat": 41.30455,
+  "lon": -81.751,
+  "_doc": "where the perched drone listens (demo); Perch 'send to fusion' emits here"
+ },
+ "assets": {
+  "_doc": "Next Best Action ETAs: straight line, terrain-free. Hints only; nothing is auto-tasked.",
+  "teams": [
+   {
+    "id": "Team 1",
+    "lat": 41.303858,
+    "lon": -81.753746
+   }
+  ],
+  "walk_mps": 1.2,
+  "drone": {
+   "id": "UAV 1",
+   "lat": 41.304129,
+   "lon": -81.75371,
+   "speed_mps": 12.0,
+   "launch_s": 60
+  }
+ },
+ "coverage": {
+  "drone_pod_per_pass": 0.6,
+  "_drone_doc": "thermal day POD 0.6 from the pass-1 spec table (not field-calibrated)",
+  "unsearched_pod_max": 0.3
  }
 }

@@ -337,6 +337,56 @@ def make_app():
         p = inbox.emit(d["sensor"], d["kind"], float(d["confidence"]), d.get("position"), d.get("clip_path"), d.get("t"), d.get("extra"))
         return {"queued": p.name}
 
+    MAP = "http://127.0.0.1:8143"
+
+    @app.get("/nba")
+    def nba_get():
+        """Next Best Action computed by the map service on the current COP (proxied). Hint only."""
+        import urllib.request
+        try:
+            return json.loads(urllib.request.urlopen(MAP + "/api/nba", timeout=5).read())
+        except Exception as e:
+            return {"none": True, "error": f"map service not reachable ({type(e).__name__})"}
+
+    @app.post("/nba/decision")
+    def nba_decision(d: dict):
+        """Operator decision on a suggestion. Chained with the operator id. Accept writes a search-point
+        CoT (b-m-p-w, waypoint) for the suggested cell; NOTHING is sent to any asset (hints only)."""
+        import urllib.request
+        dec = d.get("decision"); op = str(d.get("operator_id", "")).strip()[:64]; nba = d.get("nba") or {}
+        if dec not in ("accept", "dismiss") or not op or "cell" not in nba:
+            raise HTTPException(422, "need decision accept|dismiss, operator_id and an nba with a cell")
+        rec = fu.chain.append("nba_decision", {"decision": dec, "operator_id": op, "nba": nba, "persona": d.get("persona"),
+                                               "note": "hint only; no asset was tasked by the system"})
+        out = {"chained_seq": rec["seq"], "hash": rec["hash"], "decision": dec}
+        if dec == "accept":
+            from xml.sax.saxutils import quoteattr, escape
+            now = datetime.now(timezone.utc); f = lambda x: x.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"  # noqa: E731
+            uid = f"{CFG['cot']['uid_prefix']}NBA-{rec['seq']}"
+            asset = nba.get("asset", "drone")
+            rem = (f"Suggested search point {nba.get('cell_id')} accepted by {op}: {asset}, ETA "
+                   f"{nba.get(asset, {}).get('eta_min')} min; P(cell)={nba.get('p', 0):.4f}. Operator to task the asset; "
+                   f"not an automatic order. Evidence chain seq {rec['seq']}")
+            xml = (f'<?xml version="1.0" encoding="UTF-8"?>\n<event version="2.0" uid={quoteattr(uid)} type="b-m-p-w" '
+                   f'time="{f(now)}" start="{f(now)}" stale="{f(now + timedelta(minutes=60))}" how="h-e">'
+                   f'<point lat="{nba["lat"]:.7f}" lon="{nba["lon"]:.7f}" hae="9999999.0" ce="{CFG.get("nba_ce_m", 35.0):.1f}" le="9999999.0"/>'
+                   f'<detail><contact callsign={quoteattr("NBA " + str(nba.get("cell_id")))}/><remarks>{escape(rem)}</remarks></detail></event>\n')
+            ok, msg = validate_cot(xml)
+            cdir = EVID / "cot"; cdir.mkdir(parents=True, exist_ok=True)
+            path = cdir / f"{uid}.xml"; path.write_text(xml)
+            fu.chain.append("cot_written", {"contact_id": f"NBA-{rec['seq']}", "type": "b-m-p-w", "status": "nba_accepted",
+                                            "path": str(path), "xsd": XSD.name, "valid": ok, "detail": msg,
+                                            "sha256": hashlib.sha256(xml.encode()).hexdigest()})
+            out.update({"cot_path": str(path), "cot_valid": ok, "cot_uid": uid})
+        try:
+            req = urllib.request.Request(MAP + "/api/nba/mark", headers={"content-type": "application/json"},
+                                         data=json.dumps({"decision": dec, "operator_id": op, "nba": nba, "seq": rec["seq"],
+                                                          "t": time.time(), "cot_uid": out.get("cot_uid")}).encode())
+            urllib.request.urlopen(req, timeout=2).read()
+        except Exception:
+            out["map_notified"] = False
+        return out
+
     @app.post("/event")
     def event(d: dict):
         """Append a typed event from another service (map clue, persona change...) to the chain."""

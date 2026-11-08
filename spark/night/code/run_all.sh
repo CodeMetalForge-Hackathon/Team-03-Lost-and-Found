@@ -15,6 +15,7 @@ if [ $KEEP -eq 0 ]; then
   [ -d inbox/rejected ] && mv inbox/rejected "$A/inbox_rejected"
   ls inbox/*.json >/dev/null 2>&1 && mkdir -p "$A/inbox_pending" && mv inbox/*.json "$A/inbox_pending/"
   [ -f map/clues.json ] && mv map/clues.json "$A/"
+  [ -f map/nba.json ] && mv map/nba.json "$A/"
   [ -d map/clue_photos ] && mv map/clue_photos "$A/"
   rm -f map/state.json
   echo "previous evidence archived to $A (nothing deleted)"
