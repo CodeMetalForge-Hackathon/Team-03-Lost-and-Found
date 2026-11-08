@@ -1,0 +1,66 @@
+[
+ {
+  "file": "01_IMG_1196.heic",
+  "size": [
+   4284,
+   5712
+  ],
+  "model": "iPhone 18 Pro",
+  "lens": "iPhone 18 Pro back triple camera 6.93mm f/1.8",
+  "time": "2026:11:08 08:21:32",
+  "offset": "-05:00",
+  "f_mm": 6.9299998280516535,
+  "f35": 24,
+  "orientation": 1,
+  "gps_tags": 0,
+  "GPSImgDirection": null
+ },
+ {
+  "file": "02_IMG_1197.heic",
+  "size": [
+   4284,
+   5712
+  ],
+  "model": "iPhone 18 Pro",
+  "lens": "iPhone 18 Pro back triple camera 6.93mm f/1.8",
+  "time": "2026:11:08 08:22:21",
+  "offset": "-05:00",
+  "f_mm": 6.9299998280516535,
+  "f35": 24,
+  "orientation": 1,
+  "gps_tags": 0,
+  "GPSImgDirection": null
+ },
+ {
+  "file": "03_IMG_1198.heic",
+  "size": [
+   4284,
+   5712
+  ],
+  "model": "iPhone 18 Pro",
+  "lens": "iPhone 18 Pro back triple camera 6.93mm f/1.8",
+  "time": "2026:11:08 08:22:54",
+  "offset": "-05:00",
+  "f_mm": 6.9299998280516535,
+  "f35": 24,
+  "orientation": 1,
+  "gps_tags": 0,
+  "GPSImgDirection": null
+ },
+ {
+  "file": "04_IMG_1199.heic",
+  "size": [
+   4284,
+   5712
+  ],
+  "model": "iPhone 18 Pro",
+  "lens": "iPhone 18 Pro back triple camera 6.93mm f/1.8",
+  "time": "2026:11:08 08:23:36",
+  "offset": "-05:00",
+  "f_mm": 6.9299998280516535,
+  "f35": 24,
+  "orientation": 1,
+  "gps_tags": 0,
+  "GPSImgDirection": null
+ }
+]

@@ -1,0 +1,140 @@
+{{Use American English|date=February 2025}}
+{{Infobox building
+|name               = Harbor Towers
+|image              = Harbor Towers.jpg
+|image_size         = 200px
+|caption            = A view of the Harbor Towers from [[Boston Harbor]]
+|location           = East India Row, [[Boston]], Massachusetts
+|coordinates        = {{coord|42|21|28.64|N|71|02|59.89|W|region:US-MA_scale:2000|display=inline,title}}
+|roof               = {{convert|400.0|ft|m|abbr=on}} / {{convert|396|ft|m|abbr=on}}
+| building_type       = Residential
+| architectural_style = [[Brutalist]]
+| structural_system   = [[Reinforced concrete]]
+|floor_count        = 40
+|completion_date    = 1971
+|architect          = [[I. M. Pei|I.M. Pei & Partners]]
+}}
+The '''Harbor Towers''' are two 40-story residential towers located on the waterfront of [[Boston, Massachusetts]], in between the [[New England Aquarium]] and the [[Rowes Wharf]] [[mixed-use development]]. Harbor Towers I, the taller of the two towers, stands at {{convert|400|ft|m|1|abbr=on}}, while Harbor Towers II rises {{convert|396|ft|m|1|abbr=on}}. Harbor Towers I is tied for the [[List of tallest buildings in Boston|36th-tallest building in Boston]] with the [[Keystone Building]], while Harbor Towers II is tied for the 38th-tallest building in Boston with [[One Devonshire Place]]. They were designed by [[Henry N. Cobb]] of [[I. M. Pei & Partners]].<ref name="bostonharborwalk.com">
+{{Cite web |url=http://www.bostonharborwalk.com/placestogo/location.php?nid=3&sid=16
+|title=The Boston Harborwalk: Places To Go...: Downtown/North End: India Wharf / Harbor Towers<!-- Bot generated title --> |access-date=2006-11-19
+|archive-url=https://web.archive.org/web/20061115060916/http://www.bostonharborwalk.com/placestogo/location.php?nid=3&sid=16
+|archive-date=2006-11-15
+|url-status=dead
+}}</ref><ref name="SkyscraperCenter">
+{{cite web
+|author=<!-- not stated -->
+|date=
+|title=Harbor Towers
+|url=https://www.skyscrapercenter.com/complex/2275
+|website=Skyscraper Center by Council on Vertical Urbanism
+|location=
+|publisher=
+|access-date=24 December 2025
+}}</ref>
+
+The towers were built in 1971 as part of a major revitalization project of Boston's dilapidated waterfront area. The apartments, initially designed as [[affordable housing|affordable rental housing]], were converted into condominiums in the 1980's.<ref name="TWCPhoenix">
+{{cite web
+|author=<!-- not stated -->
+|date=15 November 2024
+|title=Revitalizing the Iconic Harbor Towers Building Envelope
+|url=https://twcphoenix.com/revitalizing-the-iconic-harbor-towers-building-envelope/
+|website=TWC Phoenix
+|location=
+|publisher=
+|access-date=24 December 2025
+}}</ref><ref name="CoastalNeighborhoods">
+{{cite web
+|author=<!-- not stated -->
+|date=18 July 2023
+|title=Harbor Towers offers Legendary Boston Views
+|url=https://www.coastalneighborhoods.com/blog/harbor-towers-offers-legendary-boston-views/
+|website=Coastal Neighborhoods
+|location=
+|publisher=
+|access-date=24 December 2025
+}}</ref>
+
+==History==
+===Development and construction===
+The Harbor Towers apartment complex was completed in 1971. It is located near [[Financial District, Boston|Boston's financial district]] and developed by the Berenson Corporation. The towers were designed by [[Henry N. Cobb]], who also designed Boston's [[John Hancock Tower]] and collaborated with [[I. M. Pei|I.M Pei]] on Boston's [[Boston City Hall Plaza|City Hall Plaza]]. In 2006, they were the city's tallest residential towers.<ref name="bostonharborwalk.com"></ref> The towers were planned by the [[Boston Redevelopment Authority]] (BRA) to revitalize Boston's waterfront.<ref name="BM-1">{{Cite web|last=Keohane|first=Joe|date=28 January 2008|title=The Harbor Towers' Towering Contradictions|url=https://www.bostonmagazine.com/2008/01/28/the-harbor-towers-towering-contradictions/|website=Boston Magazine}}</ref><ref>{{cite news | title = On Boston Waterfront, Instant Neighborhood Glitters | first = John | last = Kifner | page = 27 | newspaper = [[The New York Times]] | date = October 23, 1976 | access-date = February 4, 2025 | url = https://www.nytimes.com/1976/10/23/archives/on-boston-waterfront-instant-neighborhood-glitters-on-boston.html }}</ref>
+
+Originally planned as three 40-story towers, only two were built alongside a parking garage.<ref name="BM-1"/>
+
+===Condominium conversion===
+As the growth of the city moved toward the waterfront, the development's location drew attention during the [[condominium conversion]] craze of the early 1980s. In 1981, both apartment towers started a two-year process of conversion to over 600 [[Condominium|condominiums]], with incentives for existing renters to purchase at discounted prices. Many early apartment renters now own several units, often combined to create wrap-around units with as much as {{convert|5000|sqft|m2}} of living space. As of 2025, units range from $700,000 to $3 million.<ref>
+{{Cite web
+|title=Luxury Boston – Boston Towers
+|url=https://www.luxuryboston.com/Harbor-Towers
+|website=Luxury Real Estate
+}}
+</ref><ref name="Banker&Tradesman">
+{{cite web
+|last=Adams
+|first=Steve
+|date=9 March 2025
+|title=Waterfront Property Owners Bail Themselves Out
+|url=https://bankerandtradesman.com/waterfront-property-owners-bail-themselves-out/
+|website=Banker & Tradesman
+|location=
+|publisher=
+|access-date=24 December 2025
+}}</ref>
+
+===Renovations===
+Over the decades, the towers have undergone major renovations, including complete window replacement in the 1990s following a 70-window fall incident caused by [[Hurricane Gloria]] in 1985.<ref name="BM-1"/> Due to their severe corrosion, the towers' HVAC pipes were replaced in 2010<ref>
+{{cite news
+|title = Skanska completes $74 million Harbor Towers project six months ahead of schedule
+|newspaper = Building Design+Construction
+|date = August 12, 2010
+|access-date = February 4, 2025
+|url = https://www.bdcnetwork.com/home/press-release/55170167/skanska-completes-74-million-harbor-towers-project-six-months-ahead-of-schedule
+}}</ref>, and in 2014, the towers' lobby and hallways were renovated.<ref>
+{{cite news
+|title = Dock in Harbor Towers condo
+|first = Paul
+|last = Restuccia
+|newspaper = [[Boston Herald]]
+|date = November 18, 2018
+|orig-date = January 18, 2014 – Original publication date
+|access-date = February 4, 2025
+|url = https://www.bostonherald.com/2014/01/18/dock-in-harbor-towers-condo/
+}}</ref>
+
+In April 2025, a $20 million project was undertaken to bolster the towers' ground floor coastal defenses to protect the structure from sea level rise. The project was triggered by two [[Nor'easter|nor'easters]] in 2018 which caused widespread flooding. It is expected to last for 12 months.<ref name="Banker&Tradesman"/>
+
+==Architecture==
+The apartments are organized in a pinwheel fashion around a central core and are made of cast in place [[reinforced concrete]]. The concrete exterior balconies have a giant zipper-like appearance against the flat façade.<ref>''AIA Guide to Boston'', Susan and Michael Southworth, page 66-67</ref>
+
+The stainless steel sculpture at the base of the buildings is ''Untitled Landscape'' by [[David von Schlegell]], created in 1964.<ref name="bostonharborwalk.com"/> The artwork is often mistaken for [[solar panel]]s.{{Citation needed|date=November 2021}}
+
+==Criticism==
+The residential complex appears to have been generally poorly received by the public. ''[[Boston (magazine)|Boston Magazine]]'' described the building as "grim 40 stories of concrete and glass". The architect himself, Henry Cobb, wrote in an email to the magazine: "I do not regard Harbor Towers as my best effort in Boston. I am sympathetic to those who believe that in the perspective of history this could be seen as the wrong project in the wrong place at the wrong time."<ref name="BM-1"/>
+
+==Gallery==
+{{Gallery
+|width=160 | height=170
+|align=center
+|File:DowntownBoston.jpg
+ |The Harbor Towers (far right) in the Boston skyline when viewed from [[Boston Harbor]].
+}}
+
+==See also==
+*[[List of tallest buildings in Boston]]
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Commons category|Harbor Towers (Boston, Massachusetts)}}
+*[http://www.harbortowersonline.org/ Harbor Towers Official Page]
+*[https://web.archive.org/web/20061115060916/http://www.bostonharborwalk.com/placestogo/location.php?nid=3&sid=16 Boston Harborwalk, history of site]
+*[http://www.explorenewengland.com/travel?photo_gallery=massachusetts/towns/boston/galleries/harborwalk_tour/&pg=13 Photo of "Untitled Landscape" by David von Schlegell]
+*[http://www.bostoncityproperties.com/articles/2016/Dec/harbor-towers-boston-explaining-the-2007-assessment.html Harbor Towers Condo Assessment Explained]
+
+{{Boston skyscrapers}}
+
+[[Category:Residential skyscrapers in Boston]]
+[[Category:Residential condominiums in the United States]]
+[[Category:Residential buildings completed in 1971]]
+[[Category:Brutalist architecture in Massachusetts]]
+[[Category:Residential skyscrapers in Massachusetts]]

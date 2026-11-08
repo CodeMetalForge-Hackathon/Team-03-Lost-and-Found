@@ -1,0 +1,3209 @@
+{
+ "bbox": [
+  42.35,
+  -71.075,
+  42.38,
+  -71.04
+ ],
+ "n": 259,
+ "landmarks": [
+  {
+   "name": "Millennium Tower",
+   "lat": 42.355705,
+   "lon": -71.059507,
+   "top_height_m": 208.5,
+   "top_height_src": "Wikipedia: roof 684 ft (https://en.wikipedia.org/wiki/Millennium_Tower_(Boston))",
+   "aliases": [
+    "1 Franklin Street",
+    "Millenium Tower"
+   ],
+   "kind": "curated",
+   "osm": "way/95035761",
+   "id": "millennium_tower",
+   "ground_m": 8.6,
+   "note": ""
+  },
+  {
+   "name": "One International Place",
+   "lat": 42.355706,
+   "lon": -71.05215,
+   "top_height_m": 182.9,
+   "top_height_src": "Wikipedia: roof 600 ft (183 m) (https://en.wikipedia.org/wiki/One_International_Place)",
+   "aliases": [
+    "100 Oliver Street"
+   ],
+   "kind": "curated",
+   "osm": "way/241176918",
+   "id": "one_intl_place",
+   "ground_m": 5.9,
+   "note": ""
+  },
+  {
+   "name": "Custom House Tower",
+   "lat": 42.359045,
+   "lon": -71.053567,
+   "top_height_m": 151.2,
+   "top_height_src": "Wikipedia: roof 496 ft (151 m) (https://en.wikipedia.org/wiki/Custom_House_Tower)",
+   "aliases": [
+    "3 McKinley Square",
+    "Custom House Tower",
+    "Marriott's Custom House Hotel"
+   ],
+   "kind": "curated",
+   "osm": "way/29719177",
+   "id": "custom_house",
+   "ground_m": 3.0,
+   "note": "top = pinnacle above the clock; bearing to the tower centreline"
+  },
+  {
+   "name": "State Street Bank Building (225 Franklin St)",
+   "lat": 42.356134,
+   "lon": -71.053938,
+   "top_height_m": 145.4,
+   "top_height_src": "Wikipedia: roof 477 ft (https://en.wikipedia.org/wiki/State_Street_Bank_Building)",
+   "aliases": [
+    "225 Franklin Street",
+    "State Street Bank Building"
+   ],
+   "kind": "curated",
+   "osm": "way/139980427",
+   "id": "state_street_bank",
+   "ground_m": 5.1,
+   "note": "OSM names it 225 Franklin Street"
+  },
+  {
+   "name": "Harbor Towers I",
+   "lat": 42.358119,
+   "lon": -71.049806,
+   "top_height_m": 121.9,
+   "top_height_src": "Wikipedia: taller tower stands at 400 ft (https://en.wikipedia.org/wiki/Harbor_Towers)",
+   "aliases": [],
+   "kind": "curated",
+   "osm": "way/240415950",
+   "id": "harbor_towers_1",
+   "ground_m": 1.3,
+   "note": "north-east tower of the pair"
+  },
+  {
+   "name": "Harbor Towers II",
+   "lat": 42.35767,
+   "lon": -71.050489,
+   "top_height_m": 120.7,
+   "top_height_src": "Wikipedia: other tower rises 396 ft (https://en.wikipedia.org/wiki/Harbor_Towers)",
+   "aliases": [],
+   "kind": "curated",
+   "osm": "way/240415949",
+   "id": "harbor_towers_2",
+   "ground_m": 3.2,
+   "note": "south-west tower of the pair"
+  },
+  {
+   "name": "Zakim Bridge south tower",
+   "lat": 42.368014,
+   "lon": -71.062275,
+   "top_height_m": 82.3,
+   "top_height_src": "Wikipedia: height 270 ft (82 m) (https://en.wikipedia.org/wiki/Leonard_P._Zakim_Bunker_Hill_Memorial_Bridge)",
+   "aliases": [],
+   "kind": "curated",
+   "osm": "way/485005954",
+   "id": "zakim_south",
+   "ground_m": 0.6,
+   "note": "Height 82 m (Wikipedia 270 ft) is used. OSM tags these pylons height=98; the operator judged the OSM tag wrong (2026-11-08). Discrepancy 16 m noted, not used."
+  },
+  {
+   "name": "Zakim Bridge north tower",
+   "lat": 42.369575,
+   "lon": -71.064057,
+   "top_height_m": 82.3,
+   "top_height_src": "Wikipedia: height 270 ft (82 m) (https://en.wikipedia.org/wiki/Leonard_P._Zakim_Bunker_Hill_Memorial_Bridge)",
+   "aliases": [],
+   "kind": "curated",
+   "osm": "way/485005963",
+   "id": "zakim_north",
+   "ground_m": 2.1,
+   "note": "Height 82 m (Wikipedia 270 ft) is used. OSM tags these pylons height=98; the operator judged the OSM tag wrong (2026-11-08). Discrepancy 16 m noted, not used."
+  },
+  {
+   "name": "Bunker Hill Monument",
+   "lat": 42.376352,
+   "lon": -71.060767,
+   "top_height_m": 67.4,
+   "top_height_src": "Wikipedia: rises 221 ft (https://en.wikipedia.org/wiki/Bunker_Hill_Monument)",
+   "aliases": [],
+   "kind": "curated",
+   "osm": "way/212124093",
+   "id": "bunker_hill",
+   "ground_m": 24.4,
+   "note": "stands on Breed's Hill: ground elevation matters here"
+  },
+  {
+   "name": "Faneuil Hall cupola",
+   "lat": 42.36001,
+   "lon": -71.05608,
+   "top_height_m": 29,
+   "top_height_src": "hand list (~29 m, unverified)",
+   "aliases": [
+    "1 Faneuil Hall Square",
+    "Faneuil Hall"
+   ],
+   "kind": "curated",
+   "osm": "way/29551702",
+   "id": "faneuil_cupola",
+   "ground_m": 2.9,
+   "note": "position = east end of the OSM footprint (lon range -71.05644..-71.05603), ~4 m inside; height UNKNOWN, bearing-only; UNVERIFIED: no published height (pack uses ~29 m, flagged)"
+  },
+  {
+   "name": "Winthrop Center",
+   "lat": 42.3545503,
+   "lon": -71.057108,
+   "top_height_m": 210.5,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "building",
+   "osm": "way/117853075",
+   "wikidata": null
+  },
+  {
+   "name": "South Station Tower",
+   "lat": 42.3515099,
+   "lon": -71.0549196,
+   "top_height_m": 210.0,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "building",
+   "osm": "way/1253315804",
+   "wikidata": null
+  },
+  {
+   "name": "Federal Reserve Bank of Boston",
+   "lat": 42.3526494,
+   "lon": -71.0539648,
+   "top_height_m": 187.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "600 Atlantic Avenue"
+   ],
+   "kind": "building",
+   "osm": "way/139974603",
+   "wikidata": "Q1400070"
+  },
+  {
+   "name": "One Boston Place",
+   "lat": 42.3584973,
+   "lon": -71.0583099,
+   "top_height_m": 183.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "BNY Mellon Center",
+    "201 Washington Street"
+   ],
+   "kind": "building",
+   "osm": "way/816922979",
+   "wikidata": "Q1636790"
+  },
+  {
+   "name": "One Congress",
+   "lat": 42.3626627,
+   "lon": -71.0599777,
+   "top_height_m": 182.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Congress Street"
+   ],
+   "kind": "building",
+   "osm": "way/1008160593",
+   "wikidata": null
+  },
+  {
+   "name": "One Financial Center",
+   "lat": 42.3523545,
+   "lon": -71.0562321,
+   "top_height_m": 180.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Financial Center"
+   ],
+   "kind": "building",
+   "osm": "way/29614632",
+   "wikidata": "Q1351185"
+  },
+  {
+   "name": "Bank of America Building",
+   "lat": 42.3550009,
+   "lon": -71.0558989,
+   "top_height_m": 180.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "100 Federal Street",
+    "First National Bank Building",
+    "100 Federal Street"
+   ],
+   "kind": "building",
+   "osm": "way/29737814",
+   "wikidata": "Q1419501"
+  },
+  {
+   "name": "Two International Place",
+   "lat": 42.3562917,
+   "lon": -71.0519277,
+   "top_height_m": 164.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "2 International Place"
+   ],
+   "kind": "building",
+   "osm": "way/29742432",
+   "wikidata": "Q2462416"
+  },
+  {
+   "name": "One Post Office Square",
+   "lat": 42.356798,
+   "lon": -71.0550794,
+   "top_height_m": 160.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Post Office Square"
+   ],
+   "kind": "building",
+   "osm": "way/29626135",
+   "wikidata": "Q2024085"
+  },
+  {
+   "name": "One Federal",
+   "lat": 42.3561646,
+   "lon": -71.0570159,
+   "top_height_m": 159.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "Shawmut Bank Building",
+    "1 Federal Street"
+   ],
+   "kind": "building",
+   "osm": "way/29611456",
+   "wikidata": "Q7092628"
+  },
+  {
+   "name": "Exchange Place",
+   "lat": 42.358411,
+   "lon": -71.056156,
+   "top_height_m": 156.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "53 State Street"
+   ],
+   "kind": "building",
+   "osm": "way/29559536",
+   "wikidata": "Q5419578"
+  },
+  {
+   "name": "State Street Financial Center",
+   "lat": 42.3527869,
+   "lon": -71.0585691,
+   "top_height_m": 155.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Lincoln Street"
+   ],
+   "kind": "building",
+   "osm": "way/240478021",
+   "wikidata": "Q6351283"
+  },
+  {
+   "name": "One Beacon Street",
+   "lat": 42.3583263,
+   "lon": -71.0607426,
+   "top_height_m": 154.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Beacon Street"
+   ],
+   "kind": "building",
+   "osm": "way/29864884",
+   "wikidata": "Q7092472"
+  },
+  {
+   "name": "28 State Street",
+   "lat": 42.3593045,
+   "lon": -71.0574586,
+   "top_height_m": 152.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "28 State Street"
+   ],
+   "kind": "building",
+   "osm": "way/29614103",
+   "wikidata": "Q4632733"
+  },
+  {
+   "name": "Hub50House",
+   "lat": 42.3654408,
+   "lon": -71.0621357,
+   "top_height_m": 151.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "50 Causeway Street"
+   ],
+   "kind": "building",
+   "osm": "way/660623142",
+   "wikidata": null
+  },
+  {
+   "name": "The Sudbury",
+   "lat": 42.3622678,
+   "lon": -71.0596174,
+   "top_height_m": 146.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "100,110 Sudbury Street"
+   ],
+   "kind": "building",
+   "osm": "way/813258849",
+   "wikidata": null
+  },
+  {
+   "name": "The Alcott",
+   "lat": 42.3653673,
+   "lon": -71.0648884,
+   "top_height_m": 142.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "35 Lomasney Way"
+   ],
+   "kind": "building",
+   "osm": "way/660624907",
+   "wikidata": null
+  },
+  {
+   "name": "Avalon North Station",
+   "lat": 42.365977,
+   "lon": -71.06327,
+   "top_height_m": 137.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Nashua Street"
+   ],
+   "kind": "building",
+   "osm": "way/442975177",
+   "wikidata": "Q22073777"
+  },
+  {
+   "name": "The Ritz-Carlton Residences",
+   "lat": 42.3534825,
+   "lon": -71.062821,
+   "top_height_m": 135.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1,3 Avery Street"
+   ],
+   "kind": "building",
+   "osm": "way/815989023",
+   "wikidata": null
+  },
+  {
+   "name": "Keystone Building",
+   "lat": 42.3541634,
+   "lon": -71.054727,
+   "top_height_m": 122.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "99 High Street"
+   ],
+   "kind": "building",
+   "osm": "way/241186243",
+   "wikidata": "Q1740348"
+  },
+  {
+   "name": "McCormack Building",
+   "lat": 42.3595199,
+   "lon": -71.0623703,
+   "top_height_m": 122.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "John W. McCormack State Office Building",
+    "1 Ashburton Place"
+   ],
+   "kind": "building",
+   "osm": "way/247987328",
+   "wikidata": "Q6800548"
+  },
+  {
+   "name": "Leverett Saltonstall State Office Building",
+   "lat": 42.360417,
+   "lon": -71.0622325,
+   "top_height_m": 121.0,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "building",
+   "osm": "way/29611612",
+   "wikidata": null
+  },
+  {
+   "name": "One Devonshire Place",
+   "lat": 42.3581403,
+   "lon": -71.0576386,
+   "top_height_m": 121.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "228-256 Washington Street"
+   ],
+   "kind": "building",
+   "osm": "way/816291661",
+   "wikidata": null
+  },
+  {
+   "name": "Four Longfellow Place",
+   "lat": 42.3631041,
+   "lon": -71.0644183,
+   "top_height_m": 115.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "5 Longfellow Place"
+   ],
+   "kind": "building",
+   "osm": "way/29613002",
+   "wikidata": null
+  },
+  {
+   "name": "100 Summer Street",
+   "lat": 42.3538315,
+   "lon": -71.0573962,
+   "top_height_m": 115.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "100 Summer Street"
+   ],
+   "kind": "building",
+   "osm": "way/29650695",
+   "wikidata": "Q4546179"
+  },
+  {
+   "name": "One Longfellow Place",
+   "lat": 42.3635928,
+   "lon": -71.064811,
+   "top_height_m": 115.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Longfellow Place"
+   ],
+   "kind": "building",
+   "osm": "way/29867245",
+   "wikidata": null
+  },
+  {
+   "name": "45 Province Boston Condos",
+   "lat": 42.3572598,
+   "lon": -71.0600349,
+   "top_height_m": 112.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "27-47 Province Street"
+   ],
+   "kind": "building",
+   "osm": "way/108235738",
+   "wikidata": null
+  },
+  {
+   "name": "33 Arch Street",
+   "lat": 42.3561611,
+   "lon": -71.0582277,
+   "top_height_m": 106.7,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "33 Arch Street"
+   ],
+   "kind": "building",
+   "osm": "way/240478028",
+   "wikidata": "Q4635196"
+  },
+  {
+   "name": "John W. McCormack Post Office and Courthouse",
+   "lat": 42.3571423,
+   "lon": -71.0568137,
+   "top_height_m": 105.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "John W. McCormack Post Office and Courthouse",
+    "5 Post Office Square"
+   ],
+   "kind": "historic",
+   "osm": "way/29650683",
+   "wikidata": "Q16892943"
+  },
+  {
+   "name": "AVA Theater District",
+   "lat": 42.3513983,
+   "lon": -71.063955,
+   "top_height_m": 103.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "45 Stuart Street"
+   ],
+   "kind": "building",
+   "osm": "way/816346740",
+   "wikidata": null
+  },
+  {
+   "name": "Suffolk County Courthouse",
+   "lat": 42.359837,
+   "lon": -71.0611255,
+   "top_height_m": 101.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "35 Somerset Street"
+   ],
+   "kind": "building",
+   "osm": "way/240561161",
+   "wikidata": null
+  },
+  {
+   "name": "The Kensington",
+   "lat": 42.35178,
+   "lon": -71.0632563,
+   "top_height_m": 94.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "665 Washington Street"
+   ],
+   "kind": "building",
+   "osm": "way/405683645",
+   "wikidata": null
+  },
+  {
+   "name": "125 Summer Street",
+   "lat": 42.3530085,
+   "lon": -71.0573579,
+   "top_height_m": 91.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "125 Summer Street"
+   ],
+   "kind": "building",
+   "osm": "way/29605945",
+   "wikidata": null
+  },
+  {
+   "name": "New England Telephone & Telegraph Co. Building",
+   "lat": 42.3551961,
+   "lon": -71.0546529,
+   "top_height_m": 90.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "50 Post Office Square",
+    "50 Post Office Square"
+   ],
+   "kind": "building",
+   "osm": "way/29622244",
+   "wikidata": null
+  },
+  {
+   "name": "Radian",
+   "lat": 42.3522297,
+   "lon": -71.0590884,
+   "top_height_m": 88.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "120 Kingston Street"
+   ],
+   "kind": "building",
+   "osm": "way/29865088",
+   "wikidata": null
+  },
+  {
+   "name": "Oliver Street Tower",
+   "lat": 42.3555873,
+   "lon": -71.0530735,
+   "top_height_m": 85.3,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "125 High Street"
+   ],
+   "kind": "building",
+   "osm": "way/29610390",
+   "wikidata": null
+  },
+  {
+   "name": "99 Summer Street",
+   "lat": 42.3535392,
+   "lon": -71.0585979,
+   "top_height_m": 85.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "99 Summer Street"
+   ],
+   "kind": "building",
+   "osm": "way/814639590",
+   "wikidata": null
+  },
+  {
+   "name": "W Boston",
+   "lat": 42.3507919,
+   "lon": -71.0657164,
+   "top_height_m": 84.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "W",
+    "100 Stuart Street"
+   ],
+   "kind": "building",
+   "osm": "way/104205249",
+   "wikidata": "Q7958470"
+  },
+  {
+   "name": "Emerson Place Apartments",
+   "lat": 42.365139,
+   "lon": -71.0689057,
+   "top_height_m": 84.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "Ten Emerson Place",
+    "10 Emerson Place"
+   ],
+   "kind": "building",
+   "osm": "way/404288501",
+   "wikidata": null
+  },
+  {
+   "name": "Tremont on the Common",
+   "lat": 42.3544262,
+   "lon": -71.0634261,
+   "top_height_m": 81.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "151 Tremont Street"
+   ],
+   "kind": "building",
+   "osm": "way/29563481",
+   "wikidata": null
+  },
+  {
+   "name": "Revere Hotel Boston Common",
+   "lat": 42.3504494,
+   "lon": -71.0675148,
+   "top_height_m": 80.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "200 Stuart Street"
+   ],
+   "kind": "building",
+   "osm": "way/29806054",
+   "wikidata": null
+  },
+  {
+   "name": "One Marina Park Drive",
+   "lat": 42.3531083,
+   "lon": -71.0452901,
+   "top_height_m": 80.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Marina Park Drive"
+   ],
+   "kind": "building",
+   "osm": "way/117888927",
+   "wikidata": null
+  },
+  {
+   "name": "Archstone Northpoint",
+   "lat": 42.370015,
+   "lon": -71.0732404,
+   "top_height_m": 77.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "1 Leighton Street"
+   ],
+   "kind": "building",
+   "osm": "way/29746897",
+   "wikidata": null
+  },
+  {
+   "name": "St. Regis Residences Boston",
+   "lat": 42.3508141,
+   "lon": -71.0429483,
+   "top_height_m": 77.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "150 Seaport Boulevard"
+   ],
+   "kind": "building",
+   "osm": "way/1008159964",
+   "wikidata": null
+  },
+  {
+   "name": "The Parker",
+   "lat": 42.3518304,
+   "lon": -71.0640612,
+   "top_height_m": 77.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "55 LaGrange Street"
+   ],
+   "kind": "building",
+   "osm": "way/1279120347",
+   "wikidata": null
+  },
+  {
+   "name": "Vertex",
+   "lat": 42.3536666,
+   "lon": -71.0461984,
+   "top_height_m": 75.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "50 Northern Avenue"
+   ],
+   "kind": "building",
+   "osm": "way/292809743",
+   "wikidata": null
+  },
+  {
+   "name": "50 Milk Street",
+   "lat": 42.3570291,
+   "lon": -71.0575951,
+   "top_height_m": 73.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "50 Milk Street"
+   ],
+   "kind": "building",
+   "osm": "way/29613210",
+   "wikidata": null
+  },
+  {
+   "name": "75-101 Federal Street",
+   "lat": 42.3551952,
+   "lon": -71.0570474,
+   "top_height_m": 73.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "75 Federal Street"
+   ],
+   "kind": "building",
+   "osm": "way/241975830",
+   "wikidata": "Q4546306"
+  },
+  {
+   "name": "100 Pier 4",
+   "lat": 42.3514219,
+   "lon": -71.043279,
+   "top_height_m": 73.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "142 Northern Avenue"
+   ],
+   "kind": "building",
+   "osm": "way/292972121",
+   "wikidata": null
+  },
+  {
+   "name": "One Greenway",
+   "lat": 42.3494224,
+   "lon": -71.0603444,
+   "top_height_m": 73.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [],
+   "kind": "building",
+   "osm": "way/393321192",
+   "wikidata": null
+  },
+  {
+   "name": "101 Arch Street",
+   "lat": 42.3551616,
+   "lon": -71.0590791,
+   "top_height_m": 73.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "101 Arch Street"
+   ],
+   "kind": "building",
+   "osm": "way/408746608",
+   "wikidata": null
+  },
+  {
+   "name": "VIA Seaport Residences",
+   "lat": 42.3528864,
+   "lon": -71.0468278,
+   "top_height_m": 73.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "5 Fan Pier Boulevard"
+   ],
+   "kind": "building",
+   "osm": "way/660628028",
+   "wikidata": null
+  },
+  {
+   "name": "InterContinental Boston",
+   "lat": 42.3537422,
+   "lon": -71.0519193,
+   "top_height_m": 73.2,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "510 Atlantic Avenue"
+   ],
+   "kind": "building",
+   "osm": "way/94482771",
+   "wikidata": "Q12060753"
+  },
+  {
+   "name": "Massachusetts Eye and Ear",
+   "lat": 42.3628192,
+   "lon": -71.0701189,
+   "top_height_m": 70.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "Mass. Eye & Ear",
+    "243 Charles Street"
+   ],
+   "kind": "building",
+   "osm": "way/29650639",
+   "wikidata": "Q6784269"
+  },
+  {
+   "name": "Watermark Seaport",
+   "lat": 42.3516289,
+   "lon": -71.0462716,
+   "top_height_m": 70.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "85 Seaport Boulevard"
+   ],
+   "kind": "building",
+   "osm": "way/393301934",
+   "wikidata": null
+  },
+  {
+   "name": "Twenty|20",
+   "lat": 42.371608,
+   "lon": -71.0718418,
+   "top_height_m": 70.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "20 Child Street"
+   ],
+   "kind": "building",
+   "osm": "way/395009233",
+   "wikidata": null
+  },
+  {
+   "name": "212 Stuart Street",
+   "lat": 42.350397,
+   "lon": -71.0683963,
+   "top_height_m": 66.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "212 Stuart Street"
+   ],
+   "kind": "building",
+   "osm": "way/862849490",
+   "wikidata": null
+  },
+  {
+   "name": "One Emerson Place",
+   "lat": 42.3645109,
+   "lon": -71.0687376,
+   "top_height_m": 63.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "1 Emerson Place"
+   ],
+   "kind": "building",
+   "osm": "way/29566564",
+   "wikidata": null
+  },
+  {
+   "name": "2 Boylston Place",
+   "lat": 42.3520372,
+   "lon": -71.0661678,
+   "top_height_m": 63.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "2 Boylston Place"
+   ],
+   "kind": "building",
+   "osm": "way/621562201",
+   "wikidata": null
+  },
+  {
+   "name": "Nathan R. Miller Residence Hall",
+   "lat": 42.3587544,
+   "lon": -71.0617389,
+   "top_height_m": 62.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "10 Somerset Street"
+   ],
+   "kind": "building",
+   "osm": "way/485131561",
+   "wikidata": null
+  },
+  {
+   "name": "Seaport West",
+   "lat": 42.3497806,
+   "lon": -71.0429596,
+   "top_height_m": 61.6,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "World Trade Center West",
+    "155 Seaport Boulevard"
+   ],
+   "kind": "building",
+   "osm": "way/29833444",
+   "wikidata": null
+  },
+  {
+   "name": "Old North Church steeple",
+   "lat": 42.36632,
+   "lon": -71.05444,
+   "top_height_m": 58,
+   "top_height_src": "hand list (Wikipedia 191 ft)",
+   "aliases": [
+    "Christ Church",
+    "Old North Church"
+   ],
+   "kind": "hand"
+  },
+  {
+   "name": "Old North Church",
+   "lat": 42.3663083,
+   "lon": -71.054428,
+   "top_height_m": 53.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "193 Salem Street"
+   ],
+   "kind": "worship",
+   "osm": "way/29650592",
+   "wikidata": "Q1321240"
+  },
+  {
+   "name": "The Parkside",
+   "lat": 42.3536526,
+   "lon": -71.0638084,
+   "top_height_m": 51.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "170 Tremont Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29650697",
+   "wikidata": null
+  },
+  {
+   "name": "Flagship Wharf",
+   "lat": 42.3733645,
+   "lon": -71.0519421,
+   "top_height_m": 38.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "197 Eighth Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29820890",
+   "wikidata": null
+  },
+  {
+   "name": "Cutler Majestic Theater",
+   "lat": 42.3514967,
+   "lon": -71.0651366,
+   "top_height_m": 38.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "219 Tremont Street"
+   ],
+   "kind": "historic",
+   "osm": "way/213195202",
+   "wikidata": null
+  },
+  {
+   "name": "Tremont Temple",
+   "lat": 42.3574782,
+   "lon": -71.0605226,
+   "top_height_m": 34.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "86;88 Tremont Street"
+   ],
+   "kind": "worship",
+   "osm": "way/408746568",
+   "wikidata": null
+  },
+  {
+   "name": "Supply",
+   "lat": 42.3774677,
+   "lon": -71.0522711,
+   "top_height_m": 31.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "149 Thirteenth Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29791110",
+   "wikidata": null
+  },
+  {
+   "name": "St. Anthony Shrine",
+   "lat": 42.354691,
+   "lon": -71.0584569,
+   "top_height_m": 31.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "100 Arch Street"
+   ],
+   "kind": "worship",
+   "osm": "way/135476024",
+   "wikidata": "Q16900125"
+  },
+  {
+   "name": "Flour and Grain Exchange Building",
+   "lat": 42.3583545,
+   "lon": -71.0525982,
+   "top_height_m": 28.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "Grain Exchange Building",
+    "177 Milk Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29573112",
+   "wikidata": null
+  },
+  {
+   "name": "Modern Theatre Residence Hall",
+   "lat": 42.3542894,
+   "lon": -71.0620919,
+   "top_height_m": 24.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/240390123",
+   "wikidata": null
+  },
+  {
+   "name": "Orpheum Theatre",
+   "lat": 42.3562288,
+   "lon": -71.0608947,
+   "top_height_m": 24.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "1 Hamilton Place"
+   ],
+   "kind": "historic",
+   "osm": "way/29650688",
+   "wikidata": "Q894568"
+  },
+  {
+   "name": "Boston Young Men's Christian Union",
+   "lat": 42.3520429,
+   "lon": -71.063783,
+   "top_height_m": 22.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "48 Boylston Street"
+   ],
+   "kind": "historic",
+   "osm": "way/816346742",
+   "wikidata": "Q4948211"
+  },
+  {
+   "name": "Old City Hall",
+   "lat": 42.3580365,
+   "lon": -71.0593479,
+   "top_height_m": 21.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "45 School Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29605275",
+   "wikidata": "Q7083686"
+  },
+  {
+   "name": "South Station",
+   "lat": 42.3509494,
+   "lon": -71.055606,
+   "top_height_m": 21.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "The Governor Michael S. Dukakis Transportation Center at South Station",
+    "The Governor Michael S. Dukakis Transportation Center at South Station",
+    "700 Atlantic Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/29742438",
+   "wikidata": "Q54453"
+  },
+  {
+   "name": "Hoosac Stores",
+   "lat": 42.372492,
+   "lon": -71.0578871,
+   "top_height_m": 21.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "115 Constitution Road"
+   ],
+   "kind": "historic",
+   "osm": "way/29941243",
+   "wikidata": "Q5898509"
+  },
+  {
+   "name": "Boston Wharf Co. Sign",
+   "lat": 42.3502669,
+   "lon": -71.0509096,
+   "top_height_m": 20.0,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7892794607",
+   "wikidata": null
+  },
+  {
+   "name": "Old State House",
+   "lat": 42.3587255,
+   "lon": -71.057457,
+   "top_height_m": 20.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "208 Washington Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29608515",
+   "wikidata": "Q1320533"
+  },
+  {
+   "name": "Codman Building",
+   "lat": 42.3578617,
+   "lon": -71.0556323,
+   "top_height_m": 19.8,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "55 Kilby Street"
+   ],
+   "kind": "historic",
+   "osm": "way/458720549",
+   "wikidata": "Q5140310"
+  },
+  {
+   "name": "Boston Opera House",
+   "lat": 42.3542153,
+   "lon": -71.0626845,
+   "top_height_m": 19.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "Citizens Bank Opera House"
+   ],
+   "kind": "historic",
+   "osm": "way/117744697",
+   "wikidata": "Q4948014"
+  },
+  {
+   "name": "Paramount Theatre",
+   "lat": 42.3537707,
+   "lon": -71.0628033,
+   "top_height_m": 19.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "549 Washington Street"
+   ],
+   "kind": "historic",
+   "osm": "way/117744714",
+   "wikidata": null
+  },
+  {
+   "name": "Quincy Market",
+   "lat": 42.3601991,
+   "lon": -71.0549074,
+   "top_height_m": 17.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29573399",
+   "wikidata": "Q901885"
+  },
+  {
+   "name": "Custom House Block",
+   "lat": 42.3602571,
+   "lon": -71.0489308,
+   "top_height_m": 17.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "66 Long Wharf"
+   ],
+   "kind": "historic",
+   "osm": "way/29619641",
+   "wikidata": null
+  },
+  {
+   "name": "Colburn House",
+   "lat": 42.3567542,
+   "lon": -71.0681299,
+   "top_height_m": 17.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "54 Beacon Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405911545",
+   "wikidata": null
+  },
+  {
+   "name": "UBC Clubhouse",
+   "lat": 42.3562187,
+   "lon": -71.0727956,
+   "top_height_m": 17.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "144 Chestnut Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405911766",
+   "wikidata": "Q7885433"
+  },
+  {
+   "name": "Cathedral Church of Saint Pauls",
+   "lat": 42.3557379,
+   "lon": -71.0621551,
+   "top_height_m": 15.9,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "worship",
+   "osm": "way/178198643",
+   "wikidata": "Q5052214"
+  },
+  {
+   "name": "Old West Church",
+   "lat": 42.3616548,
+   "lon": -71.0642428,
+   "top_height_m": 15.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "131 Cambridge Street"
+   ],
+   "kind": "worship",
+   "osm": "way/391465001",
+   "wikidata": "Q1597350"
+  },
+  {
+   "name": "Saint Josephs Catholic Church",
+   "lat": 42.3631579,
+   "lon": -71.0654792,
+   "top_height_m": 14.5,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "68 William Cardinal O'Connell Way"
+   ],
+   "kind": "worship",
+   "osm": "way/29618477",
+   "wikidata": "Q7589263"
+  },
+  {
+   "name": "39 Chain Forge",
+   "lat": 42.3766245,
+   "lon": -71.052164,
+   "top_height_m": 14.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "Forge Shop",
+    "100 First Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/29730452",
+   "wikidata": null
+  },
+  {
+   "name": "Kings Chapel",
+   "lat": 42.3580319,
+   "lon": -71.0600771,
+   "top_height_m": 13.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "58 Tremont Street"
+   ],
+   "kind": "worship",
+   "osm": "way/29551954",
+   "wikidata": "Q1139921"
+  },
+  {
+   "name": "Ether Monument",
+   "lat": 42.3548286,
+   "lon": -71.0714514,
+   "top_height_m": 12.0,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "The Good Samaritan"
+   ],
+   "kind": "historic",
+   "osm": "node/358276904",
+   "wikidata": "Q3718507"
+  },
+  {
+   "name": "George Washington Statue",
+   "lat": 42.3538483,
+   "lon": -71.070949,
+   "top_height_m": 11.6,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/358276954",
+   "wikidata": "Q20631770"
+  },
+  {
+   "name": "Chart House",
+   "lat": 42.3601458,
+   "lon": -71.0495254,
+   "top_height_m": 10.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "58;60 Long Wharf"
+   ],
+   "kind": "historic",
+   "osm": "way/29620958",
+   "wikidata": null
+  },
+  {
+   "name": "Traffic Tunnel Administration Building",
+   "lat": 42.3626311,
+   "lon": -71.0547288,
+   "top_height_m": 10.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "Traffic Tunnel Administration Building;Police Station No. One",
+    "128 North Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29737899",
+   "wikidata": "Q20011516"
+  },
+  {
+   "name": "Sunflower Castle",
+   "lat": 42.3575893,
+   "lon": -71.0708007,
+   "top_height_m": 10.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "130 Mount Vernon Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405911549",
+   "wikidata": null
+  },
+  {
+   "name": "Boston & Maine Railroad Signal Tower A",
+   "lat": 42.369549,
+   "lon": -71.0656523,
+   "top_height_m": 7.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/178247482",
+   "wikidata": "Q638715"
+  },
+  {
+   "name": "Old Corner Bookstore Building",
+   "lat": 42.3575437,
+   "lon": -71.0584028,
+   "top_height_m": 7.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/240319309",
+   "wikidata": "Q387456"
+  },
+  {
+   "name": "Paul Revere House",
+   "lat": 42.3637427,
+   "lon": -71.0536926,
+   "top_height_m": 7.0,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "19 North Square"
+   ],
+   "kind": "historic",
+   "osm": "way/240376785",
+   "wikidata": "Q2061878"
+  },
+  {
+   "name": "Courageous Sailing",
+   "lat": 42.3719489,
+   "lon": -71.0513741,
+   "top_height_m": 3.5,
+   "top_height_src": "estimated from OSM building:levels x 3.5 m",
+   "aliases": [
+    "1 First Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/212122947",
+   "wikidata": null
+  },
+  {
+   "name": "Central Artery Tunnel",
+   "lat": 42.3624657,
+   "lon": -71.0546745,
+   "top_height_m": 2.5,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7738417275",
+   "wikidata": "Q858785"
+  },
+  {
+   "name": "Charles Eliot Memorial",
+   "lat": 42.3594861,
+   "lon": -71.0730684,
+   "top_height_m": 2.5,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/834377041",
+   "wikidata": "Q75154688"
+  },
+  {
+   "name": "Oneida Tablet",
+   "lat": 42.356232,
+   "lon": -71.0671781,
+   "top_height_m": 2.0,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7936014543",
+   "wikidata": "Q501160"
+  },
+  {
+   "name": "The Founders Memorial",
+   "lat": 42.3564942,
+   "lon": -71.0675817,
+   "top_height_m": 1.5,
+   "top_height_src": "OSM height",
+   "aliases": [
+    "Founding of Boston"
+   ],
+   "kind": "historic",
+   "osm": "node/7610220646",
+   "wikidata": "Q74853918"
+  },
+  {
+   "name": "Seal of Boston",
+   "lat": 42.3537141,
+   "lon": -71.0714474,
+   "top_height_m": 1.5,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7706123316",
+   "wikidata": null
+  },
+  {
+   "name": "Edward A. Filene Memorial",
+   "lat": 42.3526888,
+   "lon": -71.067006,
+   "top_height_m": 1.0,
+   "top_height_src": "OSM height",
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/8038281084",
+   "wikidata": null
+  },
+  {
+   "name": "John Glover",
+   "lat": 42.3528312,
+   "lon": -71.0747241,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/345437350",
+   "wikidata": "Q72981011"
+  },
+  {
+   "name": "Alexander Hamilton",
+   "lat": 42.3534455,
+   "lon": -71.0724436,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/345437367",
+   "wikidata": "Q70148451"
+  },
+  {
+   "name": "Benjamin Franklin Birthplace Site",
+   "lat": 42.3567197,
+   "lon": -71.058419,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/358260319",
+   "wikidata": null
+  },
+  {
+   "name": "Robert Gould Shaw and Fifty-fourth Regiment Memorial",
+   "lat": 42.3574806,
+   "lon": -71.0635011,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/358276404",
+   "wikidata": "Q7344886"
+  },
+  {
+   "name": "WERS-FM (Boston)",
+   "lat": 42.3523198,
+   "lon": -71.0564397,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "tower",
+   "osm": "node/358276507",
+   "wikidata": null
+  },
+  {
+   "name": "WMFP-TV (Lawrence)",
+   "lat": 42.358414,
+   "lon": -71.0608506,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "tower",
+   "osm": "node/358276663",
+   "wikidata": null
+  },
+  {
+   "name": "Blackstone Memorial Tablet",
+   "lat": 42.3566188,
+   "lon": -71.0622493,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/358276784",
+   "wikidata": "Q49474966"
+  },
+  {
+   "name": "Mary Dyer",
+   "lat": 42.3580479,
+   "lon": -71.0628995,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/358277048",
+   "wikidata": "Q85803341"
+  },
+  {
+   "name": "Soldiers and Sailors Monument",
+   "lat": 42.3554667,
+   "lon": -71.0664122,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/358277245",
+   "wikidata": "Q7557410"
+  },
+  {
+   "name": "Washington Monument",
+   "lat": 42.3537581,
+   "lon": -71.0539822,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/358277280",
+   "wikidata": null
+  },
+  {
+   "name": "Boston Massacre Site",
+   "lat": 42.3587814,
+   "lon": -71.0571703,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/632018853",
+   "wikidata": null
+  },
+  {
+   "name": "John Hancock",
+   "lat": 42.3572136,
+   "lon": -71.06215,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/2446221100",
+   "wikidata": null
+  },
+  {
+   "name": "Colonel William Prescott",
+   "lat": 42.3761529,
+   "lon": -71.0608733,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/2447145981",
+   "wikidata": null
+  },
+  {
+   "name": "Paul Revere Statue",
+   "lat": 42.3655856,
+   "lon": -71.0532619,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/2481241593",
+   "wikidata": "Q70809511"
+  },
+  {
+   "name": "John F. Fitzgerald Expressway Plaque",
+   "lat": 42.3523809,
+   "lon": -71.0574495,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/2495061607",
+   "wikidata": null
+  },
+  {
+   "name": "Benjamin Franklin Statue",
+   "lat": 42.357933,
+   "lon": -71.0595681,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/3996416865",
+   "wikidata": "Q49474378"
+  },
+  {
+   "name": "Swan Boats",
+   "lat": 42.3540368,
+   "lon": -71.0696551,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "4 Charles Street"
+   ],
+   "kind": "historic",
+   "osm": "node/4074813888",
+   "wikidata": "Q7653422"
+  },
+  {
+   "name": "Samuel Adams",
+   "lat": 42.3599824,
+   "lon": -71.0567717,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/4776867029",
+   "wikidata": "Q30598946"
+  },
+  {
+   "name": "Ether Dome",
+   "lat": 42.3634958,
+   "lon": -71.0679004,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/5203948635",
+   "wikidata": "Q257073"
+  },
+  {
+   "name": "East Boston Vietnam Memorial",
+   "lat": 42.3722998,
+   "lon": -71.0405156,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/5674331634",
+   "wikidata": null
+  },
+  {
+   "name": "Commemorative Relief of Noodle Island",
+   "lat": 42.3683656,
+   "lon": -71.0403352,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/5678330387",
+   "wikidata": null
+  },
+  {
+   "name": "Massachusetts Fallen Firefighters Memorial",
+   "lat": 42.3587616,
+   "lon": -71.0631839,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/6617306247",
+   "wikidata": null
+  },
+  {
+   "name": "LoPresti Park",
+   "lat": 42.3703295,
+   "lon": -71.0434068,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/6991266999",
+   "wikidata": null
+  },
+  {
+   "name": "Beacon Hill Eagle Monument",
+   "lat": 42.3589995,
+   "lon": -71.0632498,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7607256690",
+   "wikidata": null
+  },
+  {
+   "name": "Massachusetts Law Enforcement Memorial",
+   "lat": 42.3592615,
+   "lon": -71.0633192,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7607256691",
+   "wikidata": null
+  },
+  {
+   "name": "James Michael Curley Memorial",
+   "lat": 42.3605558,
+   "lon": -71.0570327,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Curley Memorial"
+   ],
+   "kind": "historic",
+   "osm": "node/7609405348",
+   "wikidata": "Q85803358"
+  },
+  {
+   "name": "Boston Stone",
+   "lat": 42.3617016,
+   "lon": -71.0568342,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7609707456",
+   "wikidata": null
+  },
+  {
+   "name": "George Robert White Memorial",
+   "lat": 42.3553535,
+   "lon": -71.0721559,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7610246635",
+   "wikidata": null
+  },
+  {
+   "name": "Victory",
+   "lat": 42.3542792,
+   "lon": -71.0644098,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7610330937",
+   "wikidata": "Q74180696"
+  },
+  {
+   "name": "Declaration of Independence Tablet",
+   "lat": 42.354631,
+   "lon": -71.0639058,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7610330938",
+   "wikidata": "Q75157708"
+  },
+  {
+   "name": "Garden of Peace",
+   "lat": 42.360031,
+   "lon": -71.0617232,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7610330939",
+   "wikidata": null
+  },
+  {
+   "name": "Marvin E. Goody Memorial",
+   "lat": 42.353614,
+   "lon": -71.0686,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7610330940",
+   "wikidata": "Q85784067"
+  },
+  {
+   "name": "David Ignatius Walsh",
+   "lat": 42.3562913,
+   "lon": -71.074,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7610873612",
+   "wikidata": "Q85803316"
+  },
+  {
+   "name": "Massachusetts Korean War Veterans Memorial",
+   "lat": 42.3744202,
+   "lon": -71.0535435,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7613083476",
+   "wikidata": null
+  },
+  {
+   "name": "Jackie Liebergott Black Box Theatre",
+   "lat": 42.3538901,
+   "lon": -71.0632714,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "549 Washington Street"
+   ],
+   "kind": "historic",
+   "osm": "node/7618780581",
+   "wikidata": null
+  },
+  {
+   "name": "Paramount Theatre",
+   "lat": 42.3537152,
+   "lon": -71.062501,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Paramount Center",
+    "549 Washington Street"
+   ],
+   "kind": "historic",
+   "osm": "node/7618780582",
+   "wikidata": null
+  },
+  {
+   "name": "Bright Family Screening Room",
+   "lat": 42.3538862,
+   "lon": -71.0631293,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "549 Washington Street"
+   ],
+   "kind": "historic",
+   "osm": "node/7618780583",
+   "wikidata": null
+  },
+  {
+   "name": "Josiah Quincy III",
+   "lat": 42.3578524,
+   "lon": -71.0593561,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7623366404",
+   "wikidata": null
+  },
+  {
+   "name": "Swan Boat Landing",
+   "lat": 42.3539923,
+   "lon": -71.0695294,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7697964379",
+   "wikidata": null
+  },
+  {
+   "name": "U.S. Army Cannon",
+   "lat": 42.3574323,
+   "lon": -71.0740151,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7708955749",
+   "wikidata": null
+  },
+  {
+   "name": "Edwin Upton Curtis Memorial",
+   "lat": 42.3571603,
+   "lon": -71.0743254,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7712296102",
+   "wikidata": "Q75178947"
+  },
+  {
+   "name": "Edwin Upton Curtis Memorial",
+   "lat": 42.3571969,
+   "lon": -71.0743294,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7713962867",
+   "wikidata": "Q75178947"
+  },
+  {
+   "name": "Cherry Tree Plaque",
+   "lat": 42.3569913,
+   "lon": -71.0742439,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7715191332",
+   "wikidata": null
+  },
+  {
+   "name": "Evelyn F. Moakley Bridge Plaque",
+   "lat": 42.3545399,
+   "lon": -71.0513812,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7729587328",
+   "wikidata": null
+  },
+  {
+   "name": "John F. Fitzgerald",
+   "lat": 42.3622306,
+   "lon": -71.054948,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7738417257",
+   "wikidata": null
+  },
+  {
+   "name": "Soldiers and Sailors Monument",
+   "lat": 42.3744349,
+   "lon": -71.0599882,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7762281031",
+   "wikidata": null
+  },
+  {
+   "name": "John Winthrop",
+   "lat": 42.3537741,
+   "lon": -71.0749789,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7847783891",
+   "wikidata": "Q85803324"
+  },
+  {
+   "name": "Dinosaur Footprints",
+   "lat": 42.3680756,
+   "lon": -71.0715233,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7891716899",
+   "wikidata": null
+  },
+  {
+   "name": "Graphic Arts Building",
+   "lat": 42.3532429,
+   "lon": -71.0529617,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7892125736",
+   "wikidata": null
+  },
+  {
+   "name": "Royal Navy Plaque",
+   "lat": 42.3545707,
+   "lon": -71.0684009,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7898914621",
+   "wikidata": null
+  },
+  {
+   "name": "William F. Callahan Jr.",
+   "lat": 42.3620718,
+   "lon": -71.054681,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7911666611",
+   "wikidata": null
+  },
+  {
+   "name": "Waterfront Park",
+   "lat": 42.3614205,
+   "lon": -71.051313,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7915539905",
+   "wikidata": null
+  },
+  {
+   "name": "IEEE Milestone",
+   "lat": 42.3564683,
+   "lon": -71.0625026,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/7965366331",
+   "wikidata": null
+  },
+  {
+   "name": "William Billings",
+   "lat": 42.3525974,
+   "lon": -71.0656941,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/8037423471",
+   "wikidata": null
+  },
+  {
+   "name": "Ghost bike - Meng Jin",
+   "lat": 42.3686907,
+   "lon": -71.0724237,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/9196518550",
+   "wikidata": null
+  },
+  {
+   "name": "Birthplace of the Telephone",
+   "lat": 42.360634,
+   "lon": -71.0601705,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/9648179585",
+   "wikidata": null
+  },
+  {
+   "name": "The Embrace",
+   "lat": 42.3549357,
+   "lon": -71.0643618,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/10552518542",
+   "wikidata": "Q116200888"
+  },
+  {
+   "name": "100 Franklin Street",
+   "lat": 42.3557171,
+   "lon": -71.0574036,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/11013978926",
+   "wikidata": null
+  },
+  {
+   "name": "Great Molasses Flood Plaque",
+   "lat": 42.3686783,
+   "lon": -71.0556438,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/11318893837",
+   "wikidata": null
+  },
+  {
+   "name": "D.L. Moody Historic Marker",
+   "lat": 42.3590926,
+   "lon": -71.0586971,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/12222757743",
+   "wikidata": null
+  },
+  {
+   "name": "Potato Shed Memorial",
+   "lat": 42.3718479,
+   "lon": -71.0656539,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/12663173063",
+   "wikidata": null
+  },
+  {
+   "name": "Tip O'Neill plaque",
+   "lat": 42.3662881,
+   "lon": -71.0604312,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/12771148980",
+   "wikidata": null
+  },
+  {
+   "name": "Charlestown Navy Yard Visitor Center",
+   "lat": 42.3732448,
+   "lon": -71.0565951,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/12772773132",
+   "wikidata": null
+  },
+  {
+   "name": "Rose Fitzgerald Kennedy Garden",
+   "lat": 42.3610982,
+   "lon": -71.0521395,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/12944815632",
+   "wikidata": null
+  },
+  {
+   "name": "Paul Revere\u2019s Landing",
+   "lat": 42.3724396,
+   "lon": -71.0575998,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/13671914924",
+   "wikidata": null
+  },
+  {
+   "name": "Franklin Family",
+   "lat": 42.3574272,
+   "lon": -71.0618018,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "node/13710038664",
+   "wikidata": null
+  },
+  {
+   "name": "Timber Shed",
+   "lat": 42.377877,
+   "lon": -71.0509747,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "75 Third Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/29519133",
+   "wikidata": null
+  },
+  {
+   "name": "MGH Institute of Health Professions",
+   "lat": 42.3748936,
+   "lon": -71.0540123,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "36 First Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/29520710",
+   "wikidata": "Q6715708"
+  },
+  {
+   "name": "USS Constitution Museum",
+   "lat": 42.3739506,
+   "lon": -71.0554573,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "22 First Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/29520758",
+   "wikidata": "Q7868542"
+  },
+  {
+   "name": "Paint Shop",
+   "lat": 42.3731452,
+   "lon": -71.0541447,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "125 Baxter Road"
+   ],
+   "kind": "historic",
+   "osm": "way/29520808",
+   "wikidata": null
+  },
+  {
+   "name": "Officers' Quarters",
+   "lat": 42.3788677,
+   "lon": -71.0517812,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29537154",
+   "wikidata": null
+  },
+  {
+   "name": "Gate 5",
+   "lat": 42.3785817,
+   "lon": -71.0521309,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "5;6 Thirteenth Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29537155",
+   "wikidata": null
+  },
+  {
+   "name": "Building 10",
+   "lat": 42.3727166,
+   "lon": -71.0555193,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "10 Third Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29538082",
+   "wikidata": "Q131686173"
+  },
+  {
+   "name": "Charles Street Meeting House",
+   "lat": 42.3578943,
+   "lon": -71.0706218,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "70 Charles Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29568787",
+   "wikidata": "Q5082721"
+  },
+  {
+   "name": "Parkman Bandstand",
+   "lat": 42.3543397,
+   "lon": -71.0655034,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "George Francis Parkman Bandstand",
+    "167 Tremont Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29576185",
+   "wikidata": "Q7138603"
+  },
+  {
+   "name": "Church of the Advent",
+   "lat": 42.3576921,
+   "lon": -71.0714969,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "30 Brimmer Street"
+   ],
+   "kind": "worship",
+   "osm": "way/29620255",
+   "wikidata": "Q20708652"
+  },
+  {
+   "name": "Old South Meeting Place",
+   "lat": 42.3569976,
+   "lon": -71.058397,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "2 Milk Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29620426",
+   "wikidata": null
+  },
+  {
+   "name": "Rope Walk",
+   "lat": 42.3775182,
+   "lon": -71.0535405,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "97 Fifth Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29642778",
+   "wikidata": null
+  },
+  {
+   "name": "Carpenter Shop",
+   "lat": 42.3735152,
+   "lon": -71.0548301,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "24 Baxter Road"
+   ],
+   "kind": "historic",
+   "osm": "way/29642924",
+   "wikidata": null
+  },
+  {
+   "name": "Hemp House",
+   "lat": 42.3777182,
+   "lon": -71.0526765,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "62 Thirteenth Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29715757",
+   "wikidata": null
+  },
+  {
+   "name": "Phillips School",
+   "lat": 42.3589653,
+   "lon": -71.0678772,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Wendell Phillips School",
+    "English High School",
+    "65 Anderson Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29743062",
+   "wikidata": null
+  },
+  {
+   "name": "Essex Square",
+   "lat": 42.379379,
+   "lon": -71.0704298,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29745512",
+   "wikidata": null
+  },
+  {
+   "name": "Marine Barracks",
+   "lat": 42.3748827,
+   "lon": -71.0564335,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "93 Second Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/29746526",
+   "wikidata": "Q131686664"
+  },
+  {
+   "name": "Commandant's House",
+   "lat": 42.3744578,
+   "lon": -71.0570352,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "23 Second Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/29746560",
+   "wikidata": "Q131687302"
+  },
+  {
+   "name": "Officers' Quarters",
+   "lat": 42.3733522,
+   "lon": -71.057333,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29746618",
+   "wikidata": null
+  },
+  {
+   "name": "Bricklayers Building 104",
+   "lat": 42.3764328,
+   "lon": -71.0511708,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "104 First Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/29789731",
+   "wikidata": null
+  },
+  {
+   "name": "Emmanuel Church",
+   "lat": 42.3526219,
+   "lon": -71.0723524,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "15 Newbury Street"
+   ],
+   "kind": "worship",
+   "osm": "way/29803340",
+   "wikidata": "Q5373210"
+  },
+  {
+   "name": "Lower Lock Gatehouse",
+   "lat": 42.3668104,
+   "lon": -71.0689169,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "250 Leverett Circle"
+   ],
+   "kind": "historic",
+   "osm": "way/29809255",
+   "wikidata": null
+  },
+  {
+   "name": "Angell Memorial Square",
+   "lat": 42.3570665,
+   "lon": -71.0560965,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29818623",
+   "wikidata": null
+  },
+  {
+   "name": "Kings Chapel Burying Ground",
+   "lat": 42.3583073,
+   "lon": -71.0598509,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29818712",
+   "wikidata": "Q1742174"
+  },
+  {
+   "name": "Phipps Street Cemetery",
+   "lat": 42.3762269,
+   "lon": -71.0676784,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29818847",
+   "wikidata": "Q7186417"
+  },
+  {
+   "name": "Irish Famine Memorial",
+   "lat": 42.3573397,
+   "lon": -71.0586609,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29818870",
+   "wikidata": "Q48837867"
+  },
+  {
+   "name": "Muster House",
+   "lat": 42.3750411,
+   "lon": -71.0554955,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "31 Fifth Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29820668",
+   "wikidata": null
+  },
+  {
+   "name": "North Square",
+   "lat": 42.363909,
+   "lon": -71.0533958,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29829944",
+   "wikidata": "Q2000806"
+  },
+  {
+   "name": "Jenny Plaza",
+   "lat": 42.3586918,
+   "lon": -71.0533257,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29830595",
+   "wikidata": null
+  },
+  {
+   "name": "Cardinal Cushing Memorial Park",
+   "lat": 42.3614351,
+   "lon": -71.0623394,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "5 New Chardon Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29831049",
+   "wikidata": "Q75044259"
+  },
+  {
+   "name": "Charlestown Marina",
+   "lat": 42.3761244,
+   "lon": -71.050115,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29834991",
+   "wikidata": null
+  },
+  {
+   "name": "Curley Memorial Plaza",
+   "lat": 42.3605454,
+   "lon": -71.057047,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "James Michael Curley Park"
+   ],
+   "kind": "historic",
+   "osm": "way/29836040",
+   "wikidata": null
+  },
+  {
+   "name": "City Square Park",
+   "lat": 42.3717142,
+   "lon": -71.0617573,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29836178",
+   "wikidata": null
+  },
+  {
+   "name": "Copp's Hill Burying Ground",
+   "lat": 42.3673732,
+   "lon": -71.0556894,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "North Burying Ground"
+   ],
+   "kind": "historic",
+   "osm": "way/29837117",
+   "wikidata": "Q1131544"
+  },
+  {
+   "name": "The Basilica",
+   "lat": 42.3776905,
+   "lon": -71.0503821,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "106 Thirteenth Street"
+   ],
+   "kind": "historic",
+   "osm": "way/29849548",
+   "wikidata": null
+  },
+  {
+   "name": "Granary Burying Ground",
+   "lat": 42.3573421,
+   "lon": -71.0617005,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29861355",
+   "wikidata": "Q1140339"
+  },
+  {
+   "name": "Bunker Hill Cemetery",
+   "lat": 42.3794625,
+   "lon": -71.0618271,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29870816",
+   "wikidata": "Q130598481"
+  },
+  {
+   "name": "First Lutheran Church",
+   "lat": 42.3538446,
+   "lon": -71.0740286,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "299 Berkeley Street"
+   ],
+   "kind": "worship",
+   "osm": "way/29945923",
+   "wikidata": "Q132632052"
+  },
+  {
+   "name": "Old City Hall Grounds",
+   "lat": 42.3579257,
+   "lon": -71.0594961,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/29951056",
+   "wikidata": null
+  },
+  {
+   "name": "New England Holocaust Memorial",
+   "lat": 42.3613163,
+   "lon": -71.0573289,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/148772838",
+   "wikidata": "Q1532554"
+  },
+  {
+   "name": "USS Constitution",
+   "lat": 42.3724436,
+   "lon": -71.0565517,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "24 5th Street"
+   ],
+   "kind": "historic",
+   "osm": "way/166151194",
+   "wikidata": "Q944436"
+  },
+  {
+   "name": "USS Cassin Young",
+   "lat": 42.3721426,
+   "lon": -71.0543986,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/173838926",
+   "wikidata": "Q7868136"
+  },
+  {
+   "name": "Portal Crane 65",
+   "lat": 42.3739183,
+   "lon": -71.0549734,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/212123394",
+   "wikidata": null
+  },
+  {
+   "name": "Portal Crane 62",
+   "lat": 42.3725065,
+   "lon": -71.0550779,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/212123411",
+   "wikidata": null
+  },
+  {
+   "name": "Scale House",
+   "lat": 42.374253,
+   "lon": -71.0555085,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "19 First Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/212123442",
+   "wikidata": null
+  },
+  {
+   "name": "Park Street Church",
+   "lat": 42.3568567,
+   "lon": -71.0620226,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "119 Tremont Street"
+   ],
+   "kind": "worship",
+   "osm": "way/240317867",
+   "wikidata": "Q1139853"
+  },
+  {
+   "name": "Old Saint Stephens Church",
+   "lat": 42.3653642,
+   "lon": -71.0527308,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "24 Clark Street"
+   ],
+   "kind": "worship",
+   "osm": "way/240382941",
+   "wikidata": "Q2323323"
+  },
+  {
+   "name": "Ozias Goodwin House",
+   "lat": 42.3676631,
+   "lon": -71.0549902,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "7 Jackson Avenue"
+   ],
+   "kind": "historic",
+   "osm": "way/240405150",
+   "wikidata": "Q14715804"
+  },
+  {
+   "name": "Church of the Covenant",
+   "lat": 42.3521922,
+   "lon": -71.0740196,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "67 Newbury Street"
+   ],
+   "kind": "worship",
+   "osm": "way/324784378",
+   "wikidata": "Q5117829"
+  },
+  {
+   "name": "Arlington Street Church",
+   "lat": 42.3520218,
+   "lon": -71.0712783,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "351 Boylston Street"
+   ],
+   "kind": "worship",
+   "osm": "way/405397825",
+   "wikidata": "Q4792403"
+  },
+  {
+   "name": "Lewis and Harriet Hayden House",
+   "lat": 42.3601612,
+   "lon": -71.0690334,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "66 Phillips Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405841672",
+   "wikidata": null
+  },
+  {
+   "name": "Abiel Smith School",
+   "lat": 42.3599767,
+   "lon": -71.0652249,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "46 Joy Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405880922",
+   "wikidata": "Q4667629"
+  },
+  {
+   "name": "William C. Nell House",
+   "lat": 42.360139,
+   "lon": -71.0653433,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Smith Court residences",
+    "3 Smith Court"
+   ],
+   "kind": "historic",
+   "osm": "way/405880938",
+   "wikidata": null
+  },
+  {
+   "name": "African Meeting House",
+   "lat": 42.3599681,
+   "lon": -71.0654863,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "First African Baptist Church",
+    "8 Smith Court"
+   ],
+   "kind": "historic",
+   "osm": "way/405880946",
+   "wikidata": "Q3329655"
+  },
+  {
+   "name": "John Coburn House",
+   "lat": 42.36024,
+   "lon": -71.0664966,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "2 Phillips Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405881009",
+   "wikidata": null
+  },
+  {
+   "name": "Nichols House",
+   "lat": 42.3586327,
+   "lon": -71.0659843,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "57 Mount Vernon Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405903349",
+   "wikidata": null
+  },
+  {
+   "name": "John J. Smith House",
+   "lat": 42.3587381,
+   "lon": -71.0697258,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "86 Pinckney Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405903352",
+   "wikidata": null
+  },
+  {
+   "name": "Francis Parkman House",
+   "lat": 42.3571674,
+   "lon": -71.0685965,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "50 Chestnut Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405911526",
+   "wikidata": null
+  },
+  {
+   "name": "William Hickling Prescott House",
+   "lat": 42.356762,
+   "lon": -71.0682581,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Headquarters House",
+    "55 Beacon Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405911780",
+   "wikidata": "Q5689900"
+  },
+  {
+   "name": "Deutsch House",
+   "lat": 42.3560039,
+   "lon": -71.0721366,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "2 Beaver Street"
+   ],
+   "kind": "historic",
+   "osm": "way/405911801",
+   "wikidata": null
+  },
+  {
+   "name": "Clough House",
+   "lat": 42.3660492,
+   "lon": -71.0542988,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Clough-Langdon House",
+    "21 Unity Street"
+   ],
+   "kind": "historic",
+   "osm": "way/408456538",
+   "wikidata": "Q131982831"
+  },
+  {
+   "name": "Tar House",
+   "lat": 42.3775472,
+   "lon": -71.0532211,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "60 Thirteenth Street"
+   ],
+   "kind": "historic",
+   "osm": "way/408653602",
+   "wikidata": null
+  },
+  {
+   "name": "Rachel Revere Park",
+   "lat": 42.3635604,
+   "lon": -71.0534897,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Rachel Revere Square"
+   ],
+   "kind": "historic",
+   "osm": "way/409161384",
+   "wikidata": null
+  },
+  {
+   "name": "First Church in Boston",
+   "lat": 42.3537147,
+   "lon": -71.0747396,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "66 Marlborough Street"
+   ],
+   "kind": "worship",
+   "osm": "way/475367031",
+   "wikidata": "Q989111"
+  },
+  {
+   "name": "St. Leonard's Church",
+   "lat": 42.3647461,
+   "lon": -71.0542671,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "St. Leonard's Roman Catholic Church",
+    "31 Prince Street"
+   ],
+   "kind": "worship",
+   "osm": "way/560485500",
+   "wikidata": "Q23302336"
+  },
+  {
+   "name": "Chinatown Archaeological Site",
+   "lat": 42.3508183,
+   "lon": -71.0598317,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/702789227",
+   "wikidata": null
+  },
+  {
+   "name": "Garden of Remembrance",
+   "lat": 42.3527264,
+   "lon": -71.0707464,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/814734751",
+   "wikidata": null
+  },
+  {
+   "name": "George Middleton House",
+   "lat": 42.3589062,
+   "lon": -71.0653216,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "5 Pinckney Street"
+   ],
+   "kind": "historic",
+   "osm": "way/814748333",
+   "wikidata": null
+  },
+  {
+   "name": "Guild Steps",
+   "lat": 42.3570398,
+   "lon": -71.065045,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/815602975",
+   "wikidata": null
+  },
+  {
+   "name": "Bullfinch Place",
+   "lat": 42.3599951,
+   "lon": -71.0622694,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/816258738",
+   "wikidata": null
+  },
+  {
+   "name": "9/11 Memorial",
+   "lat": 42.3527223,
+   "lon": -71.0707705,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/825639016",
+   "wikidata": "Q85748383"
+  },
+  {
+   "name": "Storrow Lagoon",
+   "lat": 42.354756,
+   "lon": -71.0803401,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Boat Basin"
+   ],
+   "kind": "historic",
+   "osm": "way/826329217",
+   "wikidata": null
+  },
+  {
+   "name": "Massachusetts Beirut Memorial",
+   "lat": 42.3619467,
+   "lon": -71.0510302,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/836519947",
+   "wikidata": null
+  },
+  {
+   "name": "The Tall Ship",
+   "lat": 42.3649118,
+   "lon": -71.0415296,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [
+    "Akurey;Akeroy;Petrel;Petrel V;Cape Harrison;Caledonia",
+    "1 East Pier Drive"
+   ],
+   "kind": "historic",
+   "osm": "way/962623440",
+   "wikidata": null
+  },
+  {
+   "name": "Long Wharf",
+   "lat": 42.3602534,
+   "lon": -71.0483936,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/1024475422",
+   "wikidata": null
+  },
+  {
+   "name": "Upper Plaza",
+   "lat": 42.3605899,
+   "lon": -71.0596083,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/1112835157",
+   "wikidata": null
+  },
+  {
+   "name": "1965 Freedom Plaza",
+   "lat": 42.3549419,
+   "lon": -71.0643501,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/1132661865",
+   "wikidata": null
+  },
+  {
+   "name": "Monument Square",
+   "lat": 42.3760207,
+   "lon": -71.0611595,
+   "top_height_m": null,
+   "top_height_src": null,
+   "aliases": [],
+   "kind": "historic",
+   "osm": "way/1263320391",
+   "wikidata": "Q6906850"
+  }
+ ],
+ "attribution": "\u00a9 OpenStreetMap contributors (ODbL); heights for curated items from English Wikipedia (CC BY-SA)"
+}

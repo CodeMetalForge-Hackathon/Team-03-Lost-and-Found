@@ -1,0 +1,80 @@
+{{Short description|Skyscraper in Boston, Massachusetts}}
+{{Distinguish|Millennium Place}}
+{{Use mdy dates|date=May 2026}}
+{{Use American English|date=May 2026}}
+{{Infobox building
+|name                = Millennium Tower
+|image               = Millennium_Tower_in_Boston.jpg
+|image_size          =
+|caption             = Millennium Tower in 2024
+|location            = 1 [[Franklin Street (Boston)|Franklin Street]] [[Boston]], [[Massachusetts]], US<ref>{{Cite web|url=https://boston.curbed.com/archives/2013/09/millennium-tower-groundbreaking-everything-you-need-to-know.php|archive-url=https://web.archive.org/web/20140904182159/http://boston.curbed.com/archives/2013/09/millennium-tower-groundbreaking-everything-you-need-to-know.php|url-status=dead|archive-date=September 4, 2014|title=Millennium Tower Groundbreaking: 10 Things to Know|work=boston.curbed.com|date=September 17, 2013|accessdate=May 5, 2014}}</ref>
+|coordinates         = {{Coord|42|21|21.01|N|71|3|33.91|W|type:landmark_region:US-MA|display=inline,title}}
+|pushpin_map         = Massachusetts
+|status              = Complete
+|roof                = {{convert|684|ft|m|abbr=on}}<ref name="Boston Curbed">{{cite web|url=https://millenniumtowerboston.com/|title=Millennium Tower Main Info|work=mtboston.com|date=October 20, 2014|accessdate=October 24, 2014}}</ref>
+|antenna_spire       =
+|floor_count         = 60<ref>{{cite web|url=https://millenniumptrs.com/|title=Floor count|work=millenniumptrs.com|accessdate=May 1, 2014}}</ref>
+|construction_start_date = September 17, 2013
+|completion_date     = September 7, 2015
+|opened_date         = June 1, 2016<ref name="construction">{{Cite web|url=https://apps.bostonglobe.com/unfold/2016/07/millennium/|title=The Millennium Tower|work=bostonglobe.com|date=July 25, 2016|accessdate=February 17, 2020}}</ref>
+|cost                = [[USD|US$]]375 million<br />(${{formatprice|{{Inflation|US|375000000|2016}}}} in {{Inflation-year|US}} dollars{{inflation-fn|US}})
+|building_type       = Residential, Retail
+|floor_area          = {{convert|1100000|sqft|abbr=on}}<ref>{{cite web|url=http://handelarch.com/projects/type/office/millennium-tower-boston-office.html|title=Millennium Tower Boston|work=handelarch.com|accessdate=March 29, 2017|archive-url=https://web.archive.org/web/20170609200431/http://handelarch.com/projects/type/office/millennium-tower-boston-office.html|archive-date=June 9, 2017|url-status=dead}}</ref>
+|architect           = Blake Middleton of [[Handel Architects]]
+|developer           = Millennium Partners
+|structural_engineer = DeSimone Consulting Engineers
+}}
+
+'''Millennium Tower''' is a 60-story, {{convert|684|ft|m|adj=mid|-tall}} residential skyscraper in [[Boston]], Massachusetts, United States.<ref name="Luxury Boston">{{cite web|title=Millennium Tower Boston – Pre-Construction|url=https://www.luxuryboston.com/Millennium-Tower|website=Luxury Boston|accessdate=September 27, 2016}}</ref> Construction began in 2013 at the site of the former flagship store for [[Filene's]] in [[Downtown Crossing]] and was completed in 2016.<ref name="construction"/> {{as of|2022}}, it is the fifth [[List of tallest buildings in Boston|tallest building in Boston]]. The building contains 442 [[condominium]]s, a [[Roche Bros.]] grocery store and [[Office#Grading|Class A office space]].<ref>{{cite web|url=http://handelarch.com/projects/type/office/millennium-tower-boston-office.html|title=Millennium Tower Boston|work=handelarch.com|accessdate=May 5, 2014|archive-url=https://web.archive.org/web/20170609200431/http://handelarch.com/projects/type/office/millennium-tower-boston-office.html|archive-date=June 9, 2017|url-status=dead}}</ref><ref>{{Cite web |url=https://www.cosentini.com/index.php/portfolio-articles/34-residential/142-millennium-tower |title=Millennium Tower |website=Cosentini Associates |access-date=February 6, 2020}}</ref> Limited occupancy by residents began in July 2016.<ref name="construction"/>
+
+==History==
+
+===Initial plans, demolition, and project halt===
+Millennium Tower and the Burnham Building occupy the space of the former flagship [[Filene's Department Store|Filene's store]]. When Filene's closed, the building was put up for sale and was bought by [[Vornado Realty Trust]] of New York. Vornado teamed up with Gale International for a $700 million redevelopment of the Filene's site.
+
+As approved in August 2007,<ref name=BGlobeAug2007>{{cite news| url=http://archive.boston.com/business/globe/articles/2007/08/18/city_oks_redevelopment_of_historic_filenes_block/ |work=The Boston Globe |title=City OK's redevelopment of historic Filene's block |date=August 18, 2007 | url-status=live |archive-url=https://web.archive.org/web/20070820141516/https://www.boston.com/business/globe/articles/2007/08/18/city_oks_redevelopment_of_historic_filenes_block/ |archive-date=August 20, 2007}}</ref> the site redevelopment project consisted of a 39-story tower including a 280-room hotel, a 125-seat restaurant, {{convert|475000|sqft|m2}} of office space, 166 residential condos, {{convert|300000|sqft|m2}} of retail space, and an adjacent park. It was originally scheduled for completion by 2011.<ref name=BGlobeAug2007/> In order to gut the historic Filene's building and demolish an adjacent building, the project required closing [[Filene's Basement]] and the loss of 218 retail jobs.<ref name=BGlobeNov2010>{{cite news |last1=Ross |first1=Casey |title=Filene's site permits revoked |url=https://archive.boston.com/business/articles/2010/11/18/filenes_site_permits_revoked/ |accessdate=March 18, 2020 |work=Boston.com |date=November 18, 2010}}</ref>
+
+In Summer of 2008, the developers halted the project, citing the [[2008 financial crisis]]. As of the halt, demolition was nearly complete, leaving the Burnham building gutted and a large excavation where the non-landmarked parts of the former Filenes complex (built in the 1950s–1970s) had stood. The side of the Burnham building that was exposed by the nearby demolition was temporarily covered with a tarp.  After two years of inactivity, the City of Boston revoked the developer's permits in November 2010.<ref name=BGlobeNov2010/>
+
+===Ownership change and construction start===
+In 2012, Millennium Partners took over the task and won approval for a 625-foot tower with 1.2 million square feet (110,000 m<sup>2</sup>) of commercial and residential space in two buildings.<ref>{{cite news |last1=Grillo |first1=Thomas |title=City approves 625-foot tower at former Filene's site |url=https://www.bizjournals.com/boston/real_estate/2012/09/bra-approves-millennium-filenes-tower.html |accessdate=March 18, 2020 |work=www.bizjournals.com}}</ref>
+
+On April 13, 2013, major tenant [[Arnold Worldwide]] was signed to occupy a large part of the new building. With the agreement in place, construction resumed.<ref name="globe-2013-04-12">{{cite web|title=Filene's project to resume as major tenant signed|url=http://www.boston.com/businessupdates/2013/04/12/filene-project-resume-major-tenant-signed/BO3q3EP2cBIfC6Mf0WxNyH/story.html|work=Boston Globe|accessdate=September 12, 2013 |archive-url=https://web.archive.org/web/20130414231904/http://www.boston.com/businessupdates/2013/04/12/filene-project-resume-major-tenant-signed/BO3q3EP2cBIfC6Mf0WxNyH/story.html |archive-date=April 14, 2013}}</ref> The building officially broke ground on September 17, 2013 with mayor [[Thomas M. Menino]] in attendance.<ref>{{Cite web|url=http://www.metro.us/newyork/news/2013/09/17/millenium-tower-boston-breaks-ground-on-new-downtown-crossing-skyscraper/|title=Millennium Tower: Boston breaks ground on new Downtown Crossing skyscraper|work=www.metro.us|date=September 17, 2013|accessdate=March 25, 2014|archive-url=https://web.archive.org/web/20150608003807/http://www.metro.us/local/millennium-tower-boston-breaks-ground-on-new-skyscraper/tmWmiq---fecvpUGLTpKg2/|archive-date=June 8, 2015|url-status=dead}}</ref> On April 26, 2014, 600 trucks poured {{convert|6,000|cuyd|m3}} of concrete into a slab for the new building, making it the largest pour in the city's history.<ref>{{cite web|url=https://boston.cbslocal.com/2014/04/26/record-concrete-pour-paves-way-for-millennium-tower-at-downtown-crossing/|title=Record Concrete Pour Paves Way For Millennium Tower At Downtown Crossing|publisher=CBS Boston|date=April 26, 2014|accessdate=May 26, 2014}}</ref>
+
+===Recent developments and tenants===
+Tenants, as of 2021, include [[Roche Bros]] supermarket.<ref>{{Cite web|url=https://dailyfreepress.com/2013/09/24/millennium-tower-to-add-to-boston-skyline-as-4th-tallest-building/|title=Millennium Tower to add to Boston skyline as 4th-tallest building|work=dailyfreepress.com|date=September 24, 2013|accessdate=March 25, 2014}}</ref>
+
+According to an August 2016 article in the ''[[Boston Globe]]'', luxury condos have been purchased by local residents as well buyers from [[Asia]] and [[Europe]]. A Millennium executive estimated at the time that 75% of the owners will be living in their units in Downtown Crossing.<ref>{{cite news |last=Tim |first=Logan |url=https://www.bostonglobe.com/business/2016/08/29/with-millennium-tower-boston-reaches-new-heights-foreign-money-magnet/keC5sjXE546tpvGmGsTVlM/story.html |title=Foreign buyers at Millennium Tower show that Boston is on a world stage |work=[[The Boston Globe]] |date=August 30, 2016 |accessdate=August 30, 2016 }}</ref>
+
+==Gallery==
+
+<gallery class="center" widths="175px" heights="167px">
+File:Millennium Tower site pre construction.jpg|The site before construction started in April, 2013. This is looking towards the 1911 built Burnham Building.
+File:Millennium Tower construction, 2 May 2014.jpg|The Millennium Tower on May 2, 2014, with [[Filene's]] (Burnham Building) on the right
+File:Millennium Tower construction, 29 May 2014.jpg|Construction of the Millennium Tower in late May 2014, almost at street level
+File:Millennium Tower construction, 18 August 2014.jpg|The tower in mid-August 2014. The first floor has been added, with the second on its way.
+File:Millennium Tower in December 2014.jpg|The tower on December 22, 2014 showing the first of the glass paneling.
+File:Millennium Tower Under Construction.jpg|Construction in September 2015 showing concrete skeleton and curtain wall going up.
+File:Millennium Tower on April 8th, 2016.jpg|Millennium Tower on April 8, 2016. Cladding is almost complete.
+File:Millennium Tower, Boston, Massachusetts.jpg|Millenium Tower looking south on Washington Street in September 2024.
+</gallery>
+
+==See also==
+* [[Filene's Department Store]]
+* [[List of tallest buildings in Boston]]
+
+==References==
+{{Reflist|2}}
+
+==External links==
+{{Commons category}}
+* [https://millenniumtowerboston.com/ Official website]
+
+{{Boston skyscrapers}}
+{{BostonMA}}
+{{Authority control}}
+
+[[Category:Financial District, Boston]]
+[[Category:Residential skyscrapers in Boston]]
+[[Category:Residential buildings completed in 2016]]
+[[Category:Residential skyscrapers in Massachusetts]]

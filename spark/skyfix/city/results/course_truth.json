@@ -1,0 +1,4 @@
+{"note": "Ground truth stated by the photographer. Used ONLY to score course.py output, never as solver input.",
+ "building": "60 State Street", "floor": 14, "h_above_street_m": [53, 58], "direction": "clockwise",
+ "shots": [{"id": "01", "face": "E", "heading_deg": 73}, {"id": "02", "face": "S", "heading_deg": 170},
+           {"id": "03", "face": "W", "heading_deg": 232}, {"id": "04", "face": "N", "heading_deg": 344}]}

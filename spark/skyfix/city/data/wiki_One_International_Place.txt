@@ -1,0 +1,43 @@
+{{Use mdy dates|date=February 2025}}
+{{Use American English|date=January 2025}}
+{{Infobox building
+|name               = One International Place
+|image              = Internationalplace.jpg
+|image_size         = 275px
+|caption            = One International Place (right), adjacent to [[Two International Place]] (left)
+|location           = 100 Oliver Street, [[Boston]], Massachusetts
+|coordinates        = {{coord|42|21|20.8|N|71|03|07.5|W|region:US-MA_scale:2000|display=inline,title}}
+|roof               = {{convert|600|ft|m|abbr=on}}
+|floor_count        = 46
+|completion_date    = 1987
+|building_type      = Office/Retail
+|architect          = [[John Burgee|Johnson/Burgee Architects]]
+|developer          = [http://www.chiofaro.com/ The Chiofaro Company]
+}}
+
+'''One International Place''' is a [[Postmodern architecture|Postmodern]] [[skyscraper]] in the [[Financial District, Boston, Massachusetts|Financial District]] of [[Boston, Massachusetts]].<ref>{{usurped|1=[https://web.archive.org/web/20070211202635/http://www.emporis.com/en/wm/bu/?id=1internationalplace-boston-ma-usa Emporis.com]}}</ref> Built in 1987, and designed by [[Johnson/Burgee|Johnson/Burgee Architects]] &ndash; whose principals are [[Philip Johnson]] and [[John Burgee]] &ndash; it is Boston's [[List of tallest buildings in Boston|tenth-tallest building]], standing 600 feet (183 m) tall and housing 46 floors. The building is very prominent in the city's skyline, particularly when viewed from [[Port of Boston|Boston Harbor]].
+
+The building has three separate elements. These consist of the tower itself, as well as two smaller components (27- and 19-stories), linked  to [[Two International Place]] by a central dome with fifty-five-foot rain fountain court and winter garden.
+
+An architectural critic said "the multifaceted towers offend through the dullness of their exterior articulation—particularly the density of Palladian windows, crowned with false arches".<ref>{{cite web |last1=Morgan |first1=Keith N. |title=International Place |url=https://sah-archipedia.org/buildings/MA-01-FD9 |website=SAH Archipedia |publisher=Society of Architectural Historians |access-date=5 June 2023}}</ref> Another critic states that the Palladian windows are "a late 20th-century corporate version of the un-composed vernacular use of a decontextualised architectural element" and complain of their "relentless deployment on this vast building, that bears no relationship to the human form from which the Palladian window derived its scale".<ref>{{cite web |title=Seven Palladian windows |url=https://www.ribaj.com/culture/palladian-windows |website=RIBA Journal |access-date=5 June 2023 |date=September 7, 2014}}</ref>
+
+==See also==
+*[[List of tallest buildings in Boston]]
+*[[Two International Place]]
+
+==References==
+{{reflist}}
+
+==External links==
+*{{Commons category-inline|International Place (Boston, Massachusetts)}}
+*[http://www.internationalplace.com/ One International Place]
+*{{usurped|1=[https://web.archive.org/web/20070211202635/http://www.emporis.com/en/wm/bu/?id=1internationalplace-boston-ma-usa Emporis.com]}}
+
+{{Boston skyscrapers}}
+{{Johnson-Burgee}} {{Authority control}}
+
+[[Category:Skyscraper office buildings in Boston]]
+[[Category:Philip Johnson buildings]]
+[[Category:Financial District, Boston]]
+[[Category:John Burgee buildings]]
+[[Category:Office buildings completed in 1987]]

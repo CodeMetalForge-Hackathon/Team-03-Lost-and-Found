@@ -1,0 +1,11 @@
+--- web/index.html	2026-11-08 00:59:27.712164010 -0500
++++ web/index.html	2026-11-08 08:12:27.509035794 -0500
+@@ -37,7 +37,7 @@
+ <div id="app">
+   <h1>SKY<b>FIX</b></h1>
+   <div class="sub">GPS-denied position from the sky. Offline · nothing transmitted · <a href="/demo">judge gallery</a> · <a href="/?hud=1">HUD</a></div>
+-  <div class="tog"><button id="mNight" class="on">★ NIGHT</button><button id="mDay">⛰ DAY</button></div>
++  <div class="tog"><button id="mNight" class="on">★ NIGHT</button><button id="mDay">⛰ DAY</button><button id="mCity" onclick="location.href=location.protocol+'//'+location.hostname+':8133/'">🏙 CITY (daytime)</button></div>
+ 
+   <div class="card" id="capNight">
+     <div class="kv">1 · Aim at the sky the way you will shoot, then lock tilt</div>

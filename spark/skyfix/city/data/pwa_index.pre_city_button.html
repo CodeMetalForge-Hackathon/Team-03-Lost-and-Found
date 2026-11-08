@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000"><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon.svg">
+<title>Sky Fix</title>
+<style>
+:root{--y:#ffd400;--c:#00e5ff;--g:#39ff6a;--r:#ff4d4d;--fg:#fff;--mut:#9aa}
+*{box-sizing:border-box}html,body{margin:0;background:#000;color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+body{padding:max(10px,env(safe-area-inset-top)) 12px 40px;max-width:720px;margin:auto}
+h1{font-size:28px;margin:4px 0;letter-spacing:2px}h1 b{color:var(--y)}
+.sub{color:var(--mut);font-size:14px;margin-bottom:10px}
+.tog{display:flex;gap:0;margin:10px 0;border:2px solid var(--y);border-radius:12px;overflow:hidden}
+.tog button{flex:1;font-size:22px;font-weight:800;padding:14px;border:0;background:#000;color:var(--y)}
+.tog button.on{background:var(--y);color:#000}
+.card{border:2px solid #333;border-radius:14px;padding:12px;margin:10px 0}
+.btn{display:block;width:100%;font-size:22px;font-weight:800;padding:16px;margin:8px 0;border-radius:12px;border:2px solid var(--y);background:#111;color:var(--y)}
+.btn.pri{background:var(--y);color:#000}.btn:disabled{opacity:.4}
+label{font-size:15px;color:var(--mut)}input,select{font-size:18px;padding:10px;border-radius:8px;border:1px solid #555;background:#111;color:#fff;width:100%}
+.row{display:flex;gap:8px}.row>*{flex:1}
+#big{font-size:34px;font-weight:900;color:var(--y);line-height:1.15}
+#big small{display:block;font-size:20px;color:#fff;font-weight:700}
+.kv{font-size:19px;margin:4px 0}.kv b{color:var(--c)}
+.err{color:var(--r);font-weight:800}.ok{color:var(--g);font-weight:800}
+#map{width:100%;aspect-ratio:1;background:#050505;border-radius:12px;display:block;margin-top:8px}
+.msg{font-size:17px;margin:8px 0;color:#ddd}.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:#bbb;word-break:break-all}
+a{color:var(--c)}
+/* HUD mode for display glasses: black = transparent; minimal */
+body.hud{max-width:none;padding:0;overflow:hidden}
+body.hud #app{display:none}#hud{display:none}
+body.hud #hud{display:flex;position:fixed;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:2vmin}
+#harrow{width:52vmin;height:52vmin;transition:transform .3s linear}
+#hdist{font-size:16vmin;font-weight:900;color:var(--y);line-height:1}
+#hconf{font-size:7vmin;font-weight:800;color:#fff}
+#hnote{font-size:5vmin;color:#fff;opacity:.85}
+</style></head>
+<body>
+<div id="app">
+  <h1>SKY<b>FIX</b></h1>
+  <div class="sub">GPS-denied position from the sky. Offline · nothing transmitted · <a href="/demo">judge gallery</a> · <a href="/?hud=1">HUD</a></div>
+  <div class="tog"><button id="mNight" class="on">★ NIGHT</button><button id="mDay">⛰ DAY</button></div>
+
+  <div class="card" id="capNight">
+    <div class="kv">1 · Aim at the sky the way you will shoot, then lock tilt</div>
+    <button class="btn" id="lock">LOCK TILT (2 s)</button>
+    <div class="kv" id="tiltOut">tilt: not locked — without it you get sky orientation only, no latitude</div>
+    <div class="row"><div><label>Hold</label><select id="hold"><option value="braced">braced (0.3°)</option><option value="handheld">handheld (1.4°)</option></select></div>
+      <div><label>Lens FOV° (optional)</label><input id="fovN" type="number" placeholder="from EXIF"></div></div>
+    <div class="kv" style="margin-top:8px">2 · Shoot the stars (night mode), same tilt</div>
+  </div>
+  <div class="card" id="capDay" style="display:none">
+    <div class="kv">Last known fix (search box ±25 km)</div>
+    <div class="row"><div><label>Lat</label><input id="pLat" type="number" step="any"></div><div><label>Lon</label><input id="pLon" type="number" step="any"></div></div>
+    <div class="row"><div><label>Lens horizontal FOV°</label><input id="fovD" type="number" value="65"></div><div></div></div>
+    <div class="kv" style="margin-top:8px">Shoot the skyline, level, widest view you have</div>
+  </div>
+  <label class="btn pri" for="file" style="text-align:center">📷 TAKE PHOTO</label>
+  <input id="file" type="file" accept="image/*" capture="environment" style="display:none">
+  <div class="row"><select id="demoSel"><option value="">— or use a demo photo —</option></select></div>
+  <button class="btn" id="useDemo">USE THIS PHOTO</button>
+
+  <div class="card" id="res" style="display:none">
+    <div id="big"></div>
+    <canvas id="map" width="720" height="720"></canvas>
+    <div id="drLine" class="kv" style="display:none"></div>
+    <button class="btn" id="drBtn">START BREADCRUMB (dead-reckon from this fix)</button>
+    <div id="kvs"></div>
+    <div class="msg" id="msg"></div>
+    <div class="mono" id="ev"></div>
+  </div>
+  <div class="card"><div class="kv">Evidence log (hash-chained, local)</div><div class="mono" id="log">…</div></div>
+</div>
+
+<div id="hud">
+  <svg id="harrow" viewBox="0 0 100 100"><path d="M50 4 L80 70 L50 56 L20 70 Z" fill="#ffd400" stroke="#000" stroke-width="2"/></svg>
+  <div id="hdist">—</div><div id="hconf">NO FIX YET</div><div id="hnote"></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const P=new URLSearchParams(location.search);
+let mode='night', grav=null, heading=null;
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(()=>{});
+
+// ---------- HUD (glasses) ----------
+function setHeading(h){heading=h}
+window.addEventListener('deviceorientationabsolute',e=>{if(e.alpha!=null)setHeading((360-e.alpha)%360)});
+window.addEventListener('deviceorientation',e=>{if(e.webkitCompassHeading!=null)setHeading(e.webkitCompassHeading)});
+async function hudTick(){
+  try{const r=await (await fetch('/api/last')).json();
+    if(!r.ok){$('hconf').textContent='NO FIX YET';return}
+    const rel=heading==null?r.bearing_deg:(r.bearing_deg-heading+360)%360;
+    $('harrow').style.transform=`rotate(${rel}deg)`;
+    $('hdist').textContent=(r.dist_km>=10?Math.round(r.dist_km):r.dist_km.toFixed(1))+' km';
+    $('hconf').textContent=`BRG ${String(Math.round(r.bearing_deg)).padStart(3,'0')}° · ±${Math.round(r.ring_km)} km`+(r.confidence==='AMBIGUOUS'?' ?':'');
+    $('hnote').textContent=(r.demo?'DEMO · ':'')+(heading==null?'NORTH-UP · ':P.get('sim')?'SIM COMPASS · ':'')+r.target;
+  }catch(e){$('hconf').textContent='LINK?'}
+}
+if(P.get('hud')&&P.get('sim')){let h0=0;setInterval(()=>{h0=(h0+3)%360;setHeading(h0);hudTick()},100)}  // demo video: simulated compass sweep
+if(P.get('hud')){document.body.classList.add('hud');hudTick();setInterval(hudTick,2000);
+  document.body.addEventListener('click',async()=>{try{if(DeviceOrientationEvent.requestPermission)await DeviceOrientationEvent.requestPermission()}catch(e){}});}
+
+// ---------- mode ----------
+function setMode(m){mode=m;$('mNight').classList.toggle('on',m==='night');$('mDay').classList.toggle('on',m==='day');
+  $('capNight').style.display=m==='night'?'':'none';$('capDay').style.display=m==='day'?'':'none';loadDemos()}
+$('mNight').onclick=()=>setMode('night');$('mDay').onclick=()=>setMode('day');
+
+// ---------- tilt lock (DeviceMotion) ----------
+$('lock').onclick=async()=>{
+  try{if(window.DeviceMotionEvent&&DeviceMotionEvent.requestPermission){const s=await DeviceMotionEvent.requestPermission();if(s!=='granted')throw 'denied'}}
+  catch(e){$('tiltOut').textContent='motion permission denied';return}
+  const acc=[];const h=e=>{const a=e.accelerationIncludingGravity;if(a&&a.x!=null)acc.push([a.x,a.y,a.z])};
+  window.addEventListener('devicemotion',h);$('tiltOut').textContent='hold still…';
+  setTimeout(()=>{window.removeEventListener('devicemotion',h);
+    if(acc.length<5){$('tiltOut').innerHTML='<span class="err">no motion sensor data (needs HTTPS on phones)</span>';return}
+    const m=[0,1,2].map(i=>acc.reduce((s,a)=>s+a[i],0)/acc.length);
+    const sd=Math.sqrt(acc.reduce((s,a)=>s+(a[0]-m[0])**2+(a[1]-m[1])**2+(a[2]-m[2])**2,0)/acc.length);
+    grav={a:m,angle:(screen.orientation&&screen.orientation.angle)||window.orientation||0,t:new Date().toISOString()};
+    const camAlt=Math.asin(Math.max(-1,Math.min(1,-m[2]/Math.hypot(...m))))*180/Math.PI;
+    const flip=camAlt<0;  // iOS reports the opposite sign to the W3C spec; the server applies the same correction
+    $('tiltOut').innerHTML=`<span class="ok">tilt locked</span> · camera ${Math.abs(camAlt).toFixed(1)}° above horizon${flip?' (sign corrected)':''} · ${acc.length} samples · jitter ${sd.toFixed(2)} m/s²`;
+  },2000);
+};
+
+// ---------- demos ----------
+async function loadDemos(){
+  const it=await (await fetch('/api/demo_items')).json();
+  const s=$('demoSel');s.innerHTML='<option value="">— or use a demo photo —</option>';
+  for(const x of it.filter(x=>x.mode===mode)){const o=document.createElement('option');o.value=x.id;o.textContent=`[${x.set}] ${x.title}`;s.appendChild(o)}
+}
+$('useDemo').onclick=()=>{const id=$('demoSel').value;if(!id)return;const f=new FormData();f.append('demo_id',id);send(f)};
+$('file').onchange=()=>{const f=$('file').files[0];if(!f)return;const fd=new FormData();fd.append('file',f);fd.append('mode',mode);
+  fd.append('client_utc',new Date().toISOString().slice(0,19));fd.append('tz_offset_min',-new Date().getTimezoneOffset());  // server prefers EXIF capture time
+  if(mode==='night'){fd.append('tilt',$('hold').value);if(grav){fd.append('device_accel',JSON.stringify(grav.a));fd.append('screen_angle',grav.angle)}
+    if($('fovN').value)fd.append('fov',$('fovN').value)}
+  else{if($('pLat').value)fd.append('prior_lat',$('pLat').value);if($('pLon').value)fd.append('prior_lon',$('pLon').value);fd.append('fov',$('fovD').value)}
+  send(fd)};
+
+async function send(fd){
+  $('res').style.display='';$('big').innerHTML='SOLVING…';$('kvs').innerHTML='';$('msg').textContent='';$('ev').textContent='';
+  const t=performance.now();
+  try{const r=await (await fetch('/api/solve',{method:'POST',body:fd})).json();show(r,performance.now()-t)}
+  catch(e){$('big').innerHTML='<span class="err">ERROR</span>';$('msg').textContent=String(e)}
+  refreshLog();
+}
+const f1=(x,d=1)=>x==null?'—':Number(x).toFixed(d);
+const ll=(lat,lon)=>`${Math.abs(lat).toFixed(4)}°${lat>=0?'N':'S'} ${Math.abs(lon).toFixed(4)}°${lon>=0?'E':'W'}`;
+function show(r,ms){
+  lastRes=r; dr=null; $('drLine').style.display='none'; $('drBtn').textContent='START BREADCRUMB (dead-reckon from this fix)';
+  const fx=r.fix_out, R=r.result||{};
+  if(fx&&r.recovery){const t=r.recovery.target;
+    $('big').innerHTML=`BRG ${String(t.bearing_deg).padStart(3,'0')}° ${t.compass} · ${t.dist_km} km<small>to ${t.role} ${t.name} (${r.recovery.ao})</small>`;
+  }else $('big').innerHTML=R.ok?'<span style="color:#00e5ff">SKY SOLVED · NO POSITION</span>':'<span class="err">NO FIX</span>';
+  let h='';
+  if(fx){const outer=fx.ring95_km&&fx.ring95_km>fx.ring_km+0.05;
+    h+=`<div class="kv">FIX <b>${ll(fx.lat,fx.lon)}</b> ± <b>${f1(fx.ring_km,fx.ring_km<10?1:0)} km</b>${outer?` <span style="color:#9aa">(dashed ${f1(fx.ring95_km,0)} km${r.solver==='stars'?' = 95%':' = top-5% spread'})</span>`:''} ${fx.confidence==='AMBIGUOUS'?'<span class="err">AMBIGUOUS</span>':''}</div>`;
+    h+=`<div class="kv">CAMERA HEADING <b>${f1(fx.heading_deg,0)}°</b> · solver ${r.solver}</div>`}
+  if(R.sky)h+=`<div class="kv">sky: RA ${f1(R.sky.ra,2)}° Dec ${f1(R.sky.dec,2)}° roll ${f1(R.sky.roll,1)}° FOV ${f1(R.sky.fov,1)}° · ${R.sky.matches} stars · ${R.sky.method}</div>`;
+  if(r.truth&&r.truth.err_km!=null)h+=`<div class="kv">TRUTH ${ll(r.truth.lat,r.truth.lon)} → error <span class="${r.truth.err_km<=(fx?Math.max(fx.ring_km,fx.ring95_km||0):0)?'ok':'err'}">${r.truth.err_km} km</span>${r.truth.heading_err_deg!=null?` · heading err ${r.truth.heading_err_deg}°`:''}</div>`;
+  else if(r.truth)h+=`<div class="kv">TRUTH ${ll(r.truth.lat,r.truth.lon)} (photo geotag)</div>`;
+  if(r.exact_err_km!=null)h+=`<div class="kv">with perfect tilt: <b>${r.exact_err_km} km</b> · simulated braced phone tilt error ${r.simulated_tilt_deg}° → the ring</div>`;
+  if(r.prior)h+=`<div class="kv">last-known fix was ${f1(r.prior.offset_km,1)} km off · search box ±25 km</div>`;
+  h+=`<div class="kv" style="color:#9aa">solve ${Math.round(r.server_ms||ms)} ms</div>`;
+  $('kvs').innerHTML=h;$('msg').textContent=(r.message||R.message||r.error||'')+(r.notes&&r.notes.length?' · '+r.notes.join('; '):'');
+  if(r.evidence)$('ev').textContent=`${r.evidence.uid} logged ${r.evidence.logged_utc} · hash ${r.evidence.hash.slice(0,20)}… ← prev ${r.evidence.prev_hash.slice(0,12)}… · CoT ${r.cot.path} XSD ${r.cot.xsd_valid?'valid':'n/a'} · transmitted: no`;
+  draw(r);
+  if(fx&&mode==='night'){$('pLat').value=fx.lat.toFixed(4);$('pLon').value=fx.lon.toFixed(4)}
+}
+
+// ---------- breadcrumb: dead reckoning from the last fix (steps x heading) ----------
+let lastRes=null, dr=null;  // dr = {e,n (km from fix), trail:[[e,n]], steps, on}
+const STEP_M=0.75, DR_ERR=0.05;  // assumed step length; ~5% of distance walked added to the ring (assumption, not measured)
+function drStep(hdg){if(!dr)return;const a=hdg*Math.PI/180;dr.e+=STEP_M/1000*Math.sin(a);dr.n+=STEP_M/1000*Math.cos(a);dr.steps++;
+  dr.trail.push([dr.e,dr.n]);if(dr.steps%5===0)drUpdate()}
+function drUpdate(){if(!dr||!lastRes||!lastRes.fix_out)return;const fx=lastRes.fix_out,t=lastRes.recovery&&lastRes.recovery.target;
+  const lat=fx.lat+dr.n/111.195, lon=fx.lon+dr.e/(111.195*Math.cos(fx.lat*Math.PI/180)), walked=dr.steps*STEP_M/1000;
+  let txt=`BREADCRUMB ${dr.steps} steps · ${walked.toFixed(2)} km walked · ring now ±${(fx.ring_km+DR_ERR*walked).toFixed(1)} km`;
+  if(t){const y=Math.sin((t.lon-lon)*Math.PI/180)*Math.cos(t.lat*Math.PI/180),x=Math.cos(lat*Math.PI/180)*Math.sin(t.lat*Math.PI/180)-Math.sin(lat*Math.PI/180)*Math.cos(t.lat*Math.PI/180)*Math.cos((t.lon-lon)*Math.PI/180);
+    const b=(Math.atan2(y,x)*180/Math.PI+360)%360, d=Math.hypot((t.lat-lat)*111.195,(t.lon-lon)*111.195*Math.cos(lat*Math.PI/180));
+    txt+=`<br><b style="color:#ffd400">DR → ${t.role}: BRG ${String(Math.round(b)).padStart(3,'0')}° · ${d.toFixed(1)} km</b>`}
+  $('drLine').style.display='';$('drLine').innerHTML=txt;draw(lastRes)}
+$('drBtn').onclick=async()=>{
+  if(dr&&dr.on){dr.on=false;$('drBtn').textContent='RESUME BREADCRUMB';return}
+  try{if(window.DeviceMotionEvent&&DeviceMotionEvent.requestPermission)await DeviceMotionEvent.requestPermission();
+      if(window.DeviceOrientationEvent&&DeviceOrientationEvent.requestPermission)await DeviceOrientationEvent.requestPermission()}catch(e){}
+  dr=dr||{e:0,n:0,trail:[[0,0]],steps:0};dr.on=true;$('drBtn').textContent='PAUSE BREADCRUMB';drUpdate()};
+let lp=9.81,lastStep=0;
+window.addEventListener('devicemotion',e=>{if(!dr||!dr.on)return;const a=e.accelerationIncludingGravity;if(!a||a.x==null)return;
+  const m=Math.hypot(a.x,a.y,a.z);lp=0.8*lp+0.2*m;const t=performance.now();
+  if(lp>10.8&&t-lastStep>350){lastStep=t;if(heading!=null)drStep(heading)}});
+
+// ---------- map (plain canvas, local km frame) ----------
+function draw(r){
+  const c=$('map'),g=c.getContext('2d'),W=c.width;g.fillStyle='#050505';g.fillRect(0,0,W,W);
+  const fx=r.fix_out;if(!fx){g.fillStyle='#666';g.font='28px sans-serif';g.fillText('no position',W/2-70,W/2);return}
+  const kmx=(lon)=>(lon-fx.lon)*111.195*Math.cos(fx.lat*Math.PI/180), kmy=lat=>(lat-fx.lat)*111.195;
+  let span=Math.max(Math.max(fx.ring_km,fx.ring95_km||0)*2.3,10);
+  if(r.truth&&r.truth.err_km!=null)span=Math.max(span,r.truth.err_km*2.4);
+  if(r.prior)span=Math.max(span,60);
+  const t=r.recovery&&r.recovery.target; const rpIn=t&&t.dist_km<span*1.2; if(rpIn)span=Math.max(span,t.dist_km*2.3);
+  if(dr&&dr.trail.length>1){const far=Math.max(...dr.trail.map(([e,n])=>Math.hypot(e,n)));span=Math.max(span,far*2.4)}
+  const s=W/span, X=k=>W/2+k*s, Y=k=>W/2-k*s;
+  const finishDraw=()=>{
+    // grid
+    const step=[1,2,5,10,20,50,100,200,500,1000].find(v=>v*s>70)||1000;g.strokeStyle='#1d2a2a';g.lineWidth=1;
+    for(let k=-Math.ceil(span/step)*step;k<=span;k+=step){g.beginPath();g.moveTo(X(k),0);g.lineTo(X(k),W);g.stroke();g.beginPath();g.moveTo(0,Y(k));g.lineTo(W,Y(k));g.stroke()}
+    g.fillStyle='#6a8';g.font='20px sans-serif';g.fillText(`grid ${step} km · N↑`,10,W-12);
+    if(r.prior){const px=X(kmx(r.prior.lon)),py=Y(kmy(r.prior.lat));g.setLineDash([8,8]);g.strokeStyle='#888';g.lineWidth=2;g.strokeRect(px-25*s,py-25*s,50*s,50*s);g.setLineDash([]);
+      g.fillStyle='#aaa';g.beginPath();g.moveTo(px,py-9);g.lineTo(px+9,py);g.lineTo(px,py+9);g.lineTo(px-9,py);g.fill();g.fillText('last fix',px+12,py-8)}
+    // ring
+    g.strokeStyle='#ffd400';g.lineWidth=4;g.beginPath();g.arc(X(0),Y(0),Math.max(6,fx.ring_km*s),0,7);g.stroke();
+    g.fillStyle='rgba(255,212,0,.10)';g.fill();
+    if(fx.ring95_km&&fx.ring95_km>fx.ring_km+0.05){g.setLineDash([14,10]);g.lineWidth=3;g.beginPath();g.arc(X(0),Y(0),fx.ring95_km*s,0,7);g.stroke();g.setLineDash([])}
+    // heading needle
+    if(fx.heading_deg!=null){const a=fx.heading_deg*Math.PI/180,L=Math.min(W*.22,Math.max(60,fx.ring_km*s*.8));g.strokeStyle='#fff';g.lineWidth=5;g.beginPath();g.moveTo(X(0),Y(0));g.lineTo(X(0)+L*Math.sin(a),Y(0)-L*Math.cos(a));g.stroke();
+      g.fillStyle='#fff';g.fillText('camera',X(0)+L*Math.sin(a)+6,Y(0)-L*Math.cos(a))}
+    g.fillStyle='#ffd400';g.beginPath();g.arc(X(0),Y(0),8,0,7);g.fill();
+    // breadcrumb trail
+    if(dr&&dr.trail.length>1){g.strokeStyle='#fff';g.lineWidth=3;g.setLineDash([3,7]);g.beginPath();g.moveTo(X(0),Y(0));
+      for(const [e,n] of dr.trail)g.lineTo(X(e),Y(n));g.stroke();g.setLineDash([]);const [e,n]=dr.trail[dr.trail.length-1];
+      g.fillStyle='#fff';g.beginPath();g.arc(X(e),Y(n),7,0,7);g.fill();g.fillText('you (DR)',X(e)+10,Y(n)+6)}
+    // truth
+    if(r.truth&&r.truth.lat!=null){const tx=X(kmx(r.truth.lon)),ty=Y(kmy(r.truth.lat));g.strokeStyle='#39ff6a';g.lineWidth=4;g.beginPath();g.moveTo(tx-10,ty-10);g.lineTo(tx+10,ty+10);g.moveTo(tx+10,ty-10);g.lineTo(tx-10,ty+10);g.stroke();g.fillStyle='#39ff6a';g.fillText('truth',tx+12,ty+18)}
+    // recovery point
+    if(t){const a=t.bearing_deg*Math.PI/180;g.strokeStyle='#00e5ff';g.lineWidth=3;g.setLineDash([12,8]);g.beginPath();g.moveTo(X(0),Y(0));
+      if(rpIn){const px=X(kmx(t.lon)),py=Y(kmy(t.lat));g.lineTo(px,py);g.stroke();g.setLineDash([]);g.fillStyle='#00e5ff';g.fillRect(px-8,py-8,16,16);g.fillText(t.role,px+12,py-10)}
+      else{const L=W*.46;g.lineTo(X(0)+L*Math.sin(a),Y(0)-L*Math.cos(a));g.stroke();g.setLineDash([]);g.fillStyle='#00e5ff';g.fillText(`${t.role} ${t.dist_km} km →`,Math.min(W-220,Math.max(10,X(0)+L*Math.sin(a)-60)),Math.min(W-40,Math.max(30,Y(0)-L*Math.cos(a))))}}
+  };
+  if(r.solver==='skyline'){const img=new Image();img.onload=()=>{g.globalAlpha=.55;g.drawImage(img,0,0,W,W);g.globalAlpha=1;finishDraw()};img.onerror=finishDraw;
+    img.src=`/api/hillshade?lat=${fx.lat}&lon=${fx.lon}&km=${span.toFixed(2)}&px=512`}else finishDraw();
+}
+async function refreshLog(){try{const e=await (await fetch('/api/evidence?n=4')).json();
+  $('log').innerHTML=`chain ${e.verify.ok?'<span class="ok">VERIFIED</span>':'<span class="err">BROKEN</span>'} · ${e.verify.n} fixes · ${e.jsonl}<br>`+
+  e.records.slice().reverse().map(r=>`${r.uid} ${r.logged_utc} ${r.solver} ${r.lat.toFixed(3)},${r.lon.toFixed(3)} ±${(r.ring_m/1000).toFixed(0)}km ${r.hash.slice(0,12)}`).join('<br>')}catch(e){}}
+if(!P.get('hud')){loadDemos();refreshLog()}
+// ?drsim=1: after the next fix, walk a simulated 3 km dog-leg (for screenshots/video; no sensors involved)
+if(P.get('drsim'))window.drSim=()=>{dr={e:0,n:0,trail:[[0,0]],steps:0,on:false};for(let i=0;i<2000;i++)drStep(i<1200?200:240);drUpdate()};
+</script></body></html>

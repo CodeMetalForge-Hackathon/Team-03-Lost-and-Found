@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sky Fix Course</title>
+<style>
+:root{--bg:#0e1116;--fg:#e6e8eb;--mut:#9aa3ad;--card:#161b22;--line:#2a313b;--acc:#ffb020;--ok:#3fb950;--bad:#f85149}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px system-ui,-apple-system,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line)}h1{font-size:16px;margin:0 8px 0 0}
+button{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:7px;padding:7px 10px;font:inherit;cursor:pointer}button.go{border-color:var(--ok)}
+a{color:var(--acc)}.wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 400px;gap:10px;padding:10px}@media(max-width:1100px){.wrap{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;margin-bottom:10px;min-width:0}.card h2{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 6px}
+canvas{width:100%;display:block;border-radius:6px}table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:3px 4px;border-bottom:1px solid var(--line);text-align:left}td.n{text-align:right;font-variant-numeric:tabular-nums}
+.mut{color:var(--mut);font-size:12.5px}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--acc)}
+</style></head><body>
+<header><h1>Sky Fix · Course (4-shot dead reckoning)</h1><button id="play">▶ replay</button><span id="clock" class="mut"></span>
+<a href="./">◂ single fix</a><span class="mut">No GPS, no compass: EXIF clock + lens only.</span></header>
+<div class="wrap">
+ <div class="card"><h2>Frame</h2><canvas id="fr"></canvas><div id="frmeta" class="mut"></div></div>
+ <div class="card"><h2>Track on 60 State St (OSM footprints, offline)</h2><canvas id="map"></canvas><div class="mut">© OpenStreetMap contributors · hollow = pre-gate fix, filled = post-gate (glazing gate)</div></div>
+ <div>
+  <div class="card"><h2>Fixes</h2><div id="fixes"></div></div>
+  <div class="card"><h2>Height / floor</h2><div id="hgt"></div></div>
+  <div class="card"><h2>Score vs stated truth (scoring only)</h2><div id="score"></div></div>
+  <div class="card"><h2>Evidence</h2><button class="go" id="log">Log 4 fixes + course summary → evidence chain</button><div id="logo" class="mut"></div></div>
+ </div>
+</div>
+<script>
+const $=id=>document.getElementById(id); let R=null, k=0, timer=null, BLD=[]; const cols=['#e63c3c','#f09600','#28aa46','#963cdc']; const imgs={};
+function t2(lat,lon,z){ const n=2**z, r=lat*Math.PI/180; return [(lon+180)/360*n*256,(1-Math.asinh(Math.tan(r))/Math.PI)/2*n*256]; }
+function drawMap(){ const c=$('map'), d=devicePixelRatio||1, W=c.clientWidth, H=W; c.width=W*d; c.height=H*d; c.style.height=H+'px'; const g=c.getContext('2d'); g.setTransform(d,0,0,d,0,0);
+  const z=18.3, [cx,cy]=t2(42.3592,-71.0564,z), P=(la,lo)=>{const [x,y]=t2(la,lo,z); return [x-cx+W/2,y-cy+H/2];};
+  g.fillStyle='#e9e6df'; g.fillRect(0,0,W,H);
+  for(const b of BLD){ g.beginPath(); b.ring.forEach(([la,lo],i)=>{const [x,y]=P(la,lo); i?g.lineTo(x,y):g.moveTo(x,y);}); g.fillStyle=b.h===155?'rgba(0,90,255,.35)':'#b9bcc4'; g.fill(); g.strokeStyle=b.h===155?'#0050ff':'#8a8d96'; g.lineWidth=b.h===155?2.5:1; g.stroke(); }
+  if(!R) return; const S=R.shots.slice(0,k);
+  S.forEach((s,i)=>{ const [x,y]=P(s.post_gate.lat,s.post_gate.lon), h=s.post_gate.heading_deg*Math.PI/180, L=W*0.28, a=28.45*Math.PI/180;
+    g.fillStyle=cols[i]+'44'; g.strokeStyle=cols[i]; g.beginPath(); g.moveTo(x,y); g.lineTo(x+L*Math.sin(h-a),y-L*Math.cos(h-a)); g.lineTo(x+L*Math.sin(h+a),y-L*Math.cos(h+a)); g.closePath(); g.fill(); g.stroke();
+    const [x0,y0]=P(s.pre_gate.lat,s.pre_gate.lon); g.setLineDash([4,3]); g.beginPath(); g.moveTo(x0,y0); g.lineTo(x,y); g.stroke(); g.setLineDash([]); g.beginPath(); g.arc(x0,y0,5,0,7); g.stroke(); });
+  g.strokeStyle='#fff'; g.lineWidth=3; g.beginPath(); S.forEach((s,i)=>{const [x,y]=P(s.post_gate.lat,s.post_gate.lon); i?g.lineTo(x,y):g.moveTo(x,y);}); g.stroke();
+  S.forEach((s,i)=>{ const [x,y]=P(s.post_gate.lat,s.post_gate.lon); g.fillStyle=cols[i]; g.beginPath(); g.arc(x,y,11,0,7); g.fill(); g.fillStyle='#fff'; g.font='bold 13px system-ui'; g.fillText(i+1,x-4,y+5); }); }
+function drawFrame(i){ const s=R.shots[i], c=$('fr'), g=c.getContext('2d'); let im=imgs[s.file]; if(!im){ im=new Image(); im.onload=()=>drawFrame(i); im.src='shots/'+s.file+'.jpg'; imgs[s.file]=im; return; } if(!im.complete) return;
+  c.width=im.naturalWidth; c.height=im.naturalHeight; g.drawImage(im,0,0); g.lineWidth=4; g.font='bold 22px system-ui';
+  for(const o of s.obs){ if(o.kind==='skip') continue; const x=o.x*c.width; g.strokeStyle=cols[i]; g.fillStyle='#ff0';
+    if(o.y==null){ g.beginPath(); g.moveTo(x,0); g.lineTo(x,c.height); g.stroke(); g.fillText(o.label,x+6,30); } else { const y=o.y*c.height; g.beginPath(); g.arc(x,y,14,0,7); g.stroke(); g.fillText(o.label,x+16,y-10); } }
+  $('frmeta').textContent=`${s.shot} · ${s.time.slice(11,19)} · ${s.gate.face} face · heading ${s.post_gate.heading_deg}° · residual RMS ${s.post_gate.rms_deg}° (EXIF-stripped 1200 px copy)`; }
+function show(){ if(!R) return; drawMap(); if(k>0) drawFrame(k-1); $('clock').textContent=k?`shot ${k}/4 · ${R.shots[k-1].time.slice(11,19)}`:'';
+  $('fixes').innerHTML='<table><tr><th>#</th><th>time</th><th>face</th><th>heading</th><th>gate moved</th><th>lat, lon</th></tr>'+R.shots.slice(0,k).map(s=>`<tr><td>${s.shot}</td><td>${s.time.slice(11,19)}</td><td>${s.gate.face}</td><td class="n">${s.post_gate.heading_deg}°</td><td class="n">${s.gate.moved_m} m</td><td class="n">${s.post_gate.lat.toFixed(5)}, ${s.post_gate.lon.toFixed(5)}</td></tr>`).join('')+'</table>'+
+   (k>1?'<div class="mut">'+R.legs.slice(0,k-1).map(l=>`${l.from}→${l.to}: ${l.straight_m} m straight, ~${l.corridor_m} m corridor, ${l.dt_s} s, ${l.speed_m_s} m/s`).join('<br>')+'</div>':'')+
+   (k===4?`<div>loop: <b>${R.direction}</b> · faces ${R.faces.join('-')} · ${R.total_s} s</div>`:''); }
+$('play').onclick=()=>{ clearInterval(timer); k=0; show(); timer=setInterval(()=>{ k++; show(); if(k>=4) clearInterval(timer); },1600); };
+$('log').onclick=async()=>{ try{ const r=await (await fetch('api/course/log',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({operator:'operator-1'})})).json();
+  $('logo').innerHTML=r.fixes.map(f=>`${f.uid} ${f.hash.slice(0,10)}… CoT ${f.cot?'✔ XSD':'written'}`).join('<br>')+`<br>summary ${r.summary.uid} ${r.summary.hash.slice(0,10)}… · chain ${r.verify.ok?'OK':'BROKEN'} (${r.verify.n} records)`; }catch(e){ $('logo').textContent='failed: '+e.message; } };
+(async()=>{ R=await (await fetch('api/course')).json(); BLD=(await (await fetch('api/buildings')).json()).buildings;
+  $('hgt').innerHTML='<table>'+R.shots.map(s=>`<tr><td>${s.shot}</td><td>${s.shot_h.source}${s.shot_h.converged?'':' <span class=bad>(did not converge: excluded)</span>'}</td><td class="n">${s.shot_h.h_above_street_m} m</td></tr>`).join('')+
+   `<tr><td></td><td><b>joint h (median of converged)</b></td><td class="n"><b>${R.joint_h_m} m</b></td></tr><tr><td></td><td>floor ${R.floor_rule}</td><td class="n"><b>${R.floor_est}</b></td></tr></table>`+
+   '<div class="mut">every single-landmark estimate: '+R.heights_all.map(h=>`${h.shot} ${h.landmark.split(' (')[0]} ${h.h_above_street_m} m`).join(' · ')+'</div>';
+  const S=R.score; $('score').innerHTML='<table><tr><th>#</th><th>face</th><th>pos err pre→post</th><th>heading err</th></tr>'+S.per_shot.map(x=>`<tr><td>${x.shot}</td><td class="${x.true_face===x.solved_face?'ok':'bad'}">${x.solved_face}/${x.true_face}</td><td class="n">${x.pos_err_pre_gate_m} → ${x.pos_err_m} m</td><td class="n">${x.heading_err_deg}°</td></tr>`).join('')+
+   `</table><div>h error ${S.h_err_m} m (vs 53–58 m) · floor <span class="${S.floor_right?'ok':'bad'}">${R.floor_est} vs ${S.floor_truth}</span> · direction <span class="${S.direction_right?'ok':'bad'}">${R.direction}</span></div>`;
+  k=4; show(); addEventListener('resize',show); })();
+</script></body></html>

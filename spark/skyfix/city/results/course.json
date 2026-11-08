@@ -1,0 +1,606 @@
+{
+ "shots": [
+  {
+   "shot": "01",
+   "file": "01_IMG_1196",
+   "time": "2026-11-08T08:21:32-05:00",
+   "n_obs": 3,
+   "pre_gate": {
+    "lat": 42.359396,
+    "lon": -71.056044,
+    "heading_deg": 78.0,
+    "rms_deg": 0.0
+   },
+   "gate": {
+    "moved_m": 10.6,
+    "face": "E",
+    "segment": 10,
+    "face_normal_deg": 76.5,
+    "heading_vs_normal_deg": 1.5,
+    "heading_rule_ok": true
+   },
+   "post_gate": {
+    "lat": 42.359345,
+    "lon": -71.056153,
+    "e": 20.3,
+    "n": 16.1,
+    "heading_deg": 76.7,
+    "rms_deg": 0.49,
+    "residuals_deg": [
+     -0.69,
+     0.28,
+     0.41
+    ]
+   },
+   "obs": [
+    {
+     "label": "Custom House Tower tip",
+     "kind": "point",
+     "x": 0.889,
+     "y": 0.061,
+     "top_asl_m": 154.2,
+     "note": "pack (Wikipedia 496 ft)"
+    },
+    {
+     "label": "Marketplace Center glass gable tip",
+     "kind": "point",
+     "x": 0.567,
+     "y": 0.395,
+     "top_asl_m": 44.0,
+     "note": "200 State St OSM address node; height ~40 m ESTIMATED (OSM 7 m is wrong); position +-20 m"
+    },
+    {
+     "label": "Harbor Towers I roof",
+     "kind": "point",
+     "x": 0.98,
+     "y": 0.325,
+     "top_asl_m": 123.2,
+     "note": "pack (Wikipedia 400 ft)"
+    }
+   ],
+   "heights": [
+    {
+     "shot": "01",
+     "landmark": "Custom House Tower tip",
+     "dist_m": 215.1,
+     "elev_deg": 25.11,
+     "h_above_street_m": 48.1,
+     "source": "(a) vs sea horizon + dip"
+    },
+    {
+     "shot": "01",
+     "landmark": "Marketplace Center glass gable tip",
+     "dist_m": 263.7,
+     "elev_deg": 1.36,
+     "h_above_street_m": 32.4,
+     "source": "(b) vs sea horizon + dip"
+    },
+    {
+     "shot": "01",
+     "landmark": "Harbor Towers I roof",
+     "dist_m": 539.0,
+     "elev_deg": 6.89,
+     "h_above_street_m": 52.8,
+     "source": "(b) vs sea horizon + dip"
+    }
+   ],
+   "shot_h": {
+    "h_above_street_m": 48.1,
+    "source": "(a) Custom House Tower tip vs sea horizon + dip",
+    "converged": true
+   }
+  },
+  {
+   "shot": "02",
+   "file": "02_IMG_1197",
+   "time": "2026-11-08T08:22:21-05:00",
+   "n_obs": 4,
+   "pre_gate": {
+    "lat": 42.359504,
+    "lon": -71.056442,
+    "heading_deg": 166.0,
+    "rms_deg": 7.45
+   },
+   "gate": {
+    "moved_m": 46.8,
+    "face": "S",
+    "segment": 1,
+    "face_normal_deg": 167.6,
+    "heading_vs_normal_deg": 1.6,
+    "heading_rule_ok": true
+   },
+   "post_gate": {
+    "lat": 42.359092,
+    "lon": -71.05632,
+    "e": 6.6,
+    "n": -12.0,
+    "heading_deg": 164.8,
+    "rms_deg": 11.07,
+    "residuals_deg": [
+     3.09,
+     -17.85,
+     1.99,
+     12.59
+    ]
+   },
+   "obs": [
+    {
+     "label": "One Federal St roof",
+     "kind": "point",
+     "x": 0.82,
+     "y": 0.19,
+     "top_asl_m": 164.0,
+     "note": "seed coords; pack footprint centre 42.356165,-71.057016"
+    },
+    {
+     "label": "1891 Stock Exchange balustrade (53 State)",
+     "kind": "point",
+     "x": 0.5,
+     "y": 0.59,
+     "top_asl_m": 55.0,
+     "note": "north-edge midpoint of the Exchange Place footprint; ~50 m"
+    },
+    {
+     "label": "Exchange Place left edge",
+     "kind": "left",
+     "x": 0.1,
+     "y": null,
+     "top_asl_m": null,
+     "note": "silhouette vertex of OSM way 29559536"
+    },
+    {
+     "label": "Exchange Place right edge",
+     "kind": "right",
+     "x": 0.77,
+     "y": null,
+     "top_asl_m": null,
+     "note": "silhouette vertex of OSM way 29559536"
+    }
+   ],
+   "heights": [
+    {
+     "shot": "02",
+     "landmark": "One Federal St roof",
+     "dist_m": 256.8,
+     "elev_deg": 24.15,
+     "h_above_street_m": 43.6,
+     "source": "(b) level camera assumed (no horizon)"
+    },
+    {
+     "shot": "02",
+     "landmark": "1891 Stock Exchange balustrade (53 State)",
+     "dist_m": 67.8,
+     "elev_deg": -7.42,
+     "h_above_street_m": 58.5,
+     "source": "(b) level camera assumed (no horizon)"
+    }
+   ],
+   "shot_h": {
+    "h_above_street_m": 63.0,
+    "pitch_deg": -3.69,
+    "rms_deg": 0.01,
+    "n": 2,
+    "source": "(c) joint pitch+h fit over 2 known-height landmarks",
+    "converged": true
+   }
+  },
+  {
+   "shot": "03",
+   "file": "03_IMG_1198",
+   "time": "2026-11-08T08:22:54-05:00",
+   "n_obs": 5,
+   "pre_gate": {
+    "lat": 42.359236,
+    "lon": -71.05532,
+    "heading_deg": 260.9,
+    "rms_deg": 5.61
+   },
+   "gate": {
+    "moved_m": 115.1,
+    "face": "W",
+    "segment": 4,
+    "face_normal_deg": 257.7,
+    "heading_vs_normal_deg": 3.2,
+    "heading_rule_ok": true
+   },
+   "post_gate": {
+    "lat": 42.359127,
+    "lon": -71.056712,
+    "e": -25.7,
+    "n": -8.1,
+    "heading_deg": 246.3,
+    "rms_deg": 13.02,
+    "residuals_deg": [
+     -2.19,
+     -3.33,
+     -19.56,
+     20.73,
+     4.42
+    ]
+   },
+   "obs": [
+    {
+     "label": "Ames Building roof cornice (1 Court St)",
+     "kind": "point",
+     "x": 0.474,
+     "y": 0.432,
+     "top_asl_m": 66.0,
+     "note": "NOT in pack: hand-entered (seed coords; Wikipedia 196 ft); OSM footprint centre is 42.359031,-71.058072"
+    },
+    {
+     "label": "Old State House east gable",
+     "kind": "point",
+     "x": 0.204,
+     "y": 0.748,
+     "top_asl_m": 25.0,
+     "note": "east end of OSM way 29608515; 20 m"
+    },
+    {
+     "label": "Boston Massacre circle",
+     "kind": "point",
+     "x": 0.463,
+     "y": 0.899,
+     "top_asl_m": 5.0,
+     "note": "pack node; ground level"
+    },
+    {
+     "label": "28 State St SE edge",
+     "kind": "corner_se",
+     "x": 0.54,
+     "y": null,
+     "top_asl_m": null,
+     "note": "SE vertex of OSM way 29614103"
+    },
+    {
+     "label": "One Boston Place left edge",
+     "kind": "left",
+     "x": 0.19,
+     "y": null,
+     "top_asl_m": null,
+     "note": "silhouette vertex of OSM way 816922979"
+    }
+   ],
+   "heights": [
+    {
+     "shot": "03",
+     "landmark": "Ames Building roof cornice (1 Court St)",
+     "dist_m": 114.7,
+     "elev_deg": 5.62,
+     "h_above_street_m": 49.4,
+     "source": "(b) level camera assumed (no horizon)"
+    },
+    {
+     "shot": "03",
+     "landmark": "Old State House east gable",
+     "dist_m": 63.0,
+     "elev_deg": -19.73,
+     "h_above_street_m": 42.3,
+     "source": "(b) level camera assumed (no horizon)"
+    },
+    {
+     "shot": "03",
+     "landmark": "Boston Massacre circle",
+     "dist_m": 53.8,
+     "elev_deg": -29.98,
+     "h_above_street_m": 30.7,
+     "source": "(b) level camera assumed (no horizon)"
+    }
+   ],
+   "massacre_check": {
+    "ground_point": [
+     42.358696,
+     -71.057909
+    ],
+    "vs_pack_node_m": 61.4,
+    "north_offset_m": -9.5,
+    "east_offset_m": -60.7,
+    "note": "ray through the tapped circle pixel, level camera, joint h; positive north = circle is north of the node"
+   },
+   "shot_h": {
+    "h_above_street_m": 137.9,
+    "pitch_deg": -40.18,
+    "rms_deg": 1.48,
+    "n": 3,
+    "source": "(c) joint pitch+h fit over 3 known-height landmarks",
+    "converged": false,
+    "why": "|pitch| > 15 deg or rms > 1 deg: degenerate fit, excluded from the joint median"
+   }
+  },
+  {
+   "shot": "04",
+   "file": "04_IMG_1199",
+   "time": "2026-11-08T08:23:36-05:00",
+   "n_obs": 3,
+   "pre_gate": {
+    "lat": 42.359716,
+    "lon": -71.05655,
+    "heading_deg": 343.0,
+    "rms_deg": 0.0
+   },
+   "gate": {
+    "moved_m": 24.3,
+    "face": "N",
+    "segment": 6,
+    "face_normal_deg": 347.3,
+    "heading_vs_normal_deg": 4.3,
+    "heading_rule_ok": true
+   },
+   "post_gate": {
+    "lat": 42.359498,
+    "lon": -71.056568,
+    "e": -13.8,
+    "n": 33.1,
+    "heading_deg": 344.2,
+    "rms_deg": 1.01,
+    "residuals_deg": [
+     -0.32,
+     -1.05,
+     1.37
+    ]
+   },
+   "obs": [
+    {
+     "label": "Hub on Causeway / Verizon roof",
+     "kind": "point",
+     "x": 0.31,
+     "y": 0.4,
+     "top_asl_m": 159.0,
+     "note": "seed coords, 155 m"
+    },
+    {
+     "label": "Bunker Hill Monument tip",
+     "kind": "point",
+     "x": 0.603,
+     "y": 0.473,
+     "top_asl_m": 91.80000000000001,
+     "note": "pack (Wikipedia 221 ft)"
+    },
+    {
+     "label": "Holocaust Memorial glass tower",
+     "kind": "point",
+     "x": 0.455,
+     "y": 0.635,
+     "top_asl_m": 20.5,
+     "note": "OSM way 148772838; 16.5 m"
+    },
+    {
+     "label": "One Congress roof edge",
+     "kind": "skip",
+     "x": 0.17,
+     "y": 0.3,
+     "top_asl_m": null,
+     "note": "NOT used: which roof edge is ambiguous"
+    }
+   ],
+   "heights": [
+    {
+     "shot": "04",
+     "landmark": "Hub on Causeway / Verizon roof",
+     "dist_m": 813.0,
+     "elev_deg": 8.23,
+     "h_above_street_m": 36.1,
+     "source": "(b) level camera assumed (no horizon)"
+    },
+    {
+     "shot": "04",
+     "landmark": "Bunker Hill Monument tip",
+     "dist_m": 1905.6,
+     "elev_deg": 2.24,
+     "h_above_street_m": 12.1,
+     "source": "(b) level camera assumed (no horizon)"
+    },
+    {
+     "shot": "04",
+     "landmark": "Holocaust Memorial glass tower",
+     "dist_m": 211.7,
+     "elev_deg": -11.05,
+     "h_above_street_m": 56.5,
+     "source": "(b) level camera assumed (no horizon)"
+    }
+   ],
+   "shot_h": {
+    "h_above_street_m": 62.8,
+    "pitch_deg": -1.67,
+    "rms_deg": 0.14,
+    "n": 3,
+    "source": "(c) joint pitch+h fit over 3 known-height landmarks",
+    "converged": true
+   }
+  }
+ ],
+ "heights_all": [
+  {
+   "shot": "01",
+   "landmark": "Custom House Tower tip",
+   "dist_m": 215.1,
+   "elev_deg": 25.11,
+   "h_above_street_m": 48.1,
+   "source": "(a) vs sea horizon + dip"
+  },
+  {
+   "shot": "01",
+   "landmark": "Marketplace Center glass gable tip",
+   "dist_m": 263.7,
+   "elev_deg": 1.36,
+   "h_above_street_m": 32.4,
+   "source": "(b) vs sea horizon + dip"
+  },
+  {
+   "shot": "01",
+   "landmark": "Harbor Towers I roof",
+   "dist_m": 539.0,
+   "elev_deg": 6.89,
+   "h_above_street_m": 52.8,
+   "source": "(b) vs sea horizon + dip"
+  },
+  {
+   "shot": "02",
+   "landmark": "One Federal St roof",
+   "dist_m": 256.8,
+   "elev_deg": 24.15,
+   "h_above_street_m": 43.6,
+   "source": "(b) level camera assumed (no horizon)"
+  },
+  {
+   "shot": "02",
+   "landmark": "1891 Stock Exchange balustrade (53 State)",
+   "dist_m": 67.8,
+   "elev_deg": -7.42,
+   "h_above_street_m": 58.5,
+   "source": "(b) level camera assumed (no horizon)"
+  },
+  {
+   "shot": "03",
+   "landmark": "Ames Building roof cornice (1 Court St)",
+   "dist_m": 114.7,
+   "elev_deg": 5.62,
+   "h_above_street_m": 49.4,
+   "source": "(b) level camera assumed (no horizon)"
+  },
+  {
+   "shot": "03",
+   "landmark": "Old State House east gable",
+   "dist_m": 63.0,
+   "elev_deg": -19.73,
+   "h_above_street_m": 42.3,
+   "source": "(b) level camera assumed (no horizon)"
+  },
+  {
+   "shot": "03",
+   "landmark": "Boston Massacre circle",
+   "dist_m": 53.8,
+   "elev_deg": -29.98,
+   "h_above_street_m": 30.7,
+   "source": "(b) level camera assumed (no horizon)"
+  },
+  {
+   "shot": "04",
+   "landmark": "Hub on Causeway / Verizon roof",
+   "dist_m": 813.0,
+   "elev_deg": 8.23,
+   "h_above_street_m": 36.1,
+   "source": "(b) level camera assumed (no horizon)"
+  },
+  {
+   "shot": "04",
+   "landmark": "Bunker Hill Monument tip",
+   "dist_m": 1905.6,
+   "elev_deg": 2.24,
+   "h_above_street_m": 12.1,
+   "source": "(b) level camera assumed (no horizon)"
+  },
+  {
+   "shot": "04",
+   "landmark": "Holocaust Memorial glass tower",
+   "dist_m": 211.7,
+   "elev_deg": -11.05,
+   "h_above_street_m": 56.5,
+   "source": "(b) level camera assumed (no horizon)"
+  }
+ ],
+ "per_shot_h_m": [
+  48.1,
+  63.0,
+  62.8
+ ],
+ "median_of_all_b_estimates_m": 43.6,
+ "joint_h_m": 62.8,
+ "joint_h_rule": "median of the four per-shot heights: 01 (a) sea horizon; 02-04 (c) pitch+h fit",
+ "floor_est": 16,
+ "floor_rule": "round((h - 6) / 3.85) + 1",
+ "legs": [
+  {
+   "from": "01",
+   "to": "02",
+   "dt_s": 49.0,
+   "vector_en_m": [
+    -13.7,
+    -28.1
+   ],
+   "straight_m": 31.3,
+   "corridor_m": 46.9,
+   "speed_m_s": 0.96
+  },
+  {
+   "from": "02",
+   "to": "03",
+   "dt_s": 33.0,
+   "vector_en_m": [
+    -32.3,
+    3.9
+   ],
+   "straight_m": 32.5,
+   "corridor_m": 48.8,
+   "speed_m_s": 1.48
+  },
+  {
+   "from": "03",
+   "to": "04",
+   "dt_s": 42.0,
+   "vector_en_m": [
+    11.9,
+    41.2
+   ],
+   "straight_m": 42.9,
+   "corridor_m": 64.3,
+   "speed_m_s": 1.53
+  }
+ ],
+ "total_s": 124.0,
+ "signed_area_m2": -1284.1,
+ "direction": "clockwise",
+ "faces": [
+  "E",
+  "S",
+  "W",
+  "N"
+ ],
+ "score": {
+  "per_shot": [
+   {
+    "shot": "01",
+    "true_face": "E",
+    "solved_face": "E",
+    "pos_err_pre_gate_m": 22.7,
+    "pos_err_m": 16.9,
+    "heading_err_deg": 3.7
+   },
+   {
+    "shot": "02",
+    "true_face": "S",
+    "solved_face": "S",
+    "pos_err_pre_gate_m": 48.5,
+    "pos_err_m": 12.5,
+    "heading_err_deg": -5.2
+   },
+   {
+    "shot": "03",
+    "true_face": "W",
+    "solved_face": "W",
+    "pos_err_pre_gate_m": 117.6,
+    "pos_err_m": 14.8,
+    "heading_err_deg": 14.3
+   },
+   {
+    "shot": "04",
+    "true_face": "N",
+    "solved_face": "N",
+    "pos_err_pre_gate_m": 42.8,
+    "pos_err_m": 28.4,
+    "heading_err_deg": 0.2
+   }
+  ],
+  "h_err_m": 4.8,
+  "h_err_vs_58_m": 4.8,
+  "floor_truth": 14,
+  "floor_right": false,
+  "direction_right": true,
+  "faces_right": true
+ },
+ "f_px": 3950.0,
+ "outline": {
+  "osm_h": 155.0,
+  "signed_area": -2158.5
+ },
+ "metadata_used": "EXIF DateTimeOriginal + FocalLengthIn35mmFilm only; no GPS tags, no GPSImgDirection (none present)"
+}

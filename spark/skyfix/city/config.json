@@ -1,0 +1,9 @@
+{
+ "ft_per_floor": 13.7,
+ "hfov_fallback_deg": 69.0,
+ "sensor_width_mm": {},
+ "default_utc_offset": "-05:00",
+ "reference": {"name": "60 State Street (stated truth: 14th floor, ~58 m above street)", "lat": 42.3590, "lon": -71.0565, "h_above_street_m": 58.0},
+ "recovery_point": {"name": "City Hall Plaza rally point (demo, configurable in city/config.json)", "lat": 42.36030, "lon": -71.05800},
+ "angle_err_deg": 0.5
+}

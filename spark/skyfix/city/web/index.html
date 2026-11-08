@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Sky Fix City</title>
+<style>
+:root{--bg:#0e1116;--fg:#e6e8eb;--mut:#9aa3ad;--card:#161b22;--line:#2a313b;--acc:#ffb020;--ok:#3fb950;--bad:#f85149;--hz:#3cc8ff;--vlm:#c792ea}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px system-ui,-apple-system,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line)}
+h1{font-size:16px;margin:0 6px 0 0}button,select,input{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:7px;padding:7px 10px;font:inherit}
+button.on{border-color:var(--acc);color:var(--acc)}button.go{border-color:var(--ok)}label{color:var(--mut);font-size:13px}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:10px;padding:10px}@media(max-width:900px){.wrap{grid-template-columns:1fr}}
+#cvbox{position:relative;background:#05070a;border-radius:8px;overflow:hidden;touch-action:none;height:min(70vh,900px)}@media(max-width:900px){#cvbox{height:58vh}}
+canvas{display:block;width:100%;height:100%}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;margin-bottom:10px}
+.card h2{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 6px}
+.tap{display:flex;gap:6px;align-items:center;padding:4px 0;border-bottom:1px solid var(--line);font-size:14px}.tap b{min-width:22px}
+.mut{color:var(--mut);font-size:13px}.warn{color:var(--acc);font-size:13px}.big{font-size:20px;font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:14px}td{padding:3px 4px;border-bottom:1px solid var(--line);vertical-align:top}td.n{text-align:right;font-variant-numeric:tabular-nums}
+#sheet{position:fixed;left:0;right:0;bottom:0;max-height:60vh;overflow:auto;background:var(--card);border-top:2px solid var(--acc);padding:10px;display:none;z-index:9}
+#sheet .opt{padding:9px;border-bottom:1px solid var(--line);cursor:pointer}#sheet .opt:hover{background:#222a35}
+.zoom{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px}.zoom button{width:40px;height:40px;padding:0;font-size:20px}
+#hint{position:absolute;left:8px;top:8px;background:rgba(14,17,22,.85);padding:5px 9px;border-radius:6px;font-size:13px;max-width:70%}
+#map{width:100%;height:300px;border-radius:6px;background:#0b0d10}
+</style></head><body>
+<header><h1>Sky Fix · City (daytime)</h1>
+ <select id="photo" aria-label="photo"></select>
+ <label style="border:1px solid var(--line);border-radius:7px;padding:7px 10px;color:var(--fg);cursor:pointer">📷 Take photo<input id="cap" type="file" accept="image/jpeg,image/*" capture="environment" style="display:none"></label>
+ <button id="mLm" class="on">Landmarks</button><button id="mHz">Sea horizon (2 taps)</button>
+ <button id="prop">✨ Propose (VLM)</button><a href="course" style="color:var(--acc)">Course ▸</a><span class="mut" id="vlmst"></span>
+</header>
+<div class="wrap">
+ <div><div id="cvbox"><canvas id="cv"></canvas><div id="hint"></div>
+  <div class="zoom"><button id="zin">+</button><button id="zout">−</button><button id="zfit" style="font-size:13px">fit</button><button id="sky" style="font-size:11px" title="expected skyline overlay">sky</button></div></div>
+  <div class="mut" id="lensinfo" style="margin-top:6px"></div></div>
+ <div>
+  <div class="card"><h2>Taps (≥ 3 landmarks; tap each one's top)</h2><div id="taps" class="mut">none yet</div><div id="props"></div>
+   <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <label>ft / floor <input id="ftpf" type="number" step="0.1" value="13.7" style="width:70px"></label>
+    <label>HFOV override ° <input id="hfov" type="number" step="0.1" placeholder="EXIF" style="width:70px"></label>
+    <button class="go" id="solve">Solve fix</button></div></div>
+  <div class="card" id="res" style="display:none"><h2>Fix (no compass, no GPS)</h2><div id="resb"></div>
+   <div style="margin-top:8px"><label>operator <input id="op" value="operator-1" size="10"></label> <button class="go" id="log">Log fix → evidence chain + CoT</button> <span id="logo" class="mut"></span></div></div>
+  <div class="card"><h2>Offline map (OSM building footprints from the pack, vector)</h2><canvas id="map"></canvas><div class="mut" id="mapatt">© OpenStreetMap contributors (footprints) · served from city/pack on the Spark (no internet). Raster tiles were refused by the OSM tile server, so none are cached.</div></div>
+  <div class="card"><h2>Ground truth runs</h2><div id="gt" class="mut">—</div></div>
+ </div>
+</div>
+<div id="sheet"><div style="display:flex;gap:6px;margin-bottom:6px"><input id="q" placeholder="search landmark…" style="flex:1"><button id="sx">✕</button></div><div id="opts"></div></div>
+<script>
+const $=id=>document.getElementById(id), cv=$('cv'), g=cv.getContext('2d');
+let PH=null, IM=null, LMS=[], LM={}, taps=[], hz=[], props=[], mode='lm', view={s:1,x:0,y:0}, pending=null, moveIdx=null, SOL=null, showSky=true;
+const J=async(u,o)=>{const r=await fetch(u,o); const j=await r.json(); if(!r.ok) throw new Error(j.detail||r.status); return j;};
+function hint(t){$('hint').textContent=t;}
+function fit(){ if(!IM) return; const r=cv.getBoundingClientRect(); view.s=Math.min(r.width/IM.width,r.height/IM.height); view.x=(r.width-IM.width*view.s)/2; view.y=(r.height-IM.height*view.s)/2; draw(); }
+function resize(){ const r=cv.getBoundingClientRect(),d=devicePixelRatio||1; cv.width=r.width*d; cv.height=r.height*d; draw(); }
+function i2s(x,y){return [x*view.s+view.x, y*view.s+view.y]} function s2i(x,y){return [(x-view.x)/view.s,(y-view.y)/view.s]}
+function draw(){ const d=devicePixelRatio||1; g.setTransform(d,0,0,d,0,0); g.fillStyle='#05070a'; g.fillRect(0,0,cv.width,cv.height); if(!IM) return;
+  g.drawImage(IM,view.x,view.y,IM.width*view.s,IM.height*view.s);
+  if(SOL&&showSky&&SOL.skyline_px&&SOL.skyline_px.points){ g.strokeStyle='rgba(60,255,160,.9)'; g.lineWidth=1.5; g.beginPath(); let first=true;
+    for(const [x,y] of SOL.skyline_px.points){ const [a,b]=i2s(x,y); if(first){g.moveTo(a,b);first=false;} else g.lineTo(a,b);} g.stroke(); }
+  if(hz.length){ g.strokeStyle='#3cc8ff'; g.lineWidth=2; g.beginPath(); hz.forEach((p,i)=>{const [a,b]=i2s(...p); i?g.lineTo(a,b):g.moveTo(a,b); g.fillStyle='#3cc8ff'; g.fillRect(a-4,b-4,8,8);}); g.stroke(); }
+  props.forEach(p=>{ const [a,b]=i2s(p.x,p.y); g.strokeStyle='#c792ea'; g.setLineDash([4,3]); g.beginPath(); g.arc(a,b,12,0,7); g.stroke(); g.setLineDash([]); g.fillStyle='#c792ea'; g.font='13px system-ui'; g.fillText('? '+p.name,a+14,b-6); });
+  taps.forEach((t,i)=>{ const [a,b]=i2s(t.x,t.y); g.strokeStyle='#ffb020'; g.lineWidth=2; g.beginPath(); g.moveTo(a-14,b); g.lineTo(a+14,b); g.moveTo(a,b-14); g.lineTo(a,b+14); g.stroke();
+    g.fillStyle='#ffb020'; g.font='bold 14px system-ui'; g.fillText(`${i+1} ${t.id?LM[t.id].name:'(name?)'}`,a+8,b-8); });
+  if(SOL&&SOL.sun&&SOL.sun.expected_x_px){ const [a]=i2s(SOL.sun.expected_x_px,0); g.strokeStyle='rgba(255,220,0,.7)'; g.setLineDash([6,6]); g.beginPath(); g.moveTo(a,0); g.lineTo(a,cv.height); g.stroke(); g.setLineDash([]); g.fillStyle='#ffdc00'; g.fillText('sun azimuth',a+4,20); }
+}
+// pan / zoom / tap
+let ptr=null, moved=false;
+cv.onpointerdown=e=>{ptr=[e.clientX,e.clientY]; moved=false; cv.setPointerCapture(e.pointerId);};
+cv.onpointermove=e=>{ if(!ptr) return; const dx=e.clientX-ptr[0], dy=e.clientY-ptr[1]; if(Math.abs(dx)+Math.abs(dy)>6) moved=true; if(moved){ view.x+=dx; view.y+=dy; ptr=[e.clientX,e.clientY]; draw(); } };
+cv.onpointerup=e=>{ const was=ptr; ptr=null; if(moved||!was||!IM) return; const r=cv.getBoundingClientRect(); const [x,y]=s2i(e.clientX-r.left,e.clientY-r.top); if(x<0||y<0||x>IM.width||y>IM.height) return; tapAt(x,y); };
+cv.onwheel=e=>{ e.preventDefault(); zoomAt(e.deltaY<0?1.25:0.8, e.offsetX, e.offsetY); };
+function zoomAt(k,cx,cy){ const r=cv.getBoundingClientRect(); cx=cx??r.width/2; cy=cy??r.height/2; view.x=cx-(cx-view.x)*k; view.y=cy-(cy-view.y)*k; view.s*=k; draw(); }
+$('zin').onclick=()=>zoomAt(1.6); $('zout').onclick=()=>zoomAt(1/1.6); $('zfit').onclick=fit; $('sky').onclick=()=>{showSky=!showSky; $('sky').classList.toggle('on',showSky); draw();};
+function tapAt(x,y){
+  if(mode==='hz'){ hz.push([x,y]); if(hz.length>2) hz=hz.slice(-2); if(hz.length===2){ setMode('lm'); } draw(); renderTaps(); return; }
+  if(moveIdx!==null){ taps[moveIdx].x=x; taps[moveIdx].y=y; moveIdx=null; hint('moved'); draw(); renderTaps(); return; }
+  pending={x,y}; openSheet(); }
+function setMode(m){ mode=m; $('mLm').classList.toggle('on',m==='lm'); $('mHz').classList.toggle('on',m==='hz'); hint(m==='hz'?'tap the sea horizon at two points far apart':'tap the TOP of a landmark, then name it'); }
+$('mLm').onclick=()=>setMode('lm'); $('mHz').onclick=()=>{hz=[]; setMode('hz'); draw();};
+// name sheet
+function openSheet(idx){ $('sheet').style.display='block'; $('q').value=''; $('sheet').dataset.idx=idx??''; renderOpts(); }
+function renderOpts(){ const q=$('q').value.toLowerCase(); const L=LMS.filter(l=>!q||l.name.toLowerCase().includes(q)||(l.aliases||[]).some(a=>a.toLowerCase().includes(q)));
+  $('opts').innerHTML=L.slice(0,60).map(l=>`<div class="opt" data-id="${l.id}"><b>${l.name}</b> <span class="mut">${l.top_height_m?l.top_height_m.toFixed(0)+' m':'height ?'} · ${l.kind}</span></div>`).join(''); }
+$('q').oninput=renderOpts; $('sx').onclick=()=>{$('sheet').style.display='none'; pending=null;};
+$('opts').onclick=e=>{ const o=e.target.closest('.opt'); if(!o) return; const idx=$('sheet').dataset.idx;
+  if(idx!==''){ taps[+idx].id=o.dataset.id; } else if(pending){ taps.push({x:pending.x,y:pending.y,id:o.dataset.id,top:true}); pending=null; }
+  $('sheet').style.display='none'; renderTaps(); draw(); };
+function renderTaps(){ $('taps').innerHTML=taps.map((t,i)=>`<div class="tap"><b>${i+1}</b><span style="flex:1">${t.id?LM[t.id].name:'?'} <span class="mut">${t.id&&LM[t.id].top_height_m?LM[t.id].top_height_m.toFixed(0)+' m':''}</span></span>
+   <button onclick="openSheet(${i})">rename</button><button onclick="moveIdx=${i};hint('tap the new position')">move</button><button onclick="taps.splice(${i},1);renderTaps();draw()">✕</button></div>`).join('')+
+   `<div class="mut" style="margin-top:4px">horizon: ${hz.length===2?'set ✔ (roll/pitch from it)':'not set → camera assumed level, no height'}</div>`; }
+// VLM proposals
+$('prop').onclick=async()=>{ if(!PH) return; $('vlmst').textContent='asking VLM…'; try{ const r=await J('api/propose',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({photo:PH.name})});
+  if(r.status!=='ready'){ $('vlmst').textContent='VLM '+r.status+(r.error?': '+r.error:''); return; }
+  props=r.proposals.filter(p=>p.id); $('vlmst').textContent=`${props.length} proposals in ${r.infer_s}s — confirm each`; renderProps(); draw(); }catch(e){ $('vlmst').textContent='VLM failed: '+e.message; } };
+function renderProps(){ $('props').innerHTML=props.length?'<div class="mut" style="margin-top:6px">VLM proposals (suggestions only):</div>'+props.map((p,i)=>`<div class="tap" style="color:var(--vlm)"><span style="flex:1">? ${p.name}</span><button onclick="acceptProp(${i})">✔ confirm</button><button onclick="props.splice(${i},1);renderProps();draw()">✕</button></div>`).join(''):''; }
+function acceptProp(i){ const p=props.splice(i,1)[0]; taps.push({x:p.x,y:p.y,id:p.id,top:true,from:'vlm'}); renderProps(); renderTaps(); draw(); hint('confirmed — use "move" to put it exactly on the top'); }
+// solve
+$('solve').onclick=async()=>{ const T=taps.filter(t=>t.id); if(T.length<3){ hint('need 3 named landmarks'); return; }
+  try{ SOL=await J('api/solve',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({photo:PH.name,taps:T,horizon:hz.length===2?hz:null,ft_per_floor:+$('ftpf').value,hfov:$('hfov').value||null})});
+    showRes(); draw(); drawMap(); }catch(e){ $('res').style.display='block'; $('resb').innerHTML='<span class="warn">'+e.message+'</span>'; } };
+function showRes(){ const s=SOL, h=s.height&&s.height.primary, v=s.vs_reference, sun=s.sun||{}, rc=s.recovery;
+  $('res').style.display='block';
+  $('resb').innerHTML=`<div class="big">${s.lat.toFixed(5)}, ${s.lon.toFixed(5)}</div><div>ring ±${s.ring_m.toFixed(0)} m <span class="mut">(each angle ±${s.ring_angle_err_deg}°)</span></div>
+  ${(s.warnings||[]).map(w=>`<div class="warn">⚠ ${w}</div>`).join('')}
+  <table>
+  <tr><td>heading (implied)</td><td class="n">${s.heading_deg.toFixed(1)}°</td></tr>
+  <tr><td>angles A→B, B→C</td><td class="n">${s.angles_deg.alpha_AB.toFixed(2)}°, ${s.angles_deg.beta_BC.toFixed(2)}°</td></tr>
+  ${h?`<tr><td>camera height (${h.name} top vs sea horizon)</td><td class="n"><b>${h.h_above_ground_m.toFixed(1)} m</b> above street <span class="mut">(${h.h_cam_asl_m.toFixed(1)} m ASL; ground ${s.height.ground_m} m ${s.height.ground_source})</span></td></tr>
+  <tr><td>floor @ ${s.height.ft_per_floor} ft/floor</td><td class="n"><b>~${h.floor_est.toFixed(1)}</b></td></tr>`:'<tr><td>height</td><td class="n mut">needs horizon taps + a landmark with known height</td></tr>'}
+  <tr><td>to recovery point</td><td class="n"><b>${rc.bearing_deg.toFixed(0)}°</b>, ${rc.distance_m.toFixed(0)} m <span class="mut">· ${rc.turn}<br>${rc.name}</span></td></tr>
+  <tr><td>sun check (${sun.time||'no EXIF time'})</td><td class="n">${sun.azimuth_deg!=null?`sun az ${sun.azimuth_deg.toFixed(1)}°, alt ${sun.altitude_deg.toFixed(1)}°; ${sun.relative_to_heading_deg.toFixed(0)}° from view<br><span class="mut">${sun.check}</span>`:(sun.error||'—')}</td></tr>
+  ${v?`<tr><td>vs ${v.name}</td><td class="n"><b>${v.distance_m.toFixed(0)} m</b> ${v.inside_ring?'(inside ring)':'(outside ring)'}</td></tr>`:''}
+  <tr><td>lens</td><td class="n mut">${s.lens.how}; f ${s.lens.f_px.toFixed(0)} px; HFOV ${s.lens.hfov_long_deg}° (long side)</td></tr>
+  </table><div class="mut">Per landmark: ${s.landmarks.map(l=>`${l.name} ${l.bearing_deg.toFixed(1)}° ${l.dist_m.toFixed(0)} m`).join(' · ')}. Residuals ${s.residuals_deg.join(', ')}°.
+  Green line on the photo = expected skyline from OSM building heights at this fix (${s.skyline_px&&s.skyline_px.h_asl} m ASL), a visual check only.</div>`; }
+$('log').onclick=async()=>{ if(!SOL) return; try{ const r=await J('api/log',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({solution:SOL,operator:$('op').value})});
+  $('logo').textContent=`${r.uid} chained · hash ${r.hash.slice(0,12)}… · CoT ${r.cot.xsd_valid?'✔ XSD':r.cot.xsd_valid===false?'✘ XSD':'written'} · chain ${r.verify.ok?'OK':'BROKEN'}`; }catch(e){ $('logo').textContent='failed: '+e.message; } };
+// offline map
+const mc=$('map'), mg=mc.getContext('2d'), tileCache={};
+function t2(lat,lon,z){ const n=2**z, r=lat*Math.PI/180; return [(lon+180)/360*n*256, (1-Math.asinh(Math.tan(r))/Math.PI)/2*n*256]; }
+function drawMap(){ const d=devicePixelRatio||1, r=mc.getBoundingClientRect(); mc.width=r.width*d; mc.height=r.height*d; mg.setTransform(d,0,0,d,0,0);
+  const c=SOL?[SOL.lat,SOL.lon]:[42.3590,-71.0565], z=16; const [cx,cy]=t2(c[0],c[1],z), W=r.width, H=r.height;
+  mg.fillStyle='#0b0d10'; mg.fillRect(0,0,W,H);
+  if(!window.BLD){ window.BLD=[]; fetch('api/buildings').then(r=>r.json()).then(j=>{window.BLD=j.buildings; drawMap();}); }
+  mg.fillStyle='#e9e6df'; mg.fillRect(0,0,W,H);
+  for(const b of window.BLD){ mg.beginPath(); b.ring.forEach(([la,lo],i)=>{const [x,y]=t2(la,lo,z); i?mg.lineTo(x-cx+W/2,y-cy+H/2):mg.moveTo(x-cx+W/2,y-cy+H/2);}); mg.fillStyle='#b9bcc4'; mg.fill(); mg.strokeStyle='#8a8d96'; mg.stroke(); }
+  const P=(lat,lon)=>{const [x,y]=t2(lat,lon,z); return [x-cx+W/2,y-cy+H/2];}, mpp=156543.03*Math.cos(c[0]*Math.PI/180)/2**z;
+  for(const l of LMS.filter(l=>l.kind==='curated'||l.kind==='hand')){ const [x,y]=P(l.lat,l.lon); mg.fillStyle='#ffb020'; mg.fillRect(x-3,y-3,6,6); }
+  if(SOL){ const [x,y]=P(SOL.lat,SOL.lon); for(const l of SOL.landmarks){ const L=LM[l.id]; const [a,b]=P(L.lat,L.lon); mg.strokeStyle='rgba(255,176,32,.7)'; mg.beginPath(); mg.moveTo(x,y); mg.lineTo(a,b); mg.stroke(); }
+    mg.strokeStyle='#ff3b5c'; mg.lineWidth=2; mg.beginPath(); mg.arc(x,y,Math.max(4,SOL.ring_m/mpp),0,7); mg.stroke(); mg.fillStyle='#ff3b5c'; mg.beginPath(); mg.arc(x,y,4,0,7); mg.fill();
+    const hr=SOL.heading_deg*Math.PI/180; mg.strokeStyle='#fff'; mg.beginPath(); mg.moveTo(x,y); mg.lineTo(x+40*Math.sin(hr),y-40*Math.cos(hr)); mg.stroke();
+    const rc=SOL.recovery, [rx,ry]=P(rc.lat,rc.lon); mg.strokeStyle='#3fb950'; mg.setLineDash([5,4]); mg.beginPath(); mg.moveTo(x,y); mg.lineTo(rx,ry); mg.stroke(); mg.setLineDash([]); mg.fillStyle='#3fb950'; mg.fillRect(rx-5,ry-5,10,10);
+    if(SOL.vs_reference){ const v=SOL.vs_reference, [qx,qy]=P(v.lat,v.lon); mg.strokeStyle='#3cc8ff'; mg.beginPath(); mg.moveTo(qx-7,qy-7); mg.lineTo(qx+7,qy+7); mg.moveTo(qx+7,qy-7); mg.lineTo(qx-7,qy+7); mg.stroke(); } }
+  mg.fillStyle='rgba(0,0,0,.6)'; mg.fillRect(0,H-16,W,16); mg.fillStyle='#ccc'; mg.font='11px system-ui'; mg.fillText('red: fix + ring · white: heading · green: to recovery point · blue ×: 60 State St (truth) · amber: landmarks',4,H-4); }
+// photos
+async function loadPhoto(name){ PH=await J('api/photo/'+encodeURIComponent(name)); IM=new Image(); IM.onload=()=>{fit();}; IM.src='img/'+encodeURIComponent(name);
+  taps=[]; hz=[]; props=[]; SOL=null; $('res').style.display='none'; renderTaps(); renderProps();
+  const e=PH.exif; $('lensinfo').textContent=`${PH.W}×${PH.H} served (full ${PH.full.join('×')}) · ${e.make||''} ${e.model||''} ${e.lens||''} · ${PH.lens_how} → HFOV ${PH.hfov_long_deg}° · time ${e.when_iso||'no EXIF time'}${e.time_zone_assumed?' (zone assumed '+e.time_zone_assumed+')':''}`; }
+$('photo').onchange=e=>loadPhoto(e.target.value);
+$('cap').onchange=async e=>{ const f=e.target.files[0]; if(!f) return; hint('uploading…'); const r=await J('api/upload',{method:'POST',body:f}); await listPhotos(r.name); };
+async function listPhotos(sel){ const ps=await J('api/photos'); $('photo').innerHTML=ps.map(p=>`<option>${p}</option>`).join(''); if(ps.length){ $('photo').value=sel||ps[0]; loadPhoto($('photo').value);} else hint('no photo yet: take one, or drop boston.jpg into city/'); }
+(async()=>{ LMS=await J('api/landmarks'); LMS.sort((a,b)=>(a.kind==='curated'?0:a.kind==='hand'?1:2)-(b.kind==='curated'?0:b.kind==='hand'?1:2)||(b.top_height_m||0)-(a.top_height_m||0)); LMS.forEach(l=>LM[l.id]=l);
+  const c=await J('api/config'); $('ftpf').value=c.ft_per_floor; $('vlmst').textContent='VLM '+c.vlm.status+(c.vlm.load_s?` (loaded in ${c.vlm.load_s}s)`:'');
+  setInterval(async()=>{ try{ const h=await J('health'); if(!$('vlmst').textContent.includes('proposals')&&!$('vlmst').textContent.includes('asking')) $('vlmst').textContent='VLM '+h.vlm; }catch(e){} },5000);
+  try{ const gt=await J('api/eval'); if(!gt.none) $('gt').innerHTML=gt.runs.map(r=>`<b>${r.photo}</b>: position error <b>${r.position_error_m} m</b> (ring ±${r.ring_m} m)${r.height_error_m!=null?`, height error <b>${r.height_error_m} m</b>, floor ~${r.floor_est} @ ${r.ft_per_floor} ft/floor (truth 14)`:''} <span class="mut">[${r.landmarks.join(', ')}]</span>`).join('<br>'); }catch(e){}
+  setMode('lm'); resize(); addEventListener('resize',()=>{resize(); fit(); drawMap();}); drawMap(); listPhotos(); })();
+</script></body></html>

@@ -1,0 +1,45 @@
+{{Short description|Office building in Boston, Massachusetts}}
+{{For|the Boston building clearly labeled "State Street"|One Lincoln Street}}
+{{Use American English|date=February 2025}}
+{{Infobox building
+|name               = State Street Bank Building
+|image              = 225franklin.jpg
+|image_size         = 250px
+|caption            = 
+|location           = 225 [[Franklin Street (Boston)|Franklin Street]], [[Boston]], Massachusetts
+|coordinates        = {{coord|42.35622|-71.05418|region:US-MA_scale:2000|display=inline,title}}
+|roof               = {{convert|477|ft|m|abbr=on}}
+|floor_count        = 33
+|completion_date    = 1966
+|building_type      = Office
+|architect          = [[F.A. Stahl & Associates]]
+|developer          = [[EQ Office]]
+}}
+
+'''State Street Bank Building''', also known as '''225 Franklin Street''', is a [[high-rise]] office building located in the [[Financial District, Boston|Financial District]], [[Boston]], Massachusetts. The building stands at {{convert|477|ft|m|abbr=off|sp=us}} with 33 floors and was completed in 1966. It is the [[List of tallest buildings in Boston|29th-tallest building]] in Boston. The architectural firm who designed the building was [[F.A. Stahl & Associates]]. State Street Bank Building was one of the first skyscrapers to be built in Boston after the completion of the [[Prudential Tower]] in 1964. The building gained its name from the prominent "State Street Bank" lettering present at the top of the building for many years, although the sign has since been taken down. A similar "State Street" sign was subsequently placed at [[One Lincoln Street]].
+
+In 2009, [[Fish & Richardson]] agreed to lease space in One Marina Park in South Boston as its new headquarters and abandon its current headquarters at the State Street Bank Building.<ref>Qualters, Sheri. "[http://www.law.com/jsp/article.jsp?id=1202434010916&Fish__Richardson_to_Move_Flagship_Office_to_South_Boston_Waterfront Fish & Richardson to Move Flagship Office to South Boston Waterfront]." ''[[The National Law Journal]]''. September 23, 2009. Retrieved on November 11, 2009.</ref> Subsequently, it moved to One Marina Park in 2010.<ref>{{cite news | title = CBRE to manage One Marina Park tower | newspaper = [[Boston Business Journal]] | date = September 10, 2010 | access-date = December 12, 2025 | url = https://www.bizjournals.com/boston/real_estate/2010/09/cbre_tapped_to_manage_one_marina_park_tower.html }}</ref><ref>{{cite news | first = Thomas | last = Grillo | title = Joe Fallon mulls sale of Vertex headquarters | newspaper = Boston Business Journal | date = October 3, 2013 | access-date = December 12, 2025 | url = https://www.bizjournals.com/boston/real_estate/2013/10/joe-fallon-mulls-sale-of-vertex.html }}</ref>
+
+
+==See also==
+*[[List of tallest buildings in Boston]]
+
+==References==
+{{reflist}}
+
+==External links==
+*[http://www.225franklinst.com/ 225 Franklin Street]
+*{{usurped|1=[https://web.archive.org/web/20070220145813/http://www.emporis.com/en/wm/bu/?id=statestreetbankbuilding-boston-ma-usa Entry on Emporis]}}
+*[http://skyscraperpage.com/cities/?buildingID=684 Entry on SkyscraperPage]
+*[http://www.fishandrichardsonatfanpier.com/ Fish & Richardson to occupy 124,000 sf at 1 Marina Park Drive]
+
+{{State Street}}
+{{Boston skyscrapers}}
+{{Authority control}}
+
+[[Category:Skyscraper office buildings in Boston]]
+[[Category:Bank buildings in Boston]]
+[[Category:Office buildings completed in 1966]]
+
+
+{{Boston-struct-stub}}
