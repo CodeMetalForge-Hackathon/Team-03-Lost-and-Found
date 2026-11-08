@@ -27,4 +27,4 @@
 
 **Numbers you can say** (re-runnable; see the RESULTS files): tap3 0 confirmed false alarms on ESC-50 knocks/footsteps and 7.8–12.5 h of geophone walk-bys; perch P(HV) 0.80–0.89 rotors off vs 0.02–0.04 rotors on; probe HV F1 0.59 low / 0.08 high throttle on an unseen room; the map prior matches Koester Table 3 quantiles and Table 7 shares exactly. **Don't say:** a field hit rate for tap3 (no team recordings yet), or anything about the dog's accuracy on real runs.
 
-Sky Fix results and its 90-second script: `~/forge/skyfix/DEMO_90S.md`, `~/forge/skyfix/RESULTS.md`; in the repo, `spark/skyfix/`.
+Sky Fix shares the story, not the grid: its demo fixes are in Boston, the Alps and Hawaii with km-scale rings, so none fall on the Ohio search grid. Its CoT files (`~/forge/skyfix/cot/`) use the same XSD-validated format as ours. Sky Fix results and its 90-second script: `~/forge/skyfix/DEMO_90S.md`, `~/forge/skyfix/RESULTS.md`; in the repo, `spark/skyfix/`.
