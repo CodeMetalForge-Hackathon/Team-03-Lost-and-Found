@@ -40,7 +40,7 @@ items:
     dest: work
     subdir: skyfix/data/stars
     files:
-      - url: https://cdsarc.cds.unistra.fr/ftp/I/239/hip_main.dat
+      - url: https://vizier.cfa.harvard.edu/ftp/cats/I/239/hip_main.dat
         name: hip_main.dat
       - url: https://storage.googleapis.com/tetra3rs-testvecs/gaia_merged.bin
         name: gaia_merged.bin
