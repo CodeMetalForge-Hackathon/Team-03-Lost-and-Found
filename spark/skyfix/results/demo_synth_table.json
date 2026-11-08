@@ -1,0 +1,602 @@
+[
+ {
+  "id": "synth:patagonia_az150_alt60",
+  "tilt_draw_deg": 0.036,
+  "exact_err_km": 0.39,
+  "err_km": 4.24,
+  "ring_km": 33.76,
+  "ring95_km": 82.13,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:hindu_kush_az030_alt60",
+  "tilt_draw_deg": 0.097,
+  "exact_err_km": 0.43,
+  "err_km": 11.23,
+  "ring_km": 33.68,
+  "ring95_km": 82.05,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sydney_az030_alt60",
+  "tilt_draw_deg": 0.098,
+  "exact_err_km": 0.53,
+  "err_km": 10.71,
+  "ring_km": 33.87,
+  "ring95_km": 82.25,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:anchorage_az030_alt60",
+  "tilt_draw_deg": 0.103,
+  "exact_err_km": 0.5,
+  "err_km": 11.27,
+  "ring_km": 33.89,
+  "ring95_km": 82.26,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:swiss_alps_az270_alt35",
+  "tilt_draw_deg": 0.105,
+  "exact_err_km": 0.18,
+  "err_km": 11.82,
+  "ring_km": 34.8,
+  "ring95_km": 83.17,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sahara_az150_alt35",
+  "tilt_draw_deg": 0.116,
+  "exact_err_km": 0.58,
+  "err_km": 12.39,
+  "ring_km": 34.82,
+  "ring95_km": 83.19,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:swiss_alps_az150_alt35",
+  "tilt_draw_deg": 0.118,
+  "exact_err_km": 0.42,
+  "err_km": 12.74,
+  "ring_km": 34.62,
+  "ring95_km": 83.0,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sydney_az270_alt35",
+  "tilt_draw_deg": 0.122,
+  "exact_err_km": 1.29,
+  "err_km": 14.07,
+  "ring_km": 39.27,
+  "ring95_km": 87.64,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:patagonia_az270_alt35",
+  "tilt_draw_deg": 0.139,
+  "exact_err_km": 1.65,
+  "err_km": 14.2,
+  "ring_km": 39.31,
+  "ring95_km": 87.69,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sahara_az030_alt35",
+  "tilt_draw_deg": 0.14,
+  "exact_err_km": 0.38,
+  "err_km": 15.99,
+  "ring_km": 35.41,
+  "ring95_km": 83.78,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mojave_az270_alt60",
+  "tilt_draw_deg": 0.166,
+  "exact_err_km": 0.17,
+  "err_km": 18.6,
+  "ring_km": 33.77,
+  "ring95_km": 82.14,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sydney_az270_alt60",
+  "tilt_draw_deg": 0.175,
+  "exact_err_km": 0.24,
+  "err_km": 19.38,
+  "ring_km": 33.82,
+  "ring95_km": 82.19,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:anchorage_az150_alt35",
+  "tilt_draw_deg": 0.185,
+  "exact_err_km": 0.26,
+  "err_km": 20.83,
+  "ring_km": 34.67,
+  "ring95_km": 83.04,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:patagonia_az030_alt35",
+  "tilt_draw_deg": 0.203,
+  "exact_err_km": 0.7,
+  "err_km": 22.1,
+  "ring_km": 34.99,
+  "ring95_km": 83.36,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:patagonia_az270_alt60",
+  "tilt_draw_deg": 0.205,
+  "exact_err_km": 0.25,
+  "err_km": 22.84,
+  "ring_km": 33.81,
+  "ring95_km": 82.19,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:swiss_alps_az030_alt60",
+  "tilt_draw_deg": 0.22,
+  "exact_err_km": 0.41,
+  "err_km": 24.16,
+  "ring_km": 33.7,
+  "ring95_km": 82.08,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:hindu_kush_az150_alt35",
+  "tilt_draw_deg": 0.223,
+  "exact_err_km": 0.58,
+  "err_km": 24.98,
+  "ring_km": 35.24,
+  "ring95_km": 83.61,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:boston_az150_alt60",
+  "tilt_draw_deg": 0.224,
+  "exact_err_km": 0.54,
+  "err_km": 25.06,
+  "ring_km": 33.7,
+  "ring95_km": 82.07,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mauna_kea_az150_alt35",
+  "tilt_draw_deg": 0.238,
+  "exact_err_km": 0.37,
+  "err_km": 26.33,
+  "ring_km": 34.36,
+  "ring95_km": 82.74,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:boston_az270_alt60",
+  "tilt_draw_deg": 0.265,
+  "exact_err_km": 0.26,
+  "err_km": 29.28,
+  "ring_km": 33.75,
+  "ring95_km": 82.13,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:fort_bragg_az150_alt60",
+  "tilt_draw_deg": 0.272,
+  "exact_err_km": 0.43,
+  "err_km": 30.64,
+  "ring_km": 33.95,
+  "ring95_km": 82.32,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:fort_bragg_az270_alt60",
+  "tilt_draw_deg": 0.273,
+  "exact_err_km": 0.12,
+  "err_km": 30.25,
+  "ring_km": 33.81,
+  "ring95_km": 82.18,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sydney_az150_alt35",
+  "tilt_draw_deg": 0.28,
+  "exact_err_km": 0.56,
+  "err_km": 31.02,
+  "ring_km": 36.18,
+  "ring95_km": 84.55,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mojave_az030_alt35",
+  "tilt_draw_deg": 0.29,
+  "exact_err_km": 0.56,
+  "err_km": 32.28,
+  "ring_km": 35.17,
+  "ring95_km": 83.54,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mojave_az150_alt35",
+  "tilt_draw_deg": 0.294,
+  "exact_err_km": 0.64,
+  "err_km": 32.78,
+  "ring_km": 35.93,
+  "ring95_km": 84.3,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:hindu_kush_az270_alt35",
+  "tilt_draw_deg": 0.307,
+  "exact_err_km": 0.5,
+  "err_km": 34.3,
+  "ring_km": 34.93,
+  "ring95_km": 83.3,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:boston_az150_alt35",
+  "tilt_draw_deg": 0.309,
+  "exact_err_km": 0.55,
+  "err_km": 33.92,
+  "ring_km": 34.5,
+  "ring95_km": 82.87,
+  "in_ring": true,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sahara_az150_alt60",
+  "tilt_draw_deg": 0.313,
+  "exact_err_km": 0.39,
+  "err_km": 34.75,
+  "ring_km": 33.86,
+  "ring95_km": 82.23,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mauna_kea_az030_alt35",
+  "tilt_draw_deg": 0.317,
+  "exact_err_km": 0.57,
+  "err_km": 34.79,
+  "ring_km": 34.26,
+  "ring95_km": 82.63,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:boston_az270_alt35",
+  "tilt_draw_deg": 0.322,
+  "exact_err_km": 0.35,
+  "err_km": 35.47,
+  "ring_km": 34.6,
+  "ring95_km": 82.98,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sahara_az270_alt60",
+  "tilt_draw_deg": 0.33,
+  "exact_err_km": 0.29,
+  "err_km": 36.69,
+  "ring_km": 33.82,
+  "ring95_km": 82.19,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:swiss_alps_az150_alt60",
+  "tilt_draw_deg": 0.354,
+  "exact_err_km": 0.49,
+  "err_km": 39.0,
+  "ring_km": 33.68,
+  "ring95_km": 82.05,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mauna_kea_az270_alt60",
+  "tilt_draw_deg": 0.359,
+  "exact_err_km": 0.12,
+  "err_km": 39.82,
+  "ring_km": 33.79,
+  "ring95_km": 82.16,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:swiss_alps_az270_alt60",
+  "tilt_draw_deg": 0.372,
+  "exact_err_km": 0.14,
+  "err_km": 41.51,
+  "ring_km": 33.76,
+  "ring95_km": 82.13,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mojave_az270_alt35",
+  "tilt_draw_deg": 0.38,
+  "exact_err_km": 0.25,
+  "err_km": 42.5,
+  "ring_km": 34.98,
+  "ring95_km": 83.35,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:anchorage_az270_alt60",
+  "tilt_draw_deg": 0.382,
+  "exact_err_km": 0.14,
+  "err_km": 42.43,
+  "ring_km": 33.76,
+  "ring95_km": 82.13,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sahara_az270_alt35",
+  "tilt_draw_deg": 0.39,
+  "exact_err_km": 0.27,
+  "err_km": 43.59,
+  "ring_km": 34.93,
+  "ring95_km": 83.3,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mauna_kea_az270_alt35",
+  "tilt_draw_deg": 0.434,
+  "exact_err_km": 0.09,
+  "err_km": 48.24,
+  "ring_km": 34.63,
+  "ring95_km": 83.01,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mojave_az150_alt60",
+  "tilt_draw_deg": 0.436,
+  "exact_err_km": 0.4,
+  "err_km": 48.12,
+  "ring_km": 33.86,
+  "ring95_km": 82.23,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:anchorage_az270_alt35",
+  "tilt_draw_deg": 0.437,
+  "exact_err_km": 0.23,
+  "err_km": 48.6,
+  "ring_km": 34.63,
+  "ring95_km": 83.01,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:sahara_az030_alt60",
+  "tilt_draw_deg": 0.44,
+  "exact_err_km": 0.48,
+  "err_km": 49.46,
+  "ring_km": 33.68,
+  "ring95_km": 82.06,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:fort_bragg_az030_alt35",
+  "tilt_draw_deg": 0.459,
+  "exact_err_km": 0.42,
+  "err_km": 50.92,
+  "ring_km": 35.39,
+  "ring95_km": 83.76,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:hindu_kush_az150_alt60",
+  "tilt_draw_deg": 0.467,
+  "exact_err_km": 0.32,
+  "err_km": 51.71,
+  "ring_km": 33.82,
+  "ring95_km": 82.19,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:fort_bragg_az030_alt60",
+  "tilt_draw_deg": 0.488,
+  "exact_err_km": 0.5,
+  "err_km": 53.77,
+  "ring_km": 33.76,
+  "ring95_km": 82.13,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mojave_az030_alt60",
+  "tilt_draw_deg": 0.494,
+  "exact_err_km": 0.46,
+  "err_km": 54.57,
+  "ring_km": 33.67,
+  "ring95_km": 82.05,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:hindu_kush_az030_alt35",
+  "tilt_draw_deg": 0.496,
+  "exact_err_km": 0.3,
+  "err_km": 55.44,
+  "ring_km": 35.02,
+  "ring95_km": 83.39,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:patagonia_az030_alt60",
+  "tilt_draw_deg": 0.499,
+  "exact_err_km": 0.54,
+  "err_km": 56.03,
+  "ring_km": 34.08,
+  "ring95_km": 82.46,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:fort_bragg_az150_alt35",
+  "tilt_draw_deg": 0.504,
+  "exact_err_km": 0.44,
+  "err_km": 55.79,
+  "ring_km": 34.99,
+  "ring95_km": 83.36,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:patagonia_az150_alt35",
+  "tilt_draw_deg": 0.51,
+  "exact_err_km": 0.13,
+  "err_km": 56.75,
+  "ring_km": 34.25,
+  "ring95_km": 82.62,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:boston_az030_alt60",
+  "tilt_draw_deg": 0.524,
+  "exact_err_km": 0.5,
+  "err_km": 57.83,
+  "ring_km": 33.69,
+  "ring95_km": 82.07,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:anchorage_az030_alt35",
+  "tilt_draw_deg": 0.525,
+  "exact_err_km": 0.24,
+  "err_km": 58.34,
+  "ring_km": 35.13,
+  "ring95_km": 83.5,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:swiss_alps_az030_alt35",
+  "tilt_draw_deg": 0.579,
+  "exact_err_km": 0.36,
+  "err_km": 64.5,
+  "ring_km": 34.49,
+  "ring95_km": 82.86,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:hindu_kush_az270_alt60",
+  "tilt_draw_deg": 0.61,
+  "exact_err_km": 0.14,
+  "err_km": 67.76,
+  "ring_km": 33.81,
+  "ring95_km": 82.18,
+  "in_ring": false,
+  "in_ring95": true
+ },
+ {
+  "id": "synth:mauna_kea_az030_alt60",
+  "tilt_draw_deg": 0.739,
+  "exact_err_km": 0.22,
+  "err_km": 82.46,
+  "ring_km": 33.63,
+  "ring95_km": 82.0,
+  "in_ring": false,
+  "in_ring95": false
+ },
+ {
+  "id": "synth:sydney_az030_alt35",
+  "tilt_draw_deg": 0.755,
+  "exact_err_km": 0.23,
+  "err_km": 84.33,
+  "ring_km": 35.08,
+  "ring95_km": 83.45,
+  "in_ring": false,
+  "in_ring95": false
+ },
+ {
+  "id": "synth:fort_bragg_az270_alt35",
+  "tilt_draw_deg": 0.791,
+  "exact_err_km": 0.48,
+  "err_km": 88.04,
+  "ring_km": 34.92,
+  "ring95_km": 83.29,
+  "in_ring": false,
+  "in_ring95": false
+ },
+ {
+  "id": "synth:mauna_kea_az150_alt60",
+  "tilt_draw_deg": 0.795,
+  "exact_err_km": 0.68,
+  "err_km": 89.09,
+  "ring_km": 34.03,
+  "ring95_km": 82.4,
+  "in_ring": false,
+  "in_ring95": false
+ },
+ {
+  "id": "synth:anchorage_az150_alt60",
+  "tilt_draw_deg": 0.803,
+  "exact_err_km": 0.05,
+  "err_km": 89.0,
+  "ring_km": 33.76,
+  "ring95_km": 82.13,
+  "in_ring": false,
+  "in_ring95": false
+ },
+ {
+  "id": "synth:sydney_az150_alt60",
+  "tilt_draw_deg": 0.813,
+  "exact_err_km": 0.38,
+  "err_km": 90.1,
+  "ring_km": 33.73,
+  "ring95_km": 82.1,
+  "in_ring": false,
+  "in_ring95": false
+ },
+ {
+  "id": "synth:boston_az030_alt35",
+  "tilt_draw_deg": 0.86,
+  "exact_err_km": 0.86,
+  "err_km": 96.11,
+  "ring_km": 35.2,
+  "ring95_km": 83.57,
+  "in_ring": false,
+  "in_ring95": false
+ }
+]

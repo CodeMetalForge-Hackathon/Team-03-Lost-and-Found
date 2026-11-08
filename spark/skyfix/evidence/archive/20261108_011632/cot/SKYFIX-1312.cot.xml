@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="SKYFIX-1312" type="a-f-G-U-C" how="h-e" time="2026-11-08T06:09:23Z" start="2026-11-08T06:09:23Z" stale="2026-11-08T06:39:23Z"><point lat="47.0025560" lon="7.5557780" hae="9999999.0" ce="47170.0" le="9999999.0" /><detail><contact callsign="SKYFIX 1312" /><remarks>Sky Fix skyline self-localisation, no GPS. ring=47170 m heading=78.0 conf=AMBIGUOUS hash=d4b4c2ec041e45f3</remarks></detail></event>

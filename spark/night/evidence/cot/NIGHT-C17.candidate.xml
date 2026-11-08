@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C17" type="a-u-G" time="2026-11-08T12:29:00.679Z" start="2026-11-08T12:29:00.679Z" stale="2026-11-08T12:59:00.679Z" how="m-f"><point lat="41.3046820" lon="-81.7509390" hae="9999999.0" ce="25.0" le="9999999.0"/><detail><contact callsign="LF C17 p=0.60"/><remarks>p_person=0.60; sources: aerial_rgb_sim:aerial_person=0.86; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 103</remarks></detail></event>

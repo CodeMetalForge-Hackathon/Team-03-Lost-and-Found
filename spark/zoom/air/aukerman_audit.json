@@ -1,0 +1,322 @@
+{
+ "note": "Visual audit by the operator (Claude, from 180x180 px crops) of every AerialPerson-YOLO26l detection with conf >= 0.60 on the 77 Aukerman frames (2016 park survey, ~100 m AGL). Not a labelled benchmark.",
+ "summary": {
+  "detections_conf_ge_0.60": 31,
+  "clear_people": 4,
+  "possible_people": 2,
+  "false_positives": 25,
+  "false_positive_types": "stop signs, coloured playground equipment (balance beams, stepping posts), litter"
+ },
+ "items": [
+  {
+   "rank": 0,
+   "img": "DSC00267.JPG",
+   "conf": 0.837,
+   "x0": 1207.2,
+   "y0": 1455.5,
+   "x1": 1238.5,
+   "y1": 1476.5,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 1,
+   "img": "DSC00311.JPG",
+   "conf": 0.824,
+   "x0": 1436.0,
+   "y0": 209.8,
+   "x1": 1465.0,
+   "y1": 229.8,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 2,
+   "img": "DSC00298.JPG",
+   "conf": 0.82,
+   "x0": 1604.0,
+   "y0": 61.2,
+   "x1": 1637.0,
+   "y1": 84.3,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 3,
+   "img": "DSC00261.JPG",
+   "conf": 0.796,
+   "x0": 1617.5,
+   "y0": 224.5,
+   "x1": 1655.5,
+   "y1": 283.5,
+   "audit": "person"
+  },
+  {
+   "rank": 4,
+   "img": "DSC00298.JPG",
+   "conf": 0.796,
+   "x0": 1618.0,
+   "y0": 30.1,
+   "x1": 1652.0,
+   "y1": 50.1,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 5,
+   "img": "DSC00253.JPG",
+   "conf": 0.789,
+   "x0": 3711.4,
+   "y0": 3297.0,
+   "x1": 3783.4,
+   "y1": 3444.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 6,
+   "img": "DSC00278.JPG",
+   "conf": 0.787,
+   "x0": 4202.0,
+   "y0": 1633.0,
+   "x1": 4266.0,
+   "y1": 1668.0,
+   "audit": "person (cyclist)"
+  },
+  {
+   "rank": 7,
+   "img": "DSC00232.JPG",
+   "conf": 0.771,
+   "x0": 763.0,
+   "y0": 382.2,
+   "x1": 799.0,
+   "y1": 409.8,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 8,
+   "img": "DSC00237.JPG",
+   "conf": 0.764,
+   "x0": 1833.0,
+   "y0": 2216.8,
+   "x1": 1867.0,
+   "y1": 2247.8,
+   "audit": "person"
+  },
+  {
+   "rank": 9,
+   "img": "DSC00290.JPG",
+   "conf": 0.762,
+   "x0": 4810.0,
+   "y0": 2017.0,
+   "x1": 4838.0,
+   "y1": 2051.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 10,
+   "img": "DSC00304.JPG",
+   "conf": 0.743,
+   "x0": 3732.0,
+   "y0": 2904.5,
+   "x1": 3786.0,
+   "y1": 3001.5,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 11,
+   "img": "DSC00238.JPG",
+   "conf": 0.734,
+   "x0": 236.5,
+   "y0": 2013.5,
+   "x1": 284.5,
+   "y1": 2040.5,
+   "audit": "person"
+  },
+  {
+   "rank": 12,
+   "img": "DSC00275.JPG",
+   "conf": 0.727,
+   "x0": 4186.5,
+   "y0": 318.8,
+   "x1": 4212.5,
+   "y1": 338.2,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 13,
+   "img": "DSC00296.JPG",
+   "conf": 0.723,
+   "x0": 4541.0,
+   "y0": 2633.0,
+   "x1": 4618.0,
+   "y1": 2803.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 14,
+   "img": "DSC00304.JPG",
+   "conf": 0.723,
+   "x0": 3836.2,
+   "y0": 2577.8,
+   "x1": 3894.2,
+   "y1": 2714.8,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 15,
+   "img": "DSC00271.JPG",
+   "conf": 0.712,
+   "x0": 3478.0,
+   "y0": 684.0,
+   "x1": 3512.0,
+   "y1": 720.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 16,
+   "img": "DSC00272.JPG",
+   "conf": 0.704,
+   "x0": 1469.0,
+   "y0": 2417.9,
+   "x1": 1503.5,
+   "y1": 2446.9,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 17,
+   "img": "DSC00267.JPG",
+   "conf": 0.701,
+   "x0": 2737.0,
+   "y0": 1935.0,
+   "x1": 2799.0,
+   "y1": 1987.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 18,
+   "img": "DSC00272.JPG",
+   "conf": 0.687,
+   "x0": 1490.0,
+   "y0": 2451.9,
+   "x1": 1525.5,
+   "y1": 2481.6,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 19,
+   "img": "DSC00300.JPG",
+   "conf": 0.687,
+   "x0": 0.0,
+   "y0": 2778.2,
+   "x1": 23.1,
+   "y1": 2800.8,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 20,
+   "img": "DSC00252.JPG",
+   "conf": 0.685,
+   "x0": 4328.0,
+   "y0": 2019.5,
+   "x1": 4386.0,
+   "y1": 2120.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 21,
+   "img": "DSC00296.JPG",
+   "conf": 0.676,
+   "x0": 4465.5,
+   "y0": 3031.0,
+   "x1": 4525.5,
+   "y1": 3139.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 22,
+   "img": "DSC00271.JPG",
+   "conf": 0.667,
+   "x0": 3486.0,
+   "y0": 747.0,
+   "x1": 3511.5,
+   "y1": 777.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 23,
+   "img": "DSC00311.JPG",
+   "conf": 0.662,
+   "x0": 1422.0,
+   "y0": 1101.4,
+   "x1": 1442.0,
+   "y1": 1119.8,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 24,
+   "img": "DSC00260.JPG",
+   "conf": 0.655,
+   "x0": 4344.0,
+   "y0": 2862.0,
+   "x1": 4426.0,
+   "y1": 3014.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 25,
+   "img": "DSC00252.JPG",
+   "conf": 0.652,
+   "x0": 3771.0,
+   "y0": 1872.0,
+   "x1": 3817.0,
+   "y1": 2026.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 26,
+   "img": "DSC00246.JPG",
+   "conf": 0.644,
+   "x0": 1112.4,
+   "y0": 2968.0,
+   "x1": 1172.9,
+   "y1": 3122.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 27,
+   "img": "DSC00298.JPG",
+   "conf": 0.644,
+   "x0": 1634.0,
+   "y0": 0.0,
+   "x1": 1666.0,
+   "y1": 16.5,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 28,
+   "img": "DSC00289.JPG",
+   "conf": 0.63,
+   "x0": 4208.0,
+   "y0": 1120.0,
+   "x1": 4228.0,
+   "y1": 1136.0,
+   "audit": "false positive (object)"
+  },
+  {
+   "rank": 29,
+   "img": "DSC00235.JPG",
+   "conf": 0.605,
+   "x0": 38.1,
+   "y0": 1272.8,
+   "x1": 87.1,
+   "y1": 1302.8,
+   "audit": "possible person"
+  },
+  {
+   "rank": 30,
+   "img": "DSC00246.JPG",
+   "conf": 0.603,
+   "x0": 4682.0,
+   "y0": 2103.4,
+   "x1": 4722.0,
+   "y1": 2141.6,
+   "audit": "possible person"
+  }
+ ]
+}

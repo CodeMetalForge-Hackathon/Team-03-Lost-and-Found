@@ -1,0 +1,97 @@
+{
+ "pixel4a-high-res": {
+  "n": 67,
+  "solved": 58,
+  "rate": 0.866,
+  "with_utc_offset": 67,
+  "solved_with_gps_and_utc": 53,
+  "centre_above_horizon_at_truth": 53,
+  "horizon_in_frame_predicted": 5,
+  "solved_with_exif_fov": 58,
+  "solved_fov_within_3pct_of_exif": 52,
+  "median_prob": 1.250345891934671e-31,
+  "median_ms": 268.9,
+  "methods": {
+   "default_db_centre_crop": 10,
+   "phone_db_blind": 6,
+   "phone_db_full": 34,
+   "phone_db_upper_half": 8
+  }
+ },
+ "pixel6-high-res": {
+  "n": 24,
+  "solved": 9,
+  "rate": 0.375,
+  "with_utc_offset": 24,
+  "solved_with_gps_and_utc": 0,
+  "centre_above_horizon_at_truth": 0,
+  "horizon_in_frame_predicted": 0,
+  "solved_with_exif_fov": 9,
+  "solved_fov_within_3pct_of_exif": 9,
+  "median_prob": 3.0207611018839532e-09,
+  "median_ms": 823.2,
+  "methods": {
+   "phone_db_full": 3,
+   "phone_db_upper_half": 6
+  }
+ },
+ "pixel8a-high-res": {
+  "n": 42,
+  "solved": 23,
+  "rate": 0.548,
+  "with_utc_offset": 42,
+  "solved_with_gps_and_utc": 23,
+  "centre_above_horizon_at_truth": 23,
+  "horizon_in_frame_predicted": 10,
+  "solved_with_exif_fov": 23,
+  "solved_fov_within_3pct_of_exif": 15,
+  "median_prob": 3.5458635055683635e-14,
+  "median_ms": 374.1,
+  "methods": {
+   "default_db_centre_crop": 5,
+   "phone_db_full": 6,
+   "phone_db_upper_half": 12
+  }
+ },
+ "pixel8pro-high-res": {
+  "n": 64,
+  "solved": 27,
+  "rate": 0.422,
+  "with_utc_offset": 63,
+  "solved_with_gps_and_utc": 27,
+  "centre_above_horizon_at_truth": 27,
+  "horizon_in_frame_predicted": 20,
+  "solved_with_exif_fov": 27,
+  "solved_fov_within_3pct_of_exif": 20,
+  "median_prob": 7.030592729476896e-19,
+  "median_ms": 722.4,
+  "methods": {
+   "default_db_centre_crop": 17,
+   "phone_db_full": 3,
+   "phone_db_upper_half": 7
+  }
+ },
+ "wikimedia": {
+  "n": 37,
+  "solved": 6,
+  "rate": 0.162,
+  "with_utc_offset": 1,
+  "solved_with_gps_and_utc": 0,
+  "centre_above_horizon_at_truth": 0,
+  "horizon_in_frame_predicted": 0,
+  "solved_with_exif_fov": 0,
+  "solved_fov_within_3pct_of_exif": 0,
+  "median_prob": 2.056497239495118e-21,
+  "median_ms": 776.1,
+  "methods": {
+   "default_db_centre_crop": 3,
+   "phone_db_blind": 1,
+   "phone_db_upper_half": 2
+  }
+ },
+ "ALL": {
+  "n": 234,
+  "solved": 123,
+  "rate": 0.526
+ }
+}

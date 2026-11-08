@@ -1,0 +1,3 @@
+WARNING ⚠️ Download failure, retrying 1/3 in 5s https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt... 504 Server Error: Gateway Time-out for url: https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt
+WARNING ⚠️ Download failure, retrying 2/3 in 10s https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt... 504 Server Error: Gateway Time-out for url: https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt
+WARNING ⚠️ Download failure, retrying 3/3 in 20s https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt... 504 Server Error: Gateway Time-out for url: https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt

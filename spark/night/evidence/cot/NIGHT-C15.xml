@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C15" type="a-u-G" time="2026-11-08T12:29:00.670Z" start="2026-11-08T12:29:00.670Z" stale="2026-11-08T12:59:00.670Z" how="m-f"><point lat="41.3053073" lon="-81.7535977" hae="9999999.0" ce="10.0" le="9999999.0"/><detail><contact callsign="LF C15 p=0.51"/><remarks>p_person=0.51; sources: aerial_rgb:aerial_person=0.73; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 100</remarks></detail></event>

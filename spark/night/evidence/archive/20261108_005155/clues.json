@@ -1,0 +1,18 @@
+[
+ {
+  "i": 0,
+  "type": "witness_sighting",
+  "label": "Witness sighting",
+  "e": 1500.0,
+  "n": -800.0,
+  "lat": 41.29693443709021,
+  "lon": -81.73575272107841,
+  "note": "TEST: neighbour saw child near the creek bridge",
+  "operator": "test",
+  "t": 1794116930.2621717,
+  "active": true,
+  "prov": "expert prior (hand-set, not calibrated); sigma grows 1.5 km/h with time since sighting",
+  "proposed_by": null,
+  "hours_ago": 1.0
+ }
+]

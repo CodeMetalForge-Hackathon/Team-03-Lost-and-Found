@@ -1,0 +1,1 @@
+{"t": 1794117126.3572557, "sensor": "dog1", "kind": "dog_spin", "position": {"x": 0.6, "y": 2.998, "frame": "floor"}, "confidence": 0.35, "clip_path": null, "extra": {"run": "run_00_synthetic", "source": "labeled", "synthetic": true}}

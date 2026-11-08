@@ -1,0 +1,60 @@
+{
+ "split": "dev",
+ "score": "rms_detrend",
+ "horizon": "gt",
+ "n": 30,
+ "n_ok": 30,
+ "median_km": 17.05,
+ "p75_km": 30.73,
+ "mean_km": 15.37,
+ "frac_within_5km": 0.4,
+ "frac_within_2km": 0.367,
+ "frac_better_than_prior": 0.433,
+ "prior_median_km": 10.61,
+ "ring_median_km": 47.05,
+ "truth_in_ring_frac": 1.0,
+ "truth_cell_rank_median": 76.5,
+ "horizon_mae_px_median": 0.0,
+ "horizon_methods": {
+  "gt_oracle": 30
+ },
+ "t_horizon_ms_median": 0.0,
+ "t_match_ms_median": 888.0,
+ "t_grid_all_s": 0.2,
+ "conf_relmargin_0.02": {
+  "n": 25,
+  "frac": 0.833,
+  "median_km": 8.57,
+  "within_5km": 0.44
+ },
+ "conf_relmargin_0.05": {
+  "n": 16,
+  "frac": 0.533,
+  "median_km": 4.26,
+  "within_5km": 0.5
+ },
+ "conf_relmargin_0.1": {
+  "n": 12,
+  "frac": 0.4,
+  "median_km": 1.29,
+  "within_5km": 0.667
+ },
+ "conf_relmargin_0.15": {
+  "n": 10,
+  "frac": 0.333,
+  "median_km": 1.29,
+  "within_5km": 0.7
+ },
+ "conf_relmargin_0.2": {
+  "n": 10,
+  "frac": 0.333,
+  "median_km": 1.29,
+  "within_5km": 0.7
+ },
+ "conf_relmargin_0.3": {
+  "n": 4,
+  "frac": 0.133,
+  "median_km": 0.55,
+  "within_5km": 1.0
+ }
+}

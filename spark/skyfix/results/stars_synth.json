@@ -1,0 +1,6782 @@
+[
+ {
+  "file": "anchorage_az030_alt35.png",
+  "site": "anchorage",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 696.5,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.015872476128327432,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.241,
+    "err_first_pass_km": 3.662,
+    "heading_err_deg": 0.001,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1841,
+    "err_km": 20.729,
+    "err_first_pass_km": 20.236,
+    "heading_err_deg": -0.198,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1392,
+    "err_km": 15.311,
+    "err_first_pass_km": 12.859,
+    "heading_err_deg": -0.004,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0871,
+    "err_km": 9.554,
+    "err_first_pass_km": 12.392,
+    "heading_err_deg": 0.111,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2867,
+    "err_km": 31.932,
+    "err_first_pass_km": 28.653,
+    "heading_err_deg": -0.335,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4985,
+    "err_km": 55.076,
+    "err_first_pass_km": 54.778,
+    "heading_err_deg": 0.394,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.2582,
+    "err_km": 28.827,
+    "err_first_pass_km": 32.402,
+    "heading_err_deg": 0.22,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.1511,
+    "err_km": 238.299,
+    "err_first_pass_km": 234.313,
+    "heading_err_deg": -1.653,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.5187,
+    "err_km": 169.213,
+    "err_first_pass_km": 171.274,
+    "heading_err_deg": 1.891,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.7771,
+    "err_km": 429.279,
+    "err_first_pass_km": 432.434,
+    "heading_err_deg": 4.432,
+    "ring1_km": 35.13,
+    "ring95_km": 83.5
+   }
+  ]
+ },
+ {
+  "file": "anchorage_az030_alt60.png",
+  "site": "anchorage",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 67.4,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.004745734818904862,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.498,
+    "err_first_pass_km": 1.322,
+    "heading_err_deg": 0.003,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0629,
+    "err_km": 6.513,
+    "err_first_pass_km": 7.809,
+    "heading_err_deg": 0.045,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0167,
+    "err_km": 1.932,
+    "err_first_pass_km": 1.381,
+    "heading_err_deg": -0.005,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0305,
+    "err_km": 3.851,
+    "err_first_pass_km": 2.15,
+    "heading_err_deg": -0.025,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1685,
+    "err_km": 19.076,
+    "err_first_pass_km": 17.416,
+    "heading_err_deg": -0.143,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.5075,
+    "err_km": 56.459,
+    "err_first_pass_km": 55.152,
+    "heading_err_deg": -0.337,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4957,
+    "err_km": 55.448,
+    "err_first_pass_km": 54.585,
+    "heading_err_deg": -0.236,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.1832,
+    "err_km": 131.01,
+    "err_first_pass_km": 130.805,
+    "heading_err_deg": -0.174,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.5787,
+    "err_km": 175.133,
+    "err_first_pass_km": 176.586,
+    "heading_err_deg": 1.393,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.049,
+    "err_km": 116.28,
+    "err_first_pass_km": 116.145,
+    "heading_err_deg": -0.116,
+    "ring1_km": 33.89,
+    "ring95_km": 82.26
+   }
+  ]
+ },
+ {
+  "file": "anchorage_az150_alt35.png",
+  "site": "anchorage",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 651.2,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.011745590729250717,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.255,
+    "err_first_pass_km": 3.426,
+    "heading_err_deg": -0.002,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2923,
+    "err_km": 32.363,
+    "err_first_pass_km": 34.527,
+    "heading_err_deg": 0.695,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0573,
+    "err_km": 6.518,
+    "err_first_pass_km": 5.047,
+    "heading_err_deg": -0.137,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1024,
+    "err_km": 11.422,
+    "err_first_pass_km": 14.716,
+    "heading_err_deg": 0.144,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.8218,
+    "err_km": 91.563,
+    "err_first_pass_km": 89.749,
+    "heading_err_deg": -1.996,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.39,
+    "err_km": 43.303,
+    "err_first_pass_km": 40.05,
+    "heading_err_deg": -0.138,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.0677,
+    "err_km": 7.361,
+    "err_first_pass_km": 4.652,
+    "heading_err_deg": 0.009,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.7071,
+    "err_km": 192.032,
+    "err_first_pass_km": 188.467,
+    "heading_err_deg": -2.778,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.8495,
+    "err_km": 94.411,
+    "err_first_pass_km": 92.137,
+    "heading_err_deg": 0.821,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.3858,
+    "err_km": 155.471,
+    "err_first_pass_km": 151.899,
+    "heading_err_deg": -1.983,
+    "ring1_km": 34.67,
+    "ring95_km": 83.04
+   }
+  ]
+ },
+ {
+  "file": "anchorage_az150_alt60.png",
+  "site": "anchorage",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 55.6,
+  "method": "phone_db_full",
+  "matches": 29,
+  "centroid_rms_deg": 0.0036126218407772537,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.049,
+    "err_first_pass_km": 1.43,
+    "heading_err_deg": 0.0,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0193,
+    "err_km": 2.167,
+    "err_first_pass_km": 3.545,
+    "heading_err_deg": 0.007,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.131,
+    "err_km": 14.618,
+    "err_first_pass_km": 14.527,
+    "heading_err_deg": 0.408,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1313,
+    "err_km": 14.638,
+    "err_first_pass_km": 16.026,
+    "heading_err_deg": 0.143,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.4371,
+    "err_km": 48.763,
+    "err_first_pass_km": 48.382,
+    "heading_err_deg": 1.24,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.1428,
+    "err_km": 15.881,
+    "err_first_pass_km": 14.816,
+    "heading_err_deg": 0.17,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3627,
+    "err_km": 40.35,
+    "err_first_pass_km": 41.482,
+    "heading_err_deg": -0.359,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.6923,
+    "err_km": 190.151,
+    "err_first_pass_km": 190.157,
+    "heading_err_deg": 5.692,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.4669,
+    "err_km": 163.994,
+    "err_first_pass_km": 162.497,
+    "heading_err_deg": -1.34,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.1416,
+    "err_km": 355.618,
+    "err_first_pass_km": 354.138,
+    "heading_err_deg": -7.894,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   }
+  ]
+ },
+ {
+  "file": "anchorage_az270_alt35.png",
+  "site": "anchorage",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 730.9,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.011455348439023856,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.233,
+    "err_first_pass_km": 3.008,
+    "heading_err_deg": -0.004,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0347,
+    "err_km": 4.079,
+    "err_first_pass_km": 6.773,
+    "heading_err_deg": -0.052,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1665,
+    "err_km": 18.626,
+    "err_first_pass_km": 21.08,
+    "heading_err_deg": -0.327,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1059,
+    "err_km": 11.821,
+    "err_first_pass_km": 14.03,
+    "heading_err_deg": -0.199,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.4507,
+    "err_km": 49.983,
+    "err_first_pass_km": 49.113,
+    "heading_err_deg": -0.085,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4864,
+    "err_km": 54.002,
+    "err_first_pass_km": 52.514,
+    "heading_err_deg": 0.127,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.488,
+    "err_km": 54.534,
+    "err_first_pass_km": 56.827,
+    "heading_err_deg": -0.946,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.325,
+    "err_km": 262.484,
+    "err_first_pass_km": 264.537,
+    "heading_err_deg": -4.603,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.9387,
+    "err_km": 216.595,
+    "err_first_pass_km": 215.061,
+    "heading_err_deg": 0.308,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.0991,
+    "err_km": 236.331,
+    "err_first_pass_km": 238.637,
+    "heading_err_deg": -4.227,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   }
+  ]
+ },
+ {
+  "file": "anchorage_az270_alt60.png",
+  "site": "anchorage",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 57.7,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.0035730118699902917,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.139,
+    "err_first_pass_km": 1.386,
+    "heading_err_deg": -0.002,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2554,
+    "err_km": 28.285,
+    "err_first_pass_km": 27.019,
+    "heading_err_deg": 0.436,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1183,
+    "err_km": 13.267,
+    "err_first_pass_km": 13.923,
+    "heading_err_deg": 0.059,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1191,
+    "err_km": 13.332,
+    "err_first_pass_km": 14.391,
+    "heading_err_deg": -0.3,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2804,
+    "err_km": 31.343,
+    "err_first_pass_km": 32.515,
+    "heading_err_deg": -0.665,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.1631,
+    "err_km": 18.221,
+    "err_first_pass_km": 19.208,
+    "heading_err_deg": -0.413,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4664,
+    "err_km": 51.673,
+    "err_first_pass_km": 50.646,
+    "heading_err_deg": 1.152,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.4459,
+    "err_km": 161.08,
+    "err_first_pass_km": 161.432,
+    "heading_err_deg": -3.191,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.7173,
+    "err_km": 189.129,
+    "err_first_pass_km": 188.097,
+    "heading_err_deg": 4.128,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.8197,
+    "err_km": 90.839,
+    "err_first_pass_km": 89.552,
+    "heading_err_deg": 1.724,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   }
+  ]
+ },
+ {
+  "file": "boston_az030_alt35.png",
+  "site": "boston",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 686.4,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.016505147983128222,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.861,
+    "err_first_pass_km": 4.223,
+    "heading_err_deg": 0.001,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1179,
+    "err_km": 13.947,
+    "err_first_pass_km": 10.016,
+    "heading_err_deg": -0.035,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.2307,
+    "err_km": 25.553,
+    "err_first_pass_km": 25.784,
+    "heading_err_deg": -0.032,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0509,
+    "err_km": 5.63,
+    "err_first_pass_km": 8.147,
+    "heading_err_deg": 0.014,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.054,
+    "err_km": 5.215,
+    "err_first_pass_km": 9.808,
+    "heading_err_deg": 0.018,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.9683,
+    "err_km": 107.917,
+    "err_first_pass_km": 106.464,
+    "heading_err_deg": -0.002,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4544,
+    "err_km": 51.06,
+    "err_first_pass_km": 49.06,
+    "heading_err_deg": -0.029,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.943,
+    "err_km": 330.091,
+    "err_first_pass_km": 330.232,
+    "heading_err_deg": -0.34,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.2776,
+    "err_km": 141.6,
+    "err_first_pass_km": 145.533,
+    "heading_err_deg": 0.396,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.5993,
+    "err_km": 178.476,
+    "err_first_pass_km": 173.046,
+    "heading_err_deg": -0.716,
+    "ring1_km": 35.2,
+    "ring95_km": 83.57
+   }
+  ]
+ },
+ {
+  "file": "boston_az030_alt60.png",
+  "site": "boston",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 56.5,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.0030010919617033437,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.502,
+    "err_first_pass_km": 1.257,
+    "heading_err_deg": -0.001,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0285,
+    "err_km": 3.228,
+    "err_first_pass_km": 3.134,
+    "heading_err_deg": 0.022,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1535,
+    "err_km": 17.169,
+    "err_first_pass_km": 16.991,
+    "heading_err_deg": 0.135,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1039,
+    "err_km": 11.957,
+    "err_first_pass_km": 12.717,
+    "heading_err_deg": 0.004,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1996,
+    "err_km": 22.684,
+    "err_first_pass_km": 23.455,
+    "heading_err_deg": 0.072,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.1713,
+    "err_km": 19.55,
+    "err_first_pass_km": 20.315,
+    "heading_err_deg": 0.077,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4624,
+    "err_km": 50.937,
+    "err_first_pass_km": 50.259,
+    "heading_err_deg": -0.361,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.6411,
+    "err_km": 290.923,
+    "err_first_pass_km": 290.058,
+    "heading_err_deg": -0.177,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.969,
+    "err_km": 217.955,
+    "err_first_pass_km": 217.566,
+    "heading_err_deg": -1.978,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.9844,
+    "err_km": 108.925,
+    "err_first_pass_km": 108.156,
+    "heading_err_deg": -0.621,
+    "ring1_km": 33.69,
+    "ring95_km": 82.07
+   }
+  ]
+ },
+ {
+  "file": "boston_az150_alt35.png",
+  "site": "boston",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 662.0,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.01022553905065286,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.554,
+    "err_first_pass_km": 3.418,
+    "heading_err_deg": 0.004,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2475,
+    "err_km": 27.175,
+    "err_first_pass_km": 24.119,
+    "heading_err_deg": -0.176,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1497,
+    "err_km": 16.1,
+    "err_first_pass_km": 14.539,
+    "heading_err_deg": 0.086,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.2387,
+    "err_km": 26.273,
+    "err_first_pass_km": 27.345,
+    "heading_err_deg": 0.361,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.6309,
+    "err_km": 70.311,
+    "err_first_pass_km": 69.271,
+    "heading_err_deg": -0.951,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.203,
+    "err_km": 22.035,
+    "err_first_pass_km": 20.08,
+    "heading_err_deg": 0.078,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4919,
+    "err_km": 55.123,
+    "err_first_pass_km": 58.044,
+    "heading_err_deg": 0.329,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.4145,
+    "err_km": 157.628,
+    "err_first_pass_km": 160.27,
+    "heading_err_deg": 0.463,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.2832,
+    "err_km": 253.708,
+    "err_first_pass_km": 254.671,
+    "heading_err_deg": -2.132,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.8672,
+    "err_km": 316.711,
+    "err_first_pass_km": 319.157,
+    "heading_err_deg": 3.66,
+    "ring1_km": 34.5,
+    "ring95_km": 82.87
+   }
+  ]
+ },
+ {
+  "file": "boston_az150_alt60.png",
+  "site": "boston",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 55.1,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.00304859242251971,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.54,
+    "err_first_pass_km": 1.37,
+    "heading_err_deg": 0.0,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1683,
+    "err_km": 18.204,
+    "err_first_pass_km": 17.763,
+    "heading_err_deg": 0.245,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0563,
+    "err_km": 6.675,
+    "err_first_pass_km": 6.085,
+    "heading_err_deg": -0.144,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.2437,
+    "err_km": 26.632,
+    "err_first_pass_km": 25.949,
+    "heading_err_deg": 0.239,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2825,
+    "err_km": 31.88,
+    "err_first_pass_km": 32.618,
+    "heading_err_deg": -0.236,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4332,
+    "err_km": 47.684,
+    "err_first_pass_km": 47.246,
+    "heading_err_deg": 0.651,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4836,
+    "err_km": 53.556,
+    "err_first_pass_km": 54.596,
+    "heading_err_deg": 1.095,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.8723,
+    "err_km": 96.718,
+    "err_first_pass_km": 97.722,
+    "heading_err_deg": 2.005,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.1993,
+    "err_km": 133.638,
+    "err_first_pass_km": 134.567,
+    "heading_err_deg": -0.113,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.6939,
+    "err_km": 299.045,
+    "err_first_pass_km": 299.934,
+    "heading_err_deg": 0.136,
+    "ring1_km": 33.7,
+    "ring95_km": 82.07
+   }
+  ]
+ },
+ {
+  "file": "boston_az270_alt35.png",
+  "site": "boston",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 1119.7,
+  "method": "phone_db_full",
+  "matches": 24,
+  "centroid_rms_deg": 0.01119265584981488,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.354,
+    "err_first_pass_km": 3.446,
+    "heading_err_deg": -0.004,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0705,
+    "err_km": 7.493,
+    "err_first_pass_km": 8.097,
+    "heading_err_deg": -0.049,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1104,
+    "err_km": 12.634,
+    "err_first_pass_km": 13.837,
+    "heading_err_deg": 0.044,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0991,
+    "err_km": 10.737,
+    "err_first_pass_km": 9.283,
+    "heading_err_deg": -0.011,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.3776,
+    "err_km": 42.14,
+    "err_first_pass_km": 45.32,
+    "heading_err_deg": -0.253,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.5288,
+    "err_km": 59.196,
+    "err_first_pass_km": 59.383,
+    "heading_err_deg": 0.336,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.1335,
+    "err_km": 14.591,
+    "err_first_pass_km": 17.018,
+    "heading_err_deg": -0.153,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.2728,
+    "err_km": 252.403,
+    "err_first_pass_km": 252.429,
+    "heading_err_deg": -1.644,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 3.2046,
+    "err_km": 353.281,
+    "err_first_pass_km": 349.977,
+    "heading_err_deg": 3.485,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.0256,
+    "err_km": 224.271,
+    "err_first_pass_km": 221.124,
+    "heading_err_deg": 2.245,
+    "ring1_km": 34.6,
+    "ring95_km": 82.98
+   }
+  ]
+ },
+ {
+  "file": "boston_az270_alt60.png",
+  "site": "boston",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 54.5,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.0035507989606576055,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.26,
+    "err_first_pass_km": 1.257,
+    "heading_err_deg": -0.002,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0793,
+    "err_km": 8.7,
+    "err_first_pass_km": 9.299,
+    "heading_err_deg": -0.153,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.152,
+    "err_km": 16.907,
+    "err_first_pass_km": 16.006,
+    "heading_err_deg": 0.285,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.2068,
+    "err_km": 22.803,
+    "err_first_pass_km": 22.965,
+    "heading_err_deg": -0.334,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2281,
+    "err_km": 25.369,
+    "err_first_pass_km": 24.452,
+    "heading_err_deg": 0.427,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.319,
+    "err_km": 35.434,
+    "err_first_pass_km": 34.447,
+    "heading_err_deg": 0.576,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3507,
+    "err_km": 39.088,
+    "err_first_pass_km": 40.078,
+    "heading_err_deg": -0.635,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.7997,
+    "err_km": 200.587,
+    "err_first_pass_km": 201.228,
+    "heading_err_deg": -3.63,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.9943,
+    "err_km": 110.202,
+    "err_first_pass_km": 109.08,
+    "heading_err_deg": 1.526,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.2297,
+    "err_km": 248.004,
+    "err_first_pass_km": 247.521,
+    "heading_err_deg": 4.023,
+    "ring1_km": 33.75,
+    "ring95_km": 82.13
+   }
+  ]
+ },
+ {
+  "file": "fort_bragg_az030_alt35.png",
+  "site": "fort_bragg",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 754.3,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.018219608006444708,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.421,
+    "err_first_pass_km": 4.622,
+    "heading_err_deg": -0.002,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1763,
+    "err_km": 19.918,
+    "err_first_pass_km": 15.153,
+    "heading_err_deg": -0.066,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1039,
+    "err_km": 11.924,
+    "err_first_pass_km": 10.746,
+    "heading_err_deg": -0.008,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1776,
+    "err_km": 19.376,
+    "err_first_pass_km": 22.801,
+    "heading_err_deg": 0.024,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.192,
+    "err_km": 21.789,
+    "err_first_pass_km": 18.647,
+    "heading_err_deg": -0.036,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.606,
+    "err_km": 67.747,
+    "err_first_pass_km": 68.24,
+    "heading_err_deg": 0.07,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4768,
+    "err_km": 53.47,
+    "err_first_pass_km": 48.365,
+    "heading_err_deg": -0.169,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.2889,
+    "err_km": 255.078,
+    "err_first_pass_km": 249.401,
+    "heading_err_deg": -0.788,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.4989,
+    "err_km": 167.203,
+    "err_first_pass_km": 164.468,
+    "heading_err_deg": -0.174,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.8935,
+    "err_km": 210.915,
+    "err_first_pass_km": 205.333,
+    "heading_err_deg": -0.639,
+    "ring1_km": 35.39,
+    "ring95_km": 83.76
+   }
+  ]
+ },
+ {
+  "file": "fort_bragg_az030_alt60.png",
+  "site": "fort_bragg",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 57.5,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.0035953085745699955,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.5,
+    "err_first_pass_km": 1.341,
+    "heading_err_deg": 0.002,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.057,
+    "err_km": 6.062,
+    "err_first_pass_km": 5.633,
+    "heading_err_deg": -0.061,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1374,
+    "err_km": 14.784,
+    "err_first_pass_km": 13.937,
+    "heading_err_deg": -0.049,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0629,
+    "err_km": 6.749,
+    "err_first_pass_km": 6.421,
+    "heading_err_deg": 0.052,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.3014,
+    "err_km": 33.976,
+    "err_first_pass_km": 34.674,
+    "heading_err_deg": -0.092,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.6818,
+    "err_km": 75.797,
+    "err_first_pass_km": 75.862,
+    "heading_err_deg": -0.738,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.6998,
+    "err_km": 78.443,
+    "err_first_pass_km": 79.245,
+    "heading_err_deg": 0.138,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.2571,
+    "err_km": 252.614,
+    "err_first_pass_km": 253.219,
+    "heading_err_deg": -0.875,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 3.0125,
+    "err_km": 332.676,
+    "err_first_pass_km": 332.295,
+    "heading_err_deg": -3.45,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.1485,
+    "err_km": 126.967,
+    "err_first_pass_km": 126.098,
+    "heading_err_deg": -0.131,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   }
+  ]
+ },
+ {
+  "file": "fort_bragg_az150_alt35.png",
+  "site": "fort_bragg",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 672.2,
+  "method": "phone_db_full",
+  "matches": 21,
+  "centroid_rms_deg": 0.014643542192343297,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.438,
+    "err_first_pass_km": 3.713,
+    "heading_err_deg": -0.0,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0418,
+    "err_km": 4.926,
+    "err_first_pass_km": 1.574,
+    "heading_err_deg": -0.028,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0585,
+    "err_km": 6.952,
+    "err_first_pass_km": 6.164,
+    "heading_err_deg": -0.078,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1827,
+    "err_km": 20.55,
+    "err_first_pass_km": 23.078,
+    "heading_err_deg": -0.137,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.7474,
+    "err_km": 82.915,
+    "err_first_pass_km": 86.613,
+    "heading_err_deg": 0.406,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.5718,
+    "err_km": 63.89,
+    "err_first_pass_km": 65.273,
+    "heading_err_deg": -0.606,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3884,
+    "err_km": 42.8,
+    "err_first_pass_km": 45.207,
+    "heading_err_deg": 0.498,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.1687,
+    "err_km": 130.174,
+    "err_first_pass_km": 132.161,
+    "heading_err_deg": -1.006,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 3.213,
+    "err_km": 359.199,
+    "err_first_pass_km": 359.473,
+    "heading_err_deg": 4.37,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.8098,
+    "err_km": 89.941,
+    "err_first_pass_km": 88.702,
+    "heading_err_deg": 0.882,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   }
+  ]
+ },
+ {
+  "file": "fort_bragg_az150_alt60.png",
+  "site": "fort_bragg",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 56.3,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.005273224637550139,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.431,
+    "err_first_pass_km": 1.335,
+    "heading_err_deg": -0.002,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0247,
+    "err_km": 3.052,
+    "err_first_pass_km": 2.298,
+    "heading_err_deg": -0.056,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.153,
+    "err_km": 17.439,
+    "err_first_pass_km": 17.473,
+    "heading_err_deg": -0.321,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0494,
+    "err_km": 5.807,
+    "err_first_pass_km": 6.688,
+    "heading_err_deg": -0.042,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2596,
+    "err_km": 28.492,
+    "err_first_pass_km": 29.1,
+    "heading_err_deg": 0.613,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3124,
+    "err_km": 34.526,
+    "err_first_pass_km": 35.686,
+    "heading_err_deg": 0.602,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3243,
+    "err_km": 35.865,
+    "err_first_pass_km": 34.794,
+    "heading_err_deg": 0.087,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.5337,
+    "err_km": 282.237,
+    "err_first_pass_km": 281.046,
+    "heading_err_deg": -5.226,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.8104,
+    "err_km": 201.641,
+    "err_first_pass_km": 202.393,
+    "heading_err_deg": -1.631,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.7645,
+    "err_km": 305.831,
+    "err_first_pass_km": 305.219,
+    "heading_err_deg": -6.421,
+    "ring1_km": 33.95,
+    "ring95_km": 82.32
+   }
+  ]
+ },
+ {
+  "file": "fort_bragg_az270_alt35.png",
+  "site": "fort_bragg",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 606.2,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.014048712296010518,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.478,
+    "err_first_pass_km": 3.737,
+    "heading_err_deg": 0.001,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.049,
+    "err_km": 5.931,
+    "err_first_pass_km": 6.338,
+    "heading_err_deg": 0.044,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1571,
+    "err_km": 17.285,
+    "err_first_pass_km": 14.298,
+    "heading_err_deg": 0.014,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.2065,
+    "err_km": 23.352,
+    "err_first_pass_km": 20.709,
+    "heading_err_deg": 0.203,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.4911,
+    "err_km": 54.948,
+    "err_first_pass_km": 51.855,
+    "heading_err_deg": 0.47,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4367,
+    "err_km": 49.004,
+    "err_first_pass_km": 50.674,
+    "heading_err_deg": 0.177,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.6878,
+    "err_km": 76.541,
+    "err_first_pass_km": 80.155,
+    "heading_err_deg": -0.418,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.5175,
+    "err_km": 281.854,
+    "err_first_pass_km": 277.626,
+    "heading_err_deg": 0.92,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.8906,
+    "err_km": 99.379,
+    "err_first_pass_km": 97.048,
+    "heading_err_deg": 0.87,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.419,
+    "err_km": 382.239,
+    "err_first_pass_km": 385.174,
+    "heading_err_deg": -3.153,
+    "ring1_km": 34.92,
+    "ring95_km": 83.29
+   }
+  ]
+ },
+ {
+  "file": "fort_bragg_az270_alt60.png",
+  "site": "fort_bragg",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 54.9,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.0040349947761340954,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.121,
+    "err_first_pass_km": 1.252,
+    "heading_err_deg": -0.003,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.058,
+    "err_km": 6.578,
+    "err_first_pass_km": 7.543,
+    "heading_err_deg": -0.097,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0758,
+    "err_km": 8.552,
+    "err_first_pass_km": 9.435,
+    "heading_err_deg": -0.133,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0769,
+    "err_km": 8.602,
+    "err_first_pass_km": 9.535,
+    "heading_err_deg": 0.03,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.3592,
+    "err_km": 39.925,
+    "err_first_pass_km": 40.436,
+    "heading_err_deg": 0.419,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.8521,
+    "err_km": 94.614,
+    "err_first_pass_km": 94.104,
+    "heading_err_deg": 1.57,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 1.3551,
+    "err_km": 150.512,
+    "err_first_pass_km": 150.055,
+    "heading_err_deg": 2.481,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.6288,
+    "err_km": 70.139,
+    "err_first_pass_km": 71.218,
+    "heading_err_deg": -0.762,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 3.097,
+    "err_km": 345.729,
+    "err_first_pass_km": 345.046,
+    "heading_err_deg": -3.233,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.3319,
+    "err_km": 36.931,
+    "err_first_pass_km": 36.22,
+    "heading_err_deg": -0.279,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   }
+  ]
+ },
+ {
+  "file": "hindu_kush_az030_alt35.png",
+  "site": "hindu_kush",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 772.9,
+  "method": "phone_db_full",
+  "matches": 24,
+  "centroid_rms_deg": 0.014923679123118368,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.295,
+    "err_first_pass_km": 3.549,
+    "heading_err_deg": -0.001,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1138,
+    "err_km": 12.5,
+    "err_first_pass_km": 13.152,
+    "heading_err_deg": -0.013,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1533,
+    "err_km": 16.783,
+    "err_first_pass_km": 20.091,
+    "heading_err_deg": 0.033,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0768,
+    "err_km": 8.257,
+    "err_first_pass_km": 11.417,
+    "heading_err_deg": 0.013,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1291,
+    "err_km": 14.22,
+    "err_first_pass_km": 14.538,
+    "heading_err_deg": -0.018,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.2642,
+    "err_km": 29.378,
+    "err_first_pass_km": 31.844,
+    "heading_err_deg": 0.081,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3759,
+    "err_km": 41.75,
+    "err_first_pass_km": 44.761,
+    "heading_err_deg": 0.129,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.9009,
+    "err_km": 324.737,
+    "err_first_pass_km": 327.847,
+    "heading_err_deg": 0.802,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.8179,
+    "err_km": 91.245,
+    "err_first_pass_km": 88.306,
+    "heading_err_deg": -0.146,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.4828,
+    "err_km": 277.679,
+    "err_first_pass_km": 280.895,
+    "heading_err_deg": 0.717,
+    "ring1_km": 35.02,
+    "ring95_km": 83.39
+   }
+  ]
+ },
+ {
+  "file": "hindu_kush_az030_alt60.png",
+  "site": "hindu_kush",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 57.6,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.0028757731199735275,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.434,
+    "err_first_pass_km": 1.134,
+    "heading_err_deg": 0.003,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1848,
+    "err_km": 20.422,
+    "err_first_pass_km": 20.292,
+    "heading_err_deg": -0.216,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.2176,
+    "err_km": 24.61,
+    "err_first_pass_km": 25.262,
+    "heading_err_deg": -0.014,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1034,
+    "err_km": 11.07,
+    "err_first_pass_km": 10.376,
+    "heading_err_deg": -0.051,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2284,
+    "err_km": 24.969,
+    "err_first_pass_km": 24.26,
+    "heading_err_deg": -0.071,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.311,
+    "err_km": 34.225,
+    "err_first_pass_km": 33.662,
+    "heading_err_deg": -0.294,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4153,
+    "err_km": 46.423,
+    "err_first_pass_km": 46.673,
+    "heading_err_deg": 0.497,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.4946,
+    "err_km": 275.693,
+    "err_first_pass_km": 275.565,
+    "heading_err_deg": -2.896,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.3618,
+    "err_km": 40.082,
+    "err_first_pass_km": 39.765,
+    "heading_err_deg": 0.311,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.2012,
+    "err_km": 353.899,
+    "err_first_pass_km": 353.469,
+    "heading_err_deg": -3.562,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   }
+  ]
+ },
+ {
+  "file": "hindu_kush_az150_alt35.png",
+  "site": "hindu_kush",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 52.0,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.016865076431939855,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.581,
+    "err_first_pass_km": 3.097,
+    "heading_err_deg": 0.004,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2455,
+    "err_km": 27.096,
+    "err_first_pass_km": 30.341,
+    "heading_err_deg": 0.146,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0623,
+    "err_km": 6.354,
+    "err_first_pass_km": 8.335,
+    "heading_err_deg": 0.087,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1516,
+    "err_km": 16.424,
+    "err_first_pass_km": 15.821,
+    "heading_err_deg": 0.157,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.0822,
+    "err_km": 9.299,
+    "err_first_pass_km": 6.052,
+    "heading_err_deg": -0.022,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.5902,
+    "err_km": 66.161,
+    "err_first_pass_km": 62.789,
+    "heading_err_deg": -0.458,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3129,
+    "err_km": 35.267,
+    "err_first_pass_km": 35.961,
+    "heading_err_deg": -0.333,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.7329,
+    "err_km": 81.861,
+    "err_first_pass_km": 83.19,
+    "heading_err_deg": -0.629,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 3.6407,
+    "err_km": 407.109,
+    "err_first_pass_km": 406.456,
+    "heading_err_deg": 4.083,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.5022,
+    "err_km": 55.38,
+    "err_first_pass_km": 58.057,
+    "heading_err_deg": 0.59,
+    "ring1_km": 35.24,
+    "ring95_km": 83.61
+   }
+  ]
+ },
+ {
+  "file": "hindu_kush_az150_alt60.png",
+  "site": "hindu_kush",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 53.5,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.004116944371213741,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.32,
+    "err_first_pass_km": 1.17,
+    "heading_err_deg": -0.001,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1237,
+    "err_km": 13.798,
+    "err_first_pass_km": 14.844,
+    "heading_err_deg": 0.146,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1323,
+    "err_km": 14.575,
+    "err_first_pass_km": 15.416,
+    "heading_err_deg": 0.278,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.3175,
+    "err_km": 35.62,
+    "err_first_pass_km": 36.047,
+    "heading_err_deg": -0.497,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.8391,
+    "err_km": 93.264,
+    "err_first_pass_km": 94.277,
+    "heading_err_deg": 0.748,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3079,
+    "err_km": 34.12,
+    "err_first_pass_km": 34.968,
+    "heading_err_deg": 0.636,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.0954,
+    "err_km": 10.507,
+    "err_first_pass_km": 11.419,
+    "heading_err_deg": 0.188,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.4977,
+    "err_km": 276.398,
+    "err_first_pass_km": 277.334,
+    "heading_err_deg": 2.242,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.2006,
+    "err_km": 133.302,
+    "err_first_pass_km": 132.791,
+    "heading_err_deg": 1.719,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.6727,
+    "err_km": 295.701,
+    "err_first_pass_km": 295.542,
+    "heading_err_deg": -5.905,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   }
+  ]
+ },
+ {
+  "file": "hindu_kush_az270_alt35.png",
+  "site": "hindu_kush",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 53.4,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.014133806809067633,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.496,
+    "err_first_pass_km": 2.979,
+    "heading_err_deg": 0.001,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2245,
+    "err_km": 24.951,
+    "err_first_pass_km": 27.633,
+    "heading_err_deg": -0.01,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.105,
+    "err_km": 11.633,
+    "err_first_pass_km": 14.429,
+    "heading_err_deg": -0.009,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0643,
+    "err_km": 7.49,
+    "err_first_pass_km": 8.469,
+    "heading_err_deg": 0.044,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.6486,
+    "err_km": 71.904,
+    "err_first_pass_km": 71.168,
+    "heading_err_deg": -0.407,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.191,
+    "err_km": 21.441,
+    "err_first_pass_km": 23.113,
+    "heading_err_deg": 0.076,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.2273,
+    "err_km": 25.432,
+    "err_first_pass_km": 22.579,
+    "heading_err_deg": 0.029,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.7613,
+    "err_km": 196.02,
+    "err_first_pass_km": 197.383,
+    "heading_err_deg": -1.747,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.341,
+    "err_km": 262.316,
+    "err_first_pass_km": 258.689,
+    "heading_err_deg": 0.628,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.9373,
+    "err_km": 325.369,
+    "err_first_pass_km": 327.1,
+    "heading_err_deg": 0.614,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   }
+  ]
+ },
+ {
+  "file": "hindu_kush_az270_alt60.png",
+  "site": "hindu_kush",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 53.9,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.004039930339687007,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.142,
+    "err_first_pass_km": 1.003,
+    "heading_err_deg": -0.002,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1493,
+    "err_km": 16.528,
+    "err_first_pass_km": 15.611,
+    "heading_err_deg": 0.06,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0051,
+    "err_km": 0.447,
+    "err_first_pass_km": 1.141,
+    "heading_err_deg": -0.01,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0531,
+    "err_km": 5.825,
+    "err_first_pass_km": 6.391,
+    "heading_err_deg": -0.1,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2292,
+    "err_km": 25.365,
+    "err_first_pass_km": 24.829,
+    "heading_err_deg": -0.204,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.7398,
+    "err_km": 82.427,
+    "err_first_pass_km": 83.242,
+    "heading_err_deg": -1.113,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3848,
+    "err_km": 42.812,
+    "err_first_pass_km": 43.579,
+    "heading_err_deg": -0.631,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.8447,
+    "err_km": 93.926,
+    "err_first_pass_km": 92.969,
+    "heading_err_deg": 0.414,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.258,
+    "err_km": 140.114,
+    "err_first_pass_km": 140.996,
+    "heading_err_deg": -1.188,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.7134,
+    "err_km": 79.369,
+    "err_first_pass_km": 78.838,
+    "heading_err_deg": 1.302,
+    "ring1_km": 33.81,
+    "ring95_km": 82.18
+   }
+  ]
+ },
+ {
+  "file": "mauna_kea_az030_alt35.png",
+  "site": "mauna_kea",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 52.1,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.008093867011766592,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.575,
+    "err_first_pass_km": 2.736,
+    "heading_err_deg": -0.002,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2032,
+    "err_km": 22.555,
+    "err_first_pass_km": 23.71,
+    "heading_err_deg": -0.065,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0701,
+    "err_km": 7.323,
+    "err_first_pass_km": 6.837,
+    "heading_err_deg": -0.032,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0895,
+    "err_km": 9.549,
+    "err_first_pass_km": 7.384,
+    "heading_err_deg": -0.007,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1711,
+    "err_km": 19.085,
+    "err_first_pass_km": 20.537,
+    "heading_err_deg": -0.046,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.6059,
+    "err_km": 66.986,
+    "err_first_pass_km": 66.748,
+    "heading_err_deg": -0.258,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.2636,
+    "err_km": 29.677,
+    "err_first_pass_km": 31.751,
+    "heading_err_deg": -0.012,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 4.4331,
+    "err_km": 491.657,
+    "err_first_pass_km": 489.109,
+    "heading_err_deg": -1.142,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 3.7551,
+    "err_km": 418.297,
+    "err_first_pass_km": 420.062,
+    "heading_err_deg": 1.09,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.0602,
+    "err_km": 118.579,
+    "err_first_pass_km": 120.711,
+    "heading_err_deg": 0.111,
+    "ring1_km": 34.26,
+    "ring95_km": 82.63
+   }
+  ]
+ },
+ {
+  "file": "mauna_kea_az030_alt60.png",
+  "site": "mauna_kea",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 54.4,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.0024261013389677865,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.217,
+    "err_first_pass_km": 0.93,
+    "heading_err_deg": -0.001,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1211,
+    "err_km": 13.619,
+    "err_first_pass_km": 14.353,
+    "heading_err_deg": -0.06,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1975,
+    "err_km": 22.176,
+    "err_first_pass_km": 22.894,
+    "heading_err_deg": 0.022,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.116,
+    "err_km": 13.114,
+    "err_first_pass_km": 13.592,
+    "heading_err_deg": 0.109,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.7132,
+    "err_km": 79.532,
+    "err_first_pass_km": 79.62,
+    "heading_err_deg": 0.98,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.2542,
+    "err_km": 28.058,
+    "err_first_pass_km": 27.526,
+    "heading_err_deg": -0.21,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3786,
+    "err_km": 42.077,
+    "err_first_pass_km": 42.463,
+    "heading_err_deg": -0.507,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.4916,
+    "err_km": 277.875,
+    "err_first_pass_km": 277.799,
+    "heading_err_deg": 3.576,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.3727,
+    "err_km": 152.325,
+    "err_first_pass_km": 151.574,
+    "heading_err_deg": 0.9,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.7198,
+    "err_km": 191.475,
+    "err_first_pass_km": 191.827,
+    "heading_err_deg": 1.899,
+    "ring1_km": 33.63,
+    "ring95_km": 82.0
+   }
+  ]
+ },
+ {
+  "file": "mauna_kea_az150_alt35.png",
+  "site": "mauna_kea",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 53.9,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.00902661082752661,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.368,
+    "err_first_pass_km": 2.593,
+    "heading_err_deg": 0.006,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.076,
+    "err_km": 8.176,
+    "err_first_pass_km": 9.795,
+    "heading_err_deg": 0.084,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1294,
+    "err_km": 14.735,
+    "err_first_pass_km": 16.07,
+    "heading_err_deg": -0.056,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0658,
+    "err_km": 7.631,
+    "err_first_pass_km": 6.959,
+    "heading_err_deg": -0.061,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.5575,
+    "err_km": 61.87,
+    "err_first_pass_km": 59.55,
+    "heading_err_deg": -0.073,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.25,
+    "err_km": 27.897,
+    "err_first_pass_km": 30.376,
+    "heading_err_deg": 0.134,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3209,
+    "err_km": 35.349,
+    "err_first_pass_km": 34.263,
+    "heading_err_deg": 0.167,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.1696,
+    "err_km": 241.065,
+    "err_first_pass_km": 243.245,
+    "heading_err_deg": 0.639,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.7991,
+    "err_km": 311.351,
+    "err_first_pass_km": 312.326,
+    "heading_err_deg": -1.55,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.9966,
+    "err_km": 332.121,
+    "err_first_pass_km": 334.304,
+    "heading_err_deg": 1.77,
+    "ring1_km": 34.36,
+    "ring95_km": 82.74
+   }
+  ]
+ },
+ {
+  "file": "mauna_kea_az150_alt60.png",
+  "site": "mauna_kea",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 55.8,
+  "method": "phone_db_full",
+  "matches": 24,
+  "centroid_rms_deg": 0.00599897761963789,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.675,
+    "err_first_pass_km": 0.993,
+    "heading_err_deg": -0.001,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1392,
+    "err_km": 16.083,
+    "err_first_pass_km": 14.968,
+    "heading_err_deg": -0.237,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1626,
+    "err_km": 18.328,
+    "err_first_pass_km": 17.129,
+    "heading_err_deg": -0.073,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1437,
+    "err_km": 15.619,
+    "err_first_pass_km": 15.223,
+    "heading_err_deg": 0.191,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2974,
+    "err_km": 32.703,
+    "err_first_pass_km": 32.304,
+    "heading_err_deg": 0.395,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.5537,
+    "err_km": 62.026,
+    "err_first_pass_km": 62.231,
+    "heading_err_deg": -0.868,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.1918,
+    "err_km": 21.924,
+    "err_first_pass_km": 20.778,
+    "heading_err_deg": -0.316,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.3916,
+    "err_km": 154.067,
+    "err_first_pass_km": 155.137,
+    "heading_err_deg": 2.412,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.9942,
+    "err_km": 331.713,
+    "err_first_pass_km": 332.755,
+    "heading_err_deg": 1.338,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.5663,
+    "err_km": 173.685,
+    "err_first_pass_km": 174.809,
+    "heading_err_deg": 0.858,
+    "ring1_km": 34.03,
+    "ring95_km": 82.4
+   }
+  ]
+ },
+ {
+  "file": "mauna_kea_az270_alt35.png",
+  "site": "mauna_kea",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 55.2,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.01144822121455193,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.093,
+    "err_first_pass_km": 2.568,
+    "heading_err_deg": -0.001,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.094,
+    "err_km": 10.432,
+    "err_first_pass_km": 9.626,
+    "heading_err_deg": 0.073,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0289,
+    "err_km": 3.153,
+    "err_first_pass_km": 4.122,
+    "heading_err_deg": 0.019,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1386,
+    "err_km": 15.341,
+    "err_first_pass_km": 17.773,
+    "heading_err_deg": -0.012,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.5755,
+    "err_km": 64.188,
+    "err_first_pass_km": 62.422,
+    "heading_err_deg": -0.148,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3238,
+    "err_km": 35.934,
+    "err_first_pass_km": 37.805,
+    "heading_err_deg": 0.07,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.2132,
+    "err_km": 23.628,
+    "err_first_pass_km": 25.345,
+    "heading_err_deg": 0.062,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.581,
+    "err_km": 286.377,
+    "err_first_pass_km": 283.764,
+    "heading_err_deg": 1.702,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.2341,
+    "err_km": 247.838,
+    "err_first_pass_km": 249.822,
+    "heading_err_deg": 0.128,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.5404,
+    "err_km": 171.521,
+    "err_first_pass_km": 168.626,
+    "heading_err_deg": 0.616,
+    "ring1_km": 34.63,
+    "ring95_km": 83.01
+   }
+  ]
+ },
+ {
+  "file": "mauna_kea_az270_alt60.png",
+  "site": "mauna_kea",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 54.8,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.003832923102541948,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.119,
+    "err_first_pass_km": 0.935,
+    "heading_err_deg": -0.0,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1533,
+    "err_km": 17.123,
+    "err_first_pass_km": 17.606,
+    "heading_err_deg": 0.183,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1914,
+    "err_km": 21.275,
+    "err_first_pass_km": 21.154,
+    "heading_err_deg": 0.337,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.2308,
+    "err_km": 25.576,
+    "err_first_pass_km": 24.867,
+    "heading_err_deg": -0.125,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1773,
+    "err_km": 19.82,
+    "err_first_pass_km": 20.487,
+    "heading_err_deg": -0.233,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.5846,
+    "err_km": 65.175,
+    "err_first_pass_km": 65.929,
+    "heading_err_deg": -0.534,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.1781,
+    "err_km": 19.906,
+    "err_first_pass_km": 20.573,
+    "heading_err_deg": 0.123,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.796,
+    "err_km": 199.895,
+    "err_first_pass_km": 199.438,
+    "heading_err_deg": -2.297,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.7284,
+    "err_km": 81.098,
+    "err_first_pass_km": 81.441,
+    "heading_err_deg": -1.265,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.0225,
+    "err_km": 113.708,
+    "err_first_pass_km": 114.084,
+    "heading_err_deg": 1.369,
+    "ring1_km": 33.79,
+    "ring95_km": 82.16
+   }
+  ]
+ },
+ {
+  "file": "mojave_az030_alt35.png",
+  "site": "mojave",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 117.2,
+  "method": "phone_db_full",
+  "matches": 24,
+  "centroid_rms_deg": 0.01623831221188896,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.558,
+    "err_first_pass_km": 4.171,
+    "heading_err_deg": -0.002,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2298,
+    "err_km": 25.969,
+    "err_first_pass_km": 21.958,
+    "heading_err_deg": -0.06,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1002,
+    "err_km": 11.562,
+    "err_first_pass_km": 10.03,
+    "heading_err_deg": -0.028,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.089,
+    "err_km": 10.461,
+    "err_first_pass_km": 6.659,
+    "heading_err_deg": -0.034,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2362,
+    "err_km": 25.859,
+    "err_first_pass_km": 28.873,
+    "heading_err_deg": 0.067,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3382,
+    "err_km": 37.5,
+    "err_first_pass_km": 40.152,
+    "heading_err_deg": 0.032,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.217,
+    "err_km": 24.451,
+    "err_first_pass_km": 23.463,
+    "heading_err_deg": -0.045,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.228,
+    "err_km": 248.789,
+    "err_first_pass_km": 252.928,
+    "heading_err_deg": 0.758,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.9967,
+    "err_km": 222.538,
+    "err_first_pass_km": 224.334,
+    "heading_err_deg": 0.479,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.5932,
+    "err_km": 177.581,
+    "err_first_pass_km": 175.528,
+    "heading_err_deg": -0.105,
+    "ring1_km": 35.17,
+    "ring95_km": 83.54
+   }
+  ]
+ },
+ {
+  "file": "mojave_az030_alt60.png",
+  "site": "mojave",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 57.6,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.0028296123533895507,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.462,
+    "err_first_pass_km": 1.278,
+    "heading_err_deg": 0.002,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2566,
+    "err_km": 29.008,
+    "err_first_pass_km": 29.799,
+    "heading_err_deg": 0.148,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1319,
+    "err_km": 14.21,
+    "err_first_pass_km": 13.405,
+    "heading_err_deg": -0.072,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1246,
+    "err_km": 13.788,
+    "err_first_pass_km": 13.645,
+    "heading_err_deg": 0.128,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.436,
+    "err_km": 48.168,
+    "err_first_pass_km": 47.587,
+    "heading_err_deg": 0.239,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.5834,
+    "err_km": 65.258,
+    "err_first_pass_km": 65.832,
+    "heading_err_deg": 0.611,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.6363,
+    "err_km": 70.252,
+    "err_first_pass_km": 69.457,
+    "heading_err_deg": 0.021,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.6822,
+    "err_km": 187.704,
+    "err_first_pass_km": 188.084,
+    "heading_err_deg": 1.969,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.2219,
+    "err_km": 248.175,
+    "err_first_pass_km": 248.023,
+    "heading_err_deg": 2.352,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.4075,
+    "err_km": 155.643,
+    "err_first_pass_km": 154.799,
+    "heading_err_deg": -0.072,
+    "ring1_km": 33.67,
+    "ring95_km": 82.05
+   }
+  ]
+ },
+ {
+  "file": "mojave_az150_alt35.png",
+  "site": "mojave",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 52.0,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.023102599471177345,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.642,
+    "err_first_pass_km": 3.776,
+    "heading_err_deg": 0.003,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1701,
+    "err_km": 19.398,
+    "err_first_pass_km": 20.748,
+    "heading_err_deg": -0.152,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1646,
+    "err_km": 18.854,
+    "err_first_pass_km": 19.563,
+    "heading_err_deg": -0.174,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.3119,
+    "err_km": 35.306,
+    "err_first_pass_km": 34.453,
+    "heading_err_deg": -0.399,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.719,
+    "err_km": 80.327,
+    "err_first_pass_km": 82.543,
+    "heading_err_deg": -0.394,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.1757,
+    "err_km": 19.737,
+    "err_first_pass_km": 15.79,
+    "heading_err_deg": -0.071,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.1871,
+    "err_km": 20.57,
+    "err_first_pass_km": 24.53,
+    "heading_err_deg": 0.14,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.324,
+    "err_km": 258.774,
+    "err_first_pass_km": 261.063,
+    "heading_err_deg": -1.057,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.8107,
+    "err_km": 201.732,
+    "err_first_pass_km": 204.194,
+    "heading_err_deg": -0.709,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.2099,
+    "err_km": 358.617,
+    "err_first_pass_km": 359.876,
+    "heading_err_deg": 4.368,
+    "ring1_km": 35.93,
+    "ring95_km": 84.3
+   }
+  ]
+ },
+ {
+  "file": "mojave_az150_alt60.png",
+  "site": "mojave",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 53.8,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.004508721562298793,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.402,
+    "err_first_pass_km": 1.154,
+    "heading_err_deg": -0.002,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.16,
+    "err_km": 18.163,
+    "err_first_pass_km": 18.285,
+    "heading_err_deg": -0.318,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0624,
+    "err_km": 7.336,
+    "err_first_pass_km": 7.16,
+    "heading_err_deg": -0.144,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1604,
+    "err_km": 18.104,
+    "err_first_pass_km": 16.969,
+    "heading_err_deg": -0.288,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.7127,
+    "err_km": 79.107,
+    "err_first_pass_km": 80.268,
+    "heading_err_deg": 0.581,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.5028,
+    "err_km": 55.586,
+    "err_first_pass_km": 56.436,
+    "heading_err_deg": 1.144,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.5237,
+    "err_km": 58.063,
+    "err_first_pass_km": 57.224,
+    "heading_err_deg": 0.392,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.2639,
+    "err_km": 252.007,
+    "err_first_pass_km": 251.658,
+    "heading_err_deg": 3.873,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.1612,
+    "err_km": 240.989,
+    "err_first_pass_km": 241.428,
+    "heading_err_deg": 5.147,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.1895,
+    "err_km": 132.259,
+    "err_first_pass_km": 133.266,
+    "heading_err_deg": -0.006,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   }
+  ]
+ },
+ {
+  "file": "mojave_az270_alt35.png",
+  "site": "mojave",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 54.7,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.01458947255070388,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.249,
+    "err_first_pass_km": 3.29,
+    "heading_err_deg": -0.0,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1388,
+    "err_km": 15.562,
+    "err_first_pass_km": 12.597,
+    "heading_err_deg": 0.13,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1089,
+    "err_km": 12.061,
+    "err_first_pass_km": 14.864,
+    "heading_err_deg": -0.107,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1183,
+    "err_km": 13.385,
+    "err_first_pass_km": 12.317,
+    "heading_err_deg": -0.048,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1192,
+    "err_km": 13.143,
+    "err_first_pass_km": 13.237,
+    "heading_err_deg": 0.095,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.271,
+    "err_km": 30.295,
+    "err_first_pass_km": 27.102,
+    "heading_err_deg": 0.244,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.2704,
+    "err_km": 29.867,
+    "err_first_pass_km": 33.066,
+    "heading_err_deg": -0.087,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.8354,
+    "err_km": 93.306,
+    "err_first_pass_km": 91.645,
+    "heading_err_deg": -0.299,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.1178,
+    "err_km": 236.506,
+    "err_first_pass_km": 232.51,
+    "heading_err_deg": 1.281,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.2074,
+    "err_km": 357.643,
+    "err_first_pass_km": 355.878,
+    "heading_err_deg": -1.363,
+    "ring1_km": 34.98,
+    "ring95_km": 83.35
+   }
+  ]
+ },
+ {
+  "file": "mojave_az270_alt60.png",
+  "site": "mojave",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 55.5,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.003656822840138941,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.169,
+    "err_first_pass_km": 1.217,
+    "heading_err_deg": -0.001,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2135,
+    "err_km": 23.883,
+    "err_first_pass_km": 24.312,
+    "heading_err_deg": 0.265,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1004,
+    "err_km": 11.324,
+    "err_first_pass_km": 12.378,
+    "heading_err_deg": -0.056,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0914,
+    "err_km": 10.324,
+    "err_first_pass_km": 11.36,
+    "heading_err_deg": -0.035,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2717,
+    "err_km": 30.253,
+    "err_first_pass_km": 29.89,
+    "heading_err_deg": 0.503,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.526,
+    "err_km": 58.578,
+    "err_first_pass_km": 58.392,
+    "heading_err_deg": 0.941,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.374,
+    "err_km": 41.473,
+    "err_first_pass_km": 40.912,
+    "heading_err_deg": -0.377,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.9407,
+    "err_km": 214.89,
+    "err_first_pass_km": 214.007,
+    "heading_err_deg": 3.189,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.4887,
+    "err_km": 275.547,
+    "err_first_pass_km": 276.074,
+    "heading_err_deg": 2.384,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.3347,
+    "err_km": 148.503,
+    "err_first_pass_km": 148.828,
+    "heading_err_deg": -2.52,
+    "ring1_km": 33.77,
+    "ring95_km": 82.14
+   }
+  ]
+ },
+ {
+  "file": "patagonia_az030_alt35.png",
+  "site": "patagonia",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 55.0,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.014630848371147604,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.7,
+    "err_first_pass_km": 3.529,
+    "heading_err_deg": -0.003,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0553,
+    "err_km": 6.584,
+    "err_first_pass_km": 9.606,
+    "heading_err_deg": -0.06,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0752,
+    "err_km": 9.027,
+    "err_first_pass_km": 10.514,
+    "heading_err_deg": 0.089,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1038,
+    "err_km": 12.227,
+    "err_first_pass_km": 13.815,
+    "heading_err_deg": 0.11,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1104,
+    "err_km": 12.439,
+    "err_first_pass_km": 15.204,
+    "heading_err_deg": -0.176,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4404,
+    "err_km": 48.343,
+    "err_first_pass_km": 46.968,
+    "heading_err_deg": -0.442,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.2747,
+    "err_km": 30.149,
+    "err_first_pass_km": 30.867,
+    "heading_err_deg": -0.483,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 3.3873,
+    "err_km": 377.14,
+    "err_first_pass_km": 379.018,
+    "heading_err_deg": 1.762,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.2773,
+    "err_km": 254.201,
+    "err_first_pass_km": 251.587,
+    "heading_err_deg": 3.927,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.4068,
+    "err_km": 157.197,
+    "err_first_pass_km": 159.171,
+    "heading_err_deg": 0.801,
+    "ring1_km": 34.99,
+    "ring95_km": 83.36
+   }
+  ]
+ },
+ {
+  "file": "patagonia_az030_alt60.png",
+  "site": "patagonia",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 58.8,
+  "method": "phone_db_full",
+  "matches": 24,
+  "centroid_rms_deg": 0.006503201065478491,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.541,
+    "err_first_pass_km": 1.191,
+    "heading_err_deg": 0.006,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0421,
+    "err_km": 4.184,
+    "err_first_pass_km": 4.91,
+    "heading_err_deg": -0.114,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.251,
+    "err_km": 28.456,
+    "err_first_pass_km": 27.102,
+    "heading_err_deg": 0.546,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.06,
+    "err_km": 6.137,
+    "err_first_pass_km": 7.4,
+    "heading_err_deg": -0.143,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.0938,
+    "err_km": 9.899,
+    "err_first_pass_km": 11.169,
+    "heading_err_deg": -0.221,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4498,
+    "err_km": 49.638,
+    "err_first_pass_km": 50.072,
+    "heading_err_deg": -1.268,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4792,
+    "err_km": 52.792,
+    "err_first_pass_km": 54.247,
+    "heading_err_deg": -0.708,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.4849,
+    "err_km": 274.106,
+    "err_first_pass_km": 275.172,
+    "heading_err_deg": -6.201,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.4328,
+    "err_km": 270.478,
+    "err_first_pass_km": 271.45,
+    "heading_err_deg": 2.489,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.0335,
+    "err_km": 115.738,
+    "err_first_pass_km": 114.169,
+    "heading_err_deg": 1.097,
+    "ring1_km": 34.08,
+    "ring95_km": 82.46
+   }
+  ]
+ },
+ {
+  "file": "patagonia_az150_alt35.png",
+  "site": "patagonia",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 53.4,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.008016914527069294,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.13,
+    "err_first_pass_km": 3.231,
+    "heading_err_deg": -0.001,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1164,
+    "err_km": 12.831,
+    "err_first_pass_km": 15.038,
+    "heading_err_deg": 0.011,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1378,
+    "err_km": 15.368,
+    "err_first_pass_km": 12.323,
+    "heading_err_deg": 0.087,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1378,
+    "err_km": 15.27,
+    "err_first_pass_km": 14.111,
+    "heading_err_deg": 0.09,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.3022,
+    "err_km": 33.73,
+    "err_first_pass_km": 32.206,
+    "heading_err_deg": -0.056,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4208,
+    "err_km": 46.913,
+    "err_first_pass_km": 44.938,
+    "heading_err_deg": -0.038,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3161,
+    "err_km": 35.238,
+    "err_first_pass_km": 37.616,
+    "heading_err_deg": -0.221,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.8713,
+    "err_km": 97.29,
+    "err_first_pass_km": 99.393,
+    "heading_err_deg": -0.606,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.3066,
+    "err_km": 34.036,
+    "err_first_pass_km": 32.619,
+    "heading_err_deg": 0.202,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.8785,
+    "err_km": 320.282,
+    "err_first_pass_km": 321.242,
+    "heading_err_deg": -1.714,
+    "ring1_km": 34.25,
+    "ring95_km": 82.62
+   }
+  ]
+ },
+ {
+  "file": "patagonia_az150_alt60.png",
+  "site": "patagonia",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 53.0,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.0035724648603655987,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.394,
+    "err_first_pass_km": 1.28,
+    "heading_err_deg": 0.006,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2353,
+    "err_km": 26.294,
+    "err_first_pass_km": 24.936,
+    "heading_err_deg": 0.188,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1883,
+    "err_km": 21.209,
+    "err_first_pass_km": 21.362,
+    "heading_err_deg": -0.15,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1221,
+    "err_km": 13.512,
+    "err_first_pass_km": 14.777,
+    "heading_err_deg": -0.095,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.6219,
+    "err_km": 69.677,
+    "err_first_pass_km": 69.065,
+    "heading_err_deg": -0.329,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4312,
+    "err_km": 47.686,
+    "err_first_pass_km": 49.089,
+    "heading_err_deg": -0.041,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.1052,
+    "err_km": 11.317,
+    "err_first_pass_km": 12.523,
+    "heading_err_deg": 0.023,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 3.4102,
+    "err_km": 380.146,
+    "err_first_pass_km": 379.124,
+    "heading_err_deg": -0.961,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 4.0685,
+    "err_km": 458.691,
+    "err_first_pass_km": 460.04,
+    "heading_err_deg": -1.92,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.1397,
+    "err_km": 125.969,
+    "err_first_pass_km": 125.868,
+    "heading_err_deg": 0.93,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   }
+  ]
+ },
+ {
+  "file": "patagonia_az270_alt35.png",
+  "site": "patagonia",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 53.7,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.053541573298619256,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 1.645,
+    "err_first_pass_km": 4.397,
+    "heading_err_deg": 0.029,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0081,
+    "err_km": 1.673,
+    "err_first_pass_km": 4.656,
+    "heading_err_deg": 0.025,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.167,
+    "err_km": 20.194,
+    "err_first_pass_km": 22.924,
+    "heading_err_deg": 0.247,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0581,
+    "err_km": 6.868,
+    "err_first_pass_km": 6.592,
+    "heading_err_deg": 0.046,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1251,
+    "err_km": 15.041,
+    "err_first_pass_km": 15.669,
+    "heading_err_deg": 0.155,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.2976,
+    "err_km": 33.894,
+    "err_first_pass_km": 33.556,
+    "heading_err_deg": 0.254,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.5417,
+    "err_km": 61.585,
+    "err_first_pass_km": 64.462,
+    "heading_err_deg": 0.58,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.7036,
+    "err_km": 78.529,
+    "err_first_pass_km": 80.808,
+    "heading_err_deg": 0.139,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.939,
+    "err_km": 327.584,
+    "err_first_pass_km": 326.058,
+    "heading_err_deg": 1.182,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.5517,
+    "err_km": 172.732,
+    "err_first_pass_km": 175.332,
+    "heading_err_deg": 1.1,
+    "ring1_km": 39.31,
+    "ring95_km": 87.69
+   }
+  ]
+ },
+ {
+  "file": "patagonia_az270_alt60.png",
+  "site": "patagonia",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 52.6,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.004088031861234067,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.245,
+    "err_first_pass_km": 1.187,
+    "heading_err_deg": 0.001,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0715,
+    "err_km": 8.066,
+    "err_first_pass_km": 7.225,
+    "heading_err_deg": -0.146,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1436,
+    "err_km": 15.868,
+    "err_first_pass_km": 16.751,
+    "heading_err_deg": 0.299,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0389,
+    "err_km": 4.093,
+    "err_first_pass_km": 3.779,
+    "heading_err_deg": 0.038,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.4558,
+    "err_km": 50.79,
+    "err_first_pass_km": 51.7,
+    "heading_err_deg": 0.093,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.2139,
+    "err_km": 24.001,
+    "err_first_pass_km": 23.625,
+    "heading_err_deg": -0.426,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.5598,
+    "err_km": 62.325,
+    "err_first_pass_km": 63.398,
+    "heading_err_deg": 0.589,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.3184,
+    "err_km": 146.152,
+    "err_first_pass_km": 147.095,
+    "heading_err_deg": 0.625,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.9471,
+    "err_km": 105.327,
+    "err_first_pass_km": 105.821,
+    "heading_err_deg": -0.781,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.8611,
+    "err_km": 95.713,
+    "err_first_pass_km": 96.201,
+    "heading_err_deg": 1.802,
+    "ring1_km": 33.81,
+    "ring95_km": 82.19
+   }
+  ]
+ },
+ {
+  "file": "sahara_az030_alt35.png",
+  "site": "sahara",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 53.3,
+  "method": "phone_db_full",
+  "matches": 24,
+  "centroid_rms_deg": 0.018397318094334703,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.379,
+    "err_first_pass_km": 4.158,
+    "heading_err_deg": -0.003,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1128,
+    "err_km": 12.25,
+    "err_first_pass_km": 10.106,
+    "heading_err_deg": -0.047,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1371,
+    "err_km": 15.005,
+    "err_first_pass_km": 13.608,
+    "heading_err_deg": -0.056,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.079,
+    "err_km": 8.69,
+    "err_first_pass_km": 9.538,
+    "heading_err_deg": -0.028,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1972,
+    "err_km": 21.606,
+    "err_first_pass_km": 17.771,
+    "heading_err_deg": -0.054,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.7008,
+    "err_km": 78.156,
+    "err_first_pass_km": 78.197,
+    "heading_err_deg": 0.206,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4724,
+    "err_km": 52.54,
+    "err_first_pass_km": 51.269,
+    "heading_err_deg": 0.086,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.1653,
+    "err_km": 130.18,
+    "err_first_pass_km": 133.166,
+    "heading_err_deg": 0.434,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.7149,
+    "err_km": 190.506,
+    "err_first_pass_km": 187.713,
+    "heading_err_deg": -0.659,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.4547,
+    "err_km": 162.41,
+    "err_first_pass_km": 165.141,
+    "heading_err_deg": 0.559,
+    "ring1_km": 35.41,
+    "ring95_km": 83.78
+   }
+  ]
+ },
+ {
+  "file": "sahara_az030_alt60.png",
+  "site": "sahara",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 53.2,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.002912041036386537,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.484,
+    "err_first_pass_km": 1.364,
+    "heading_err_deg": 0.0,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1768,
+    "err_km": 19.946,
+    "err_first_pass_km": 20.847,
+    "heading_err_deg": -0.1,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0377,
+    "err_km": 4.259,
+    "err_first_pass_km": 5.013,
+    "heading_err_deg": -0.041,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.079,
+    "err_km": 9.21,
+    "err_first_pass_km": 9.619,
+    "heading_err_deg": 0.096,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2085,
+    "err_km": 23.522,
+    "err_first_pass_km": 23.595,
+    "heading_err_deg": 0.283,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3261,
+    "err_km": 35.844,
+    "err_first_pass_km": 35.457,
+    "heading_err_deg": -0.383,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.0988,
+    "err_km": 10.852,
+    "err_first_pass_km": 10.111,
+    "heading_err_deg": 0.089,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.3937,
+    "err_km": 265.267,
+    "err_first_pass_km": 264.269,
+    "heading_err_deg": -0.673,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.2096,
+    "err_km": 246.427,
+    "err_first_pass_km": 247.209,
+    "heading_err_deg": 0.965,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.8487,
+    "err_km": 318.238,
+    "err_first_pass_km": 318.046,
+    "heading_err_deg": 3.927,
+    "ring1_km": 33.68,
+    "ring95_km": 82.06
+   }
+  ]
+ },
+ {
+  "file": "sahara_az150_alt35.png",
+  "site": "sahara",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 53.9,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.013134859448534963,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.584,
+    "err_first_pass_km": 3.387,
+    "heading_err_deg": 0.007,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1551,
+    "err_km": 17.373,
+    "err_first_pass_km": 20.595,
+    "heading_err_deg": 0.046,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.119,
+    "err_km": 13.004,
+    "err_first_pass_km": 10.312,
+    "heading_err_deg": 0.015,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0963,
+    "err_km": 10.129,
+    "err_first_pass_km": 10.965,
+    "heading_err_deg": 0.101,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.3767,
+    "err_km": 42.445,
+    "err_first_pass_km": 42.915,
+    "heading_err_deg": -0.319,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3267,
+    "err_km": 36.895,
+    "err_first_pass_km": 35.632,
+    "heading_err_deg": -0.348,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3097,
+    "err_km": 33.895,
+    "err_first_pass_km": 35.205,
+    "heading_err_deg": 0.34,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.3987,
+    "err_km": 44.334,
+    "err_first_pass_km": 40.998,
+    "heading_err_deg": -0.101,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.6442,
+    "err_km": 71.226,
+    "err_first_pass_km": 73.514,
+    "heading_err_deg": 0.708,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.7069,
+    "err_km": 78.393,
+    "err_first_pass_km": 81.559,
+    "heading_err_deg": 0.602,
+    "ring1_km": 34.82,
+    "ring95_km": 83.19
+   }
+  ]
+ },
+ {
+  "file": "sahara_az150_alt60.png",
+  "site": "sahara",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 56.5,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.0044914031974017995,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.393,
+    "err_first_pass_km": 1.211,
+    "heading_err_deg": -0.001,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1212,
+    "err_km": 13.841,
+    "err_first_pass_km": 13.954,
+    "heading_err_deg": -0.224,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1575,
+    "err_km": 17.409,
+    "err_first_pass_km": 16.403,
+    "heading_err_deg": 0.071,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1157,
+    "err_km": 13.078,
+    "err_first_pass_km": 11.788,
+    "heading_err_deg": -0.142,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.4621,
+    "err_km": 51.613,
+    "err_first_pass_km": 52.368,
+    "heading_err_deg": -0.446,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3275,
+    "err_km": 36.561,
+    "err_first_pass_km": 37.537,
+    "heading_err_deg": -0.165,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3067,
+    "err_km": 34.178,
+    "err_first_pass_km": 35.279,
+    "heading_err_deg": -0.045,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.2513,
+    "err_km": 138.913,
+    "err_first_pass_km": 139.721,
+    "heading_err_deg": 2.608,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.0474,
+    "err_km": 116.112,
+    "err_first_pass_km": 117.255,
+    "heading_err_deg": 1.751,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.5217,
+    "err_km": 280.155,
+    "err_first_pass_km": 279.384,
+    "heading_err_deg": 2.655,
+    "ring1_km": 33.86,
+    "ring95_km": 82.23
+   }
+  ]
+ },
+ {
+  "file": "sahara_az270_alt35.png",
+  "site": "sahara",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 55.5,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.014102213210151662,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.271,
+    "err_first_pass_km": 3.246,
+    "heading_err_deg": -0.0,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1692,
+    "err_km": 18.839,
+    "err_first_pass_km": 16.696,
+    "heading_err_deg": 0.135,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1922,
+    "err_km": 21.679,
+    "err_first_pass_km": 18.539,
+    "heading_err_deg": 0.015,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0322,
+    "err_km": 3.633,
+    "err_first_pass_km": 2.353,
+    "heading_err_deg": 0.025,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.846,
+    "err_km": 94.567,
+    "err_first_pass_km": 91.04,
+    "heading_err_deg": 0.192,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4117,
+    "err_km": 45.772,
+    "err_first_pass_km": 48.79,
+    "heading_err_deg": -0.284,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3014,
+    "err_km": 33.845,
+    "err_first_pass_km": 31.487,
+    "heading_err_deg": -0.071,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.6595,
+    "err_km": 184.374,
+    "err_first_pass_km": 182.637,
+    "heading_err_deg": 1.333,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.6759,
+    "err_km": 186.205,
+    "err_first_pass_km": 183.221,
+    "heading_err_deg": 1.234,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.9629,
+    "err_km": 218.029,
+    "err_first_pass_km": 218.97,
+    "heading_err_deg": 1.113,
+    "ring1_km": 34.93,
+    "ring95_km": 83.3
+   }
+  ]
+ },
+ {
+  "file": "sahara_az270_alt60.png",
+  "site": "sahara",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 54.9,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.004100772011603359,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.293,
+    "err_first_pass_km": 1.206,
+    "heading_err_deg": -0.002,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2235,
+    "err_km": 24.97,
+    "err_first_pass_km": 25.661,
+    "heading_err_deg": -0.359,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.2143,
+    "err_km": 23.597,
+    "err_first_pass_km": 23.159,
+    "heading_err_deg": -0.255,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0689,
+    "err_km": 7.581,
+    "err_first_pass_km": 6.984,
+    "heading_err_deg": 0.11,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.7816,
+    "err_km": 87.073,
+    "err_first_pass_km": 87.041,
+    "heading_err_deg": 1.318,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.6221,
+    "err_km": 69.319,
+    "err_first_pass_km": 69.226,
+    "heading_err_deg": 1.071,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4931,
+    "err_km": 55.087,
+    "err_first_pass_km": 55.708,
+    "heading_err_deg": 0.412,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.8445,
+    "err_km": 94.098,
+    "err_first_pass_km": 94.353,
+    "heading_err_deg": 1.212,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.3223,
+    "err_km": 258.128,
+    "err_first_pass_km": 257.725,
+    "heading_err_deg": 4.049,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.16,
+    "err_km": 17.875,
+    "err_first_pass_km": 17.681,
+    "heading_err_deg": 0.282,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   }
+  ]
+ },
+ {
+  "file": "swiss_alps_az030_alt35.png",
+  "site": "swiss_alps",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 52.2,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.010187695025916998,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.364,
+    "err_first_pass_km": 3.337,
+    "heading_err_deg": -0.001,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0439,
+    "err_km": 5.032,
+    "err_first_pass_km": 1.784,
+    "heading_err_deg": -0.022,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.013,
+    "err_km": 1.088,
+    "err_first_pass_km": 4.235,
+    "heading_err_deg": 0.005,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0349,
+    "err_km": 3.687,
+    "err_first_pass_km": 4.139,
+    "heading_err_deg": -0.001,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1717,
+    "err_km": 19.093,
+    "err_first_pass_km": 22.039,
+    "heading_err_deg": 0.061,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.1502,
+    "err_km": 16.965,
+    "err_first_pass_km": 13.397,
+    "heading_err_deg": -0.084,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.6642,
+    "err_km": 73.519,
+    "err_first_pass_km": 75.36,
+    "heading_err_deg": 0.27,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.7553,
+    "err_km": 83.707,
+    "err_first_pass_km": 82.583,
+    "heading_err_deg": -0.022,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.1833,
+    "err_km": 243.354,
+    "err_first_pass_km": 245.3,
+    "heading_err_deg": 0.472,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.1847,
+    "err_km": 350.889,
+    "err_first_pass_km": 346.963,
+    "heading_err_deg": -1.734,
+    "ring1_km": 34.49,
+    "ring95_km": 82.86
+   }
+  ]
+ },
+ {
+  "file": "swiss_alps_az030_alt60.png",
+  "site": "swiss_alps",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 53.3,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.003087441483365622,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.408,
+    "err_first_pass_km": 1.267,
+    "heading_err_deg": 0.0,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1267,
+    "err_km": 13.831,
+    "err_first_pass_km": 12.948,
+    "heading_err_deg": -0.028,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1417,
+    "err_km": 15.486,
+    "err_first_pass_km": 14.587,
+    "heading_err_deg": -0.04,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.2311,
+    "err_km": 25.324,
+    "err_first_pass_km": 24.872,
+    "heading_err_deg": -0.224,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.3105,
+    "err_km": 34.14,
+    "err_first_pass_km": 33.488,
+    "heading_err_deg": -0.286,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.2347,
+    "err_km": 25.724,
+    "err_first_pass_km": 25.272,
+    "heading_err_deg": -0.227,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.5655,
+    "err_km": 62.475,
+    "err_first_pass_km": 62.139,
+    "heading_err_deg": -0.543,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.5373,
+    "err_km": 60.186,
+    "err_first_pass_km": 60.467,
+    "heading_err_deg": 0.52,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 3.0296,
+    "err_km": 340.477,
+    "err_first_pass_km": 340.536,
+    "heading_err_deg": 2.825,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.0601,
+    "err_km": 117.732,
+    "err_first_pass_km": 118.152,
+    "heading_err_deg": -0.595,
+    "ring1_km": 33.7,
+    "ring95_km": 82.08
+   }
+  ]
+ },
+ {
+  "file": "swiss_alps_az150_alt35.png",
+  "site": "swiss_alps",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 52.4,
+  "method": "phone_db_full",
+  "matches": 23,
+  "centroid_rms_deg": 0.011369780229258244,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.421,
+    "err_first_pass_km": 2.923,
+    "heading_err_deg": 0.001,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1779,
+    "err_km": 19.928,
+    "err_first_pass_km": 16.996,
+    "heading_err_deg": -0.205,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.2221,
+    "err_km": 24.297,
+    "err_first_pass_km": 24.748,
+    "heading_err_deg": 0.329,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1856,
+    "err_km": 20.483,
+    "err_first_pass_km": 23.294,
+    "heading_err_deg": 0.25,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.4626,
+    "err_km": 51.178,
+    "err_first_pass_km": 49.416,
+    "heading_err_deg": 0.242,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.2995,
+    "err_km": 33.489,
+    "err_first_pass_km": 30.521,
+    "heading_err_deg": -0.339,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.1817,
+    "err_km": 20.614,
+    "err_first_pass_km": 20.636,
+    "heading_err_deg": -0.262,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.6189,
+    "err_km": 293.082,
+    "err_first_pass_km": 292.903,
+    "heading_err_deg": 3.574,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.893,
+    "err_km": 99.442,
+    "err_first_pass_km": 101.973,
+    "heading_err_deg": 0.229,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.3137,
+    "err_km": 34.512,
+    "err_first_pass_km": 35.0,
+    "heading_err_deg": 0.473,
+    "ring1_km": 34.62,
+    "ring95_km": 83.0
+   }
+  ]
+ },
+ {
+  "file": "swiss_alps_az150_alt60.png",
+  "site": "swiss_alps",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 53.4,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.0028707208092380787,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.486,
+    "err_first_pass_km": 1.192,
+    "heading_err_deg": 0.001,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1285,
+    "err_km": 13.817,
+    "err_first_pass_km": 13.781,
+    "heading_err_deg": 0.275,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0498,
+    "err_km": 5.174,
+    "err_first_pass_km": 4.391,
+    "heading_err_deg": 0.008,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1405,
+    "err_km": 16.103,
+    "err_first_pass_km": 16.263,
+    "heading_err_deg": -0.284,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.3737,
+    "err_km": 41.556,
+    "err_first_pass_km": 42.492,
+    "heading_err_deg": 0.711,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.1543,
+    "err_km": 16.802,
+    "err_first_pass_km": 17.231,
+    "heading_err_deg": 0.412,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.2164,
+    "err_km": 24.546,
+    "err_first_pass_km": 24.994,
+    "heading_err_deg": -0.287,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.8288,
+    "err_km": 202.47,
+    "err_first_pass_km": 202.064,
+    "heading_err_deg": -4.776,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 5.4382,
+    "err_km": 603.621,
+    "err_first_pass_km": 602.575,
+    "heading_err_deg": -12.805,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.1043,
+    "err_km": 11.651,
+    "err_first_pass_km": 12.608,
+    "heading_err_deg": 0.195,
+    "ring1_km": 33.68,
+    "ring95_km": 82.05
+   }
+  ]
+ },
+ {
+  "file": "swiss_alps_az270_alt35.png",
+  "site": "swiss_alps",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 56.0,
+  "method": "phone_db_full",
+  "matches": 26,
+  "centroid_rms_deg": 0.0129641490585726,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.182,
+    "err_first_pass_km": 2.926,
+    "heading_err_deg": -0.003,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1196,
+    "err_km": 13.486,
+    "err_first_pass_km": 15.008,
+    "heading_err_deg": 0.025,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1341,
+    "err_km": 15.095,
+    "err_first_pass_km": 16.983,
+    "heading_err_deg": -0.003,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1768,
+    "err_km": 19.82,
+    "err_first_pass_km": 22.327,
+    "heading_err_deg": -0.091,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.6376,
+    "err_km": 70.952,
+    "err_first_pass_km": 69.638,
+    "heading_err_deg": 0.727,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.481,
+    "err_km": 53.58,
+    "err_first_pass_km": 52.37,
+    "heading_err_deg": 0.541,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.5075,
+    "err_km": 56.553,
+    "err_first_pass_km": 59.265,
+    "heading_err_deg": -0.425,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.3551,
+    "err_km": 151.492,
+    "err_first_pass_km": 148.632,
+    "heading_err_deg": 0.806,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 0.7511,
+    "err_km": 83.641,
+    "err_first_pass_km": 85.217,
+    "heading_err_deg": -0.917,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.1816,
+    "err_km": 20.114,
+    "err_first_pass_km": 17.499,
+    "heading_err_deg": 0.106,
+    "ring1_km": 34.8,
+    "ring95_km": 83.17
+   }
+  ]
+ },
+ {
+  "file": "swiss_alps_az270_alt60.png",
+  "site": "swiss_alps",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 54.6,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.0035931893892086003,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.14,
+    "err_first_pass_km": 0.995,
+    "heading_err_deg": -0.003,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1728,
+    "err_km": 19.1,
+    "err_first_pass_km": 18.371,
+    "heading_err_deg": 0.031,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1307,
+    "err_km": 14.412,
+    "err_first_pass_km": 14.168,
+    "heading_err_deg": -0.141,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0363,
+    "err_km": 4.134,
+    "err_first_pass_km": 5.027,
+    "heading_err_deg": -0.048,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.1395,
+    "err_km": 15.455,
+    "err_first_pass_km": 15.835,
+    "heading_err_deg": -0.273,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.4212,
+    "err_km": 46.776,
+    "err_first_pass_km": 46.065,
+    "heading_err_deg": 0.035,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.7386,
+    "err_km": 82.21,
+    "err_first_pass_km": 82.695,
+    "heading_err_deg": -1.508,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.4896,
+    "err_km": 54.371,
+    "err_first_pass_km": 54.495,
+    "heading_err_deg": -0.838,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.5771,
+    "err_km": 174.886,
+    "err_first_pass_km": 173.924,
+    "heading_err_deg": 2.035,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.4178,
+    "err_km": 384.249,
+    "err_first_pass_km": 384.861,
+    "heading_err_deg": -7.299,
+    "ring1_km": 33.76,
+    "ring95_km": 82.13
+   }
+  ]
+ },
+ {
+  "file": "sydney_az030_alt35.png",
+  "site": "sydney",
+  "az": 30.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 56.2,
+  "method": "phone_db_full",
+  "matches": 22,
+  "centroid_rms_deg": 0.015477303038770485,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.234,
+    "err_first_pass_km": 3.839,
+    "heading_err_deg": -0.003,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1674,
+    "err_km": 18.388,
+    "err_first_pass_km": 18.72,
+    "heading_err_deg": 0.216,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.0615,
+    "err_km": 6.853,
+    "err_first_pass_km": 3.09,
+    "heading_err_deg": 0.003,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1769,
+    "err_km": 19.636,
+    "err_first_pass_km": 15.943,
+    "heading_err_deg": 0.096,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.4562,
+    "err_km": 50.564,
+    "err_first_pass_km": 48.806,
+    "heading_err_deg": 0.567,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.1489,
+    "err_km": 16.472,
+    "err_first_pass_km": 19.754,
+    "heading_err_deg": 0.078,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.628,
+    "err_km": 69.923,
+    "err_first_pass_km": 66.39,
+    "heading_err_deg": 0.48,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 0.5327,
+    "err_km": 59.515,
+    "err_first_pass_km": 57.262,
+    "heading_err_deg": -0.492,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.2943,
+    "err_km": 144.08,
+    "err_first_pass_km": 147.474,
+    "heading_err_deg": 0.245,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.9828,
+    "err_km": 221.673,
+    "err_first_pass_km": 221.521,
+    "heading_err_deg": -2.621,
+    "ring1_km": 35.08,
+    "ring95_km": 83.45
+   }
+  ]
+ },
+ {
+  "file": "sydney_az030_alt60.png",
+  "site": "sydney",
+  "az": 30.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 54.3,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.004618537306391395,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.53,
+    "err_first_pass_km": 1.38,
+    "heading_err_deg": 0.002,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.0555,
+    "err_km": 6.242,
+    "err_first_pass_km": 7.463,
+    "heading_err_deg": 0.048,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1476,
+    "err_km": 16.786,
+    "err_first_pass_km": 17.072,
+    "heading_err_deg": 0.303,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0696,
+    "err_km": 7.633,
+    "err_first_pass_km": 6.628,
+    "heading_err_deg": -0.081,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2774,
+    "err_km": 31.362,
+    "err_first_pass_km": 29.97,
+    "heading_err_deg": 0.508,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3925,
+    "err_km": 43.307,
+    "err_first_pass_km": 44.909,
+    "heading_err_deg": -0.36,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.5681,
+    "err_km": 62.668,
+    "err_first_pass_km": 63.729,
+    "heading_err_deg": -1.247,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.6981,
+    "err_km": 189.063,
+    "err_first_pass_km": 189.366,
+    "heading_err_deg": -3.956,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.8233,
+    "err_km": 312.473,
+    "err_first_pass_km": 313.897,
+    "heading_err_deg": -1.164,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.9113,
+    "err_km": 101.552,
+    "err_first_pass_km": 100.003,
+    "heading_err_deg": -0.117,
+    "ring1_km": 33.87,
+    "ring95_km": 82.25
+   }
+  ]
+ },
+ {
+  "file": "sydney_az150_alt35.png",
+  "site": "sydney",
+  "az": 150.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 55.0,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.02537224564893188,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.564,
+    "err_first_pass_km": 5.338,
+    "heading_err_deg": 0.006,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1534,
+    "err_km": 17.488,
+    "err_first_pass_km": 19.16,
+    "heading_err_deg": 0.006,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1251,
+    "err_km": 13.751,
+    "err_first_pass_km": 19.253,
+    "heading_err_deg": -0.037,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.1345,
+    "err_km": 14.783,
+    "err_first_pass_km": 12.071,
+    "heading_err_deg": 0.028,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.3994,
+    "err_km": 44.597,
+    "err_first_pass_km": 49.287,
+    "heading_err_deg": -0.102,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.3479,
+    "err_km": 39.29,
+    "err_first_pass_km": 34.22,
+    "heading_err_deg": 0.124,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.4557,
+    "err_km": 51.036,
+    "err_first_pass_km": 54.52,
+    "heading_err_deg": -0.07,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 3.1007,
+    "err_km": 345.902,
+    "err_first_pass_km": 338.943,
+    "heading_err_deg": 0.975,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.0674,
+    "err_km": 119.079,
+    "err_first_pass_km": 116.338,
+    "heading_err_deg": 0.246,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 2.362,
+    "err_km": 262.26,
+    "err_first_pass_km": 257.092,
+    "heading_err_deg": 0.575,
+    "ring1_km": 36.18,
+    "ring95_km": 84.55
+   }
+  ]
+ },
+ {
+  "file": "sydney_az150_alt60.png",
+  "site": "sydney",
+  "az": 150.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 55.5,
+  "method": "phone_db_full",
+  "matches": 28,
+  "centroid_rms_deg": 0.003304205330902987,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.382,
+    "err_first_pass_km": 1.284,
+    "heading_err_deg": 0.005,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1813,
+    "err_km": 20.357,
+    "err_first_pass_km": 21.205,
+    "heading_err_deg": -0.156,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1582,
+    "err_km": 17.61,
+    "err_first_pass_km": 18.866,
+    "heading_err_deg": -0.059,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.2939,
+    "err_km": 32.324,
+    "err_first_pass_km": 32.396,
+    "heading_err_deg": 0.356,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.157,
+    "err_km": 17.172,
+    "err_first_pass_km": 16.852,
+    "heading_err_deg": 0.182,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.2477,
+    "err_km": 27.394,
+    "err_first_pass_km": 26.486,
+    "heading_err_deg": 0.211,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.2522,
+    "err_km": 27.738,
+    "err_first_pass_km": 28.919,
+    "heading_err_deg": 0.192,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 2.0592,
+    "err_km": 230.316,
+    "err_first_pass_km": 230.114,
+    "heading_err_deg": -2.493,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 1.1982,
+    "err_km": 133.406,
+    "err_first_pass_km": 134.715,
+    "heading_err_deg": 0.452,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 1.6926,
+    "err_km": 187.568,
+    "err_first_pass_km": 188.43,
+    "heading_err_deg": 1.694,
+    "ring1_km": 33.73,
+    "ring95_km": 82.1
+   }
+  ]
+ },
+ {
+  "file": "sydney_az270_alt35.png",
+  "site": "sydney",
+  "az": 270.0,
+  "alt": 35.0,
+  "solved": true,
+  "solve_ms": 52.9,
+  "method": "phone_db_full",
+  "matches": 25,
+  "centroid_rms_deg": 0.05312345220305674,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 1.29,
+    "err_first_pass_km": 4.28,
+    "heading_err_deg": 0.022,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.1831,
+    "err_km": 21.615,
+    "err_first_pass_km": 24.495,
+    "heading_err_deg": 0.182,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1719,
+    "err_km": 20.243,
+    "err_first_pass_km": 23.393,
+    "heading_err_deg": 0.149,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.0728,
+    "err_km": 8.13,
+    "err_first_pass_km": 6.318,
+    "heading_err_deg": 0.027,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.2921,
+    "err_km": 33.243,
+    "err_first_pass_km": 32.637,
+    "heading_err_deg": 0.211,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.2438,
+    "err_km": 27.014,
+    "err_first_pass_km": 24.341,
+    "heading_err_deg": 0.018,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.1921,
+    "err_km": 21.409,
+    "err_first_pass_km": 19.088,
+    "heading_err_deg": 0.042,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.979,
+    "err_km": 220.933,
+    "err_first_pass_km": 217.374,
+    "heading_err_deg": -0.475,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 2.1401,
+    "err_km": 239.885,
+    "err_first_pass_km": 242.644,
+    "heading_err_deg": 1.75,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 0.8728,
+    "err_km": 96.446,
+    "err_first_pass_km": 92.939,
+    "heading_err_deg": -0.461,
+    "ring1_km": 39.27,
+    "ring95_km": 87.64
+   }
+  ]
+ },
+ {
+  "file": "sydney_az270_alt60.png",
+  "site": "sydney",
+  "az": 270.0,
+  "alt": 60.0,
+  "solved": true,
+  "solve_ms": 52.1,
+  "method": "phone_db_full",
+  "matches": 27,
+  "centroid_rms_deg": 0.004158407758961866,
+  "runs": [
+   {
+    "sigma": 0.0,
+    "draw": 0,
+    "tilt_applied_deg": 0.0,
+    "err_km": 0.24,
+    "err_first_pass_km": 0.998,
+    "heading_err_deg": 0.001,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 0,
+    "tilt_applied_deg": 0.2146,
+    "err_km": 23.776,
+    "err_first_pass_km": 23.224,
+    "heading_err_deg": 0.16,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 1,
+    "tilt_applied_deg": 0.1472,
+    "err_km": 16.225,
+    "err_first_pass_km": 17.328,
+    "heading_err_deg": 0.188,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.1,
+    "draw": 2,
+    "tilt_applied_deg": 0.073,
+    "err_km": 8.302,
+    "err_first_pass_km": 7.241,
+    "heading_err_deg": -0.106,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 0,
+    "tilt_applied_deg": 0.5819,
+    "err_km": 64.564,
+    "err_first_pass_km": 64.484,
+    "heading_err_deg": 0.825,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 1,
+    "tilt_applied_deg": 0.1058,
+    "err_km": 11.898,
+    "err_first_pass_km": 12.329,
+    "heading_err_deg": -0.103,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 0.3,
+    "draw": 2,
+    "tilt_applied_deg": 0.3705,
+    "err_km": 41.154,
+    "err_first_pass_km": 42.176,
+    "heading_err_deg": 0.183,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 0,
+    "tilt_applied_deg": 1.5607,
+    "err_km": 173.257,
+    "err_first_pass_km": 172.07,
+    "heading_err_deg": -1.856,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 1,
+    "tilt_applied_deg": 3.6256,
+    "err_km": 399.966,
+    "err_first_pass_km": 398.696,
+    "heading_err_deg": -4.669,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   },
+   {
+    "sigma": 1.4,
+    "draw": 2,
+    "tilt_applied_deg": 3.0274,
+    "err_km": 336.586,
+    "err_first_pass_km": 336.308,
+    "heading_err_deg": -5.011,
+    "ring1_km": 33.82,
+    "ring95_km": 82.19
+   }
+  ]
+ }
+]

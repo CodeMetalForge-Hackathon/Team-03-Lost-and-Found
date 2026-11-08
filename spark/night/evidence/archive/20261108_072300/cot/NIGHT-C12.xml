@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C12" type="a-u-G" time="2026-11-08T10:58:41.747Z" start="2026-11-08T10:58:41.747Z" stale="2026-11-08T11:28:41.747Z" how="m-f"><point lat="41.3037342" lon="-81.7537564" hae="9999999.0" ce="25.0" le="9999999.0"/><detail><contact callsign="LF C12 p=0.46"/><remarks>p_person=0.46; sources: aerial_rgb:aerial_person=0.66; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 111</remarks></detail></event>

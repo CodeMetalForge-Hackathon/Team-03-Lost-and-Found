@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C02" type="a-u-G" time="2026-11-08T06:33:32.566Z" start="2026-11-08T06:33:32.566Z" stale="2026-11-08T07:03:32.566Z" how="m-f"><point lat="41.3029457" lon="-81.7475395" hae="9999999.0" ce="100.0" le="9999999.0"/><detail><contact callsign="LF C02 p=0.42"/><remarks>p_person=0.42; sources: dog1:sound_spike=0.30, dog1:knock=0.50, dog1:dog_stop=0.30; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 24</remarks></detail></event>

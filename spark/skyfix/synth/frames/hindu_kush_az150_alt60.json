@@ -1,0 +1,41 @@
+{
+ "lat": 34.5,
+ "lon": 69.2,
+ "utc": "2026-11-08T19:23:12.000Z",
+ "az": 150.0,
+ "alt": 60.0,
+ "roll": -5.16,
+ "hfov": 70.0,
+ "width": 2000,
+ "height": 1500,
+ "elevation_m": 1800,
+ "focal_px": 1428.1480067421146,
+ "seed": 232259569,
+ "dropout": 0.03,
+ "psf_sigma": 1.3,
+ "bg_e": 400.0,
+ "glow_e": 900.0,
+ "mag6_peak_snr": 3.0,
+ "read_noise_e": 3.0,
+ "extinction_k": 0.2,
+ "refraction": true,
+ "max_mag": 7.0,
+ "gravity_cam": [
+  -0.04496864984932197,
+  0.4979737146986065,
+  -0.8660254037844386
+ ],
+ "zenith_cam": [
+  0.04496864984932197,
+  -0.4979737146986065,
+  0.8660254037844386
+ ],
+ "camera_frame": "x=image right, y=image down, z=out of lens; gravity_cam points down",
+ "n_stars_projected": 1492,
+ "n_stars_rendered": 1445,
+ "n_dropped": 47,
+ "n_stars_brighter_6p5": 688,
+ "catalog": "Hipparcos hip_main.dat, pm to epoch",
+ "generator": "skyfix/synth/render_sky.py",
+ "site": "hindu_kush"
+}

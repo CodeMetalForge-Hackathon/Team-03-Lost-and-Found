@@ -1,0 +1,1 @@
+{"t": 1794126199.2549727, "sensor": "dog1", "kind": "sound_spike", "position": {"x": 4.286, "y": 3.784, "frame": "floor"}, "confidence": 0.3, "clip_path": null, "extra": {"run": "run_00_synthetic", "source": "auto:sound", "synthetic": true}}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sky Fix — judge gallery</title><link rel="icon" href="/icon.svg">
+<style>
+body{margin:0;background:#000;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:14px}
+h1{margin:4px 0;font-size:28px;letter-spacing:2px}h1 b{color:#ffd400}h2{color:#ffd400;margin:22px 0 4px;font-size:22px}
+.note{color:#9aa;font-size:15px;max-width:1100px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:10px}
+.c{border:2px solid #333;border-radius:12px;overflow:hidden;background:#080808;display:flex;flex-direction:column}
+.c img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#111}
+.t{font-size:14px;padding:6px 8px;color:#ddd;min-height:36px}.cr{font-size:11px;color:#778;padding:0 8px}
+.b{margin:8px;font-size:18px;font-weight:800;padding:10px;border-radius:10px;border:2px solid #ffd400;background:#111;color:#ffd400;cursor:pointer}
+.r{font-size:14px;padding:4px 8px 10px;line-height:1.35}.ok{color:#39ff6a;font-weight:800}.bad{color:#ff4d4d;font-weight:800}.cy{color:#00e5ff;font-weight:700}
+.all{font-size:16px;padding:8px 14px;margin-left:10px;border-radius:8px;border:2px solid #00e5ff;background:#000;color:#00e5ff;cursor:pointer}
+#sum{font-size:16px;color:#ddd;margin:6px 0}a{color:#00e5ff}
+</style></head><body>
+<h1>SKY<b>FIX</b> · judge gallery</h1>
+<div class="note">Every photo here has a known location. Press <b>Solve</b>: the fix is computed offline, then the truth is revealed so you see the <b>error</b>, not just a pin.
+Every solve is appended to the hash-chained evidence log and written as a CoT file (not transmitted). <a href="/">phone app</a> · <a href="/?hud=1">glasses HUD</a> · <a href="/api/evidence">evidence JSON</a></div>
+<div id="sum"></div>
+<div id="secs"></div>
+<script>
+const SECS=[
+ ['synthetic','Night · synthetic sky (exact truth)','Rendered from Hipparcos with refraction, extinction, noise and 3% star dropouts. Gravity vector known exactly; the displayed fix adds a simulated braced-phone tilt error (σ 0.3°/axis), which is what sets the ring.'],
+ ['pixel','Night · real Pixel phone photos','Real phone night-sight photos with EXIF time + GPS. No gravity vector was recorded, so the honest output is sky orientation only. Sample of 12: the first 6 solved and first 6 unsolved by filename (full set: see RESULTS.md).'],
+ ['wikimedia','Night · Wikimedia geotagged sky photos','Mostly wide panoramas/fisheyes: most do not plate-solve with a pinhole model. Shown anyway.'],
+ ['ch1','Day · mountain skyline (CH1 benchmark)','The first 10 TEST-split photos (not hand-picked). Search box ±25 km around a last-known fix placed 5–15 km from the truth. AMBIGUOUS = the skyline matches several places.']];
+const $=id=>document.getElementById(id);
+let items=[],stats={};
+async function init(){items=await (await fetch('/api/demo_items')).json();
+  for(const [k,title,note] of SECS){const its=items.filter(x=>x.set===k);if(!its.length)continue;
+    const s=document.createElement('div');s.innerHTML=`<h2>${title} (${its.length})<button class="all" data-k="${k}">Solve all</button></h2><div class="note">${note}</div><div class="grid" id="g_${k}"></div>`;$('secs').appendChild(s);
+    for(const x of its){const c=document.createElement('div');c.className='c';c.innerHTML=`<img loading="lazy" src="/api/thumb/${encodeURIComponent(x.id)}"><div class="t">${x.title}</div><div class="cr">${x.credit||''}</div><button class="b" data-id="${x.id}">Solve</button><div class="r" id="r_${x.id}"></div>`;$('g_'+k).appendChild(c)}}
+  document.querySelectorAll('.b').forEach(b=>b.onclick=()=>solve(b.dataset.id));
+  document.querySelectorAll('.all').forEach(b=>b.onclick=async()=>{for(const x of items.filter(i=>i.set===b.dataset.k))await solve(x.id)});
+}
+async function solve(id){const el=document.getElementById('r_'+id);el.textContent='solving…';
+  const f=new FormData();f.append('demo_id',id);
+  try{const r=await (await fetch('/api/solve',{method:'POST',body:f})).json();el.innerHTML=fmt(r);tally(r)}catch(e){el.innerHTML='<span class="bad">error</span>'}}
+function fmt(r){const R=r.result||{},fx=r.fix_out;let h='';
+  if(fx){const e=r.truth&&r.truth.err_km;const in1=e!=null&&e<=fx.ring_km, in2=e!=null&&fx.ring95_km&&e<=fx.ring95_km;
+    h+=`fix ${fx.lat.toFixed(3)}, ${fx.lon.toFixed(3)} ± ${fx.ring_km.toFixed(fx.ring_km<10?1:0)} km${fx.ring95_km&&fx.ring95_km>fx.ring_km+0.05?` (outer ${fx.ring95_km.toFixed(0)} km)`:''}${fx.confidence==='AMBIGUOUS'?' <span class="bad">AMBIGUOUS</span>':''}<br>`;
+    if(e!=null)h+=`error <span class="${in1||in2?'ok':'bad'}">${e} km</span> ${in1?'(inside ring)':in2?'(inside outer ring)':'(outside rings)'}<br>`;
+    if(r.exact_err_km!=null)h+=`perfect tilt: <span class="cy">${r.exact_err_km} km</span> · tilt err ${r.simulated_tilt_deg}°<br>`;
+    if(r.truth&&r.truth.heading_err_deg!=null)h+=`heading err ${r.truth.heading_err_deg}°<br>`;
+    if(r.prior)h+=`last fix was ${r.prior.offset_km.toFixed(1)} km off<br>`;
+    if(r.recovery)h+=`→ ${r.recovery.target.role} ${r.recovery.target.bearing_deg}° ${r.recovery.target.dist_km} km<br>`;
+  }else if(R.ok&&R.sky){h+=`<span class="cy">sky solved</span>: RA ${R.sky.ra.toFixed(1)}° Dec ${R.sky.dec.toFixed(1)}° FOV ${R.sky.fov.toFixed(1)}° (${R.sky.matches} stars)<br>no latitude without the phone's gravity vector<br>`;
+  }else h+=`<span class="bad">no solution</span><br>`;
+  h+=`<span style="color:#778">${r.server_ms} ms${r.evidence?' · '+r.evidence.uid:''}</span>`;return h}
+function tally(r){const k=r.demo.set;stats[k]=stats[k]||{n:0,fix:0,sky:0,errs:[]};const s=stats[k];s.n++;if(r.fix_out){s.fix++;if(r.truth&&r.truth.err_km!=null)s.errs.push(r.truth.err_km)}else if(r.result&&r.result.ok)s.sky++;
+  $('sum').innerHTML='This session: '+Object.entries(stats).map(([k,s])=>{const e=s.errs.slice().sort((a,b)=>a-b);const med=e.length?e[Math.floor(e.length/2)]:null;return `<b>${k}</b> ${s.n} solved-tried, ${s.fix} fixes${s.sky?`, ${s.sky} sky-only`:''}${med!=null?`, median err ${med} km`:''}`}).join(' · ')}
+init();
+</script></body></html>

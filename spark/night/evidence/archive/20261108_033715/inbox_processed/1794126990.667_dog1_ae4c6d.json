@@ -1,0 +1,1 @@
+{"t": 1794126990.667208, "sensor": "dog1", "kind": "dog_stop", "position": {"x": 4.285, "y": 3.784, "frame": "floor"}, "confidence": 0.3, "clip_path": null, "extra": {"run": "run_00_synthetic", "source": "auto:track", "synthetic": true}}

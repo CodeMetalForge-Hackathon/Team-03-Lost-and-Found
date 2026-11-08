@@ -1,0 +1,235 @@
+{
+ "_note": "Pre-loaded recovery points (PRIMARY / ALTERNATE / CONTINGENCY) per area of operations. The AO whose PRIMARY point is nearest the fix is used. Demo values: public landmarks, not real mission data. Edit before use.",
+ "areas": [
+  {
+   "ao": "BOSTON",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "Hanscom AFB airfield",
+     "lat": 42.47,
+     "lon": -71.289
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Blue Hills summit (Great Blue Hill)",
+     "lat": 42.212,
+     "lon": -71.1143
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Plum Island beach lot",
+     "lat": 42.76,
+     "lon": -70.804
+    }
+   ]
+  },
+  {
+   "ao": "ALPS",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "Meiringen air base",
+     "lat": 46.7433,
+     "lon": 8.11
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Sion airfield",
+     "lat": 46.2196,
+     "lon": 7.3268
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Samedan airfield",
+     "lat": 46.5341,
+     "lon": 9.8841
+    }
+   ]
+  },
+  {
+   "ao": "MOJAVE",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "Fort Irwin (Bicycle Lake AAF)",
+     "lat": 35.2805,
+     "lon": -116.6302
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Barstow-Daggett airport",
+     "lat": 34.8537,
+     "lon": -116.7867
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Baker town",
+     "lat": 35.265,
+     "lon": -116.073
+    }
+   ]
+  },
+  {
+   "ao": "CAROLINA",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "Pope Field",
+     "lat": 35.1709,
+     "lon": -79.0145
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Mackall AAF",
+     "lat": 35.036,
+     "lon": -79.497
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Moore County airport",
+     "lat": 35.2374,
+     "lon": -79.3912
+    }
+   ]
+  },
+  {
+   "ao": "ALASKA",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "Elmendorf-Richardson AFB",
+     "lat": 61.251,
+     "lon": -149.8065
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Merrill Field",
+     "lat": 61.2144,
+     "lon": -149.8442
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Birchwood airport",
+     "lat": 61.4165,
+     "lon": -149.507
+    }
+   ]
+  },
+  {
+   "ao": "HINDU_KUSH",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "Bagram airfield",
+     "lat": 34.9461,
+     "lon": 69.265
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Kabul airport",
+     "lat": 34.5659,
+     "lon": 69.2123
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Jalalabad airfield",
+     "lat": 34.3998,
+     "lon": 70.4986
+    }
+   ]
+  },
+  {
+   "ao": "SAHARA",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "In Salah airport",
+     "lat": 27.251,
+     "lon": 2.512
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Tamanrasset airport",
+     "lat": 22.8115,
+     "lon": 5.4511
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Djanet airport",
+     "lat": 24.2928,
+     "lon": 9.4524
+    }
+   ]
+  },
+  {
+   "ao": "SYDNEY",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "RAAF Richmond",
+     "lat": -33.6006,
+     "lon": 150.7808
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Sydney airport",
+     "lat": -33.9461,
+     "lon": 151.1772
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Bankstown airport",
+     "lat": -33.9244,
+     "lon": 150.9883
+    }
+   ]
+  },
+  {
+   "ao": "PATAGONIA",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "Puerto Natales airport",
+     "lat": -51.6715,
+     "lon": -72.5284
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "El Calafate airport",
+     "lat": -50.2803,
+     "lon": -72.0531
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Cochrane airfield",
+     "lat": -47.2438,
+     "lon": -72.5884
+    }
+   ]
+  },
+  {
+   "ao": "HAWAII",
+   "points": [
+    {
+     "role": "PRIMARY",
+     "name": "Bradshaw AAF",
+     "lat": 19.7604,
+     "lon": -155.554
+    },
+    {
+     "role": "ALTERNATE",
+     "name": "Hilo airport",
+     "lat": 19.7214,
+     "lon": -155.0485
+    },
+    {
+     "role": "CONTINGENCY",
+     "name": "Kona airport",
+     "lat": 19.7388,
+     "lon": -156.0456
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIR theatre</title>
+<style>
+:root{--bg:#0e1116;--fg:#e6e8eb;--mut:#9aa3ad;--card:#161b22;--line:#2a313b;--acc:#4ea1ff;--warn:#f0b429;--det:#ff4d6d;--chip:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line)}
+h1{font-size:16px;margin:0 8px 0 0}button,select{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 8px;font:inherit;cursor:pointer}
+button.on{border-color:var(--acc);color:var(--acc)}
+#wrap{position:relative;height:calc(100vh - 96px)}canvas{display:block;width:100%;height:100%;touch-action:none}
+.banner{position:absolute;left:8px;top:8px;max-width:min(560px,calc(100% - 16px));background:rgba(14,17,22,.86);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;line-height:1.45}
+.banner b{color:var(--warn)}.att{position:absolute;right:8px;bottom:8px;background:rgba(14,17,22,.86);padding:3px 8px;border-radius:4px;font-size:11px;color:var(--mut)}
+#side{position:absolute;right:8px;top:8px;width:min(340px,calc(100% - 16px));max-height:calc(100% - 50px);overflow:auto;background:rgba(14,17,22,.9);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px}
+#side h3{margin:4px 0;font-size:13px}.mut{color:var(--mut)}table{border-collapse:collapse;width:100%}td{padding:2px 4px;border-bottom:1px solid var(--line)}
+#stitchPane{display:none;position:absolute;inset:0;background:var(--bg);padding:8px;overflow:auto}
+#stitchPane img{max-width:100%;max-height:calc(100vh - 220px);display:block;margin:0 auto;border:1px solid var(--line)}
+footer{padding:4px 12px;font-size:11px;color:var(--mut);border-top:1px solid var(--line)}
+@media (max-width:700px){#side{display:none}}
+</style></head><body>
+<header><h1>AIR</h1>
+ <select id="scene"></select>
+ <button id="tDet">detections</button><button id="tCap">hazard captions (unvalidated)</button><button id="tDepth">2.5D relief</button>
+ <button id="tStitch">▶ map forming (live stitch)</button>
+ <span class="mut" id="stat"></span>
+</header>
+<div id="wrap"><canvas id="cv"></canvas>
+ <div class="banner" id="banner"></div>
+ <div id="side"></div>
+ <div class="att">Imagery: NOAA National Geodetic Survey Emergency Response Imagery.</div>
+ <div id="stitchPane"><div class="banner" style="position:static;max-width:none;margin-bottom:8px" id="stitchInfo"></div><img id="stitchImg"><div class="mut" id="stitchClock" style="text-align:center"></div></div>
+</div>
+<footer>Detections from AerialPerson-YOLO26 (AGPL-3.0), sliced 640 px inference. Captions are hazard chips from a vision-language model, never detections. Relief from Depth-Anything-V2 is relative shading, not elevation.</footer>
+<script>
+const $=id=>document.getElementById(id), cv=$('cv'), g=cv.getContext('2d');
+let SC={}, cur=null, M=null, OV=null, view={cx:0,cy:0,mpp:2}, cache={}, layers={det:0,cap:0,depth:0}, depthImg=null;
+function mx(){return 111320*Math.cos(M.lat0*Math.PI/180)} const my=110540;
+function ll2m(lat,lon){return [(lon-M.bounds.w)*mx(), (M.bounds.n-lat)*my]}         // metres from NW corner, y down
+function resize(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1; cv.width=r.width*d; cv.height=r.height*d; draw();}
+function w2s(x,y){return [(x-view.cx)/view.mpp*devicePixelRatio+cv.width/2,(y-view.cy)/view.mpp*devicePixelRatio+cv.height/2]}
+function tile(z,i,j){ if(M.have&&!M.have[z+'/'+i+'_'+j]) return null; const k=cur+'/'+z+'/'+i+'_'+j; if(k in cache) return cache[k]; const im=new Image(); im.onload=draw; im.onerror=()=>{cache[k]=null}; im.src='tiles/'+k+'.webp'; cache[k]=im; return im;}
+function draw(){ if(!M) return; g.fillStyle='#0e1116'; g.fillRect(0,0,cv.width,cv.height);
+  const L=M.levels; let lev=L.find(l=>l.m_per_px<=view.mpp*1.01)||L[L.length-1];
+  const lo=L.find(l=>l.z===0);
+  const T=M.tile, s=lev.m_per_px*T, d=devicePixelRatio, W=cv.width/d*view.mpp, H=cv.height/d*view.mpp;
+  const i0=Math.max(0,Math.floor((view.cx-W/2)/s)), i1=Math.min(lev.tx-1,Math.floor((view.cx+W/2)/s));
+  const j0=Math.max(0,Math.floor((view.cy-H/2)/s)), j1=Math.min(lev.ty-1,Math.floor((view.cy+H/2)/s));
+  g.imageSmoothingEnabled=true;
+  if(OV&&OV.complete){const [a,b]=w2s(0,0),[c,e]=w2s(lo.w*lo.m_per_px,lo.h*lo.m_per_px); g.drawImage(OV,a,b,c-a,e-b);}  // low-res underlay
+  for(let j=j0;j<=j1;j++) for(let i=i0;i<=i1;i++){ const im=tile(lev.z,i,j); if(!im||!im.complete||!im.naturalWidth) continue;
+    const [a,b]=w2s(i*s,j*s); g.drawImage(im,a,b,im.naturalWidth*lev.m_per_px/view.mpp*d+0.5,im.naturalHeight*lev.m_per_px/view.mpp*d+0.5); }
+  if(layers.depth&&depthImg&&depthImg.complete){ g.globalAlpha=0.55; g.globalCompositeOperation='multiply'; const [a,b]=w2s(0,0),[c,e]=w2s(lo.w*lo.m_per_px,lo.h*lo.m_per_px); g.drawImage(depthImg,a,b,c-a,e-b); g.globalAlpha=1; g.globalCompositeOperation='source-over'; }
+  const A=SC[cur]&&SC[cur].ov;
+  if(A&&layers.cap) for(const c of A.captions.chips||[]){ const [x,y]=w2s(...ll2m(c.lat,c.lon)); g.font=`${11*d}px system-ui`; const t='⚠ '+c.text, tw=g.measureText(t).width;
+    g.fillStyle='rgba(20,20,20,.8)'; g.fillRect(x-tw/2-4*d,y-9*d,tw+8*d,18*d); g.fillStyle='#ffd166'; g.fillText(t,x-tw/2,y+4*d); }
+  if(A&&layers.det) for(const b of A.detections.dets||[]){ if(b.conf<0.6) continue; const [x0,y0]=w2s(...ll2m(b.n,b.w)), [x1,y1]=w2s(...ll2m(b.s,b.e)); g.strokeStyle='#ff4d6d'; g.lineWidth=2*d;
+    const pad=Math.max(0,6*d-(x1-x0))/2; g.strokeRect(x0-pad,y0-pad,x1-x0+2*pad,y1-y0+2*pad); g.fillStyle='#ff4d6d'; g.font=`${10*d}px system-ui`; g.fillText(b.conf.toFixed(2),x0,y0-3*d); }
+  // scale bar
+  const bar=[1,2,5,10,20,50,100,200,500,1000,2000].find(m=>m/view.mpp>80)||2000; g.fillStyle='#e6e8eb'; g.fillRect(12*d,cv.height-20*d,bar/view.mpp*d,3*d); g.font=`${11*d}px system-ui`; g.fillText(bar+' m',12*d,cv.height-26*d);
+  $('stat').textContent=`level ${lev.z} · ${lev.m_per_px} m/px displayed · view ${view.mpp.toFixed(2)} m/px`;
+}
+function fit(){ const d=devicePixelRatio; view.cx=M.extent_m[0]/2; view.cy=M.extent_m[1]/2; view.mpp=Math.max(M.extent_m[0]/(cv.width/d),M.extent_m[1]/(cv.height/d))*1.05; }
+function defaults(name){ const noaa=(SC[name].source||SC[name].title||name).toString().match(/NOAA|helene|ian/i)!==null;
+  // NOAA disaster scenes: detections and hazard captions OFF by default (people are 2-5 px; captions unvalidated); toggles keep them available.
+  // Any non-NOAA scene (e.g. the Aukerman flight) keeps detections ON. The Aukerman stitch replay always shows its detections.
+  layers.det=noaa?0:1; layers.cap=0; $('tDet').classList.toggle('on',!!layers.det); $('tCap').classList.toggle('on',false);
+  $('tDet').title=noaa?'off by default on NOAA scenes: a person is 2-5 px here and the boxes are unverified':''; }
+async function pick(name){ cur=name; M=SC[name]; defaults(name); OV=new Image(); OV.onload=draw; OV.src='tiles/'+name+'/overview.png';
+  const ov=await (await fetch('api/air/'+name)).json(); SC[name].ov=ov; depthImg=null; if(ov.depth){depthImg=new Image(); depthImg.onload=draw; depthImg.src='tiles/'+name+'/depth/relief.png';}
+  $('tDepth').disabled=!ov.depth; $('tDepth').title=ov.depth?'':'depth not computed for this scene';
+  const b=M.bounds, where=M.where||'';
+  $('banner').innerHTML=`<b>${M.title||name}</b> ${where}<br>${b.s.toFixed(4)}–${b.n.toFixed(4)}°N, ${(-b.e).toFixed(4)}–${(-b.w).toFixed(4)}°W · ${M.extent_m[0]}×${M.extent_m[1]} m · native GSD ≈ ${(M.gsd_native_m*100).toFixed(0)} cm`+
+   `<br><b>Scale check:</b> at ${(M.gsd_native_m*100).toFixed(0)} cm/px a person seen from above is ~${Math.round(0.5/M.gsd_native_m)} px across. The person detector was trained on low-altitude drone frames; people are not reliably resolvable at this scale. <br><span class="mut">This is a different place from the Ohio search grid on :8143; it is the disaster base layer, not the search area.</span>`;
+  side(ov); fit(); draw(); }
+function side(ov){ const d=ov.detections, R=window.RES||{}; let h=`<h3>Person detector on this scene</h3><div class="mut">${d.note||''}</div>`;
+  if(d.summary) h+=`<table>${Object.entries(d.summary).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>`;
+  const he=R.heridal; if(he){ const H=he.headline||{};
+    h+=`<h3>Person detector accuracy (HERIDAL test, held out)</h3><table><tr><td><b>${H.deployed||''}</b></td></tr><tr><td>${H.alt||''}</td></tr>`+
+       `<tr><td style="color:var(--mut)"><i>${H.human_baseline||''}</i></td></tr></table>`+
+       `<details><summary class="mut">other settings and method</summary><div class="mut">${he.note||''}</div><table>${Object.entries(he.table||{}).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table></details>`; }
+  h+=`<h3>Hazard captions</h3><div class="mut">${ov.captions.note||''}</div>`; $('side').innerHTML=h; }
+let drag=null; cv.onpointerdown=e=>{drag=[e.clientX,e.clientY]; cv.setPointerCapture(e.pointerId)}; cv.onpointerup=()=>drag=null;
+cv.onpointermove=e=>{ if(!drag) return; view.cx-=(e.clientX-drag[0])*view.mpp; view.cy-=(e.clientY-drag[1])*view.mpp; drag=[e.clientX,e.clientY]; draw(); };
+cv.onwheel=e=>{ e.preventDefault(); const r=cv.getBoundingClientRect(), px=e.clientX-r.left-r.width/2, py=e.clientY-r.top-r.height/2, k=Math.exp(e.deltaY*0.0015);
+  const wx=view.cx+px*view.mpp, wy=view.cy+py*view.mpp; view.mpp=Math.min(20,Math.max(0.05,view.mpp*k)); view.cx=wx-px*view.mpp; view.cy=wy-py*view.mpp; draw(); };
+for(const [id,k] of [['tDet','det'],['tCap','cap'],['tDepth','depth']]) $(id).onclick=()=>{layers[k]^=1; $(id).classList.toggle('on',!!layers[k]); draw();};
+$('scene').onchange=e=>pick(e.target.value);
+// live stitch replay
+let ST=null, sti=0, stTimer=null;
+$('tStitch').onclick=async()=>{ const p=$('stitchPane'); if(p.style.display==='block'){p.style.display='none'; clearInterval(stTimer); $('tStitch').textContent='▶ map forming (live stitch)'; return;}
+  ST=await (await fetch('api/stitch')).json(); p.style.display='block'; $('tStitch').textContent='✕ close stitch';
+  $('stitchInfo').innerHTML=`<b>Map forming as the drone flies</b>: ${ST.source||''}<br>${ST.method||ST.note||''}<br><span class="mut">${ST.georef_note||''}</span>`;
+  if(!ST.frames||!ST.frames.length) return; sti=0; clearInterval(stTimer); stTimer=setInterval(()=>{ const f=ST.frames[sti]; $('stitchImg').src='stitch/frames/'+f.png; $('stitchClock').textContent=`frame ${f.n} of ${ST.n_images} · ${f.placed} placed`+(f.dets!=null?` · ${f.dets} person detections so far`:''); sti=Math.min(sti+1,ST.frames.length-1); if(sti===ST.frames.length-1) clearInterval(stTimer); }, ST.interval_ms||600); };
+addEventListener('resize',resize);
+(async()=>{ try{window.RES=await (await fetch('api/results')).json();}catch(e){}
+  SC=await (await fetch('api/scenes')).json(); const names=Object.keys(SC).sort((a,b)=>(SC[a].order||9)-(SC[b].order||9));
+  $('scene').innerHTML=names.map(n=>`<option value="${n}">${SC[n].title||n}</option>`).join(''); resize(); if(names.length) pick(names[0]); })();
+</script></body></html>

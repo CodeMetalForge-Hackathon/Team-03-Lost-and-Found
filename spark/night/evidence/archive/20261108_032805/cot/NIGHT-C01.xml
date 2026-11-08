@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C01" type="a-u-G" time="2026-11-08T08:23:15.214Z" start="2026-11-08T08:23:15.214Z" stale="2026-11-08T08:53:15.214Z" how="m-f"><point lat="41.3033953" lon="-81.7453366" hae="9999999.0" ce="100.0" le="9999999.0"/><detail><contact callsign="LF C01 p=0.09"/><remarks>p_person=0.09; sources: dog1:dog_stop=0.30; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 6</remarks></detail></event>

@@ -2,8 +2,6 @@
 
 This takes the dog stand-in's real telemetry from **run 10** (`~/projects/Team-3/pi_pipeline/data/runs/run10_20261108-040115`: 52 heartbeats, 51 s, 13 alerts) and rebuilds what the dog did. The result is a set of legs, a 3D scene, a replay over time (4D) and a debrief written by an open model. The only spatial sensor is **one forward Grove ultrasonic ranger**, so position comes from range alone. **walk1** is the second example. It shows where the method breaks down.
 
-> Repo copy: in this folder, `out/run10/` is `run10/`, `out/walk1/` is `walk1/`, the scripts are in `code/`, and the live paths refer to the Spark (`~/forge/night/dogeye`).
-
 ```bash
 cd ~/forge/night/dogeye; P=~/forge/.venv/bin/python; R=~/projects/Team-3/pi_pipeline/data/runs
 $P reconstruct.py $R/run10_20261108-040115 out/run10 --room-prior   # legs.json, track.csv

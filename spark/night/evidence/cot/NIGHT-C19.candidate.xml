@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C19" type="a-u-G" time="2026-11-08T16:10:31.324Z" start="2026-11-08T16:10:31.324Z" stale="2026-11-08T16:40:31.324Z" how="m-f"><point lat="41.2212265" lon="-81.7173934" hae="9999999.0" ce="25.0" le="9999999.0"/><detail><contact callsign="LF C19 p=0.35"/><remarks>p_person=0.35; sources: sonar_fls:sonar_human_body=0.59; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 142</remarks></detail></event>

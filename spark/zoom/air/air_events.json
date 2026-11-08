@@ -1,0 +1,778 @@
+{
+ "events": [
+  {
+   "t_rel": 17.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.77,
+   "position": {
+    "lat": 41.30443757931322,
+    "lon": -81.7520330171215
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00232.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     763,
+     382,
+     799,
+     410
+    ]
+   }
+  },
+  {
+   "t_rel": 29.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.605,
+   "position": {
+    "lat": 41.3041769289002,
+    "lon": -81.7534359448262
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00235.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     38,
+     1273,
+     87,
+     1303
+    ]
+   }
+  },
+  {
+   "t_rel": 42.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.764,
+   "position": {
+    "lat": 41.304065165012446,
+    "lon": -81.753504304178
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00237.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1833,
+     2217,
+     1867,
+     2248
+    ]
+   }
+  },
+  {
+   "t_rel": 50.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.734,
+   "position": {
+    "lat": 41.30415151933727,
+    "lon": -81.75344289138152
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00238.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     236,
+     2014,
+     284,
+     2040
+    ]
+   }
+  },
+  {
+   "t_rel": 69.0,
+   "sensor": "aerial_rgb_sim",
+   "kind": "aerial_person",
+   "confidence": 0.872,
+   "position": {
+    "lat": 41.30404408249903,
+    "lon": -81.75018812178787
+   },
+   "extra": {
+    "simulated_placement": true,
+    "heridal_photo": "test_MOB_0001.jpg",
+    "shown_at_photo": "DSC00242.JPG",
+    "sigma_m": 15,
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "ground_truth": "matches a HERIDAL person label (IoU >= 0.5)"
+   }
+  },
+  {
+   "t_rel": 89.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.644,
+   "position": {
+    "lat": 41.30461327258038,
+    "lon": -81.7521208349442
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00246.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1112,
+     2968,
+     1173,
+     3122
+    ]
+   }
+  },
+  {
+   "t_rel": 89.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.603,
+   "position": {
+    "lat": 41.30591510638375,
+    "lon": -81.75233402479198
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00246.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4682,
+     2103,
+     4722,
+     2142
+    ]
+   }
+  },
+  {
+   "t_rel": 136.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.685,
+   "position": {
+    "lat": 41.30457241272417,
+    "lon": -81.75201995247548
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00252.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4328,
+     2020,
+     4386,
+     2120
+    ]
+   }
+  },
+  {
+   "t_rel": 136.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.652,
+   "position": {
+    "lat": 41.304481462220735,
+    "lon": -81.7521386411085
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00252.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     3771,
+     1872,
+     3817,
+     2026
+    ]
+   }
+  },
+  {
+   "t_rel": 140.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.789,
+   "position": {
+    "lat": 41.304612837738226,
+    "lon": -81.75211800124289
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00253.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     3711,
+     3297,
+     3783,
+     3444
+    ]
+   }
+  },
+  {
+   "t_rel": 176.0,
+   "sensor": "aerial_rgb_sim",
+   "kind": "aerial_person",
+   "confidence": 0.867,
+   "position": {
+    "lat": 41.30402564290924,
+    "lon": -81.75148644397792
+   },
+   "extra": {
+    "simulated_placement": true,
+    "heridal_photo": "test_MOB_0005.jpg",
+    "shown_at_photo": "DSC00258.JPG",
+    "sigma_m": 15,
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "ground_truth": "matches a HERIDAL person label (IoU >= 0.5)"
+   }
+  },
+  {
+   "t_rel": 184.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.655,
+   "position": {
+    "lat": 41.30461460113836,
+    "lon": -81.75211649156313
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00260.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4344,
+     2862,
+     4426,
+     3014
+    ]
+   }
+  },
+  {
+   "t_rel": 187.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.796,
+   "position": {
+    "lat": 41.304134089246546,
+    "lon": -81.75360592776704
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00261.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1618,
+     224,
+     1656,
+     284
+    ]
+   }
+  },
+  {
+   "t_rel": 241.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.837,
+   "position": {
+    "lat": 41.30379608676152,
+    "lon": -81.7540580047044
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00267.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1207,
+     1456,
+     1238,
+     1476
+    ]
+   }
+  },
+  {
+   "t_rel": 241.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.701,
+   "position": {
+    "lat": 41.30412459335845,
+    "lon": -81.75368703076225
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00267.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     2737,
+     1935,
+     2799,
+     1987
+    ]
+   }
+  },
+  {
+   "t_rel": 795.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.712,
+   "position": {
+    "lat": 41.30531660901136,
+    "lon": -81.75177121342104
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00271.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     3478,
+     684,
+     3512,
+     720
+    ]
+   }
+  },
+  {
+   "t_rel": 795.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.666,
+   "position": {
+    "lat": 41.305318395775046,
+    "lon": -81.75174758178001
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00271.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     3486,
+     747,
+     3512,
+     777
+    ]
+   }
+  },
+  {
+   "t_rel": 799.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.704,
+   "position": {
+    "lat": 41.30443649294492,
+    "lon": -81.75200802414437
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00272.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1469,
+     2418,
+     1504,
+     2447
+    ]
+   }
+  },
+  {
+   "t_rel": 799.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.687,
+   "position": {
+    "lat": 41.30443827364942,
+    "lon": -81.75199330914141
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00272.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1490,
+     2452,
+     1526,
+     2482
+    ]
+   }
+  },
+  {
+   "t_rel": 803.0,
+   "sensor": "aerial_rgb_sim",
+   "kind": "aerial_person",
+   "confidence": 0.864,
+   "position": {
+    "lat": 41.30514546628397,
+    "lon": -81.7521836528404
+   },
+   "extra": {
+    "simulated_placement": true,
+    "heridal_photo": "test_CAP_0003.jpg",
+    "shown_at_photo": "DSC00273.JPG",
+    "sigma_m": 15,
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "ground_truth": "matches a HERIDAL person label (IoU >= 0.5)"
+   }
+  },
+  {
+   "t_rel": 811.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.727,
+   "position": {
+    "lat": 41.305310899709795,
+    "lon": -81.75359964316519
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00275.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4186,
+     319,
+     4212,
+     338
+    ]
+   }
+  },
+  {
+   "t_rel": 824.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.787,
+   "position": {
+    "lat": 41.30332490176116,
+    "lon": -81.75469212022905
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00278.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4202,
+     1633,
+     4266,
+     1668
+    ]
+   }
+  },
+  {
+   "t_rel": 864.0,
+   "sensor": "aerial_rgb_sim",
+   "kind": "aerial_person",
+   "confidence": 0.863,
+   "position": {
+    "lat": 41.304681986470904,
+    "lon": -81.75093903623265
+   },
+   "extra": {
+    "simulated_placement": true,
+    "heridal_photo": "test_MOB_0002.jpg",
+    "shown_at_photo": "DSC00286.JPG",
+    "sigma_m": 15,
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "ground_truth": "matches a HERIDAL person label (IoU >= 0.5)"
+   }
+  },
+  {
+   "t_rel": 876.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.63,
+   "position": {
+    "lat": 41.305303240757276,
+    "lon": -81.75359537915394
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00289.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4208,
+     1120,
+     4228,
+     1136
+    ]
+   }
+  },
+  {
+   "t_rel": 886.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.762,
+   "position": {
+    "lat": 41.303791434738436,
+    "lon": -81.75406655017126
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00290.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4810,
+     2017,
+     4838,
+     2051
+    ]
+   }
+  },
+  {
+   "t_rel": 920.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.723,
+   "position": {
+    "lat": 41.30461449659125,
+    "lon": -81.75211872394884
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00296.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4541,
+     2633,
+     4618,
+     2803
+    ]
+   }
+  },
+  {
+   "t_rel": 920.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.676,
+   "position": {
+    "lat": 41.304573322251215,
+    "lon": -81.7520212126635
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00296.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     4466,
+     3031,
+     4526,
+     3139
+    ]
+   }
+  },
+  {
+   "t_rel": 936.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.82,
+   "position": {
+    "lat": 41.30443307971287,
+    "lon": -81.75203430550862
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00298.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1604,
+     61,
+     1637,
+     84
+    ]
+   }
+  },
+  {
+   "t_rel": 936.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.796,
+   "position": {
+    "lat": 41.30443389760114,
+    "lon": -81.75201996854007
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00298.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1618,
+     30,
+     1652,
+     50
+    ]
+   }
+  },
+  {
+   "t_rel": 936.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.644,
+   "position": {
+    "lat": 41.30443444069447,
+    "lon": -81.75200583452744
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00298.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1634,
+     0,
+     1666,
+     17
+    ]
+   }
+  },
+  {
+   "t_rel": 940.0,
+   "sensor": "aerial_rgb_sim",
+   "kind": "aerial_person",
+   "confidence": 0.858,
+   "position": {
+    "lat": 41.30386232633119,
+    "lon": -81.75140040811065
+   },
+   "extra": {
+    "simulated_placement": true,
+    "heridal_photo": "test_MOB_0004.jpg",
+    "shown_at_photo": "DSC00299.JPG",
+    "sigma_m": 15,
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "ground_truth": "matches a HERIDAL person label (IoU >= 0.5)"
+   }
+  },
+  {
+   "t_rel": 944.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.687,
+   "position": {
+    "lat": 41.30442737778631,
+    "lon": -81.7519830522165
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00300.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     0,
+     2778,
+     23,
+     2801
+    ]
+   }
+  },
+  {
+   "t_rel": 966.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.743,
+   "position": {
+    "lat": 41.304572202042486,
+    "lon": -81.7520228770675
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00304.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     3732,
+     2904,
+     3786,
+     3002
+    ]
+   }
+  },
+  {
+   "t_rel": 966.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.723,
+   "position": {
+    "lat": 41.304612651774754,
+    "lon": -81.75211964484386
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00304.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     3836,
+     2578,
+     3894,
+     2715
+    ]
+   }
+  },
+  {
+   "t_rel": 1030.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.824,
+   "position": {
+    "lat": 41.30379654290062,
+    "lon": -81.75405541700478
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00311.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1436,
+     210,
+     1465,
+     230
+    ]
+   }
+  },
+  {
+   "t_rel": 1030.0,
+   "sensor": "aerial_rgb",
+   "kind": "aerial_person",
+   "confidence": 0.662,
+   "position": {
+    "lat": 41.30373416429283,
+    "lon": -81.75375643659427
+   },
+   "extra": {
+    "detector": "AerialPerson-YOLO26l (AGPL-3.0)",
+    "photo": "DSC00311.JPG",
+    "georef": "ODM camera pose ray to ground plane",
+    "sigma_m": 15,
+    "box_px": [
+     1422,
+     1101,
+     1442,
+     1120
+    ]
+   }
+  }
+ ],
+ "n_real": 31,
+ "n_sim": 5
+}

@@ -1,0 +1,41 @@
+{
+ "lat": 35.0,
+ "lon": -116.5,
+ "utc": "2026-11-08T07:46:00.000Z",
+ "az": 270.0,
+ "alt": 60.0,
+ "roll": 1.69,
+ "hfov": 70.0,
+ "width": 2000,
+ "height": 1500,
+ "elevation_m": 900,
+ "focal_px": 1428.1480067421146,
+ "seed": 504247552,
+ "dropout": 0.03,
+ "psf_sigma": 1.3,
+ "bg_e": 400.0,
+ "glow_e": 900.0,
+ "mag6_peak_snr": 3.0,
+ "read_noise_e": 3.0,
+ "extinction_k": 0.2,
+ "refraction": true,
+ "max_mag": 7.0,
+ "gravity_cam": [
+  0.01474589376392758,
+  0.4997825113157753,
+  -0.8660254037844386
+ ],
+ "zenith_cam": [
+  -0.01474589376392758,
+  -0.4997825113157753,
+  0.8660254037844386
+ ],
+ "camera_frame": "x=image right, y=image down, z=out of lens; gravity_cam points down",
+ "n_stars_projected": 1337,
+ "n_stars_rendered": 1293,
+ "n_dropped": 44,
+ "n_stars_brighter_6p5": 530,
+ "catalog": "Hipparcos hip_main.dat, pm to epoch",
+ "generator": "skyfix/synth/render_sky.py",
+ "site": "mojave"
+}

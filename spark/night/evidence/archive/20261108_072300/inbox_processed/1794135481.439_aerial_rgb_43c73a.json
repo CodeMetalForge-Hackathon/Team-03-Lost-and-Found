@@ -1,0 +1,1 @@
+{"t": 1794135481.4386148, "sensor": "aerial_rgb", "kind": "aerial_person", "position": {"lat": 41.304612651774754, "lon": -81.75211964484386}, "confidence": 0.723, "clip_path": null, "extra": {"detector": "AerialPerson-YOLO26l (AGPL-3.0)", "photo": "DSC00304.JPG", "georef": "ODM camera pose ray to ground plane", "sigma_m": 15, "box_px": [3836, 2578, 3894, 2715]}}

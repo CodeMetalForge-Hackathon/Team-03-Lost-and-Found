@@ -1,0 +1,41 @@
+{
+ "lat": -50.3,
+ "lon": -72.3,
+ "utc": "2026-11-08T04:49:12.000Z",
+ "az": 270.0,
+ "alt": 60.0,
+ "roll": 5.62,
+ "hfov": 70.0,
+ "width": 2000,
+ "height": 1500,
+ "elevation_m": 300,
+ "focal_px": 1428.1480067421146,
+ "seed": 198775362,
+ "dropout": 0.03,
+ "psf_sigma": 1.3,
+ "bg_e": 400.0,
+ "glow_e": 900.0,
+ "mag6_peak_snr": 3.0,
+ "read_noise_e": 3.0,
+ "extinction_k": 0.2,
+ "refraction": true,
+ "max_mag": 7.0,
+ "gravity_cam": [
+  0.04896514685285965,
+  0.4975966382459572,
+  -0.8660254037844386
+ ],
+ "zenith_cam": [
+  -0.04896514685285965,
+  -0.4975966382459572,
+  0.8660254037844386
+ ],
+ "camera_frame": "x=image right, y=image down, z=out of lens; gravity_cam points down",
+ "n_stars_projected": 971,
+ "n_stars_rendered": 953,
+ "n_dropped": 18,
+ "n_stars_brighter_6p5": 410,
+ "catalog": "Hipparcos hip_main.dat, pm to epoch",
+ "generator": "skyfix/synth/render_sky.py",
+ "site": "patagonia"
+}

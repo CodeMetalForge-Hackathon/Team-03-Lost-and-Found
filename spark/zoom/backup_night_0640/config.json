@@ -1,0 +1,87 @@
+{
+ "_note": "Shared frame for the night build. Floor metres (dog, tap3 on the venue floor) are projected onto the map at floor_anchor for the demo; this is a display choice, not a survey.",
+ "lkp": {
+  "lat": 41.304129,
+  "lon": -81.75371
+ },
+ "floor_anchor": {
+  "lat": 41.30455,
+  "lon": -81.7518,
+  "rotation_deg": 0.0,
+  "scale": 100.0,
+  "_doc": "floor (0,0) = marker M1; +x east, +y south (image down); rotation clockwise. DEMO SCALING: 1 dog floor cell (0.5 m) = 1 map cell (50 m), i.e. scale = 50 / 0.5 = 100, so the 6 x 4 m venue floor stands in for a 600 x 400 m search sector. Shown on the replay page and on the map."
+ },
+ "cluster_m": {
+  "floor": 2.0,
+  "geo": 25.0
+ },
+ "cluster_window_s": 600,
+ "modality_weight": {
+  "tap_pattern_3": 0.85,
+  "thermal_person": 0.9,
+  "rgb_person": 0.7,
+  "acoustic_hv": 0.8,
+  "acoustic_hnv": 0.3,
+  "seismic_footstep": 0.5,
+  "dog_alert": 0.6,
+  "dog_bark": 0.5,
+  "dog_stop": 0.3,
+  "dog_spin": 0.35,
+  "knock": 0.6,
+  "shout": 0.7,
+  "sound_spike": 0.3,
+  "tap3": 0.85,
+  "skyfix_fix": 0.0,
+  "default": 0.3
+ },
+ "cot": {
+  "type_candidate": "a-u-G",
+  "type_confirmed": "a-f-G",
+  "how": "m-f",
+  "stale_min": 30,
+  "uid_prefix": "NIGHT-",
+  "_doc": "Unconfirmed contact = a-u-G (unknown ground). After a human confirms, the same uid is re-emitted as a-f-G (friendly ground), so ATAK updates the pin in place. a-h-* (hostile) is refused by fuse.py: a survivor is not hostile."
+ },
+ "fields": {
+  "_doc": "Probability fields added to the COP by sensor events. mass = modality_weight[kind] x confidence (skyfix: skyfix_weight). Sigmas in map metres; ILLUSTRATIVE, hand-set.",
+  "tap_sigma_ref_m": 150,
+  "tap_strength_ref": 5.0,
+  "tap_sigma_min_m": 50,
+  "tap_sigma_max_m": 400,
+  "dog_sigma_m": 50,
+  "acoustic_sigma_m": 120,
+  "thermal_footprint_m": 40,
+  "default_sigma_m": 100,
+  "skyfix_weight": 0.9,
+  "source_cap_frac": 1.0,
+  "_cap_doc": "Each source's summed field is scaled down so its mass on the grid is at most source_cap_frac x the prior's mass (prior normalised to 1). Stops one chatty sensor (e.g. many dog alerts) from dominating the COP."
+ },
+ "perch_point": {
+  "lat": 41.30455,
+  "lon": -81.751,
+  "_doc": "where the perched drone listens (demo); Perch 'send to fusion' emits here"
+ },
+ "assets": {
+  "_doc": "Next Best Action ETAs: straight line, terrain-free. Hints only; nothing is auto-tasked.",
+  "teams": [
+   {
+    "id": "Team 1",
+    "lat": 41.303858,
+    "lon": -81.753746
+   }
+  ],
+  "walk_mps": 1.2,
+  "drone": {
+   "id": "UAV 1",
+   "lat": 41.304129,
+   "lon": -81.75371,
+   "speed_mps": 12.0,
+   "launch_s": 60
+  }
+ },
+ "coverage": {
+  "drone_pod_per_pass": 0.6,
+  "_drone_doc": "thermal day POD 0.6 from the pass-1 spec table (not field-calibrated)",
+  "unsearched_pod_max": 0.3
+ }
+}

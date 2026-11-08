@@ -1,0 +1,70 @@
+{
+ "frames": 60,
+ "solved": 60,
+ "solve_rate": 1.0,
+ "solve_ms_median": 55.0,
+ "solve_ms_max": 1119.7,
+ "methods": {
+  "phone_db_full": 60
+ },
+ "matches_median": 26.0,
+ "centroid_rms_deg_median": 0.0073,
+ "by_sigma": {
+  "0.0": {
+   "n": 60,
+   "median_km": 0.4,
+   "p75_km": 0.51,
+   "p95_km": 0.71,
+   "max_km": 1.65,
+   "frac_within_20km": 1.0,
+   "median_first_pass_km": 2.0,
+   "in_ring1_braced": 1.0,
+   "in_ring95_braced": 1.0,
+   "median_tilt_applied_deg": 0.0,
+   "median_heading_err_deg": 0.002,
+   "p95_heading_err_deg": 0.006
+  },
+  "0.1": {
+   "n": 180,
+   "median_km": 13.89,
+   "p75_km": 19.17,
+   "p95_km": 26.66,
+   "max_km": 35.62,
+   "frac_within_20km": 0.789,
+   "median_first_pass_km": 14.23,
+   "in_ring1_braced": 0.994,
+   "in_ring95_braced": 1.0,
+   "median_tilt_applied_deg": 0.128,
+   "median_heading_err_deg": 0.086,
+   "p95_heading_err_deg": 0.338
+  },
+  "0.3": {
+   "n": 180,
+   "median_km": 40.14,
+   "p75_km": 55.48,
+   "p95_km": 82.22,
+   "max_km": 150.51,
+   "frac_within_20km": 0.15,
+   "median_first_pass_km": 40.29,
+   "in_ring1_braced": 0.394,
+   "in_ring95_braced": 0.95,
+   "median_tilt_applied_deg": 0.361,
+   "median_heading_err_deg": 0.26,
+   "p95_heading_err_deg": 1.144
+  },
+  "1.4": {
+   "n": 180,
+   "median_km": 194.03,
+   "p75_km": 276.72,
+   "p95_km": 380.25,
+   "max_km": 603.62,
+   "frac_within_20km": 0.011,
+   "median_first_pass_km": 194.61,
+   "in_ring1_braced": 0.028,
+   "in_ring95_braced": 0.106,
+   "median_tilt_applied_deg": 1.741,
+   "median_heading_err_deg": 1.185,
+   "p95_heading_err_deg": 5.018
+  }
+ }
+}

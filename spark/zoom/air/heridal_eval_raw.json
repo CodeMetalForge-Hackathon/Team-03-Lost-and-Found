@@ -1,0 +1,137 @@
+{
+ "heridal_y26l_t1280": {
+  "weights": "weights/aerialperson/AerialPerson-YOLO26l.pt",
+  "settings": {
+   "tile": 1280,
+   "overlap": 0.2,
+   "imgsz": 640
+  },
+  "iou0.5": {
+   "npos": 253,
+   "AP": 0.234,
+   "conf0.25": {
+    "P": 0.294,
+    "R": 0.324,
+    "TP": 82,
+    "FP": 197,
+    "FN": 171
+   },
+   "conf0.60": {
+    "P": 0.553,
+    "R": 0.225,
+    "TP": 57,
+    "FP": 46,
+    "FN": 196
+   }
+  },
+  "iou0.3": {
+   "npos": 253,
+   "AP": 0.281,
+   "conf0.25": {
+    "P": 0.333,
+    "R": 0.368,
+    "TP": 93,
+    "FP": 186,
+    "FN": 160
+   },
+   "conf0.60": {
+    "P": 0.612,
+    "R": 0.249,
+    "TP": 63,
+    "FP": 40,
+    "FN": 190
+   }
+  },
+  "n_images": 71
+ },
+ "heridal_y26n_t1280": {
+  "weights": "weights/aerialperson/sweep/yolo26n/best.pt",
+  "settings": {
+   "tile": 1280,
+   "overlap": 0.2,
+   "imgsz": 640
+  },
+  "iou0.5": {
+   "npos": 253,
+   "AP": 0.303,
+   "conf0.25": {
+    "P": 0.372,
+    "R": 0.372,
+    "TP": 94,
+    "FP": 159,
+    "FN": 159
+   },
+   "conf0.60": {
+    "P": 0.671,
+    "R": 0.186,
+    "TP": 47,
+    "FP": 23,
+    "FN": 206
+   }
+  },
+  "iou0.3": {
+   "npos": 253,
+   "AP": 0.376,
+   "conf0.25": {
+    "P": 0.447,
+    "R": 0.447,
+    "TP": 113,
+    "FP": 140,
+    "FN": 140
+   },
+   "conf0.60": {
+    "P": 0.7,
+    "R": 0.194,
+    "TP": 49,
+    "FP": 21,
+    "FN": 204
+   }
+  },
+  "n_images": 71
+ },
+ "heridal_y26l": {
+  "weights": "weights/aerialperson/AerialPerson-YOLO26l.pt",
+  "settings": {
+   "tile": 640,
+   "overlap": 0.2,
+   "imgsz": 640
+  },
+  "iou0.5": {
+   "npos": 253,
+   "AP": 0.064,
+   "conf0.25": {
+    "P": 0.093,
+    "R": 0.17,
+    "TP": 43,
+    "FP": 419,
+    "FN": 210
+   },
+   "conf0.60": {
+    "P": 0.245,
+    "R": 0.103,
+    "TP": 26,
+    "FP": 80,
+    "FN": 227
+   }
+  },
+  "iou0.3": {
+   "npos": 253,
+   "AP": 0.079,
+   "conf0.25": {
+    "P": 0.108,
+    "R": 0.198,
+    "TP": 50,
+    "FP": 412,
+    "FN": 203
+   },
+   "conf0.60": {
+    "P": 0.274,
+    "R": 0.115,
+    "TP": 29,
+    "FP": 77,
+    "FN": 224
+   }
+  },
+  "n_images": 71
+ }
+}

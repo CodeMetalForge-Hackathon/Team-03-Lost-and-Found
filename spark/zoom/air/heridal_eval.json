@@ -1,0 +1,290 @@
+{
+ "note": "HERIDAL official test split, 101 photos, 337 people, IoU \u2265 0.5. Sliced inference: 1280 px windows resized to 640 (chosen on photos 1\u201330; 640 px native windows gave AP50 0.07). 'Held-out' = photos 31\u2013101, not used to pick settings. The 0.59 / 0.68 line is the PUBLISHED HUMAN BASELINE (human observers on HERIDAL), not a model result. AerialPerson-Mix trains on HERIDAL imagery; we have not verified the HERIDAL test photos are excluded from its training set.",
+ "table": {
+  "YOLO26l (deployed), held-out 71, conf\u22650.60": "AP50 0.23 \u00b7 P 0.55 R 0.23",
+  "YOLO26l, held-out 71, conf\u22650.25": "AP50 0.23 \u00b7 P 0.29 R 0.32",
+  "YOLO26n, held-out 71, conf\u22650.60": "AP50 0.30 \u00b7 P 0.67 R 0.19",
+  "YOLO26n, held-out 71, conf\u22650.25": "AP50 0.30 \u00b7 P 0.37 R 0.37",
+  "YOLO26l, all 101, conf\u22650.60": "AP50 0.24 \u00b7 P 0.53 R 0.23",
+  "YOLO26l, all 101, 640 native tiles": "AP50 0.07 \u00b7 P 0.27 R 0.11"
+ },
+ "full": {
+  "heridal_y26l_t1280": {
+   "weights": "weights/aerialperson/AerialPerson-YOLO26l.pt",
+   "settings": {
+    "tile": 1280,
+    "overlap": 0.2,
+    "imgsz": 640
+   },
+   "iou0.5": {
+    "npos": 337,
+    "AP": 0.244,
+    "conf0.25": {
+     "P": 0.29,
+     "R": 0.347,
+     "TP": 117,
+     "FP": 287,
+     "FN": 220
+    },
+    "conf0.60": {
+     "P": 0.528,
+     "R": 0.226,
+     "TP": 76,
+     "FP": 68,
+     "FN": 261
+    }
+   },
+   "iou0.3": {
+    "npos": 337,
+    "AP": 0.306,
+    "conf0.25": {
+     "P": 0.344,
+     "R": 0.412,
+     "TP": 139,
+     "FP": 265,
+     "FN": 198
+    },
+    "conf0.60": {
+     "P": 0.597,
+     "R": 0.255,
+     "TP": 86,
+     "FP": 58,
+     "FN": 251
+    }
+   },
+   "n_images": 101
+  },
+  "heridal_y26n_t1280": {
+   "weights": "weights/aerialperson/sweep/yolo26n/best.pt",
+   "settings": {
+    "tile": 1280,
+    "overlap": 0.2,
+    "imgsz": 640
+   },
+   "iou0.5": {
+    "npos": 337,
+    "AP": 0.306,
+    "conf0.25": {
+     "P": 0.371,
+     "R": 0.374,
+     "TP": 126,
+     "FP": 214,
+     "FN": 211
+    },
+    "conf0.60": {
+     "P": 0.697,
+     "R": 0.184,
+     "TP": 62,
+     "FP": 27,
+     "FN": 275
+    }
+   },
+   "iou0.3": {
+    "npos": 337,
+    "AP": 0.395,
+    "conf0.25": {
+     "P": 0.453,
+     "R": 0.457,
+     "TP": 154,
+     "FP": 186,
+     "FN": 183
+    },
+    "conf0.60": {
+     "P": 0.742,
+     "R": 0.196,
+     "TP": 66,
+     "FP": 23,
+     "FN": 271
+    }
+   },
+   "n_images": 101
+  },
+  "heridal_y26l": {
+   "weights": "weights/aerialperson/AerialPerson-YOLO26l.pt",
+   "settings": {
+    "tile": 640,
+    "overlap": 0.2,
+    "imgsz": 640
+   },
+   "iou0.5": {
+    "npos": 337,
+    "AP": 0.074,
+    "conf0.25": {
+     "P": 0.089,
+     "R": 0.169,
+     "TP": 57,
+     "FP": 583,
+     "FN": 280
+    },
+    "conf0.60": {
+     "P": 0.271,
+     "R": 0.107,
+     "TP": 36,
+     "FP": 97,
+     "FN": 301
+    }
+   },
+   "iou0.3": {
+    "npos": 337,
+    "AP": 0.092,
+    "conf0.25": {
+     "P": 0.108,
+     "R": 0.205,
+     "TP": 69,
+     "FP": 571,
+     "FN": 268
+    },
+    "conf0.60": {
+     "P": 0.293,
+     "R": 0.116,
+     "TP": 39,
+     "FP": 94,
+     "FN": 298
+    }
+   },
+   "n_images": 101
+  }
+ },
+ "held_out": {
+  "heridal_y26l_t1280": {
+   "weights": "weights/aerialperson/AerialPerson-YOLO26l.pt",
+   "settings": {
+    "tile": 1280,
+    "overlap": 0.2,
+    "imgsz": 640
+   },
+   "iou0.5": {
+    "npos": 253,
+    "AP": 0.234,
+    "conf0.25": {
+     "P": 0.294,
+     "R": 0.324,
+     "TP": 82,
+     "FP": 197,
+     "FN": 171
+    },
+    "conf0.60": {
+     "P": 0.553,
+     "R": 0.225,
+     "TP": 57,
+     "FP": 46,
+     "FN": 196
+    }
+   },
+   "iou0.3": {
+    "npos": 253,
+    "AP": 0.281,
+    "conf0.25": {
+     "P": 0.333,
+     "R": 0.368,
+     "TP": 93,
+     "FP": 186,
+     "FN": 160
+    },
+    "conf0.60": {
+     "P": 0.612,
+     "R": 0.249,
+     "TP": 63,
+     "FP": 40,
+     "FN": 190
+    }
+   },
+   "n_images": 71
+  },
+  "heridal_y26n_t1280": {
+   "weights": "weights/aerialperson/sweep/yolo26n/best.pt",
+   "settings": {
+    "tile": 1280,
+    "overlap": 0.2,
+    "imgsz": 640
+   },
+   "iou0.5": {
+    "npos": 253,
+    "AP": 0.303,
+    "conf0.25": {
+     "P": 0.372,
+     "R": 0.372,
+     "TP": 94,
+     "FP": 159,
+     "FN": 159
+    },
+    "conf0.60": {
+     "P": 0.671,
+     "R": 0.186,
+     "TP": 47,
+     "FP": 23,
+     "FN": 206
+    }
+   },
+   "iou0.3": {
+    "npos": 253,
+    "AP": 0.376,
+    "conf0.25": {
+     "P": 0.447,
+     "R": 0.447,
+     "TP": 113,
+     "FP": 140,
+     "FN": 140
+    },
+    "conf0.60": {
+     "P": 0.7,
+     "R": 0.194,
+     "TP": 49,
+     "FP": 21,
+     "FN": 204
+    }
+   },
+   "n_images": 71
+  },
+  "heridal_y26l": {
+   "weights": "weights/aerialperson/AerialPerson-YOLO26l.pt",
+   "settings": {
+    "tile": 640,
+    "overlap": 0.2,
+    "imgsz": 640
+   },
+   "iou0.5": {
+    "npos": 253,
+    "AP": 0.064,
+    "conf0.25": {
+     "P": 0.093,
+     "R": 0.17,
+     "TP": 43,
+     "FP": 419,
+     "FN": 210
+    },
+    "conf0.60": {
+     "P": 0.245,
+     "R": 0.103,
+     "TP": 26,
+     "FP": 80,
+     "FN": 227
+    }
+   },
+   "iou0.3": {
+    "npos": 253,
+    "AP": 0.079,
+    "conf0.25": {
+     "P": 0.108,
+     "R": 0.198,
+     "TP": 50,
+     "FP": 412,
+     "FN": 203
+    },
+    "conf0.60": {
+     "P": 0.274,
+     "R": 0.115,
+     "TP": 29,
+     "FP": 77,
+     "FN": 224
+    }
+   },
+   "n_images": 71
+  }
+ },
+ "headline": {
+  "deployed": "YOLO26l (deployed, 0.60 gate), held-out photos 31\u2013101: AP50 0.23 \u00b7 P 0.55 \u00b7 R 0.23",
+  "alt": "YOLO26n, held-out photos 31\u2013101: AP50 0.30",
+  "human_baseline": "Published human baseline (human observers, not a model): P 0.59 \u00b7 R 0.68"
+ }
+}

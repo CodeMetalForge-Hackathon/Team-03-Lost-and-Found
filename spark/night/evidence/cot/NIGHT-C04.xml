@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C04" type="a-u-G" time="2026-11-08T12:27:26.608Z" start="2026-11-08T12:27:26.608Z" stale="2026-11-08T12:57:26.608Z" how="m-f"><point lat="41.2228816" lon="-81.7168928" hae="9999999.0" ce="25.0" le="9999999.0"/><detail><contact callsign="LF C04 p=0.36"/><remarks>p_person=0.36; sources: sonar_fls:sonar_human_body=0.61; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 19</remarks></detail></event>

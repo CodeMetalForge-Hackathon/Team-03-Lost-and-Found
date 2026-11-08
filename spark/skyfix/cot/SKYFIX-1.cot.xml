@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="SKYFIX-1" type="a-f-G-U-C" how="h-e" time="2026-11-08T14:28:50Z" start="2026-11-08T14:28:50Z" stale="2026-11-08T14:58:50Z"><point lat="42.3593450" lon="-71.0561530" hae="9999999.0" ce="0.8" le="9999999.0" /><detail><contact callsign="SKYFIX 1" /><remarks>Sky Fix city_course self-localisation, no GPS. ring=1 m heading=76.7 conf=gated hash=17885f4efcc37183</remarks></detail></event>

@@ -1,0 +1,72 @@
+{
+ "split": "test",
+ "score": "rms_detrend",
+ "horizon": "auto",
+ "n": 112,
+ "n_ok": 112,
+ "median_km": 17.39,
+ "p75_km": 25.97,
+ "mean_km": 16.41,
+ "frac_within_5km": 0.268,
+ "frac_within_2km": 0.223,
+ "frac_better_than_prior": 0.339,
+ "prior_median_km": 9.73,
+ "ring_median_km": 45.75,
+ "truth_in_ring_frac": 1.0,
+ "truth_cell_rank_median": 260.0,
+ "horizon_mae_px_median": 2.28,
+ "horizon_methods": {
+  "sam2": 112
+ },
+ "t_horizon_ms_median": 75.0,
+ "t_match_ms_median": 234.0,
+ "t_grid_all_s": 0.2,
+ "conf_relmargin_0.02": {
+  "n": 81,
+  "frac": 0.723,
+  "median_km": 15.73,
+  "within_5km": 0.333,
+  "truth_in_core": 0.247,
+  "core_median_km": 1.0
+ },
+ "conf_relmargin_0.05": {
+  "n": 63,
+  "frac": 0.562,
+  "median_km": 15.02,
+  "within_5km": 0.365,
+  "truth_in_core": 0.286,
+  "core_median_km": 1.0
+ },
+ "conf_relmargin_0.1": {
+  "n": 37,
+  "frac": 0.33,
+  "median_km": 3.23,
+  "within_5km": 0.514,
+  "truth_in_core": 0.432,
+  "core_median_km": 1.0
+ },
+ "conf_relmargin_0.15": {
+  "n": 27,
+  "frac": 0.241,
+  "median_km": 1.06,
+  "within_5km": 0.593,
+  "truth_in_core": 0.481,
+  "core_median_km": 1.0
+ },
+ "conf_relmargin_0.2": {
+  "n": 20,
+  "frac": 0.179,
+  "median_km": 0.72,
+  "within_5km": 0.7,
+  "truth_in_core": 0.6,
+  "core_median_km": 1.0
+ },
+ "conf_relmargin_0.3": {
+  "n": 11,
+  "frac": 0.098,
+  "median_km": 0.75,
+  "within_5km": 0.727,
+  "truth_in_core": 0.545,
+  "core_median_km": 1.0
+ }
+}

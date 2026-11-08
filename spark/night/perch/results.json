@@ -1,0 +1,828 @@
+{
+ "config": "room1 / drone1 / speaker 1 m / mic-dist 50 cm / mic3_8array-up (8 ch mean)",
+ "window_s": 5.0,
+ "clips": [
+  {
+   "file": "File1",
+   "t0": 25.0,
+   "db": 60,
+   "gt_panns_hv": 0.885,
+   "gt_top": [
+    [
+     "Speech",
+     0.885
+    ],
+    [
+     "Male speech, man speaking",
+     0.219
+    ],
+    [
+     "Bellow",
+     0.171
+    ]
+   ],
+   "conditions": [
+    {
+     "condition": "perched (rotors off)",
+     "clip": "File1_25s_60db_perched.wav",
+     "rms_dbfs": -69.9,
+     "panns": {
+      "top": [
+       [
+        "Speech",
+        0.87
+       ],
+       [
+        "Inside, small room",
+        0.153
+       ],
+       [
+        "Male speech, man speaking",
+        0.119
+       ],
+       [
+        "Silence",
+        0.108
+       ],
+       [
+        "Narration, monologue",
+        0.091
+       ]
+      ],
+      "p_hv": 0.87,
+      "p_hnv": 0.006
+     },
+     "ast": {
+      "top": [
+       [
+        "Speech",
+        0.676
+       ],
+       [
+        "Silence",
+        0.09
+       ],
+       [
+        "Music",
+        0.053
+       ],
+       [
+        "Meow",
+        0.046
+       ],
+       [
+        "Male speech, man speaking",
+        0.041
+       ]
+      ],
+      "p_hv": 0.676,
+      "p_hnv": 0.011
+     }
+    },
+    {
+     "condition": "in flight, throttle low",
+     "clip": "File1_25s_60db_in_low.wav",
+     "rms_dbfs": -48.6,
+     "panns": {
+      "top": [
+       [
+        "Vehicle",
+        0.164
+       ],
+       [
+        "White noise",
+        0.108
+       ],
+       [
+        "Buzz",
+        0.079
+       ],
+       [
+        "Engine",
+        0.039
+       ],
+       [
+        "Inside, small room",
+        0.036
+       ]
+      ],
+      "p_hv": 0.03,
+      "p_hnv": 0.002
+     },
+     "ast": {
+      "top": [
+       [
+        "Hum",
+        0.37
+       ],
+       [
+        "Mains hum",
+        0.191
+       ],
+       [
+        "White noise",
+        0.158
+       ],
+       [
+        "Buzz",
+        0.149
+       ],
+       [
+        "Static",
+        0.135
+       ]
+      ],
+      "p_hv": 0.016,
+      "p_hnv": 0.001
+     }
+    },
+    {
+     "condition": "in flight, throttle high",
+     "clip": "File1_25s_60db_in_high.wav",
+     "rms_dbfs": -36.9,
+     "panns": {
+      "top": [
+       [
+        "Helicopter",
+        0.395
+       ],
+       [
+        "Vehicle",
+        0.18
+       ],
+       [
+        "Aircraft",
+        0.167
+       ],
+       [
+        "Power tool",
+        0.13
+       ],
+       [
+        "Tools",
+        0.123
+       ]
+      ],
+      "p_hv": 0.034,
+      "p_hnv": 0.001
+     },
+     "ast": {
+      "top": [
+       [
+        "Buzz",
+        0.155
+       ],
+       [
+        "Electric toothbrush",
+        0.075
+       ],
+       [
+        "Vehicle",
+        0.046
+       ],
+       [
+        "Fly, housefly",
+        0.044
+       ],
+       [
+        "Helicopter",
+        0.043
+       ]
+      ],
+      "p_hv": 0.023,
+      "p_hnv": 0.001
+     }
+    }
+   ],
+   "groundtruth_clip": "File1_25s_groundtruth.wav"
+  },
+  {
+   "file": "File1",
+   "t0": 25.0,
+   "db": 90,
+   "gt_panns_hv": 0.885,
+   "gt_top": [
+    [
+     "Speech",
+     0.885
+    ],
+    [
+     "Male speech, man speaking",
+     0.219
+    ],
+    [
+     "Bellow",
+     0.171
+    ]
+   ],
+   "conditions": [
+    {
+     "condition": "perched (rotors off)",
+     "clip": "File1_25s_90db_perched.wav",
+     "rms_dbfs": -50.7,
+     "panns": {
+      "top": [
+       [
+        "Speech",
+        0.893
+       ],
+       [
+        "Male speech, man speaking",
+        0.151
+       ],
+       [
+        "Inside, small room",
+        0.105
+       ],
+       [
+        "Narration, monologue",
+        0.086
+       ],
+       [
+        "Inside, large room or hall",
+        0.065
+       ]
+      ],
+      "p_hv": 0.893,
+      "p_hnv": 0.013
+     },
+     "ast": {
+      "top": [
+       [
+        "Speech",
+        0.934
+       ],
+       [
+        "Narration, monologue",
+        0.109
+       ],
+       [
+        "Male speech, man speaking",
+        0.085
+       ],
+       [
+        "Child speech, kid speaking",
+        0.052
+       ],
+       [
+        "Gasp",
+        0.041
+       ]
+      ],
+      "p_hv": 0.934,
+      "p_hnv": 0.01
+     }
+    }
+   ],
+   "groundtruth_clip": "File1_25s_groundtruth.wav"
+  },
+  {
+   "file": "File1",
+   "t0": 0.0,
+   "db": 60,
+   "gt_panns_hv": 0.879,
+   "gt_top": [
+    [
+     "Speech",
+     0.879
+    ],
+    [
+     "Inside, small room",
+     0.159
+    ],
+    [
+     "Zipper (clothing)",
+     0.065
+    ]
+   ],
+   "conditions": [
+    {
+     "condition": "perched (rotors off)",
+     "clip": "File1_0s_60db_perched.wav",
+     "rms_dbfs": -68.6,
+     "panns": {
+      "top": [
+       [
+        "Speech",
+        0.863
+       ],
+       [
+        "Narration, monologue",
+        0.156
+       ],
+       [
+        "Male speech, man speaking",
+        0.135
+       ],
+       [
+        "Female speech, woman speaking",
+        0.12
+       ],
+       [
+        "Inside, small room",
+        0.112
+       ]
+      ],
+      "p_hv": 0.863,
+      "p_hnv": 0.008
+     },
+     "ast": {
+      "top": [
+       [
+        "Speech",
+        0.734
+       ],
+       [
+        "Male speech, man speaking",
+        0.199
+       ],
+       [
+        "Narration, monologue",
+        0.164
+       ],
+       [
+        "Silence",
+        0.102
+       ],
+       [
+        "Music",
+        0.028
+       ]
+      ],
+      "p_hv": 0.734,
+      "p_hnv": 0.008
+     }
+    },
+    {
+     "condition": "in flight, throttle low",
+     "clip": "File1_0s_60db_in_low.wav",
+     "rms_dbfs": -49.2,
+     "panns": {
+      "top": [
+       [
+        "Vehicle",
+        0.13
+       ],
+       [
+        "White noise",
+        0.117
+       ],
+       [
+        "Hum",
+        0.103
+       ],
+       [
+        "Mains hum",
+        0.089
+       ],
+       [
+        "Buzz",
+        0.079
+       ]
+      ],
+      "p_hv": 0.026,
+      "p_hnv": 0.003
+     },
+     "ast": {
+      "top": [
+       [
+        "Hum",
+        0.533
+       ],
+       [
+        "Mains hum",
+        0.354
+       ],
+       [
+        "Static",
+        0.231
+       ],
+       [
+        "White noise",
+        0.097
+       ],
+       [
+        "Buzz",
+        0.083
+       ]
+      ],
+      "p_hv": 0.014,
+      "p_hnv": 0.001
+     }
+    },
+    {
+     "condition": "in flight, throttle high",
+     "clip": "File1_0s_60db_in_high.wav",
+     "rms_dbfs": -38.2,
+     "panns": {
+      "top": [
+       [
+        "Helicopter",
+        0.178
+       ],
+       [
+        "Vehicle",
+        0.135
+       ],
+       [
+        "Buzz",
+        0.116
+       ],
+       [
+        "Power tool",
+        0.113
+       ],
+       [
+        "Tools",
+        0.112
+       ]
+      ],
+      "p_hv": 0.025,
+      "p_hnv": 0.001
+     },
+     "ast": {
+      "top": [
+       [
+        "Buzz",
+        0.23
+       ],
+       [
+        "Fly, housefly",
+        0.085
+       ],
+       [
+        "Hum",
+        0.081
+       ],
+       [
+        "Insect",
+        0.07
+       ],
+       [
+        "Mains hum",
+        0.043
+       ]
+      ],
+      "p_hv": 0.032,
+      "p_hnv": 0.0
+     }
+    }
+   ],
+   "groundtruth_clip": "File1_0s_groundtruth.wav"
+  },
+  {
+   "file": "File1",
+   "t0": 0.0,
+   "db": 90,
+   "gt_panns_hv": 0.879,
+   "gt_top": [
+    [
+     "Speech",
+     0.879
+    ],
+    [
+     "Inside, small room",
+     0.159
+    ],
+    [
+     "Zipper (clothing)",
+     0.065
+    ]
+   ],
+   "conditions": [
+    {
+     "condition": "perched (rotors off)",
+     "clip": "File1_0s_90db_perched.wav",
+     "rms_dbfs": -50.4,
+     "panns": {
+      "top": [
+       [
+        "Speech",
+        0.887
+       ],
+       [
+        "Inside, small room",
+        0.137
+       ],
+       [
+        "Male speech, man speaking",
+        0.119
+       ],
+       [
+        "Narration, monologue",
+        0.106
+       ],
+       [
+        "Female speech, woman speaking",
+        0.035
+       ]
+      ],
+      "p_hv": 0.887,
+      "p_hnv": 0.006
+     },
+     "ast": {
+      "top": [
+       [
+        "Speech",
+        0.825
+       ],
+       [
+        "Narration, monologue",
+        0.142
+       ],
+       [
+        "Male speech, man speaking",
+        0.088
+       ],
+       [
+        "Female speech, woman speaking",
+        0.075
+       ],
+       [
+        "Conversation",
+        0.032
+       ]
+      ],
+      "p_hv": 0.825,
+      "p_hnv": 0.009
+     }
+    }
+   ],
+   "groundtruth_clip": "File1_0s_groundtruth.wav"
+  },
+  {
+   "file": "File1",
+   "t0": 32.5,
+   "db": 60,
+   "gt_panns_hv": 0.877,
+   "gt_top": [
+    [
+     "Speech",
+     0.877
+    ],
+    [
+     "Vehicle",
+     0.171
+    ],
+    [
+     "Female speech, woman speaking",
+     0.129
+    ]
+   ],
+   "conditions": [
+    {
+     "condition": "perched (rotors off)",
+     "clip": "File1_32s_60db_perched.wav",
+     "rms_dbfs": -71.0,
+     "panns": {
+      "top": [
+       [
+        "Speech",
+        0.801
+       ],
+       [
+        "Female speech, woman speaking",
+        0.237
+       ],
+       [
+        "Inside, small room",
+        0.119
+       ],
+       [
+        "Narration, monologue",
+        0.097
+       ],
+       [
+        "Silence",
+        0.088
+       ]
+      ],
+      "p_hv": 0.801,
+      "p_hnv": 0.007
+     },
+     "ast": {
+      "top": [
+       [
+        "Speech",
+        0.726
+       ],
+       [
+        "Narration, monologue",
+        0.195
+       ],
+       [
+        "Male speech, man speaking",
+        0.115
+       ],
+       [
+        "Silence",
+        0.103
+       ],
+       [
+        "Female speech, woman speaking",
+        0.092
+       ]
+      ],
+      "p_hv": 0.726,
+      "p_hnv": 0.006
+     }
+    },
+    {
+     "condition": "in flight, throttle low",
+     "clip": "File1_32s_60db_in_low.wav",
+     "rms_dbfs": -48.4,
+     "panns": {
+      "top": [
+       [
+        "Hum",
+        0.289
+       ],
+       [
+        "Mains hum",
+        0.288
+       ],
+       [
+        "Vehicle",
+        0.136
+       ],
+       [
+        "Buzz",
+        0.133
+       ],
+       [
+        "Aircraft",
+        0.065
+       ]
+      ],
+      "p_hv": 0.021,
+      "p_hnv": 0.001
+     },
+     "ast": {
+      "top": [
+       [
+        "Hum",
+        0.465
+       ],
+       [
+        "Mains hum",
+        0.247
+       ],
+       [
+        "Buzz",
+        0.096
+       ],
+       [
+        "Static",
+        0.091
+       ],
+       [
+        "Vehicle",
+        0.061
+       ]
+      ],
+      "p_hv": 0.031,
+      "p_hnv": 0.001
+     }
+    },
+    {
+     "condition": "in flight, throttle high",
+     "clip": "File1_32s_60db_in_high.wav",
+     "rms_dbfs": -37.5,
+     "panns": {
+      "top": [
+       [
+        "Helicopter",
+        0.324
+       ],
+       [
+        "Aircraft",
+        0.129
+       ],
+       [
+        "Vehicle",
+        0.111
+       ],
+       [
+        "Power tool",
+        0.108
+       ],
+       [
+        "Tools",
+        0.107
+       ]
+      ],
+      "p_hv": 0.038,
+      "p_hnv": 0.001
+     },
+     "ast": {
+      "top": [
+       [
+        "Buzz",
+        0.191
+       ],
+       [
+        "Vehicle",
+        0.074
+       ],
+       [
+        "Electric toothbrush",
+        0.045
+       ],
+       [
+        "Hum",
+        0.04
+       ],
+       [
+        "Fly, housefly",
+        0.04
+       ]
+      ],
+      "p_hv": 0.031,
+      "p_hnv": 0.0
+     }
+    }
+   ],
+   "groundtruth_clip": "File1_32s_groundtruth.wav"
+  },
+  {
+   "file": "File1",
+   "t0": 32.5,
+   "db": 90,
+   "gt_panns_hv": 0.877,
+   "gt_top": [
+    [
+     "Speech",
+     0.877
+    ],
+    [
+     "Vehicle",
+     0.171
+    ],
+    [
+     "Female speech, woman speaking",
+     0.129
+    ]
+   ],
+   "conditions": [
+    {
+     "condition": "perched (rotors off)",
+     "clip": "File1_32s_90db_perched.wav",
+     "rms_dbfs": -52.8,
+     "panns": {
+      "top": [
+       [
+        "Speech",
+        0.807
+       ],
+       [
+        "Female speech, woman speaking",
+        0.391
+       ],
+       [
+        "Narration, monologue",
+        0.205
+       ],
+       [
+        "Conversation",
+        0.084
+       ],
+       [
+        "Inside, small room",
+        0.063
+       ]
+      ],
+      "p_hv": 0.807,
+      "p_hnv": 0.008
+     },
+     "ast": {
+      "top": [
+       [
+        "Speech",
+        0.751
+       ],
+       [
+        "Narration, monologue",
+        0.222
+       ],
+       [
+        "Female speech, woman speaking",
+        0.178
+       ],
+       [
+        "Male speech, man speaking",
+        0.089
+       ],
+       [
+        "Television",
+        0.028
+       ]
+      ],
+      "p_hv": 0.751,
+      "p_hnv": 0.006
+     }
+    }
+   ],
+   "groundtruth_clip": "File1_32s_groundtruth.wav"
+  }
+ ]
+}

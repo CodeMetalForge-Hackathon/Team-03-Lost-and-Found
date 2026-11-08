@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C09" type="a-u-G" time="2026-11-08T10:58:41.639Z" start="2026-11-08T10:58:41.639Z" stale="2026-11-08T11:28:41.639Z" how="m-f"><point lat="41.3053073" lon="-81.7535977" hae="9999999.0" ce="10.0" le="9999999.0"/><detail><contact callsign="LF C09 p=0.51"/><remarks>p_person=0.51; sources: aerial_rgb:aerial_person=0.73; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 81</remarks></detail></event>

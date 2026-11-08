@@ -1,0 +1,126 @@
+2026-11-08 00:47:51,706:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,709:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,725:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,733:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,736:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,748:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,776:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,795:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,797:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,821:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,974:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:51,994:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:51,995:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:51,999:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:52,055:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:52,066:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:52,090:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:52,113:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/data/stars/phone_fov70_db.npz
+2026-11-08 00:47:52,531:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:52,722:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:53,163:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:53,250:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:53,710:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+2026-11-08 00:47:53,833:tetra3.Tetra3-INFO: Loading database from: /home/darkstar90/forge/skyfix/repos/tetra3-source/tetra3/data/default_database.npz
+Possibly corrupted field ImageDescription in Image IFD
+Possibly corrupted field ImageDescription in Image IFD
+Possibly corrupted field ImageDescription in Image IFD
+Possibly corrupted field ImageDescription in Image IFD
+{
+ "pixel4a-high-res": {
+  "n": 67,
+  "solved": 58,
+  "rate": 0.866,
+  "with_utc_offset": 67,
+  "solved_with_gps_and_utc": 53,
+  "centre_above_horizon_at_truth": 53,
+  "horizon_in_frame_predicted": 5,
+  "solved_with_exif_fov": 58,
+  "solved_fov_within_3pct_of_exif": 52,
+  "median_prob": 1.250345891934671e-31,
+  "median_ms": 275.2,
+  "methods": {
+   "default_db_centre_crop": 10,
+   "phone_db_blind": 6,
+   "phone_db_full": 34,
+   "phone_db_upper_half": 8
+  }
+ },
+ "pixel6-high-res": {
+  "n": 24,
+  "solved": 9,
+  "rate": 0.375,
+  "with_utc_offset": 24,
+  "solved_with_gps_and_utc": 0,
+  "centre_above_horizon_at_truth": 0,
+  "horizon_in_frame_predicted": 0,
+  "solved_with_exif_fov": 9,
+  "solved_fov_within_3pct_of_exif": 9,
+  "median_prob": 3.0207611018839532e-09,
+  "median_ms": 839.5,
+  "methods": {
+   "phone_db_full": 3,
+   "phone_db_upper_half": 6
+  }
+ },
+ "pixel8a-high-res": {
+  "n": 42,
+  "solved": 23,
+  "rate": 0.548,
+  "with_utc_offset": 42,
+  "solved_with_gps_and_utc": 23,
+  "centre_above_horizon_at_truth": 23,
+  "horizon_in_frame_predicted": 10,
+  "solved_with_exif_fov": 23,
+  "solved_fov_within_3pct_of_exif": 15,
+  "median_prob": 3.5458635055683635e-14,
+  "median_ms": 366.1,
+  "methods": {
+   "default_db_centre_crop": 5,
+   "phone_db_full": 6,
+   "phone_db_upper_half": 12
+  }
+ },
+ "pixel8pro-high-res": {
+  "n": 64,
+  "solved": 27,
+  "rate": 0.422,
+  "with_utc_offset": 63,
+  "solved_with_gps_and_utc": 27,
+  "centre_above_horizon_at_truth": 27,
+  "horizon_in_frame_predicted": 20,
+  "solved_with_exif_fov": 27,
+  "solved_fov_within_3pct_of_exif": 20,
+  "median_prob": 7.030592729476896e-19,
+  "median_ms": 771.3,
+  "methods": {
+   "default_db_centre_crop": 17,
+   "phone_db_full": 3,
+   "phone_db_upper_half": 7
+  }
+ },
+ "wikimedia": {
+  "n": 37,
+  "solved": 9,
+  "rate": 0.243,
+  "with_utc_offset": 1,
+  "solved_with_gps_and_utc": 0,
+  "centre_above_horizon_at_truth": 0,
+  "horizon_in_frame_predicted": 0,
+  "solved_with_exif_fov": 3,
+  "solved_fov_within_3pct_of_exif": 0,
+  "median_prob": 4.112971247381592e-21,
+  "median_ms": 787.3,
+  "methods": {
+   "default_db_centre_crop": 4,
+   "phone_db_blind": 1,
+   "phone_db_full": 1,
+   "phone_db_upper_half": 3
+  }
+ },
+ "ALL": {
+  "n": 234,
+  "solved": 126,
+  "rate": 0.538
+ }
+}

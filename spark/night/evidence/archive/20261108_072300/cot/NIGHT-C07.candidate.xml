@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C07" type="a-u-G" time="2026-11-08T10:58:41.574Z" start="2026-11-08T10:58:41.574Z" stale="2026-11-08T11:28:41.574Z" how="m-f"><point lat="41.3053175" lon="-81.7517598" hae="9999999.0" ce="10.0" le="9999999.0"/><detail><contact callsign="LF C07 p=0.50"/><remarks>p_person=0.50; sources: aerial_rgb:aerial_person=0.71; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 63</remarks></detail></event>

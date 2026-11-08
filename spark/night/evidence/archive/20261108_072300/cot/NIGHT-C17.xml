@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C17" type="a-u-G" time="2026-11-08T10:59:29.872Z" start="2026-11-08T10:59:29.872Z" stale="2026-11-08T11:29:29.872Z" how="m-f"><point lat="41.2219710" lon="-81.7167768" hae="9999999.0" ce="25.0" le="9999999.0"/><detail><contact callsign="LF C17 p=0.29"/><remarks>p_person=0.29; sources: sonar_fls:sonar_human_body=0.49; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 129</remarks></detail></event>

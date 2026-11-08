@@ -1,0 +1,41 @@
+{
+ "lat": 35.14,
+ "lon": -79.0,
+ "utc": "2026-11-08T05:16:00.000Z",
+ "az": 150.0,
+ "alt": 35.0,
+ "roll": 0.77,
+ "hfov": 70.0,
+ "width": 2000,
+ "height": 1500,
+ "elevation_m": 90,
+ "focal_px": 1428.1480067421146,
+ "seed": 490544914,
+ "dropout": 0.03,
+ "psf_sigma": 1.3,
+ "bg_e": 400.0,
+ "glow_e": 900.0,
+ "mag6_peak_snr": 3.0,
+ "read_noise_e": 3.0,
+ "extinction_k": 0.2,
+ "refraction": true,
+ "max_mag": 7.0,
+ "gravity_cam": [
+  0.01100828182007572,
+  0.8190780728320128,
+  -0.573576436351046
+ ],
+ "zenith_cam": [
+  -0.01100828182007572,
+  -0.8190780728320128,
+  0.573576436351046
+ ],
+ "camera_frame": "x=image right, y=image down, z=out of lens; gravity_cam points down",
+ "n_stars_projected": 1488,
+ "n_stars_rendered": 1441,
+ "n_dropped": 47,
+ "n_stars_brighter_6p5": 530,
+ "catalog": "Hipparcos hip_main.dat, pm to epoch",
+ "generator": "skyfix/synth/render_sky.py",
+ "site": "fort_bragg"
+}

@@ -1,0 +1,24 @@
+{
+ "split": "dev",
+ "score": "rms",
+ "horizon": "gt",
+ "n": 30,
+ "n_ok": 30,
+ "median_km": 17.57,
+ "p75_km": 23.29,
+ "mean_km": 17.64,
+ "frac_within_5km": 0.133,
+ "frac_within_2km": 0.1,
+ "frac_better_than_prior": 0.267,
+ "prior_median_km": 10.61,
+ "ring_median_km": 46.0,
+ "truth_in_ring_frac": 1.0,
+ "truth_cell_rank_median": 704.0,
+ "horizon_mae_px_median": 0.0,
+ "horizon_methods": {
+  "gt_oracle": 30
+ },
+ "t_horizon_ms_median": 0.0,
+ "t_match_ms_median": 99.5,
+ "t_grid_all_s": 0.1
+}

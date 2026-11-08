@@ -1,0 +1,53 @@
+[05:06:30] == pip: zenodo_get, huggingface_hub, ultralytics>=8.4 (separate venv so YOLO11 stays intact) ==
+[05:06:33] == AIR: pretrained aerial-SAR person detector (AerialPerson-YOLO26, AGPL-3.0) ==
+/home/darkstar90/forge/.venv/bin/python: Error while finding module specification for 'huggingface_hub.commands.huggingface_cli' (ModuleNotFoundError: No module named 'huggingface_hub.commands')
+find: '/home/darkstar90/forge/zoom/air/weights/aerialperson': No such file or directory
+[05:06:33] == AIR: NOAA Hurricane Ian verified tile + Helene listing ==
+total 117000
+drwxrwxr-x 2 darkstar90 darkstar90      4096 Nov  8 05:06 .
+drwxrwxr-x 4 darkstar90 darkstar90      4096 Nov  8 05:06 ..
+-rw-rw-r-- 1 darkstar90 darkstar90 119799105 Nov  8 05:06 20221002aC0795145w325100n.tif
+[05:07:02] ian tile 20221002aC0795145w325145n ok
+[05:07:53] ian tile 20221002aC0795230w325100n ok
+[05:08:15] ian tile 20221002aC0795100w325100n ok
+[05:08:42] ian tile 20221002aC0795145w325015n ok
+2024_Hurricane_Helene/
+2024_Hurricane_Helene/20240927a_RGB/
+2024_Hurricane_Helene/20240927b_RGB/
+2024_Hurricane_Helene/20240928a_RGB/
+2024_Hurricane_Helene/20240928b_RGB/
+[05:08:42] Helene flight 2024_Hurricane_Helene/20240927a_RGB/ has 400 tif keys (first 400 listed)
+[05:08:47] helene 20240927aC0852445w294500n.tif ok
+[05:09:38] helene 20240927aC0852445w294545n.tif ok
+[05:10:38] helene 20240927aC0852445w294630n.tif ok
+[05:11:47] helene 20240927aC0852445w294715n.tif ok
+[05:12:49] helene 20240927aC0852445w294800n.tif ok
+[05:13:40] helene 20240927aC0852445w294845n.tif ok
+2.5G	/home/darkstar90/forge/zoom/air/ortho/noaa_helene
+419M	/home/darkstar90/forge/zoom/air/ortho/noaa_ian
+[05:13:40] == AIR: HERIDAL test split (YOLO format) + Bellus ODM flight (forward survey for live stitching) ==
+heridal_test_split.zip
+test
+122
+[05:15:11] == WATER: UATD (figshare, 4.47 GB, CC BY 4.0) ==
+[05:15:11] == WATER: Red Sea AUV FLS + navigation CSV, FDD (victim class), SCTD, SDVDs ==
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0total 24
+drwxrwxr-x 3 darkstar90 darkstar90 4096 Nov  8 05:15 .
+drwxrwxr-x 5 darkstar90 darkstar90 4096 Nov  8 05:15 ..
+drwxrwxr-x 8 darkstar90 darkstar90 4096 Nov  8 05:15 .git
+-rw-rw-r-- 1 darkstar90 darkstar90   42 Nov  8 05:15 .gitattributes
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+-rw-rw-r-- 1 darkstar90 darkstar90 0 Nov  8 05:15 /home/darkstar90/forge/zoom/water/uatd_all.zip
+[../uatd_all.zip]
+  End-of-central-directory signature not found.  Either this file is not
+  a zipfile, or it constitutes one disk of a multi-part archive.  In the
+  latter case the central directory and zipfile comment will be found on
+  the last disk(s) of this archive.
+unzip:  cannot find zipfile directory in one of ../uatd_all.zip or
+        ../uatd_all.zip.zip, and cannot find ../uatd_all.zip.ZIP, period.
+.
+[05:15:26] == LAND: dog vocalization sets ==
+[1mINFO[0m: Number of files: 1
+Files:   0%|          | 0/1 [00:00<?, ?file/s]Files: 100%|██████████| 1/1 [5:36:26<00:00, 20186.24s/file]                                                           [32m[1mSUCCESS[0m: All specified files have been processed.

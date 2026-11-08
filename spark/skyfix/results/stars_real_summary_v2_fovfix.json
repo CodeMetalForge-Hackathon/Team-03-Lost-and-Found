@@ -1,0 +1,77 @@
+{
+ "pixel4a-high-res": {
+  "n": 67,
+  "solved": 50,
+  "rate": 0.746,
+  "with_utc_offset": 67,
+  "solved_with_gps_and_utc": 46,
+  "centre_above_horizon_at_truth": 46,
+  "horizon_in_frame_predicted": 4,
+  "median_ms": 244.8,
+  "methods": {
+   "default_db_centre_crop": 10,
+   "phone_db_blind": 6,
+   "phone_db_full": 34
+  }
+ },
+ "pixel6-high-res": {
+  "n": 24,
+  "solved": 3,
+  "rate": 0.125,
+  "with_utc_offset": 24,
+  "solved_with_gps_and_utc": 0,
+  "centre_above_horizon_at_truth": 0,
+  "horizon_in_frame_predicted": 0,
+  "median_ms": 690.5,
+  "methods": {
+   "phone_db_full": 3
+  }
+ },
+ "pixel8a-high-res": {
+  "n": 42,
+  "solved": 11,
+  "rate": 0.262,
+  "with_utc_offset": 42,
+  "solved_with_gps_and_utc": 11,
+  "centre_above_horizon_at_truth": 11,
+  "horizon_in_frame_predicted": 3,
+  "median_ms": 631.0,
+  "methods": {
+   "default_db_centre_crop": 5,
+   "phone_db_full": 6
+  }
+ },
+ "pixel8pro-high-res": {
+  "n": 64,
+  "solved": 20,
+  "rate": 0.312,
+  "with_utc_offset": 63,
+  "solved_with_gps_and_utc": 20,
+  "centre_above_horizon_at_truth": 20,
+  "horizon_in_frame_predicted": 16,
+  "median_ms": 680.8,
+  "methods": {
+   "default_db_centre_crop": 17,
+   "phone_db_full": 3
+  }
+ },
+ "wikimedia": {
+  "n": 37,
+  "solved": 4,
+  "rate": 0.108,
+  "with_utc_offset": 1,
+  "solved_with_gps_and_utc": 0,
+  "centre_above_horizon_at_truth": 0,
+  "horizon_in_frame_predicted": 0,
+  "median_ms": 636.9,
+  "methods": {
+   "default_db_centre_crop": 3,
+   "phone_db_blind": 1
+  }
+ },
+ "ALL": {
+  "n": 234,
+  "solved": 88,
+  "rate": 0.376
+ }
+}

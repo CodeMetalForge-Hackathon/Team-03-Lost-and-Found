@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="SKYFIX-267" type="a-f-G-U-C" how="h-e" time="2026-11-08T05:57:43Z" start="2026-11-08T05:57:43Z" stale="2026-11-08T06:27:43Z"><point lat="-33.8310380" lon="152.1726700" hae="9999999.0" ce="33730.0" le="9999999.0" /><detail><contact callsign="SKYFIX 267" /><remarks>Sky Fix stars self-localisation, no GPS. ring=33730 m heading=150.8 conf=tilt σ 0.3° hash=12fceca02c74aed7</remarks></detail></event>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C06" type="a-u-G" time="2026-11-08T10:58:41.705Z" start="2026-11-08T10:58:41.705Z" stale="2026-11-08T11:28:41.705Z" how="m-f"><point lat="41.3039444" lon="-81.7514437" hae="9999999.0" ce="10.0" le="9999999.0"/><detail><contact callsign="LF C06 p=0.61"/><remarks>p_person=0.61; sources: aerial_rgb_sim:aerial_person=0.87; UNCONFIRMED candidate: machine detection, awaiting human confirm; evidence chain seq 99</remarks></detail></event>

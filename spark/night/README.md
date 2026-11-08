@@ -46,6 +46,3 @@ Python: `~/forge/.venv/bin/python`. Two extra packages live in `night/vendor/` s
 - No real dog runs and no real tap recordings yet. Both pipelines re-run with one command when they land (copy or symlink run folders into `night/data/dog/`, taps into `night/data/tap3/{pos,neg}/`).
 - vLLM on :8001/:8002 was down all night. It was not restarted, because the GPU is shared with the Sky Fix session. Clue proposals then say so and the operator picks the type.
 - The geophone sample rate is not in the dataset file, so false-alarm rates are reported at three plausible rates.
-
----
-*Repo copy:* `code/` mirrors `~/forge/night` on the Spark, without data, vendor packages, logs or evidence. Run it from `~/forge/night`, where datasets and models are in place. Screenshots are in `screenshots/`; raw result JSON sits next to the RESULTS files; `sample_pins/` holds one contact's CoT before (a-u-G) and after (a-f-G) human confirm, plus an accepted next-best-action waypoint (b-m-p-w).

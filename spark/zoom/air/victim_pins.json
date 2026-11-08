@@ -1,0 +1,90 @@
+{
+ "pins": [
+  {
+   "lat": 41.30404408249903,
+   "lon": -81.75018812178787,
+   "e": 294.2,
+   "n": -9.4,
+   "conf": 0.872,
+   "heridal_photo": "test_MOB_0001.jpg",
+   "shown_at_photo": "DSC00242.JPG",
+   "t_rel": 69.0,
+   "label": "victim pin (georeferenced from SAR frames, simulated placement)",
+   "crop_box_px": [
+    3470,
+    1187,
+    3536,
+    1278
+   ]
+  },
+  {
+   "lat": 41.30402564290924,
+   "lon": -81.75148644397792,
+   "e": 185.7,
+   "n": -11.5,
+   "conf": 0.867,
+   "heridal_photo": "test_MOB_0005.jpg",
+   "shown_at_photo": "DSC00258.JPG",
+   "t_rel": 176.0,
+   "label": "victim pin (georeferenced from SAR frames, simulated placement)",
+   "crop_box_px": [
+    1474,
+    2134,
+    1544,
+    2234
+   ]
+  },
+  {
+   "lat": 41.30514546628397,
+   "lon": -81.7521836528404,
+   "e": 127.5,
+   "n": 113.0,
+   "conf": 0.864,
+   "heridal_photo": "test_CAP_0003.jpg",
+   "shown_at_photo": "DSC00273.JPG",
+   "t_rel": 803.0,
+   "label": "victim pin (georeferenced from SAR frames, simulated placement)",
+   "crop_box_px": [
+    2047,
+    334,
+    2125,
+    433
+   ]
+  },
+  {
+   "lat": 41.304681986470904,
+   "lon": -81.75093903623265,
+   "e": 231.5,
+   "n": 61.5,
+   "conf": 0.863,
+   "heridal_photo": "test_MOB_0002.jpg",
+   "shown_at_photo": "DSC00286.JPG",
+   "t_rel": 864.0,
+   "label": "victim pin (georeferenced from SAR frames, simulated placement)",
+   "crop_box_px": [
+    3478,
+    1185,
+    3544,
+    1276
+   ]
+  },
+  {
+   "lat": 41.30386232633119,
+   "lon": -81.75140040811065,
+   "e": 192.9,
+   "n": -29.7,
+   "conf": 0.858,
+   "heridal_photo": "test_MOB_0004.jpg",
+   "shown_at_photo": "DSC00299.JPG",
+   "t_rel": 940.0,
+   "label": "victim pin (georeferenced from SAR frames, simulated placement)",
+   "crop_box_px": [
+    3490,
+    1177,
+    3552,
+    1271
+   ]
+  }
+ ],
+ "note": "HERIDAL test-split true positives (Croatia SAR photos) placed at Aukerman photo positions: SIMULATED placement."
+}

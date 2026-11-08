@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="NIGHT-C04" type="a-h-G" time="2026-11-08T05:53:37.579Z" start="2026-11-08T05:53:37.579Z" stale="2026-11-08T06:23:37.579Z" how="m-f"><point lat="41.3028393" lon="-81.7490451" hae="9999999.0" ce="50.0" le="9999999.0"/><detail><contact callsign="LF C04 p=0.91"/><remarks>p_person=0.91; sources: dog1:dog_stop=0.30, dog1:sound_spike=0.30, dog1:knock=0.50, tap3:tap_pattern_3=1.00; confirmed by franco at 2026-11-08T05:53:37+00:00; evidence chain seq 43</remarks></detail></event>

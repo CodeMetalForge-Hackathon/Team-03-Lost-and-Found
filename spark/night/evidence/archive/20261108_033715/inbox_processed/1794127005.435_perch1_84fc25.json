@@ -1,0 +1,1 @@
+{"t": 1794127005.4354084, "sensor": "perch1", "kind": "acoustic_hv", "position": {"lat": 41.30455, "lon": -81.751}, "confidence": 0.87, "clip_path": "/home/darkstar90/forge/night/perch/clips/File1_25s_60db_perched.wav", "extra": {"condition": "perched (rotors off)", "panns_top": "Speech", "dataset": "DroneAudioSet (recorded)"}}

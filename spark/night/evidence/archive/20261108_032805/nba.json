@@ -1,0 +1,35 @@
+[
+ {
+  "decision": "accept",
+  "operator_id": "franco",
+  "nba": {
+   "cell": [
+    206,
+    213
+   ],
+   "cell_id": "R206C213",
+   "e": 675,
+   "n": -325,
+   "lat": 41.301206208817895,
+   "lon": -81.74562922448528,
+   "p": 0.06129830915172724,
+   "pod": 0.0,
+   "asset": "drone",
+   "drone": {
+    "id": "UAV 1",
+    "dist_m": 749,
+    "eta_min": 2.0
+   },
+   "team": {
+    "id": "Team 1",
+    "dist_m": 739,
+    "eta_min": 10.3
+   },
+   "text": "Suggest: drone to R206C213 (41.30121, -81.74563), ETA 2.0 min (team 10.3 min)",
+   "basis": "highest COP cell with POD < 0.30, not already tasked; straight-line ETAs, terrain-free"
+  },
+  "seq": 65,
+  "t": 1794126264.03035,
+  "cot_uid": "NIGHT-NBA-65"
+ }
+]

@@ -1,0 +1,365 @@
+{
+ "run": "run10_20261108-040115",
+ "source": "/home/darkstar90/projects/Team-3/pi_pipeline/data/runs/run10_20261108-040115",
+ "t0_ms": 1156000,
+ "duration_s": 51.0,
+ "n_heartbeats": 52,
+ "n_alerts": 13,
+ "alerts": [
+  {
+   "t": 6.08,
+   "kind": "STILL"
+  },
+  {
+   "t": 7.29,
+   "kind": "TILT"
+  },
+  {
+   "t": 11.34,
+   "kind": "STILL"
+  },
+  {
+   "t": 16.89,
+   "kind": "TILT"
+  },
+  {
+   "t": 19.89,
+   "kind": "TILT"
+  },
+  {
+   "t": 23.14,
+   "kind": "TILT"
+  },
+  {
+   "t": 24.45,
+   "kind": "BARK"
+  },
+  {
+   "t": 27.75,
+   "kind": "TILT"
+  },
+  {
+   "t": 30.85,
+   "kind": "TILT"
+  },
+  {
+   "t": 33.85,
+   "kind": "TILT"
+  },
+  {
+   "t": 37.5,
+   "kind": "TILT"
+  },
+  {
+   "t": 40.5,
+   "kind": "TILT"
+  },
+  {
+   "t": 43.08,
+   "kind": "STILL"
+  }
+ ],
+ "method": "sonar dead reckoning: x_along = d_min(block) \u2212 d(t); speed = \u2212dd/dt; discontinuity (|\u0394d|>25 cm/s or echo gain/loss) = heading change of unknown angle",
+ "heading_blocks": [
+  {
+   "heading_id": 0,
+   "start": 0.0,
+   "end": 5.0
+  },
+  {
+   "heading_id": 1,
+   "start": 6.0,
+   "end": 29.0
+  },
+  {
+   "heading_id": 2,
+   "start": 30.0,
+   "end": 39.0
+  },
+  {
+   "heading_id": 3,
+   "start": 40.0,
+   "end": 51.0
+  }
+ ],
+ "solutions": {
+  "sensor_only": {
+   "headings_deg": [
+    0.0,
+    90.0,
+    0.0,
+    90.0
+   ],
+   "measured": false,
+   "label": "SENSOR-ONLY: turns assumed 90\u00b0 alternating; unanchored frame; angles NOT measured",
+   "walls": [
+    {
+     "heading_id": 0,
+     "x": 0.07,
+     "y": 0.0,
+     "hx": 1.0,
+     "hy": 0.0,
+     "d_min_cm": 7.0
+    },
+    {
+     "heading_id": 1,
+     "x": 4.4087284769304716e-17,
+     "y": 0.72,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 14.0
+    },
+    {
+     "heading_id": 2,
+     "x": 0.9,
+     "y": 0.33999999999999997,
+     "hx": 1.0,
+     "hy": 0.0,
+     "d_min_cm": 11.0
+    },
+    null
+   ]
+  },
+  "room_prior": {
+   "headings_deg": [
+    180.0,
+    0.0,
+    270.0,
+    90.0
+   ],
+   "measured": false,
+   "label": "ROOM-PRIOR: headings from the corner in Franco's video/photo (left wall \u2192 glass wall \u2192 side wall \u2192 open floor). NOT MEASURED",
+   "walls": [
+    {
+     "heading_id": 0,
+     "x": -0.07,
+     "y": 8.572527594031473e-18,
+     "hx": -1.0,
+     "hy": 1.2246467991473532e-16,
+     "d_min_cm": 7.0
+    },
+    {
+     "heading_id": 1,
+     "x": 0.72,
+     "y": 0.0,
+     "hx": 1.0,
+     "hy": 0.0,
+     "d_min_cm": 14.0
+    },
+    {
+     "heading_id": 2,
+     "x": 0.3399999999999998,
+     "y": -0.9,
+     "hx": -1.8369701987210297e-16,
+     "hy": -1.0,
+     "d_min_cm": 11.0
+    },
+    null
+   ]
+  }
+ },
+ "legs": [
+  {
+   "leg": 0,
+   "start": 0.0,
+   "end": 5.0,
+   "kind": "park",
+   "heading_id": 0,
+   "d_min": 7.0,
+   "d_max": 7.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.67,
+   "mean_activity": 3.2,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 1,
+   "start": 5.0,
+   "end": 7.0,
+   "kind": "turn",
+   "heading_id": 1,
+   "d_min": 7.0,
+   "d_max": 72.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.33,
+   "mean_activity": 3.3,
+   "events": [
+    "STILL@6.1s",
+    "TILT@7.3s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 2,
+   "start": 7.0,
+   "end": 17.0,
+   "kind": "park",
+   "heading_id": 1,
+   "d_min": 70.0,
+   "d_max": 74.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.73,
+   "mean_activity": 4.0,
+   "events": [
+    "STILL@11.3s",
+    "TILT@16.9s"
+   ],
+   "note": ""
+  },
+  {
+   "leg": 3,
+   "start": 17.0,
+   "end": 21.0,
+   "kind": "approach",
+   "heading_id": 1,
+   "d_min": 14.0,
+   "d_max": 72.0,
+   "mean_speed_cm_s": 14.5,
+   "still_frac": 0.0,
+   "mean_activity": 18.1,
+   "events": [
+    "TILT@19.9s"
+   ],
+   "note": ""
+  },
+  {
+   "leg": 4,
+   "start": 21.0,
+   "end": 23.0,
+   "kind": "park",
+   "heading_id": 1,
+   "d_min": 14.0,
+   "d_max": 15.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 7.4,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 5,
+   "start": 23.0,
+   "end": 26.0,
+   "kind": "retreat",
+   "heading_id": 1,
+   "d_min": 15.0,
+   "d_max": 40.0,
+   "mean_speed_cm_s": 8.3,
+   "still_frac": 0.0,
+   "mean_activity": 22.8,
+   "events": [
+    "TILT@23.1s",
+    "BARK@24.4s"
+   ],
+   "note": ""
+  },
+  {
+   "leg": 6,
+   "start": 26.0,
+   "end": 29.0,
+   "kind": "park",
+   "heading_id": 1,
+   "d_min": 38.0,
+   "d_max": 41.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 18.9,
+   "events": [
+    "TILT@27.8s"
+   ],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 7,
+   "start": 29.0,
+   "end": 30.0,
+   "kind": "turn",
+   "heading_id": 2,
+   "d_min": 38.0,
+   "d_max": 90.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 32.8,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 8,
+   "start": 30.0,
+   "end": 36.0,
+   "kind": "approach",
+   "heading_id": 2,
+   "d_min": 11.0,
+   "d_max": 90.0,
+   "mean_speed_cm_s": 13.2,
+   "still_frac": 0.0,
+   "mean_activity": 27.7,
+   "events": [
+    "TILT@30.9s",
+    "TILT@33.9s"
+   ],
+   "note": ""
+  },
+  {
+   "leg": 9,
+   "start": 36.0,
+   "end": 38.0,
+   "kind": "park",
+   "heading_id": 2,
+   "d_min": 11.0,
+   "d_max": 12.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 9.4,
+   "events": [
+    "TILT@37.5s"
+   ],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 10,
+   "start": 38.0,
+   "end": 39.0,
+   "kind": "retreat",
+   "heading_id": 2,
+   "d_min": 12.0,
+   "d_max": 23.0,
+   "mean_speed_cm_s": 11.0,
+   "still_frac": 0.0,
+   "mean_activity": 17.3,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 11,
+   "start": 40.0,
+   "end": 43.0,
+   "kind": "open",
+   "heading_id": 3,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 10.2,
+   "events": [
+    "TILT@40.5s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 12,
+   "start": 44.0,
+   "end": 51.0,
+   "kind": "open",
+   "heading_id": 3,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.0,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  }
+ ]
+}
