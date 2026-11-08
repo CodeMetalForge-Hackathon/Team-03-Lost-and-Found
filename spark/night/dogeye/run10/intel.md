@@ -1,0 +1,37 @@
+# Model debrief: run10_20261108-040115
+
+Text model: transformers Qwen/Qwen3-8B bf16 (greedy, thinking off). Vision model: transformers /home/darkstar90/models/qwen3-vl-8b-instruct bf16 (greedy).
+The input was legs.json + track.csv + the alert list from reconstruct.py. Output is shown verbatim below; check the times against legs.json before quoting it.
+
+## Debrief (Qwen3, from the data)
+
+DEBRIEF
+1. From 0.0s to 5.0s, the dog was still with a minimum range of 7.0 cm, indicating it was stationary near an object.  
+2. At 5.0s, the dog began turning, with the range increasing to 72.0 cm, suggesting a change in direction. A TILT alert at 7.29s indicates a possible gait bob.  
+3. From 7.0s to 17.0s, the dog was still, with a range between 70.0 cm and 74.0 cm, showing it was stationary near an object.  
+4. At 17.0s, the dog started moving toward an object, with the range decreasing to 14.0 cm, and activity increased significantly.  
+5. From 21.0s to 23.0s, the dog was still, with a range between 14.0 cm and 15.0 cm, indicating it was holding against a surface.  
+6. At 23.0s, the dog began retreating, with the range increasing to 40.0 cm, and a BARK alert at 24.45s coincided with a range of 25.0 cm, likely due to servos or handler activity.  
+7. From 26.0s to 29.0s, the dog was still, with a range between 38.0 cm and 41.0 cm, showing it was pushing against a surface.  
+8. At 29.0s, the dog turned, with the range increasing to 90.0 cm, indicating a change in direction.  
+9. From 30.0s to 36.0s, the dog approached an object, with the range decreasing to 11.0 cm, and activity remained high.  
+10. From 36.0s to 38.0s, the dog was still, with a range between 11.0 cm and 12.0 cm, indicating it was holding against a surface.  
+
+FLAGS
+A. Gait-tilt false alerts: Three TILT alerts occurred at 6.1s, 16.9s, and 19.9s while the dog was MOVING, likely due to gait bobbing rather than sitting or falling.  
+B. Single loud sound at arrival: A BARK alert at 24.45s coincided with a range of 25.0 cm, likely due to servos or handler activity, not a confirmed bark.  
+C. Echo loss = open floor: Echo loss occurred at 40.0s, with the last range before it being 12.0 cm, indicating open floor beyond the beam, not a sensor fault.
+
+## Geometry reading (Qwen3-VL)
+
+> **Model reading of a rendered reconstruction, not of the room.** Room-prior headings are not measured.
+
+The reconstruction shows three distinct sensed surfaces: a left wall at ~0.2m, a glass wall at ~0.6m, and a side wall at ~0.4m, arranged in a corner-to-open-floor sequence. The sensor’s path, shown in orange, traces a roughly straight line from the start near the left wall toward the open floor, with a slight turn toward the side wall. The blue swept beam area indicates a 15° cone, covering a wide swath as the sensor moves forward. The sensed surfaces are at approximate distances of 7cm, 14cm, and 11cm from the sensor’s path, respectively, as labeled. The first-person views confirm the sensor’s perspective, showing the surfaces as vertical planes with the open floor ahead. The geometry implies a room with a corner, a glass partition, and an open area, but it cannot resolve the exact shape or material of the surfaces beyond their position and distance. This geometry cannot tell you the sensor’s heading or orientation relative to gravity or the room’s absolute axes, since no IMU or odometry was used.
+
+## Fact check (computed by code from track.csv, not by the model)
+
+| flag | data |
+|---|---|
+| A. TILT alerts while MOVING | 8 of 9 TILT alerts: 16.9, 19.9, 23.1, 27.8, 30.9, 33.9, 37.5, 40.5 s |
+| B. BARK | 24.45 s; range 25.0 cm at 24.0 s → 33.0 cm at 25.0 s (backing off from the 14–15 cm arrival at 21–23 s) |
+| C. echo lost | first blank at 40.0 s; last range 23.0 cm at 39.0 s |

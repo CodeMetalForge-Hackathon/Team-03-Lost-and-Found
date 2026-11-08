@@ -1,0 +1,2046 @@
+{
+ "run": "walk1_20261108-034116",
+ "source": "/home/darkstar90/projects/Team-3/pi_pipeline/data/runs/walk1_20261108-034116",
+ "t0_ms": 1000,
+ "duration_s": 280.0,
+ "n_heartbeats": 281,
+ "n_alerts": 57,
+ "alerts": [
+  {
+   "t": 38.63,
+   "kind": "TILT"
+  },
+  {
+   "t": 38.65,
+   "kind": "BARK"
+  },
+  {
+   "t": 41.48,
+   "kind": "STILL"
+  },
+  {
+   "t": 44.03,
+   "kind": "TILT"
+  },
+  {
+   "t": 48.36,
+   "kind": "STILL"
+  },
+  {
+   "t": 54.22,
+   "kind": "BARK"
+  },
+  {
+   "t": 54.23,
+   "kind": "TILT"
+  },
+  {
+   "t": 57.33,
+   "kind": "STILL"
+  },
+  {
+   "t": 100.93,
+   "kind": "TILT"
+  },
+  {
+   "t": 104.73,
+   "kind": "TILT"
+  },
+  {
+   "t": 108.14,
+   "kind": "TILT"
+  },
+  {
+   "t": 111.37,
+   "kind": "TILT"
+  },
+  {
+   "t": 114.93,
+   "kind": "TILT"
+  },
+  {
+   "t": 118.13,
+   "kind": "TILT"
+  },
+  {
+   "t": 121.23,
+   "kind": "TILT"
+  },
+  {
+   "t": 124.43,
+   "kind": "TILT"
+  },
+  {
+   "t": 127.68,
+   "kind": "TILT"
+  },
+  {
+   "t": 131.03,
+   "kind": "TILT"
+  },
+  {
+   "t": 134.09,
+   "kind": "TILT"
+  },
+  {
+   "t": 137.52,
+   "kind": "TILT"
+  },
+  {
+   "t": 140.58,
+   "kind": "TILT"
+  },
+  {
+   "t": 144.18,
+   "kind": "TILT"
+  },
+  {
+   "t": 147.23,
+   "kind": "TILT"
+  },
+  {
+   "t": 150.33,
+   "kind": "TILT"
+  },
+  {
+   "t": 153.38,
+   "kind": "TILT"
+  },
+  {
+   "t": 157.13,
+   "kind": "TILT"
+  },
+  {
+   "t": 161.09,
+   "kind": "TILT"
+  },
+  {
+   "t": 164.14,
+   "kind": "TILT"
+  },
+  {
+   "t": 168.84,
+   "kind": "STILL"
+  },
+  {
+   "t": 175.88,
+   "kind": "TILT"
+  },
+  {
+   "t": 178.93,
+   "kind": "TILT"
+  },
+  {
+   "t": 181.98,
+   "kind": "TILT"
+  },
+  {
+   "t": 185.03,
+   "kind": "TILT"
+  },
+  {
+   "t": 187.88,
+   "kind": "STILL"
+  },
+  {
+   "t": 189.03,
+   "kind": "TILT"
+  },
+  {
+   "t": 192.33,
+   "kind": "TILT"
+  },
+  {
+   "t": 195.53,
+   "kind": "TILT"
+  },
+  {
+   "t": 198.74,
+   "kind": "TILT"
+  },
+  {
+   "t": 201.23,
+   "kind": "BARK"
+  },
+  {
+   "t": 201.74,
+   "kind": "TILT"
+  },
+  {
+   "t": 204.32,
+   "kind": "BARK"
+  },
+  {
+   "t": 204.74,
+   "kind": "TILT"
+  },
+  {
+   "t": 208.74,
+   "kind": "TILT"
+  },
+  {
+   "t": 211.64,
+   "kind": "STILL"
+  },
+  {
+   "t": 222.63,
+   "kind": "BARK"
+  },
+  {
+   "t": 222.92,
+   "kind": "TILT"
+  },
+  {
+   "t": 225.43,
+   "kind": "BARK"
+  },
+  {
+   "t": 225.98,
+   "kind": "TILT"
+  },
+  {
+   "t": 228.98,
+   "kind": "TILT"
+  },
+  {
+   "t": 229.5,
+   "kind": "BARK"
+  },
+  {
+   "t": 232.03,
+   "kind": "STILL"
+  },
+  {
+   "t": 243.16,
+   "kind": "BARK"
+  },
+  {
+   "t": 243.18,
+   "kind": "TILT"
+  },
+  {
+   "t": 247.2,
+   "kind": "BARK"
+  },
+  {
+   "t": 247.39,
+   "kind": "TILT"
+  },
+  {
+   "t": 250.89,
+   "kind": "TILT"
+  },
+  {
+   "t": 253.94,
+   "kind": "STILL"
+  }
+ ],
+ "method": "sonar dead reckoning: x_along = d_min(block) \u2212 d(t); speed = \u2212dd/dt; discontinuity (|\u0394d|>25 cm/s or echo gain/loss) = heading change of unknown angle",
+ "heading_blocks": [
+  {
+   "heading_id": 0,
+   "start": 0.0,
+   "end": 106.0
+  },
+  {
+   "heading_id": 1,
+   "start": 107.0,
+   "end": 108.0
+  },
+  {
+   "heading_id": 2,
+   "start": 109.0,
+   "end": 113.0
+  },
+  {
+   "heading_id": 3,
+   "start": 114.0,
+   "end": 114.0
+  },
+  {
+   "heading_id": 4,
+   "start": 115.0,
+   "end": 115.0
+  },
+  {
+   "heading_id": 5,
+   "start": 116.0,
+   "end": 117.0
+  },
+  {
+   "heading_id": 6,
+   "start": 118.0,
+   "end": 120.0
+  },
+  {
+   "heading_id": 7,
+   "start": 121.0,
+   "end": 127.0
+  },
+  {
+   "heading_id": 8,
+   "start": 128.0,
+   "end": 130.0
+  },
+  {
+   "heading_id": 9,
+   "start": 131.0,
+   "end": 133.0
+  },
+  {
+   "heading_id": 10,
+   "start": 134.0,
+   "end": 147.0
+  },
+  {
+   "heading_id": 11,
+   "start": 148.0,
+   "end": 148.0
+  },
+  {
+   "heading_id": 12,
+   "start": 149.0,
+   "end": 152.0
+  },
+  {
+   "heading_id": 13,
+   "start": 153.0,
+   "end": 153.0
+  },
+  {
+   "heading_id": 14,
+   "start": 154.0,
+   "end": 154.0
+  },
+  {
+   "heading_id": 15,
+   "start": 155.0,
+   "end": 155.0
+  },
+  {
+   "heading_id": 16,
+   "start": 156.0,
+   "end": 159.0
+  },
+  {
+   "heading_id": 17,
+   "start": 160.0,
+   "end": 160.0
+  },
+  {
+   "heading_id": 18,
+   "start": 161.0,
+   "end": 162.0
+  },
+  {
+   "heading_id": 19,
+   "start": 163.0,
+   "end": 165.0
+  },
+  {
+   "heading_id": 20,
+   "start": 166.0,
+   "end": 194.0
+  },
+  {
+   "heading_id": 21,
+   "start": 195.0,
+   "end": 196.0
+  },
+  {
+   "heading_id": 22,
+   "start": 197.0,
+   "end": 198.0
+  },
+  {
+   "heading_id": 23,
+   "start": 199.0,
+   "end": 199.0
+  },
+  {
+   "heading_id": 24,
+   "start": 200.0,
+   "end": 201.0
+  },
+  {
+   "heading_id": 25,
+   "start": 202.0,
+   "end": 202.0
+  },
+  {
+   "heading_id": 26,
+   "start": 203.0,
+   "end": 203.0
+  },
+  {
+   "heading_id": 27,
+   "start": 204.0,
+   "end": 204.0
+  },
+  {
+   "heading_id": 28,
+   "start": 205.0,
+   "end": 234.0
+  },
+  {
+   "heading_id": 29,
+   "start": 235.0,
+   "end": 237.0
+  },
+  {
+   "heading_id": 30,
+   "start": 238.0,
+   "end": 242.0
+  },
+  {
+   "heading_id": 31,
+   "start": 243.0,
+   "end": 243.0
+  },
+  {
+   "heading_id": 32,
+   "start": 244.0,
+   "end": 249.0
+  },
+  {
+   "heading_id": 33,
+   "start": 250.0,
+   "end": 250.0
+  },
+  {
+   "heading_id": 34,
+   "start": 251.0,
+   "end": 254.0
+  },
+  {
+   "heading_id": 35,
+   "start": 255.0,
+   "end": 255.0
+  },
+  {
+   "heading_id": 36,
+   "start": 256.0,
+   "end": 256.0
+  },
+  {
+   "heading_id": 37,
+   "start": 257.0,
+   "end": 259.0
+  },
+  {
+   "heading_id": 38,
+   "start": 260.0,
+   "end": 260.0
+  },
+  {
+   "heading_id": 39,
+   "start": 261.0,
+   "end": 261.0
+  },
+  {
+   "heading_id": 40,
+   "start": 262.0,
+   "end": 262.0
+  },
+  {
+   "heading_id": 41,
+   "start": 263.0,
+   "end": 265.0
+  },
+  {
+   "heading_id": 42,
+   "start": 266.0,
+   "end": 266.0
+  },
+  {
+   "heading_id": 43,
+   "start": 267.0,
+   "end": 267.0
+  },
+  {
+   "heading_id": 44,
+   "start": 268.0,
+   "end": 273.0
+  },
+  {
+   "heading_id": 45,
+   "start": 274.0,
+   "end": 275.0
+  },
+  {
+   "heading_id": 46,
+   "start": 276.0,
+   "end": 280.0
+  }
+ ],
+ "solutions": {
+  "sensor_only": {
+   "headings_deg": [
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0,
+    90.0,
+    0.0
+   ],
+   "measured": false,
+   "label": "SENSOR-ONLY: turns assumed 90\u00b0 alternating; unanchored frame; angles NOT measured",
+   "walls": [
+    null,
+    {
+     "heading_id": 1,
+     "x": 3.735172737399427e-17,
+     "y": 0.61,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 48.0
+    },
+    null,
+    {
+     "heading_id": 3,
+     "x": 8.939921633775678e-17,
+     "y": 1.46,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 133.0
+    },
+    {
+     "heading_id": 4,
+     "x": 0.99,
+     "y": 0.1299999999999999,
+     "hx": 1.0,
+     "hy": 0.0,
+     "d_min_cm": 99.0
+    },
+    null,
+    {
+     "heading_id": 6,
+     "x": 0.94,
+     "y": 0.1299999999999999,
+     "hx": 1.0,
+     "hy": 0.0,
+     "d_min_cm": 71.0
+    },
+    null,
+    {
+     "heading_id": 8,
+     "x": 3.69,
+     "y": 0.1299999999999999,
+     "hx": 1.0,
+     "hy": 0.0,
+     "d_min_cm": 345.0
+    },
+    {
+     "heading_id": 9,
+     "x": 0.17000000000000012,
+     "y": 3.3,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 303.0
+    },
+    null,
+    {
+     "heading_id": 11,
+     "x": 0.17000000000000012,
+     "y": 3.31,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 312.0
+    },
+    null,
+    {
+     "heading_id": 13,
+     "x": 0.16999999999999998,
+     "y": 1.0699999999999998,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 88.0
+    },
+    null,
+    {
+     "heading_id": 15,
+     "x": 0.17,
+     "y": 1.4299999999999997,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 124.0
+    },
+    null,
+    {
+     "heading_id": 17,
+     "x": 0.17,
+     "y": 1.5299999999999998,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 134.0
+    },
+    null,
+    {
+     "heading_id": 19,
+     "x": 0.16999999999999996,
+     "y": 0.6199999999999997,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 23.0
+    },
+    null,
+    {
+     "heading_id": 21,
+     "x": 0.17,
+     "y": 1.7199999999999998,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 120.0
+    },
+    null,
+    {
+     "heading_id": 23,
+     "x": 0.16999999999999998,
+     "y": 1.3699999999999997,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 85.0
+    },
+    null,
+    {
+     "heading_id": 25,
+     "x": 0.16999999999999998,
+     "y": 1.5099999999999998,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 99.0
+    },
+    null,
+    {
+     "heading_id": 27,
+     "x": 0.16999999999999998,
+     "y": 1.5399999999999998,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 102.0
+    },
+    null,
+    {
+     "heading_id": 29,
+     "x": 0.16999999999999998,
+     "y": 1.4,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 84.0
+    },
+    null,
+    {
+     "heading_id": 31,
+     "x": 0.16999999999999998,
+     "y": 1.39,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 83.0
+    },
+    null,
+    {
+     "heading_id": 33,
+     "x": 0.16999999999999996,
+     "y": 1.23,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 67.0
+    },
+    null,
+    {
+     "heading_id": 35,
+     "x": 0.16999999999999996,
+     "y": 1.22,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 66.0
+    },
+    null,
+    {
+     "heading_id": 37,
+     "x": 0.16999999999999996,
+     "y": 1.12,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 55.0
+    },
+    null,
+    {
+     "heading_id": 39,
+     "x": 0.16999999999999996,
+     "y": 1.1300000000000001,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 58.0
+    },
+    null,
+    {
+     "heading_id": 41,
+     "x": 0.16999999999999998,
+     "y": 1.31,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 76.0
+    },
+    null,
+    {
+     "heading_id": 43,
+     "x": 0.16999999999999998,
+     "y": 1.1600000000000001,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 72.0
+    },
+    null,
+    {
+     "heading_id": 45,
+     "x": 0.16999999999999998,
+     "y": 1.2100000000000002,
+     "hx": 6.123233995736766e-17,
+     "hy": 1.0,
+     "d_min_cm": 76.0
+    },
+    null
+   ]
+  }
+ },
+ "legs": [
+  {
+   "leg": 0,
+   "start": 0.0,
+   "end": 0.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 1.4,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 1,
+   "start": 1.0,
+   "end": 38.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.2,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 2,
+   "start": 39.0,
+   "end": 41.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 8.8,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 3,
+   "start": 42.0,
+   "end": 43.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.5,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 4,
+   "start": 44.0,
+   "end": 48.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 11.4,
+   "events": [
+    "TILT@44.0s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 5,
+   "start": 49.0,
+   "end": 54.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.3,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 6,
+   "start": 55.0,
+   "end": 57.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 5.8,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 7,
+   "start": 58.0,
+   "end": 100.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.1,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 8,
+   "start": 101.0,
+   "end": 106.0,
+   "kind": "open",
+   "heading_id": 0,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 17.7,
+   "events": [
+    "TILT@104.7s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 9,
+   "start": 106.0,
+   "end": 107.0,
+   "kind": "turn",
+   "heading_id": 1,
+   "d_min": 61.0,
+   "d_max": 61.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 19.1,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 10,
+   "start": 107.0,
+   "end": 108.0,
+   "kind": "approach",
+   "heading_id": 1,
+   "d_min": 48.0,
+   "d_max": 61.0,
+   "mean_speed_cm_s": 13.0,
+   "still_frac": 0.0,
+   "mean_activity": 19.9,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 11,
+   "start": 109.0,
+   "end": 113.0,
+   "kind": "open",
+   "heading_id": 2,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 19.3,
+   "events": [
+    "TILT@111.4s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 12,
+   "start": 113.0,
+   "end": 114.0,
+   "kind": "turn",
+   "heading_id": 3,
+   "d_min": 133.0,
+   "d_max": 133.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 18.9,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 13,
+   "start": 114.0,
+   "end": 114.0,
+   "kind": "park",
+   "heading_id": 3,
+   "d_min": 133.0,
+   "d_max": 133.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 16.5,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 14,
+   "start": 114.0,
+   "end": 115.0,
+   "kind": "turn",
+   "heading_id": 4,
+   "d_min": 99.0,
+   "d_max": 133.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 17.9,
+   "events": [
+    "TILT@114.9s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 15,
+   "start": 115.0,
+   "end": 115.0,
+   "kind": "park",
+   "heading_id": 4,
+   "d_min": 99.0,
+   "d_max": 99.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 19.2,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 16,
+   "start": 116.0,
+   "end": 117.0,
+   "kind": "open",
+   "heading_id": 5,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 18.1,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 17,
+   "start": 117.0,
+   "end": 118.0,
+   "kind": "turn",
+   "heading_id": 6,
+   "d_min": 94.0,
+   "d_max": 94.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 16.5,
+   "events": [
+    "TILT@118.1s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 18,
+   "start": 118.0,
+   "end": 120.0,
+   "kind": "approach",
+   "heading_id": 6,
+   "d_min": 71.0,
+   "d_max": 94.0,
+   "mean_speed_cm_s": 11.5,
+   "still_frac": 0.0,
+   "mean_activity": 17.5,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 19,
+   "start": 121.0,
+   "end": 127.0,
+   "kind": "open",
+   "heading_id": 7,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 20.7,
+   "events": [
+    "TILT@121.2s",
+    "TILT@124.4s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 20,
+   "start": 127.0,
+   "end": 128.0,
+   "kind": "turn",
+   "heading_id": 8,
+   "d_min": 346.0,
+   "d_max": 346.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 23.8,
+   "events": [
+    "TILT@127.7s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 21,
+   "start": 128.0,
+   "end": 130.0,
+   "kind": "park",
+   "heading_id": 8,
+   "d_min": 345.0,
+   "d_max": 352.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 17.0,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 22,
+   "start": 130.0,
+   "end": 131.0,
+   "kind": "turn",
+   "heading_id": 9,
+   "d_min": 317.0,
+   "d_max": 352.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 18.5,
+   "events": [
+    "TILT@131.0s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 23,
+   "start": 131.0,
+   "end": 132.0,
+   "kind": "approach",
+   "heading_id": 9,
+   "d_min": 303.0,
+   "d_max": 317.0,
+   "mean_speed_cm_s": 14.0,
+   "still_frac": 0.0,
+   "mean_activity": 16.8,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 24,
+   "start": 132.0,
+   "end": 133.0,
+   "kind": "retreat",
+   "heading_id": 9,
+   "d_min": 303.0,
+   "d_max": 311.0,
+   "mean_speed_cm_s": 8.0,
+   "still_frac": 0.0,
+   "mean_activity": 15.2,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 25,
+   "start": 134.0,
+   "end": 147.0,
+   "kind": "open",
+   "heading_id": 10,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 19.7,
+   "events": [
+    "TILT@134.1s",
+    "TILT@137.5s",
+    "TILT@140.6s",
+    "TILT@144.2s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 26,
+   "start": 147.0,
+   "end": 148.0,
+   "kind": "turn",
+   "heading_id": 11,
+   "d_min": 312.0,
+   "d_max": 312.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 18.2,
+   "events": [
+    "TILT@147.2s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 27,
+   "start": 148.0,
+   "end": 148.0,
+   "kind": "park",
+   "heading_id": 11,
+   "d_min": 312.0,
+   "d_max": 312.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 17.2,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 28,
+   "start": 149.0,
+   "end": 152.0,
+   "kind": "open",
+   "heading_id": 12,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 22.0,
+   "events": [
+    "TILT@150.3s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 29,
+   "start": 152.0,
+   "end": 153.0,
+   "kind": "turn",
+   "heading_id": 13,
+   "d_min": 88.0,
+   "d_max": 88.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 21.9,
+   "events": [
+    "TILT@153.4s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 30,
+   "start": 153.0,
+   "end": 153.0,
+   "kind": "park",
+   "heading_id": 13,
+   "d_min": 88.0,
+   "d_max": 88.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 20.7,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 31,
+   "start": 154.0,
+   "end": 154.0,
+   "kind": "open",
+   "heading_id": 14,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 18.4,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 32,
+   "start": 154.0,
+   "end": 155.0,
+   "kind": "turn",
+   "heading_id": 15,
+   "d_min": 124.0,
+   "d_max": 124.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 22.4,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 33,
+   "start": 155.0,
+   "end": 155.0,
+   "kind": "park",
+   "heading_id": 15,
+   "d_min": 124.0,
+   "d_max": 124.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 26.3,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 34,
+   "start": 156.0,
+   "end": 159.0,
+   "kind": "open",
+   "heading_id": 16,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 18.3,
+   "events": [
+    "TILT@157.1s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 35,
+   "start": 159.0,
+   "end": 160.0,
+   "kind": "turn",
+   "heading_id": 17,
+   "d_min": 134.0,
+   "d_max": 134.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 25.6,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 36,
+   "start": 160.0,
+   "end": 160.0,
+   "kind": "park",
+   "heading_id": 17,
+   "d_min": 134.0,
+   "d_max": 134.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 22.2,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 37,
+   "start": 161.0,
+   "end": 162.0,
+   "kind": "open",
+   "heading_id": 18,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 14.4,
+   "events": [
+    "TILT@161.1s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 38,
+   "start": 162.0,
+   "end": 163.0,
+   "kind": "turn",
+   "heading_id": 19,
+   "d_min": 43.0,
+   "d_max": 43.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 19.7,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 39,
+   "start": 163.0,
+   "end": 165.0,
+   "kind": "approach",
+   "heading_id": 19,
+   "d_min": 23.0,
+   "d_max": 43.0,
+   "mean_speed_cm_s": 10.0,
+   "still_frac": 0.0,
+   "mean_activity": 17.6,
+   "events": [
+    "TILT@164.1s"
+   ],
+   "note": ""
+  },
+  {
+   "leg": 40,
+   "start": 166.0,
+   "end": 168.0,
+   "kind": "open",
+   "heading_id": 20,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 8.7,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 41,
+   "start": 169.0,
+   "end": 175.0,
+   "kind": "open",
+   "heading_id": 20,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 1.9,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 42,
+   "start": 176.0,
+   "end": 188.0,
+   "kind": "open",
+   "heading_id": 20,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.08,
+   "mean_activity": 16.2,
+   "events": [
+    "TILT@178.9s",
+    "TILT@182.0s",
+    "TILT@185.0s",
+    "STILL@187.9s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 43,
+   "start": 189.0,
+   "end": 194.0,
+   "kind": "open",
+   "heading_id": 20,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 15.1,
+   "events": [
+    "TILT@189.0s",
+    "TILT@192.3s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 44,
+   "start": 194.0,
+   "end": 195.0,
+   "kind": "turn",
+   "heading_id": 21,
+   "d_min": 133.0,
+   "d_max": 133.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 17.4,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 45,
+   "start": 195.0,
+   "end": 196.0,
+   "kind": "approach",
+   "heading_id": 21,
+   "d_min": 120.0,
+   "d_max": 133.0,
+   "mean_speed_cm_s": 13.0,
+   "still_frac": 0.0,
+   "mean_activity": 20.5,
+   "events": [
+    "TILT@195.5s"
+   ],
+   "note": ""
+  },
+  {
+   "leg": 46,
+   "start": 197.0,
+   "end": 198.0,
+   "kind": "open",
+   "heading_id": 22,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 23.2,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 47,
+   "start": 198.0,
+   "end": 199.0,
+   "kind": "turn",
+   "heading_id": 23,
+   "d_min": 85.0,
+   "d_max": 85.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 16.7,
+   "events": [
+    "TILT@198.7s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 48,
+   "start": 199.0,
+   "end": 199.0,
+   "kind": "park",
+   "heading_id": 23,
+   "d_min": 85.0,
+   "d_max": 85.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 13.9,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 49,
+   "start": 200.0,
+   "end": 201.0,
+   "kind": "open",
+   "heading_id": 24,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 25.1,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 50,
+   "start": 201.0,
+   "end": 202.0,
+   "kind": "turn",
+   "heading_id": 25,
+   "d_min": 99.0,
+   "d_max": 99.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 27.4,
+   "events": [
+    "BARK@201.2s",
+    "TILT@201.7s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 51,
+   "start": 202.0,
+   "end": 202.0,
+   "kind": "park",
+   "heading_id": 25,
+   "d_min": 99.0,
+   "d_max": 99.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 25.6,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 52,
+   "start": 203.0,
+   "end": 203.0,
+   "kind": "open",
+   "heading_id": 26,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 3.6,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 53,
+   "start": 203.0,
+   "end": 204.0,
+   "kind": "turn",
+   "heading_id": 27,
+   "d_min": 102.0,
+   "d_max": 102.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 3.4,
+   "events": [
+    "BARK@204.3s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 54,
+   "start": 204.0,
+   "end": 204.0,
+   "kind": "park",
+   "heading_id": 27,
+   "d_min": 102.0,
+   "d_max": 102.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 3.1,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 55,
+   "start": 205.0,
+   "end": 211.0,
+   "kind": "open",
+   "heading_id": 28,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 12.9,
+   "events": [
+    "TILT@208.7s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 56,
+   "start": 212.0,
+   "end": 222.0,
+   "kind": "open",
+   "heading_id": 28,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.2,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 57,
+   "start": 223.0,
+   "end": 232.0,
+   "kind": "open",
+   "heading_id": 28,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 16.1,
+   "events": [
+    "BARK@225.4s",
+    "TILT@226.0s",
+    "TILT@229.0s",
+    "BARK@229.5s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 58,
+   "start": 233.0,
+   "end": 234.0,
+   "kind": "open",
+   "heading_id": 28,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.1,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 59,
+   "start": 234.0,
+   "end": 235.0,
+   "kind": "turn",
+   "heading_id": 29,
+   "d_min": 88.0,
+   "d_max": 88.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 1.9,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 60,
+   "start": 235.0,
+   "end": 237.0,
+   "kind": "park",
+   "heading_id": 29,
+   "d_min": 84.0,
+   "d_max": 88.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.0,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 61,
+   "start": 238.0,
+   "end": 242.0,
+   "kind": "open",
+   "heading_id": 30,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.0,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 62,
+   "start": 242.0,
+   "end": 243.0,
+   "kind": "turn",
+   "heading_id": 31,
+   "d_min": 83.0,
+   "d_max": 83.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.5,
+   "mean_activity": 6.0,
+   "events": [
+    "BARK@243.2s",
+    "TILT@243.2s"
+   ],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 63,
+   "start": 243.0,
+   "end": 243.0,
+   "kind": "park",
+   "heading_id": 31,
+   "d_min": 83.0,
+   "d_max": 83.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 10.1,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 64,
+   "start": 244.0,
+   "end": 249.0,
+   "kind": "open",
+   "heading_id": 32,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 16.2,
+   "events": [
+    "BARK@247.2s",
+    "TILT@247.4s"
+   ],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 65,
+   "start": 249.0,
+   "end": 250.0,
+   "kind": "turn",
+   "heading_id": 33,
+   "d_min": 67.0,
+   "d_max": 67.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 23.0,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 66,
+   "start": 250.0,
+   "end": 250.0,
+   "kind": "park",
+   "heading_id": 33,
+   "d_min": 67.0,
+   "d_max": 67.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 17.9,
+   "events": [],
+   "note": "range flat but gait active (MOVING) \u2014 pushing at / holding against the surface"
+  },
+  {
+   "leg": 67,
+   "start": 251.0,
+   "end": 253.0,
+   "kind": "open",
+   "heading_id": 34,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 0.0,
+   "mean_activity": 8.0,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 68,
+   "start": 254.0,
+   "end": 254.0,
+   "kind": "open",
+   "heading_id": 34,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.3,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 69,
+   "start": 254.0,
+   "end": 255.0,
+   "kind": "turn",
+   "heading_id": 35,
+   "d_min": 66.0,
+   "d_max": 66.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.6,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 70,
+   "start": 255.0,
+   "end": 255.0,
+   "kind": "park",
+   "heading_id": 35,
+   "d_min": 66.0,
+   "d_max": 66.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.9,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 71,
+   "start": 256.0,
+   "end": 256.0,
+   "kind": "open",
+   "heading_id": 36,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.1,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 72,
+   "start": 256.0,
+   "end": 257.0,
+   "kind": "turn",
+   "heading_id": 37,
+   "d_min": 56.0,
+   "d_max": 56.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.0,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 73,
+   "start": 257.0,
+   "end": 259.0,
+   "kind": "park",
+   "heading_id": 37,
+   "d_min": 55.0,
+   "d_max": 57.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.1,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 74,
+   "start": 260.0,
+   "end": 260.0,
+   "kind": "open",
+   "heading_id": 38,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.2,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 75,
+   "start": 260.0,
+   "end": 261.0,
+   "kind": "turn",
+   "heading_id": 39,
+   "d_min": 58.0,
+   "d_max": 58.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.2,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 76,
+   "start": 261.0,
+   "end": 261.0,
+   "kind": "park",
+   "heading_id": 39,
+   "d_min": 58.0,
+   "d_max": 58.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.3,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 77,
+   "start": 262.0,
+   "end": 262.0,
+   "kind": "open",
+   "heading_id": 40,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 1.6,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 78,
+   "start": 262.0,
+   "end": 263.0,
+   "kind": "turn",
+   "heading_id": 41,
+   "d_min": 76.0,
+   "d_max": 76.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.0,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 79,
+   "start": 263.0,
+   "end": 264.0,
+   "kind": "retreat",
+   "heading_id": 41,
+   "d_min": 76.0,
+   "d_max": 85.0,
+   "mean_speed_cm_s": 9.0,
+   "still_frac": 1.0,
+   "mean_activity": 2.0,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 80,
+   "start": 264.0,
+   "end": 265.0,
+   "kind": "park",
+   "heading_id": 41,
+   "d_min": 85.0,
+   "d_max": 87.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.0,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 81,
+   "start": 266.0,
+   "end": 266.0,
+   "kind": "open",
+   "heading_id": 42,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.7,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 82,
+   "start": 266.0,
+   "end": 267.0,
+   "kind": "turn",
+   "heading_id": 43,
+   "d_min": 72.0,
+   "d_max": 72.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 1.9,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 83,
+   "start": 267.0,
+   "end": 267.0,
+   "kind": "park",
+   "heading_id": 43,
+   "d_min": 72.0,
+   "d_max": 72.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 1.1,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 84,
+   "start": 268.0,
+   "end": 273.0,
+   "kind": "open",
+   "heading_id": 44,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.1,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  },
+  {
+   "leg": 85,
+   "start": 273.0,
+   "end": 274.0,
+   "kind": "turn",
+   "heading_id": 45,
+   "d_min": 77.0,
+   "d_max": 77.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 1.9,
+   "events": [],
+   "note": "range discontinuity = heading change of unknown angle"
+  },
+  {
+   "leg": 86,
+   "start": 274.0,
+   "end": 275.0,
+   "kind": "park",
+   "heading_id": 45,
+   "d_min": 76.0,
+   "d_max": 77.0,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.4,
+   "events": [],
+   "note": ""
+  },
+  {
+   "leg": 87,
+   "start": 276.0,
+   "end": 280.0,
+   "kind": "open",
+   "heading_id": 46,
+   "d_min": null,
+   "d_max": null,
+   "mean_speed_cm_s": null,
+   "still_frac": 1.0,
+   "mean_activity": 2.2,
+   "events": [],
+   "note": "no echo within the ranger's reach: open floor, not a sensor fault"
+  }
+ ]
+}
