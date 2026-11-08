@@ -1,5 +1,7 @@
 # Lost and Found
 
+**Demo video (Nov 8, 2026):** https://youtu.be/KVSfMxm9zHg
+
 slide：https://docs.google.com/presentation/d/1V7dCDq_V7URew4Vyav7c-2HcQN3OX518ELTH0U9ygr0/edit?slide=id.p15#slide=id.p15
 Code Metal Forge 2026, "Operation Lost and Found". This is a search-and-rescue picture for finding a missing person. Every sensor we could build or replay over one weekend (a dog's sensor pack<img width="480" height="270" alt="robot-dog-demo-3-preview" src="https://github.com/user-attachments/assets/681099d0-c8d7-4bad-abf7-9b78e7bdea98" />
 
